@@ -1,0 +1,17 @@
+.row {
+	margin-left: -@content-padding / 2;
+	margin-right: -@content-padding / 2;
+	> [class^="col"] {
+		padding-left: @content-padding / 2;
+		padding-right: @content-padding / 2;
+	}
+}
+
+.row-0 {
+	margin-left: 0;
+	margin-right: 0;
+	> [class^="col"] {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}

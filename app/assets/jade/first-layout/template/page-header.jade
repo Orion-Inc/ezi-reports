@@ -1,0 +1,34 @@
+.page-header.clearfix
+  .pull-left
+    h4.mt-0.mb-5
+      block page-header
+    block breadcrumb
+  .pull-right
+    .btn-group
+      button.btn.btn-default.btn-outline(type='button')
+        img.flag-icon(src=build+'images/flags/us.jpg', alt='')
+        | English
+      button.btn.btn-default.btn-outline.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+        span.caret
+        span.sr-only Toggle Dropdown
+      ul.dropdown-menu.dropdown-menu-right.animated.fadeInDown
+        li
+          a(href='#')
+            img.flag-icon(src=build+'images/flags/de.jpg', alt='')
+            | German
+        li
+          a(href='#')
+            img.flag-icon(src=build+'images/flags/fr.jpg', alt='')
+            | French
+        li
+          a(href='#')
+            img.flag-icon(src=build+'images/flags/es.jpg', alt='')
+            | Spanish
+        li
+          a(href='#')
+            img.flag-icon(src=build+'images/flags/it.jpg', alt='')
+            | Italian
+        li
+          a(href='#')
+            img.flag-icon(src=build+'images/flags/jp.jpg', alt='')
+            | Japanese
