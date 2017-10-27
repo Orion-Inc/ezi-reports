@@ -1,53 +1,53 @@
-<div tabindex="-1" role="dialog" aria-labelledby="edit-administration-info-label" class="modal in" id="edit-administration-info-modal">
+<div tabindex="-1" role="dialog" aria-labelledby="edit-administration-info-label" class="modal in" id="edit-administration-info-modal" data-fetch="../includes/actions/school/get-administration-info.php">
     <div role="document" class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                <h4 id="edit-administration-info-label" class="modal-title">Edit Administration Information</h4>
+                <h4 id="edit-administration-info-label" class="modal-title">Administration Information</h4>
             </div>
-            <form>
-                <input class="hidden" type="text" name="school_code" value="">
+            <form class="app-form" method="POST" action="../includes/actions/school/edit-administration-info.php" id="school-administration-info">
+                <input class="hidden" type="text" name="school_code" value="<?php App::show($_SESSION['SESS_USER_ID'])?>">
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-xs-3 col-sm-2 col-md-2">
+                        <div class="col-xs-4 col-sm-2 col-md-3">
                             <div class="form-group">
-                                <label for="school_name">Title</label>
-                                <select class="form-control"></select>
+                                <label for="school_head_title">Title</label>
+                                <select class="form-control title" id="school_head_title" name="school_head_title"></select>
                             </div>
                         </div>
-                        <div class="col-xs-9 col-sm-10 col-md-10">
+                        <div class="col-xs-8 col-sm-10 col-md-9">
                             <div class="form-group">
-                                <label for="school_name">Head Full Name</label>
-                                <input id="school_name" type="text" class="form-control" value="">
+                                <label for="school_head_fullname">Head Full Name</label>
+                                <input id="school_head_fullname" type="text" class="form-control name" name="school_head_fullname" value="">
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-3 col-sm-2 col-md-2">
+                        <div class="col-xs-4 col-sm-2 col-md-3">
                             <div class="form-group">
-                                <label for="school_name">Title</label>
-                                <select class="form-control"></select>
+                                <label for="school_ass_head_title">Title</label>
+                                <select class="form-control title" name="school_ass_head_title" id="school_ass_head_title"></select>
                             </div>
                         </div>
-                        <div class="col-xs-9 col-sm-10 col-md-10">
+                        <div class="col-xs-8 col-sm-10 col-md-9">
                             <div class="form-group">
-                                <label for="school_name">Assistant Head Full Name</label>
-                                <input id="school_name" type="text" class="form-control" value="">
+                                <label for="school_ass_head_fullname">Assistant Head Full Name</label>
+                                <input id="school_ass_head_fullname" type="text" class="form-control name" name="school_ass_head_fullname" value="">
                             </div>
                         </div>
                     </div>
                     <hr>
                     <div class="row">
-                        <div class="col-xs-3 col-sm-2 col-md-2">
+                        <div class="col-xs-4 col-sm-2 col-md-3">
                             <div class="form-group">
-                                <label for="school_name">Title</label>
-                                <select class="form-control"></select>
+                                <label for="school_accountant_title">Title</label>
+                                <select class="form-control title" id="school_accountant_title" name="school_accountant_title"></select>
                             </div>
                         </div>
-                        <div class="col-xs-9 col-sm-10 col-md-10">
+                        <div class="col-xs-8 col-sm-10 col-md-9">
                             <div class="form-group">
-                                <label for="school_name">Account Full Name</label>
-                                <input id="school_name" type="text" class="form-control" value="">
+                                <label for="school_accountant_fullname">Account Full Name</label>
+                                <input id="school_accountant_fullname" type="text" class="form-control name" name="school_accountant_fullname" value="">
                             </div>
                         </div>
                     </div>

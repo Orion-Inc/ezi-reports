@@ -43,5 +43,15 @@
 				}
 			}
 		}
+
+		public static function getSchoolCrest($school_code){
+			try {
+				$files = glob('../../school_crests/'.$school_code.'{*.jpg,*.jpeg,*.gif,*.png}', GLOB_BRACE);
+			} catch (Exception $e) {
+				$files = glob('../../school_crests/default{*.png}', GLOB_BRACE);
+			}
+			
+			echo $files[0];
+		}
 	}
 ?>

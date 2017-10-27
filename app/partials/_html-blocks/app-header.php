@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="../plugins/bootstrap/dist/css/bootstrap.min.css">
     <!-- Fonts-->
     <link rel="stylesheet" type="text/css" href="../plugins/themify-icons/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="../plugins/font-awesome/css/font-awesome.min.css">
     <!-- Malihu Scrollbar-->
     <link rel="stylesheet" type="text/css" href="../plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css">
     <!-- Animo.js-->
@@ -22,6 +23,12 @@
     <link rel="stylesheet" type="text/css" href="../plugins/toastr/toastr.min.css">
     <!-- Animate Css-->
     <link rel="stylesheet" type="text/css" href="../plugins/animate-css/animate.css">
+    <!-- Bootstrap Date Range Picker-->
+    <link rel="stylesheet" type="text/css" href="../plugins/bootstrap-daterangepicker/daterangepicker.css">
+    <!-- Date Picker-->
+    <link rel="stylesheet" type="text/css" href="../plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css">
+    <!-- DropzoneJS-->
+    <link rel="stylesheet" type="text/css" href="../plugins/dropzone/dist/min/dropzone.min.css">
     <!-- Primary Style-->
     <link rel="stylesheet" type="text/css" href="../build/css/second-layout.css">
     <link rel="stylesheet" type="text/css" href="../build/css/skins/blue-skin.css">

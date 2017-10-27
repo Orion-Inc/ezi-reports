@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                <h4 id="edit-school-info-label" class="modal-title">Edit School Information</h4>
+                <h4 id="edit-school-info-label" class="modal-title">School Information</h4>
             </div>
             <form class="app-form" method="POST" action="../includes/actions/school/edit-school-info.php" id="school-info">
                 <input class="hidden" type="text" name="school_code" value="<?php App::show($_SESSION['SESS_USER_ID'])?>">

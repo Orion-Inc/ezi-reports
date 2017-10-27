@@ -6,7 +6,7 @@
                 <h4 id="edit-school-crest-label" class="modal-title">Change Crest</h4>
             </div>
             <div class="modal-body">
-              
+                <form id="school-crest-form" action="/upload" class="dropzone"></form>
             </div>
             <div class="modal-footer">
               

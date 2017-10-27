@@ -18,9 +18,7 @@
             <!-- Main Sidebar end-->
             <!--Main Content-->
                 <div class="page-container" id="page-content">
-                    <script type="text/javascript">
-                        $('#page-content').load('../views/app-home.php?home');
-                    </script>
+                    
                 </div>
             <!--/Main Content-->
             <!-- Right Sidebar start-->

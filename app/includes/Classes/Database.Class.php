@@ -4,10 +4,10 @@
 	*/
 	class Database 
 	{
-		public static $server = "localhost";
-		public static $dbName = "ezi_reports";
-		public static $username = "faridibin";
-		public static $password = "hamzazara";
+		private static $server = "localhost";
+		private static $dbName = "ezi_reports";
+		private static $username = "faridibin";
+		private static $password = "hamzazara";
 		
 
         public static function connect() {

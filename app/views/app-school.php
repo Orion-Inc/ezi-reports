@@ -82,7 +82,7 @@
 <?php App::ViewPartial('edit-administration-info','modals')?>
 <?php App::ViewPartial('edit-academic-year','modals')?>
 <script type="text/javascript">
-    $('.modal').on('show.bs.modal', function (e) {
+    $('#edit-school-info-modal').on('show.bs.modal', function (e) {
         var modal = $(this);
         var url = $(this).attr('data-fetch');
         $.ajax({
@@ -101,6 +101,116 @@
         });
     });
 
+    $('#edit-academic-year-modal').on('show.bs.modal', function (e) {
+        var modal = $(this);
+        var options = '<option value="" selected="" disabled="">Select Current Term</option>';
+
+        $.ajax({
+            url: '../json/school/school_settings.json',
+            dataType:'json',
+            success:function(data){
+                $.each(data.term, function(key, val){
+                    options += '<option value="' + val.value + '">' + val.name +'</option>';
+                });
+                $('#school_academic_term').html(options);
+            }
+        });
+    });
+
+    $('#edit-academic-year-modal').on('shown.bs.modal', function (e) {
+        var modal = $(this);
+        var url = $(this).attr('data-fetch');
+        var datepicker = $('.date-year').datepicker({
+            minViewMode: 2,
+            format: 'yyyy'
+        });
+
+        $.ajax({
+            url:url,
+            dataType:'json',
+            type:'POST',
+            success:function(data){
+                if (data.error != 'false') {
+                    toastr.error(data.message, 'Error!');
+                }else{ 
+                    $('#school_current_academic_year').val(data.array.school_current_academic_year);
+                    $("#school_academic_term option[value='"+data.array.school_academic_term+"']").prop('selected', true);
+
+                    var school_current_academic_year = modal.find('#school_current_academic_year').val();
+                    var year = school_current_academic_year.toString();
+                    var arrayYear = year.split(' - ');
+
+                    $('#term_from').val(arrayYear[0]);
+                    $('#term_to').val(arrayYear[1]);
+
+                    datepicker.on('changeDate', function() {
+                        var academic_year = $('#term_from').val()+' - '+$('#term_to').val();
+                        $('#school_current_academic_year').val(academic_year.toString());
+                    });
+                }
+            }
+        });
+
+    });
+
+    $('#edit-administration-info-modal').on('show.bs.modal', function (e) {
+        var modal = $(this);
+        var url = $(this).attr('data-fetch');
+        var options = '<option value="" selected="" disabled="">Select Title</option>';
+
+        $.ajax({
+            url: '../json/school/school_settings.json',
+            dataType:'json',
+            success:function(data){
+                $.each(data.titles, function(key, val){
+                    options += '<option value="' + val.value + '">' + val.name +'</option>';
+                });
+                $('.title').html(options);
+            }
+        });
+    });
+
+    $('#edit-administration-info-modal').on('shown.bs.modal', function (e) {
+        var modal = $(this);
+        var url = $(this).attr('data-fetch');
+
+        $.ajax({
+            url:url,
+            dataType:'json',
+            type:'POST',
+            success:function(data){
+                if (data.error != 'false') {
+                    toastr.error(data.message, 'Error!');
+                }else{ 
+                    $.each(data.array, function( key, value ) {
+                        modal.find('form #'+key).val(value);
+                    });
+
+                    $.each(data.array, function( key, value ) {
+                        modal.find("form #"+key+" option[value='"+value+"']").prop('selected', true);
+                    });
+                }
+            }
+        });
+        
+    });
+ 
+
+    $("#school-crest-form").dropzone({
+        url:"../school_crest",
+        paramName:"school_crest",
+        maxFilesize:2,
+        maxThumbnailFilesize:2,
+        maxFiles:1,
+        dictDefaultMessage:"<i class='icon-dz ti-image'></i><b>Click</b> or <b>Drop</b> file here to upload",
+        init:function(){
+            this.on("addedfile",function(e){
+                this.fileTracker&&this.removeFile(this.fileTracker),this.fileTracker=e}
+        )}
+    });
+
+    
+
     $(".app-form").unbind('submit').bind('submit', function(){
         var form = $(this);
         var data = form.serialize();
@@ -111,9 +221,6 @@
             dataType:'json',
             type:'POST',
             data:data,
-            beforeSend : function(){
-                alert();
-            },
             success:function(data){
                 if (data.error != 'false') {
                     $('.modal').modal('hide');
@@ -129,6 +236,8 @@
 
         return false;
     });
+
+
 
     //
 </script>

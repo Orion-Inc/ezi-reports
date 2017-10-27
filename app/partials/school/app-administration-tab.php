@@ -33,6 +33,9 @@
 	<div class="col-xs-12">
 		<a href="#" data-toggle="modal" data-target="#edit-administration-info-modal">Edit Administration Information</a>
 	</div>
+	<div class="col-xs-12">
+		<hr class="mt-10 visible-xs">
+	</div>
 </div>
 
 
