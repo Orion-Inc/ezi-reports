@@ -11,7 +11,7 @@
 
 			$response = array('error' => 'false', 'url' => 'school', 'array' => $schoo_academic_year);
 	} catch (Exception $e) {
-		$response = array('error' => 'true', 'url' => 'school', 'message' => 'An Error Occurred While Trying To Retrieve School Information');
+		$response = array('error' => 'true', 'url' => 'school', 'message' => "An Error Occurred While Trying To Retrieve School Information");
 	}
 
 	

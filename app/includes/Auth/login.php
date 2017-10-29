@@ -26,10 +26,10 @@
 
 			$response = array('error' => 'false', 'url' => 'app.php');
 		} else {
-			$response = array('error' => 'true', 'message' => 'An Error occured while trying to verify your School Code. Please try again or Contact Us.');
+			$response = array('error' => 'true', 'message' => "An Error occured while trying to verify your School Code.\nPlease try again or Contact Us.");
 		}
 	}else{
-		$response = array('error' => 'true', 'message' => 'Wrong School Code or Access Key');
+		$response = array('error' => 'true', 'message' => "Wrong School Code or Access Key");
 	}
 
 	echo json_encode($response);

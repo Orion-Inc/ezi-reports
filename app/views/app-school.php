@@ -81,6 +81,7 @@
 <?php App::ViewPartial('edit-school-info','modals')?>
 <?php App::ViewPartial('edit-administration-info','modals')?>
 <?php App::ViewPartial('edit-academic-year','modals')?>
+<?php App::ViewPartial('edit-school-signatories','modals')?>
 <script type="text/javascript">
     $('#edit-school-info-modal').on('show.bs.modal', function (e) {
         var modal = $(this);
@@ -150,7 +151,6 @@
                 }
             }
         });
-
     });
 
     $('#edit-administration-info-modal').on('show.bs.modal', function (e) {
@@ -197,19 +197,55 @@
  
 
     $("#school-crest-form").dropzone({
-        url:"../school_crest",
         paramName:"school_crest",
         maxFilesize:2,
         maxThumbnailFilesize:2,
         maxFiles:1,
-        dictDefaultMessage:"<i class='icon-dz ti-image'></i><b>Click</b> or <b>Drop</b> file here to upload",
+        acceptedFiles:"image/*",
+        dictDefaultMessage:"<i class='icon-dz ti-image'></i><b>Click</b> or <b>Drop</b> image here to change Crest.",
         init:function(){
-            this.on("addedfile",function(e){
-                this.fileTracker&&this.removeFile(this.fileTracker),this.fileTracker=e}
+            this.on("success",function(e){
+                this.fileTracker&&this.removeFile(this.fileTracker),this.fileTracker=e;
+                $('#edit-school-crest-modal').modal('hide');
+                var  dataUrl = $('#edit-school-crest-modal').attr('dataUrl');
+                $('#page-content').load('../views/app-'+dataUrl+'.php?'+dataUrl);
+                toastr.success("Crest Changed Successfully!\n<small>Change will take effect next time you log in.</small>", 'Success!');
+            }
         )}
     });
 
-    
+/*
+    $("#school-crest-form").dropzone({
+        paramName:"school_crest",
+        maxFilesize:2,
+        maxThumbnailFilesize:2,
+        maxFiles:1,
+        acceptedFiles:"image/*",
+        dictDefaultMessage:"<i class='icon-dz ti-image'></i><b>Click</b> or <b>Drop</b> image here to change Crest.",
+        init:function(){
+            this.on("success",function(e){
+                this.fileTracker&&this.removeFile(this.fileTracker),this.fileTracker=e;
+                toastr.success('Crest Change Successfully!', 'Success!');
+            }
+        )}
+    });
+
+    $("#school-crest-form").dropzone({
+        paramName:"school_crest",
+        maxFilesize:2,
+        maxThumbnailFilesize:2,
+        maxFiles:1,
+        acceptedFiles:"image/*",
+        dictDefaultMessage:"<i class='icon-dz ti-image'></i><b>Click</b> or <b>Drop</b> image here to change Crest.",
+        init:function(){
+            this.on("success",function(e){
+                this.fileTracker&&this.removeFile(this.fileTracker),this.fileTracker=e;
+                toastr.success('Crest Change Successfully!', 'Success!');
+            }
+        )}
+    });
+*/
+
 
     $(".app-form").unbind('submit').bind('submit', function(){
         var form = $(this);

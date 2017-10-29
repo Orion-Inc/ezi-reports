@@ -50,8 +50,16 @@
 			} catch (Exception $e) {
 				$files = glob('../../school_crests/default{*.png}', GLOB_BRACE);
 			}
-			
-			echo $files[0];
+			App::show($files[0]);
+		}
+
+		public static function getSchoolSignatories($school_code,$signatory){
+			$signature = self::query("SELECT {$signatory} FROM `ezi_school_signatories` WHERE `school_code` = '{$school_code}'");
+			if (empty($signature[0])) {
+				return '';
+			}else{
+				App::show('data:image;base64,'.base64_encode($signature[0][$signatory]));
+			}
 		}
 	}
 ?>
