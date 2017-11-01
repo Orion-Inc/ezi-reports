@@ -214,37 +214,21 @@
         )}
     });
 
-/*
-    $("#school-crest-form").dropzone({
-        paramName:"school_crest",
-        maxFilesize:2,
-        maxThumbnailFilesize:2,
-        maxFiles:1,
-        acceptedFiles:"image/*",
-        dictDefaultMessage:"<i class='icon-dz ti-image'></i><b>Click</b> or <b>Drop</b> image here to change Crest.",
-        init:function(){
-            this.on("success",function(e){
-                this.fileTracker&&this.removeFile(this.fileTracker),this.fileTracker=e;
-                toastr.success('Crest Change Successfully!', 'Success!');
-            }
-        )}
-    });
 
-    $("#school-crest-form").dropzone({
-        paramName:"school_crest",
+    $(".signature-form").dropzone({
+        paramName:"school_head_signature",
         maxFilesize:2,
         maxThumbnailFilesize:2,
         maxFiles:1,
         acceptedFiles:"image/*",
-        dictDefaultMessage:"<i class='icon-dz ti-image'></i><b>Click</b> or <b>Drop</b> image here to change Crest.",
+        dictDefaultMessage:"<i class='icon-dz ti-image'></i><b>Click</b> or <b>Drop</b> image here to change Signature.",
         init:function(){
             this.on("success",function(e){
                 this.fileTracker&&this.removeFile(this.fileTracker),this.fileTracker=e;
-                toastr.success('Crest Change Successfully!', 'Success!');
+                toastr.success('Signature Changed Successfully!', 'Success!');
             }
         )}
     });
-*/
 
 
     $(".app-form").unbind('submit').bind('submit', function(){
