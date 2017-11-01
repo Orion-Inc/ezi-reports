@@ -136,19 +136,19 @@
                 if (data.error != 'false') {
                     toastr.error(data.message, 'Error!');
                 }else{ 
-                    $('#school_current_academic_year').val(data.array.school_current_academic_year);
-                    $("#school_academic_term option[value='"+data.array.school_academic_term+"']").prop('selected', true);
+                    modal.find('#school_current_academic_year').val(data.array.school_current_academic_year);
+                    modal.find("#school_academic_term option[value='"+data.array.school_academic_term+"']").prop('selected', true);
 
                     var school_current_academic_year = modal.find('#school_current_academic_year').val();
                     var year = school_current_academic_year.toString();
                     var arrayYear = year.split(' - ');
 
-                    $('#term_from').val(arrayYear[0]);
-                    $('#term_to').val(arrayYear[1]);
+                    modal.find('#term_from').val(arrayYear[0]);
+                    modal.find('#term_to').val(arrayYear[1]);
 
                     datepicker.on('changeDate', function() {
-                        var academic_year = $('#term_from').val()+' - '+$('#term_to').val();
-                        $('#school_current_academic_year').val(academic_year.toString());
+                        var academic_year = modal.find('#term_from').val()+' - '+modal.find('#term_to').val();
+                        modal.find('#school_current_academic_year').val(academic_year.toString());
                     });
                 }
             }
@@ -172,8 +172,9 @@
         });
     });
 
-    $('#promote-academic-year-modal').on('shown.bs.modal', function (e) {
+    $('#promote-academic-year-modal').on('show.bs.modal', function (e) {
         var modal = $(this);
+        var url = $(this).attr('data-fetch');
 
         $.ajax({
             url:url,
@@ -183,9 +184,8 @@
                 if (data.error != 'false') {
                     toastr.error(data.message, 'Error!');
                 }else{ 
-                    data.array.school_current_academic_year
-                    data.array.school_academic_term
-                    
+                    modal.find('#school_academic_term').val(data.array.school_academic_term);
+                    modal.find('#school_current_academic_year').val(data.array.school_current_academic_year);
                 }
             }
         });

@@ -7,7 +7,8 @@
             </div>
             <form class="app-form" method="POST" action="../includes/actions/school/promote-academic-year.php" id="school-promote-academic-year">
                 <div class="modal-body">
-                    
+                    <input type="text" id="school_academic_term" name="school_academic_term">
+                    <input type="text" name="school_current_academic_year" id="school_current_academic_year">
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-outline btn-success">Yes</button>
