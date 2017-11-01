@@ -81,7 +81,9 @@
 <?php App::ViewPartial('edit-school-info','modals')?>
 <?php App::ViewPartial('edit-administration-info','modals')?>
 <?php App::ViewPartial('edit-academic-year','modals')?>
+<?php App::ViewPartial('promote-academic-year','modals')?>
 <?php App::ViewPartial('edit-school-signatories','modals')?>
+
 <script type="text/javascript">
     $('#edit-school-info-modal').on('show.bs.modal', function (e) {
         var modal = $(this);
@@ -170,6 +172,25 @@
         });
     });
 
+    $('#promote-academic-year-modal').on('shown.bs.modal', function (e) {
+        var modal = $(this);
+
+        $.ajax({
+            url:url,
+            dataType:'json',
+            type:'POST',
+            success:function(data){
+                if (data.error != 'false') {
+                    toastr.error(data.message, 'Error!');
+                }else{ 
+                    data.array.school_current_academic_year
+                    data.array.school_academic_term
+                    
+                }
+            }
+        });
+    });
+
     $('#edit-administration-info-modal').on('shown.bs.modal', function (e) {
         var modal = $(this);
         var url = $(this).attr('data-fetch');
@@ -207,7 +228,7 @@
             this.on("success",function(e){
                 this.fileTracker&&this.removeFile(this.fileTracker),this.fileTracker=e;
                 $('#edit-school-crest-modal').modal('hide');
-                var  dataUrl = $('#edit-school-crest-modal').attr('dataUrl');
+                var dataUrl = $('#edit-school-crest-modal').attr('dataUrl');
                 $('#page-content').load('../views/app-'+dataUrl+'.php?'+dataUrl);
                 toastr.success("Crest Changed Successfully!\n<small>Change will take effect next time you log in.</small>", 'Success!');
             }
@@ -216,7 +237,7 @@
 
 
     $(".signature-form").dropzone({
-        paramName:"school_head_signature",
+        paramName:"school_signature",
         maxFilesize:2,
         maxThumbnailFilesize:2,
         maxFiles:1,
@@ -225,6 +246,9 @@
         init:function(){
             this.on("success",function(e){
                 this.fileTracker&&this.removeFile(this.fileTracker),this.fileTracker=e;
+                $('.modal').modal('hide');
+                var dataUrl = 'school';
+                $('#page-content').load('../views/app-'+dataUrl+'.php?'+dataUrl);
                 toastr.success('Signature Changed Successfully!', 'Success!');
             }
         )}
