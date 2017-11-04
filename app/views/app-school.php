@@ -30,11 +30,8 @@
                                     Academic Year
                                 </a>
                             </li>
-                          
                         </ul>
-
-
-
+                        
                         <div class="tab-content">
                             <div id="overview" role="tabpanel" aria-labelledby="overview-tab" class="tab-pane fade active in">
                                 <div class="row">
@@ -68,7 +65,6 @@
                                     </div>
                                 </div>
                             </div>
-                          
                         </div>
                     </div>
         		</div>
@@ -76,10 +72,12 @@
       	</div>
     </div>
 </div>
-<?php App::ViewPartial('edit-school-crest','modals/school')?>
-<?php App::ViewPartial('edit-school-info','modals/school')?>
-<?php App::ViewPartial('edit-administration-info','modals/school')?>
-<?php App::ViewPartial('edit-academic-year','modals/school')?>
-<?php App::ViewPartial('edit-school-signatories','modals/school')?>
-<?php App::ViewPartial('promote-academic-year','modals/school')?>
+<?php 
+    App::ViewPartial('edit-school-crest','modals/school');
+    App::ViewPartial('edit-school-info','modals/school');
+    App::ViewPartial('edit-administration-info','modals/school');
+    App::ViewPartial('edit-academic-year','modals/school');
+    App::ViewPartial('edit-school-signatories','modals/school');
+    App::ViewPartial('promote-academic-year','modals/school');
+?>
 <script type="text/javascript" src="../build/js/page-content/school/script.js"></script>

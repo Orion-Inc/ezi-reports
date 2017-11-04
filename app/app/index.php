@@ -22,7 +22,7 @@
         <!-- Fonts-->
         <link rel="stylesheet" type="text/css" href="../plugins/themify-icons/themify-icons.css">
         <!-- Primary Style-->
-        <link rel="stylesheet" type="text/css" href="../build/css/second-layout.css">
+        <link rel="stylesheet" type="text/css" href="../build/css/app-layout.css">
         
         
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
@@ -64,8 +64,6 @@
             <script type="text/javascript" src="../plugins/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
             <!-- jQuery Validation-->
             
-            <!-- Custom JS-->
-            <script type="text/javascript" src="../build/js/second-layout/extra-demo.js"></script>
             <?php if (isset($_GET['login'])): ?>
             <script type="text/javascript" src="../build/js/page-content/auth-pages/login.js"></script>
             <?php endif ?>
