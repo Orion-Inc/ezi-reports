@@ -30,7 +30,7 @@
     <!-- DropzoneJS-->
     <link rel="stylesheet" type="text/css" href="../plugins/dropzone/dist/min/dropzone.min.css">
     <!-- Primary Style-->
-    <link rel="stylesheet" type="text/css" href="../build/css/second-layout.css">
+    <link rel="stylesheet" type="text/css" href="../build/css/app-layout.css">
     <link rel="stylesheet" type="text/css" href="../build/css/skins/blue-skin.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
     <!-- WARNING: Respond.js doesn't work if you view the page via file://--> 

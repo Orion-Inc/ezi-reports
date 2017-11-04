@@ -9,5 +9,13 @@
     </div>
 </div>
 <div class="page-content container-fluid animated fadeIn">
-    
+	<div class="row">
+        <div class="col-md-12">
+          	<div class="widget">
+        		<div class="widget-body">
+        			
+        		</div>
+        	</div>
+        </div>
+    </div>
 </div>

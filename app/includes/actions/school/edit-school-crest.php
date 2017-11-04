@@ -19,10 +19,12 @@
 			}else{
 				move_uploaded_file($tempfile,$targetfile);
 			}
-
+			$response = array('error' => 'true', 'url' => 'school', 'message' => "Crest Changed Successfully!\n<small>Change will take effect next time you log in.</small>!");
 		} catch (Exception $e) {
-			
+			$response = array('error' => 'true', 'url' => 'school', 'message' => "An Error Occurred While Trying To Change Crest!");
 		}
+
+		echo json_encode($response);
 	}
 	
 ?>

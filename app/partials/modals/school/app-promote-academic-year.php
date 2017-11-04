@@ -3,12 +3,16 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                <h4 id="promote-academic-year-label" class="modal-title">Promote to Next Term</h4>
+                <h4 id="promote-academic-year-label" class="modal-title">
+                    Promote to Next Term
+                </h4>
             </div>
             <form class="app-form" method="POST" action="../includes/actions/school/promote-academic-year.php" id="school-promote-academic-year">
                 <div class="modal-body">
-                    <input type="text" id="school_academic_term" name="school_academic_term">
-                    <input type="text" name="school_current_academic_year" id="school_current_academic_year">
+                    <p>Are you sure you want to continue?</p>
+                    <input class="hidden" type="text" name="school_code" value="<?php App::show($_SESSION['SESS_USER_ID'])?>">
+                    <input type="text" class="hidden" id="school_academic_term" name="school_academic_term">
+                    <input type="text" class="hidden" name="school_current_academic_year" id="school_current_academic_year">
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-outline btn-success">Yes</button>

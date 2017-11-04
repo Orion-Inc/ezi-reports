@@ -36,7 +36,7 @@
             </a>
         </li>   
 
-        <li class="hidden">
+        <li>
             <a href="javascript:;" role="button" class="right-sidebar-toggle bubble header-icon">
                 <i class="ti-layout-sidebar-right"></i>
             </a>

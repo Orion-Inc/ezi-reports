@@ -26,5 +26,4 @@
     <!-- DropzoneJS-->
     <script type="text/javascript" src="../plugins/dropzone/dist/min/dropzone.min.js"></script>
     <!-- Custom JS-->
-    <script type="text/javascript" src="../build/js/second-layout/app.js"></script>
-    <script type="text/javascript" src="../build/js/second-layout/demo.js"></script>
+    <script type="text/javascript" src="../build/js/app/app.js"></script>
