@@ -29,6 +29,15 @@
     <link rel="stylesheet" type="text/css" href="../plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css">
     <!-- DropzoneJS-->
     <link rel="stylesheet" type="text/css" href="../plugins/dropzone/dist/min/dropzone.min.css">
+    <!-- DataTables-->
+    <link rel="stylesheet" type="text/css" href="../plugins/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../plugins/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../plugins/datatables.net-colreorder-bs/css/colReorder.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../plugins/datatables.net-keytable-bs/css/keyTable.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../plugins/datatables.net-select-bs/css/select.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../plugins/datatables.net-responsive-bs/css/responsive.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../plugins/datatables.net-fixedcolumns-bs/css/fixedColumns.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../plugins/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css">
     <!-- Primary Style-->
     <link rel="stylesheet" type="text/css" href="../build/css/app-layout.css">
     <link rel="stylesheet" type="text/css" href="../build/css/skins/blue-skin.css">

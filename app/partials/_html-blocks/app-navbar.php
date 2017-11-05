@@ -30,7 +30,7 @@
                 <i class="ti-search"></i>
             </a>
         </li>
-        <li class="visible-lg">
+        <li>
             <a href="javascript:void(0)" role="button" class="header-icon fullscreen-toggle">
                 <i class="ti-fullscreen"></i>
             </a>

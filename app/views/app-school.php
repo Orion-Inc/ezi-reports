@@ -16,7 +16,7 @@
         			<div role="tabpanel">
                         <ul role="tablist" class="nav nav-tabs mb-15">
                             <li role="presentation" class="active">
-                                <a id="overview-tab" href="#overview" role="tab" data-toggle="tab" aria-controls="overview" aria-expanded="true">
+                                <a id="school-overview-tab" href="#school-overview" role="tab" data-toggle="tab" aria-controls="school-overview" aria-expanded="true">
                                     Overview
                                 </a>
                             </li>
@@ -33,10 +33,10 @@
                         </ul>
                         
                         <div class="tab-content">
-                            <div id="overview" role="tabpanel" aria-labelledby="overview-tab" class="tab-pane fade active in">
+                            <div id="school-overview" role="tabpanel" aria-labelledby="overview-tab" class="tab-pane fade active in">
                                 <div class="row">
                                     <div class="col-sm-8 col-md-7">
-                                        <?php App::ViewPartial('overview-tab','school')?>
+                                        <?php App::ViewPartial('school-overview-tab','school')?>
                                     </div>
                                     <div class="col-sm-4 col-md-3 col-md-offset-2 hidden-xs">
                                         <?php App::ViewPartial('school-crest','school')?>
