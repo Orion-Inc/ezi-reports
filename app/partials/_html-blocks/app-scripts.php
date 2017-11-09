@@ -25,5 +25,26 @@
     <script type="text/javascript" src="../plugins/bootstrap-sweetalert/lib/sweet-alert.min.js"></script>
     <!-- DropzoneJS-->
     <script type="text/javascript" src="../plugins/dropzone/dist/min/dropzone.min.js"></script>
+    <!-- DataTables-->
+    <script type="text/javascript" src="../plugins/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="../plugins/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="../plugins/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="../plugins/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script type="text/javascript" src="../plugins/jszip/dist/jszip.min.js"></script>
+    <script type="text/javascript" src="../plugins/pdfmake/build/pdfmake.min.js"></script>
+    <script type="text/javascript" src="../plugins/pdfmake/build/vfs_fonts.js"></script>
+    <script type="text/javascript" src="../plugins/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+    <script type="text/javascript" src="../plugins/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script type="text/javascript" src="../plugins/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="../plugins/datatables.net-colreorder/js/dataTables.colReorder.min.js"></script>
+    <script type="text/javascript" src="../plugins/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script type="text/javascript" src="../plugins/datatables.net-select/js/dataTables.select.min.js"></script>
+    <script type="text/javascript" src="../plugins/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" src="../plugins/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script type="text/javascript" src="../plugins/datatables.net-fixedcolumns/js/dataTables.fixedColumns.min.js"></script>
+    <script type="text/javascript" src="../plugins/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <!-- jQuery Steps-->
+    <script type="text/javascript" src="../plugins/jquery.steps/build/jquery.steps.min.js"></script>
+    
     <!-- Custom JS-->
     <script type="text/javascript" src="../build/js/app/app.js"></script>

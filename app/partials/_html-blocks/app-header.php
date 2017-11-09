@@ -19,6 +19,8 @@
     <link rel="stylesheet" type="text/css" href="../plugins/bootstrap-sweetalert/lib/sweet-alert.css">
     <!-- Bootstrap Progressbar-->
     <link rel="stylesheet" type="text/css" href="../plugins/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css">
+    <!-- jQuery Steps-->
+    <link rel="stylesheet" type="text/css" href="../plugins/jquery.steps/demo/css/jquery.steps.css">
     <!-- Toastr-->
     <link rel="stylesheet" type="text/css" href="../plugins/toastr/toastr.min.css">
     <!-- Animate Css-->
@@ -38,6 +40,8 @@
     <link rel="stylesheet" type="text/css" href="../plugins/datatables.net-responsive-bs/css/responsive.bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../plugins/datatables.net-fixedcolumns-bs/css/fixedColumns.bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../plugins/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css">
+    <!-- Bootstrap File Input-->
+    <link rel="stylesheet" type="text/css" href="../plugins/bootstrap-fileinput/css/fileinput.min.css">
     <!-- Primary Style-->
     <link rel="stylesheet" type="text/css" href="../build/css/app-layout.css">
     <link rel="stylesheet" type="text/css" href="../build/css/skins/blue-skin.css">

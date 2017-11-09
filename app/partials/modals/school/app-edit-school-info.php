@@ -1,4 +1,4 @@
-<div tabindex="-1" role="dialog" aria-labelledby="edit-school-info-label" class="modal in" id="edit-school-info-modal" data-fetch="../includes/actions/school/get-school-info.php" data-backdrop="static">
+<div tabindex="-1" role="dialog" aria-labelledby="edit-school-info-label" class="modal in" id="edit-school-info-modal" data-fetch="../includes/actions/school/get-school-info.php">
     <div role="document" class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -12,7 +12,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="school_name">School Name</label>
-                                <input id="school_name" type="text" class="form-control" name="school_name">
+                                <input id="school_name" type="text" class="form-control input-sm" name="school_name" placeholder="School Name">
                             </div>
                         </div>
                     </div>
@@ -20,7 +20,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="school_motto">Motto</label>
-                                <input id="school_motto" type="text" class="form-control" name="school_motto">
+                                <input id="school_motto" type="text" class="form-control input-sm" name="school_motto" placeholder="Motto">
                             </div>
                         </div>
                     </div>
@@ -28,13 +28,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="school_telephone">Telephone</label>
-                                <input id="school_telephone" type="text" class="form-control" name="school_telephone">
+                                <input id="school_telephone" type="text" class="form-control input-sm" name="school_telephone" placeholder="Telephone Number">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="school_email">Email</label>
-                                <input id="school_email" type="email" class="form-control" name="school_email">
+                                <input id="school_email" type="email" class="form-control input-sm" name="school_email" placeholder="Email Address">
                             </div>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="school_website">Website</label>
-                                <input id="school_website" type="text" class="form-control" name="school_website">
+                                <input id="school_website" type="text" class="form-control input-sm" name="school_website" placeholder="Website">
                             </div>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="school_address">Address</label>
-                                <input id="school_address" type="text" class="form-control" name="school_address">
+                                <input id="school_address" type="text" class="form-control input-sm" name="school_address" placeholder="Address">
                             </div>
                         </div>
                     </div>

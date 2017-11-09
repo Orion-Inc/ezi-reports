@@ -1,0 +1,22 @@
+{
+	"basic": [
+  		{
+    		"value": "Primary",
+    		"name": "Primary"
+  		},
+  		{
+    		"value": "Jhs",
+    		"name": "Jhs"
+  		}
+	],
+  "secondary": [
+      {
+        "value": "COS0001",
+        "name": "General Arts"
+      },
+      {
+        "value": "COS0002",
+        "name": "General Science"
+      }
+  ]
+}

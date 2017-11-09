@@ -1,6 +1,6 @@
 <aside data-mcs-theme="minimal-dark" class="main-sidebar mCustomScrollbar">
     <div class="user">
-        <div id="esp-user-profile" data-percent="100" style="height: 104px; width: 104px; line-height: 80px; padding: 12px;" class="easy-pie-chart">
+        <div id="app-school-crest" data-percent="100" style="height: 104px; width: 104px; line-height: 80px; padding: 12px;" class="easy-pie-chart">
             <img src="<?php School::getSchoolCrest($_SESSION['SESS_USER_ID'])?>" alt="" class="avatar img-circle">
             <span class="hidden status bg-primary"></span>
         </div>

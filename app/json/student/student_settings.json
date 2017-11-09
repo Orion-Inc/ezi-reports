@@ -1,0 +1,32 @@
+{
+  "relationship": [
+      {
+        "value": "Father",
+        "name": "Father"
+      },
+      {
+        "value": "Mother",
+        "name": "Mother"
+      },
+      {
+        "value": "Sibling",
+        "name": "Sibling"
+      },
+      {
+        "value": "Grandparent",
+        "name": "Grandparent"
+      },
+      {
+        "value": "Uncle",
+        "name": "Uncle"
+      },
+      {
+        "value": "Aunt",
+        "name": "Aunt"
+      },
+      {
+        "value": "Other",
+        "name": "Other"
+      }
+  ]
+}

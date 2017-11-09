@@ -7,6 +7,7 @@
 			unset($_SESSION['SESS_IS_AUTH']);
 			unset($_SESSION['SESS_USER_ID']);
 			unset($_SESSION['SESS_SCHOOL_NAME']);
+			unset($_SESSION['SESS_SCHOOL_TYP']);
 			unset($_SESSION['SESS_TOKEN']);
 
 			session_destroy();

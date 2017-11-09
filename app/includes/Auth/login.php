@@ -21,6 +21,7 @@
 			$_SESSION['SESS_IS_AUTH'] = true;
 			$_SESSION['SESS_USER_ID'] = School::getSchool($school_code,'school_code');;
 			$_SESSION['SESS_SCHOOL_NAME'] = School::getSchool($school_code,'school_name');
+			$_SESSION['SESS_SCHOOL_TYP'] = School::getSchool($school_code,'school_type');
 			$_SESSION['SESS_TOKEN'] = $_school['token'];
 
 
