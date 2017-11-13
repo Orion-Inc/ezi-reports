@@ -6,14 +6,14 @@
                 <h4 id="edit-student-label" class="modal-title"><i class="ti-user"></i> Edit Student</h4>
             </div>
             <div class="modal-body">
-                <form class="app-form" method="POST" action="../includes/actions/student/edit-student.php" id="edit-student">
+                <form class="app-student-form-wizard" method="POST" action="../includes/actions/student/edit-student.php" id="edit-student">
                     <h5 class="hidden">Primary Details</h5>
                     <fieldset>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Full Name</label>
-                                    <input name="student_name" type="text" class="form-control input-sm" placeholder="Last              First               Others">
+                                    <input name="student_name" type="text" class="form-control input-sm" placeholder="Last              First               Others" id="student_name">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -28,7 +28,7 @@
                                 <div class="form-group">
                                     <label>Date Of Birth</label>
                                     <div class="input-group date">
-                                        <input name="student_dob" type="text" class="form-control input-sm" id="student_dob" placeholder="Date of Birth">
+                                        <input name="student_dob" type="date" class="form-control input-sm" id="student_dob" placeholder="Date of Birth">
                                         <span class="input-group-addon">
                                             <i class="ti-calendar"></i>
                                         </span>
@@ -39,13 +39,13 @@
                                 <div class="form-group">
                                     <label>Gender</label>
                                     <div>
-                                        <div class="radio-custom">
-                                            <input id="_male" type="radio" value="male" name="student_gender" checked="">
-                                            <label for="_male">Male</label>
-                                        </div>
-                                        <div class="radio-custom">
-                                            <input id="_female" type="radio" value="female" name="student_gender">
-                                            <label for="_female">Female</label>
+                                        <div class="radio">
+                                            <label for="_male" class="radio-inline">
+                                                <input id="_male" type="radio" value="male" name="student_gender" checked="">Male
+                                            </label>
+                                            <label for="_female" class="radio-inline">
+                                                <input id="_female" type="radio" value="female" name="student_gender">Female
+                                            </label>
                                         </div>
                                     </div>
                                 </div>
@@ -63,8 +63,9 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Class</label>
-                                    <select name="student_class" class="form-control input-sm">
+                                    <select name="student_class" class="form-control input-sm" id="student_class">
                                         <option value="" readonly="" selected="">Select a Class</option>
+
                                     </select>
                                 </div>
                             </div>
@@ -74,13 +75,13 @@
                                 <div class="form-group">
                                     <label>Status</label>
                                     <div>
-                                        <div class="radio-custom">
-                                            <input id="_day" type="radio" value="day" name="student_status" checked="">
-                                            <label for="_day">Day</label>
-                                        </div>
-                                        <div class="radio-custom">
-                                            <input id="_boarding" type="radio" value="boarding" name="student_status">
-                                            <label for="_boarding">Boarding</label>
+                                        <div class="radio">
+                                            <label for="_day" class="radio-inline">
+                                                <input id="_day" type="radio" value="day" name="student_status" checked="">Day
+                                            </label>
+                                            <label for="_boarding" class="radio-inline"> 
+                                                <input id="_boarding" type="radio" value="boarding" name="student_status">Boarding
+                                            </label>
                                         </div>
                                     </div>
                                 </div>
@@ -89,9 +90,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>House Name</label>
-                                    <select name="student_house" class="form-control input-sm">
-                                        <option value="" readonly="" selected="">Select a House</option>
-                                    </select>
+                                    <input name="student_house" type="text" class="form-control input-sm" placeholder="House Name" id="student_house">
                                 </div>
                             </div>
                         </div>
@@ -102,7 +101,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Guardian Name</label>
-                                    <input name="guardian_name" type="text" class="form-control input-sm" placeholder="Last              First               Others">
+                                    <input name="guardian_name" type="text" class="form-control input-sm" placeholder="Last              First               Others" id="guardian_name">
                                 </div>
                             </div>
 
@@ -119,7 +118,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Occupation</label>
-                                    <input name="guardian_occupation" type="text" class="form-control input-sm" placeholder="Occupation">
+                                    <input name="guardian_occupation" type="text" class="form-control input-sm" placeholder="Occupation" id="guardian_occupation">
                                 </div>
                             </div>
                         </div>
@@ -127,13 +126,13 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <input name="guardian_email" type="email" class="form-control input-sm" placeholder="Email Address">
+                                    <input name="guardian_email" type="email" class="form-control input-sm" placeholder="Email Address" id="guardian_email">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Telephone</label>
-                                    <input name="guardian_contact" type="text" class="form-control input-sm" placeholder="Telephone Number">
+                                    <input name="guardian_telephone" type="text" class="form-control input-sm" placeholder="Telephone Number" id="guardian_telephone">
                                 </div>
                             </div>
                         </div>

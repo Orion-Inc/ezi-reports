@@ -22,7 +22,7 @@
 
                     <div class="tab-content">
                         <div id="create-student" role="tabpanel" aria-labelledby="create-student-tab" class="tab-pane fade active in">
-                            <form class="app-form" method="POST" action="../includes/actions/student/add-new-student.php" id="new-student">
+                            <form class="app-student-form-wizard" method="POST" action="../includes/actions/student/add-new-student.php" id="new-student">
                                 <h5 class="hidden">Primary Details</h5>
                                 <fieldset>
                                     <div class="row">
@@ -44,7 +44,7 @@
                                             <div class="form-group">
                                                 <label>Date Of Birth</label>
                                                 <div class="input-group date">
-                                                    <input name="student_dob" type="text" class="form-control input-sm" id="student_dob" placeholder="Date of Birth">
+                                                    <input name="student_dob" type="date" class="form-control input-sm" id="student_dob" placeholder="Date of Birth">
                                                     <span class="input-group-addon">
                                                         <i class="ti-calendar"></i>
                                                     </span>
@@ -55,13 +55,13 @@
                                             <div class="form-group">
                                                 <label>Gender</label>
                                                 <div>
-                                                    <div class="radio-custom">
-                                                        <input id="_male" type="radio" value="male" name="student_gender" checked="">
-                                                        <label for="_male">Male</label>
-                                                    </div>
-                                                    <div class="radio-custom">
-                                                        <input id="_female" type="radio" value="female" name="student_gender">
-                                                        <label for="_female">Female</label>
+                                                    <div class="radio">
+                                                        <label for="_male" class="radio-inline">
+                                                            <input id="_male" type="radio" value="male" name="student_gender" checked="">Male
+                                                        </label>
+                                                        <label for="_female" class="radio-inline">
+                                                            <input id="_female" type="radio" value="female" name="student_gender">Female
+                                                        </label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -79,7 +79,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Class</label>
-                                                <select name="student_class" class="form-control input-sm">
+                                                <select name="student_class" class="form-control input-sm" id="student_class">
                                                     <option value="" readonly="" selected="">Select a Class</option>
                                                 </select>
                                             </div>
@@ -90,13 +90,13 @@
                                             <div class="form-group">
                                                 <label>Status</label>
                                                 <div>
-                                                    <div class="radio-custom">
-                                                        <input id="_day" type="radio" value="day" name="student_status" checked="">
-                                                        <label for="_day">Day</label>
-                                                    </div>
-                                                    <div class="radio-custom">
-                                                        <input id="_boarding" type="radio" value="boarding" name="student_status">
-                                                        <label for="_boarding">Boarding</label>
+                                                    <div class="radio">
+                                                        <label for="_day" class="radio-inline">
+                                                            <input id="_day" type="radio" value="day" name="student_status" checked="">Day
+                                                        </label>
+                                                        <label for="_boarding" class="radio-inline"> 
+                                                            <input id="_boarding" type="radio" value="boarding" name="student_status">Boarding
+                                                        </label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -105,9 +105,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>House Name</label>
-                                                <select name="student_house" class="form-control input-sm">
-                                                    <option value="" readonly="" selected="">Select a House</option>
-                                                </select>
+                                                <input name="student_house" type="text" class="form-control input-sm" placeholder="House Name" id="student_house">
                                             </div>
                                         </div>
                                     </div>
@@ -149,7 +147,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Telephone</label>
-                                                <input name="guardian_contact" type="text" class="form-control input-sm" placeholder="Telephone Number">
+                                                <input name="guardian_telephone" type="text" class="form-control input-sm" placeholder="Telephone Number">
                                             </div>
                                         </div>
                                     </div>
@@ -217,7 +215,7 @@
                             </form>
                         </div>
                         <div id="bulk-student" role="tabpanel" aria-labelledby="bulk-student-tab" class="tab-pane fade">
-                            <form class="app-form" method="POST" action="../includes/actions/student/add-new-student-bulk.php" id="new-student-bulk">
+                            <form class="app-bulk-form" method="POST" action="../includes/actions/student/add-new-student-bulk.php" id="new-student-bulk">
                                 <div class="form-group">
                                     <div class="">
                                         <input id="bulk_student_file" name="bulk_student_file" type="file" data-allowed-file-extensions="[&quot;csv&quot;]" class="file file-loading">

@@ -1,4 +1,4 @@
-<div tabindex="-1" role="dialog" aria-labelledby="view-student-label" class="modal in" id="view-student-modal" data-fetch="../includes/actions/student/get-student-info.php">
+<div tabindex="-1" role="dialog" aria-labelledby="view-student-label" class="modal in" id="view-student-modal" data-fetch="../includes/actions/student/view-student-info.php">
     <div role="document" class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
