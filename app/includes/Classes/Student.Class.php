@@ -18,8 +18,8 @@
 			}
 		}
 
-		public static function getStudentDetails($value,$params){
-			$student_details = self::query("SELECT {$params} FROM `ezi_student_details` WHERE `student_code` = '{$value}'");
+		public static function getStudentd($value,$params){
+			$student_details = self::query("SELECT {$params} FROM `ezi_student` WHERE `student_code` = '{$value}'");
 			if (empty($student_details[0])) {
 				return false;
 			}else{
@@ -31,6 +31,19 @@
 			}
 		}
 
+		public static function getallStudent($value,$params){
+			$student_code = self::query("SELECT {$params} FROM `ezi_student` WHERE `school_code` = '{$value}' ");
+			if (empty($student_details[0])) {
+				return false;
+			}else{
+				if ($params == '*') {
+					$student_details[] = 
+					return $student_details[0];
+				}else{
+					return $student_details[0][$params];
+				}
+			}
+		}
 		
 	}
 ?>
