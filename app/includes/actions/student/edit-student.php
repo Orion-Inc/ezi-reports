@@ -27,24 +27,10 @@
 		'guardian_telephone' => stripslashes($_POST['guardian_telephone'])
 	);
 
-	try {  
-	  $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	  $dbh->beginTransaction();
-	  $dbh->exec("insert into staff (id, first, last) values (23, 'Joe', 'Bloggs')");
-	  $dbh->exec("insert into salarychange (id, amount, changedate) 
-	      values (23, 50000, NOW())");
-	  $dbh->commit();
-	  
-	} catch (Exception $e) {
-	  $dbh->rollBack();
-	  echo "Failed: " . $e->getMessage();
-	}
-		
 	try {
-		//Create query
-		//Error Exceptions
-		
+		Database::connect()->beginTransaction();
+
 			$updateStudent = Database::query("UPDATE `ezi_student` SET 
 				`student_name`=:student_name 
 				WHERE 
@@ -74,9 +60,12 @@
 				$student_guardian_infoParams
 			);
 
-			$response = array('error' => 'false', 'url' => 'student', 'message' => "Student Details Updated Successfully!");
-	} catch (Exception $e) {
-		$response = array('error' => 'true', 'url' => 'student', 'message' => "An Error Occurred While Trying To Update Student.");
+
+		$response = array('error' => 'false', 'url' => 'student', 'message' => "Student Details Updated Successfully!");
+	} catch (PDOException $e) {
+		Database::connect()->rollBack();
+		$errors[] = $e->getMessage();
+		$response = array('error' => 'true', 'error_msg' => $errors[0], 'url' => 'student', 'message' => "An Error Occurred While Trying To Update Student.");
 	}
 
 	echo json_encode($response);

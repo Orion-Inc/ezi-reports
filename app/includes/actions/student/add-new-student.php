@@ -28,23 +28,25 @@
 	);
 
 	try {
-		//Create query
-		//Error Exceptions
-			$updateStudent = Database::query("", 
+		Database::connect()->beginTransaction();
+
+			$updateStudent = Database::query("INSERT INTO `ezi_student`(`student_name`, `student_code`, `school_code`) VALUES ()", 
 				$studentParams
 			);
 
-			$updateStudentDetails = Database::query("", 
+			$updateStudentDetails = Database::query("INSERT INTO `ezi_student_details`(`student_code`, `student_dob`, `student_gender`, `student_class`, `student_status`, `student_house`) VALUES ()", 
 				$student_detailsParams
 			);
 
-			$updateGuardianInfo = Database::query("", 
+			$updateGuardianInfo = Database::query("INSERT INTO `ezi_student_guardian`(`student_code`, `guardian_name`, `guardian_relationship`, `guardian_occupation`, `guardian_email`, `guardian_telephone`) VALUES ()", 
 				$student_guardian_infoParams
 			);
 
 			$response = array('error' => 'false', 'url' => 'student', 'message' => "New Student Created Successfully!");
-	} catch (Exception $e) {
-		$response = array('error' => 'true', 'url' => 'student', 'message' => "An Error Occurred While Trying To Create Student.");
+	} catch (PDOException $e) {
+		Database::connect()->rollBack();
+		$errors[] = $e->getMessage();
+		$response = array('error' => 'true', 'error_msg' => $errors[0], 'url' => 'student', 'message' => "An Error Occurred While Trying To Create Student.");
 	}
 
 	echo json_encode($response);
