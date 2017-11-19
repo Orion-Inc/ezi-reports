@@ -114,6 +114,15 @@ $(document).ready(function() {
             }
         }); 
 
+        $.ajax({
+            url: '../includes/actions/student/generateCode.php',
+            dataType:'json',
+            type:'POST',
+            success:function(data){
+                modal.find('#student_code').val(data.student_code);
+            }
+        });
+
         modal.find('#student_course').on('change', function (e){
     		var course_code = $(this).val();
 

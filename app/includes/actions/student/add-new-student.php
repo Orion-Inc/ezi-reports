@@ -1,12 +1,14 @@
 <?php 
 	session_start();
 	require '../../Classes/Database.Class.php'; 
+	$transact = Database::connect();
 
 	$errors = array();
 
 	$studentParams = array( 
 		'student_code' => stripslashes($_POST['student_code']),
-		'student_name' => stripslashes($_POST['student_name'])
+		'student_name' => stripslashes($_POST['student_name']),
+		'school_code' => $_SESSION['SESS_USER_ID']
 	);
 
 	$student_detailsParams = array( 
@@ -27,24 +29,60 @@
 		'guardian_telephone' => stripslashes($_POST['guardian_telephone'])
 	);
 
+	$transact->beginTransaction();
+
 	try {
-		Database::connect()->beginTransaction();
+		$updateStudent = Database::query("INSERT INTO `ezi_student`(
+			`student_code`,
+			`student_name`,  
+			`school_code`) 
+			VALUES (
+			:student_code,
+			:student_name,
+			:school_code
+			)", 
+			$studentParams
+		);
 
-			$updateStudent = Database::query("INSERT INTO `ezi_student`(`student_name`, `student_code`, `school_code`) VALUES ()", 
-				$studentParams
-			);
+		$updateStudentDetails = Database::query("INSERT INTO `ezi_student_details`(
+			`student_code`, 
+			`student_dob`, 
+			`student_gender`, 
+			`student_class`, 
+			`student_status`, 
+			`student_house`) 
+			VALUES (
+			:student_code,
+			:student_dob,
+			:student_gender,
+			:student_class,
+			:student_status,
+			:student_house
+			)", 
+			$student_detailsParams
+		);
 
-			$updateStudentDetails = Database::query("INSERT INTO `ezi_student_details`(`student_code`, `student_dob`, `student_gender`, `student_class`, `student_status`, `student_house`) VALUES ()", 
-				$student_detailsParams
-			);
-
-			$updateGuardianInfo = Database::query("INSERT INTO `ezi_student_guardian`(`student_code`, `guardian_name`, `guardian_relationship`, `guardian_occupation`, `guardian_email`, `guardian_telephone`) VALUES ()", 
-				$student_guardian_infoParams
-			);
-
-			$response = array('error' => 'false', 'url' => 'student', 'message' => "New Student Created Successfully!");
+		$updateGuardianInfo = Database::query("INSERT INTO `ezi_student_guardian`(
+			`student_code`, 
+			`guardian_name`, 
+			`guardian_relationship`, 
+			`guardian_occupation`, 
+			`guardian_email`, 
+			`guardian_telephone`) 
+			VALUES (
+			:student_code,
+			:guardian_name,
+			:guardian_relationship,
+			:guardian_occupation,
+			:guardian_email,
+			:guardian_telephone
+			)", 
+			$student_guardian_infoParams
+		);
+		$transact->commit();
+		$response = array('error' => 'false', 'url' => 'student', 'message' => "New Student Created Successfully!");
 	} catch (PDOException $e) {
-		Database::connect()->rollBack();
+		$transact->rollBack();
 		$errors[] = $e->getMessage();
 		$response = array('error' => 'true', 'error_msg' => $errors[0], 'url' => 'student', 'message' => "An Error Occurred While Trying To Create Student.");
 	}

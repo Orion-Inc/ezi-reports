@@ -5,24 +5,34 @@
 	require_once '../Classes/School.Class.php'; 
 
 	$errors = array();
-
+	
 	$school_code = stripslashes($_POST['school_code']);
 	$access_key  = stripslashes($_POST['access_key']);
 
 	//Create query
 	
+	$school = School::getSchool($school_code,'school_id');
 
-	$school = @Database::query("SELECT `school_id` FROM `ezi_school` WHERE `school_code`='$school_code'")[0];
+	if(!empty($school)) {
+		$schoolParams = array( 
+			'student_code' => $school_code,
+			'access_key' => sha1($access_key)
+		);
 
 
-	if($school['school_id']) {
-		$_school = Database::query("SELECT * FROM `ezi_school_access_key` WHERE `school_code`='$school_code'  AND `access_key`='".sha1($access_key)."'")[0];
-		if ($_school) {
+		$_school = Database::query("SELECT `school_code`,`token` FROM `ezi_school_access_key` WHERE 
+			`school_code`='{$schoolParams['student_code']}'  
+			AND 
+			`access_key`='{$schoolParams['access_key']}'"
+		);
+
+		if (!empty($_school[0])) {
 			$_SESSION['SESS_IS_AUTH'] = true;
-			$_SESSION['SESS_USER_ID'] = School::getSchool($school_code,'school_code');;
+			$_SESSION['SESS_USER_ID'] = School::getSchool($school_code,'school_code');
+			$_SESSION['SESS_SCHOOL_PREFIX'] = School::getSchool($school_code,'school_prefix');
 			$_SESSION['SESS_SCHOOL_NAME'] = School::getSchool($school_code,'school_name');
 			$_SESSION['SESS_SCHOOL_TYP'] = School::getSchool($school_code,'school_type');
-			$_SESSION['SESS_TOKEN'] = $_school['token'];
+			$_SESSION['SESS_TOKEN'] = $_school[0]['token'];
 
 
 			$response = array('error' => 'false', 'url' => 'app.php');

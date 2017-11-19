@@ -1,6 +1,7 @@
 <?php 
 	session_start();
 	require '../../Classes/Database.Class.php'; 
+	$transact = Database::connect();
 
 	$errors = array();
 
@@ -27,43 +28,42 @@
 		'guardian_telephone' => stripslashes($_POST['guardian_telephone'])
 	);
 
+	$transact->beginTransaction();
 
 	try {
-		Database::connect()->beginTransaction();
+		$updateStudent = Database::query("UPDATE `ezi_student` SET 
+			`student_name`=:student_name 
+			WHERE 
+			`student_code`=:student_code", 
+			$studentParams
+		);
 
-			$updateStudent = Database::query("UPDATE `ezi_student` SET 
-				`student_name`=:student_name 
-				WHERE 
-				`student_code`=:student_code", 
-				$studentParams
-			);
+		$updateStudentDetails = Database::query("UPDATE `ezi_student_details` SET 
+			`student_dob`=:student_dob,
+			`student_gender`=:student_gender,
+			`student_class`=:student_class,
+			`student_status`=:student_status,
+			`student_house`=:student_house
+			WHERE 
+			`student_code`=:student_code", 
+			$student_detailsParams
+		);
 
-			$updateStudentDetails = Database::query("UPDATE `ezi_student_details` SET 
-				`student_dob`=:student_dob,
-				`student_gender`=:student_gender,
-				`student_class`=:student_class,
-				`student_status`=:student_status,
-				`student_house`=:student_house
-				WHERE 
-				`student_code`=:student_code", 
-				$student_detailsParams
-			);
+		$updateGuardianInfo = Database::query("UPDATE `ezi_student_guardian` SET 
+			`guardian_name`=:guardian_name,
+			`guardian_relationship`=:guardian_relationship,
+			`guardian_occupation`=:guardian_occupation,
+			`guardian_email`=:guardian_email,
+			`guardian_telephone`=:guardian_telephone
+			WHERE 
+			`student_code`=:student_code", 
+			$student_guardian_infoParams
+		);
 
-			$updateGuardianInfo = Database::query("UPDATE `ezi_student_guardian` SET 
-				`guardian_name`=:guardian_name,
-				`guardian_relationship`=:guardian_relationship,
-				`guardian_occupation`=:guardian_occupation,
-				`guardian_email`=:guardian_email,
-				`guardian_telephone`=:guardian_telephone
-				WHERE 
-				`student_code`=:student_code", 
-				$student_guardian_infoParams
-			);
-
-
+		$transact->commit();
 		$response = array('error' => 'false', 'url' => 'student', 'message' => "Student Details Updated Successfully!");
 	} catch (PDOException $e) {
-		Database::connect()->rollBack();
+		$transact->rollBack();
 		$errors[] = $e->getMessage();
 		$response = array('error' => 'true', 'error_msg' => $errors[0], 'url' => 'student', 'message' => "An Error Occurred While Trying To Update Student.");
 	}

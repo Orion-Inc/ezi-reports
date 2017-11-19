@@ -35,7 +35,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Student Code</label>
-                                                <input name="student_code" type="text" class="form-control input-sm" readonly="" placeholder="Student Code">
+                                                <input id="student_code" name="student_code" type="text" class="form-control input-sm" readonly="" placeholder="Student Code">
                                             </div>
                                         </div>
                                     </div>
