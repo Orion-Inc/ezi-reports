@@ -12,14 +12,12 @@
 		$school_prefix = $_SESSION['SESS_SCHOOL_PREFIX'];
 		$class_name = stripslashes($_POST['class_name']);
 
-		$generateStudentPrefix = explode(' ', $class_name);
-
-		if (sizeof($generateStudentPrefix) >= 2) {
+		if (!empty($class_name)) {
 
 			$year = substr(date('Y'),2);
 			$class_number = $app->randomizer(4);
 
-			$class_code = 'Test';
+			$class_code = 'CL'.$year.'/'.$school_prefix.'/'.$class_number;
 		}
 
 
