@@ -9,7 +9,8 @@
 		'class_code' => stripslashes($_POST['class_code']),
 		'class_name' => stripslashes($_POST['class_name']),
 		'class_course' => stripslashes($_POST['class_course']),
-		'class_teacher' => stripslashes($_POST['class_teacher'])
+		'class_teacher' => stripslashes($_POST['class_teacher']),
+		'school_code' => $_SESSION['SESS_USER_ID']
 	);
 
 	$transact->beginTransaction();
@@ -22,7 +23,11 @@
 			`class_course`, 
 			`school_code`) 
 			VALUES (
-			
+			:class_code,
+			:class_name,
+			:class_teacher,
+			:class_course,
+			:school_code
 			)", 
 			$classParams
 		);
