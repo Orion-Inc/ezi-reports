@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="../plugins/bootstrap/dist/css/bootstrap.min.css">
     <!-- Fonts-->
     <link rel="stylesheet" type="text/css" href="../plugins/themify-icons/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="../plugins/ionicons/css/ionicons.css">
     <link rel="stylesheet" type="text/css" href="../plugins/font-awesome/css/font-awesome.min.css">
     <!-- Malihu Scrollbar-->
     <link rel="stylesheet" type="text/css" href="../plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css">

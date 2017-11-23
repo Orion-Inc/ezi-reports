@@ -1,12 +1,12 @@
-<?php if (isset($_GET['home'])): ?>
-	<h4 class="mt-0 mb-5"><i class="ti-home"></i> Home</h4>
+<?php if (isset($_GET['dashboard'])): ?>
+	<h4 class="mt-0 mb-5"><i class="ion-speedometer"></i> Dashboard</h4>
 	<ol class="breadcrumb mb-0">
 	    <li class="active">{Description}</li>
 	</ol>
 <?php endif ?>
 
 <?php if (isset($_GET['school'])): ?>
-	<h4 class="mt-0 mb-5"><i class="ti-book"></i> School</h4>
+	<h4 class="mt-0 mb-5"><i class="ti-home"></i> School</h4>
 	<ol class="breadcrumb mb-0">
 	    <li class="active">{Description}</li>
 	</ol>

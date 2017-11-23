@@ -150,6 +150,10 @@ $(document).ready(function() {
     	});  
     });
 
+    $('#add-student-modal').on('hidden.bs.modal', function (e) {
+        alert();
+    });
+
     $('#view-student-modal').on('shown.bs.modal', function (e) {
         var modal = $(this);
         var url = $(this).attr('data-fetch');
@@ -279,6 +283,10 @@ $(document).ready(function() {
                 }
             }
         }); 
+    });
+
+    $('#edit-student-modal').on('hidden.bs.modal', function (e) {
+        alert();
     });
 
 	$(".app-form").unbind('submit').bind('submit', function(){

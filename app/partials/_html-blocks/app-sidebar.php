@@ -14,38 +14,23 @@
 
     <ul class="list-unstyled navigation mb-0">
         <li>
-            <a href="javascript:page('home')" class="bubble">
-                <i class="ti-home"></i> Home
+            <a href="javascript:page('dashboard')" class="bubble">
+                <i class="ion-speedometer"></i> Dashboard
             </a>
         </li>
-        <li class="panel hidden">
+        <li class="panel">
             <a data-toggle="collapse" href="#-list" aria-expanded="false" aria-controls="-list" class="collapsed">
-                <i class="ti-folder"></i> Group
+                <i class="ti-home"></i> School
             </a>
             <ul id="-list" class="list-unstyled collapse">
-                <li><a href="javascript:page('school')"><i class="ti-book"></i> School</a></li>
-                <li><a href="javascript:page('class')"><i class="ti-blackboard"></i> Classes</a></li>
-                <li><a href="javascript:page('student')"><i class="ti-user"></i> Students</a></li>
+                <li><a href="javascript:page('school')">Overview</a></li>
+                <li><a href="javascript:page('class')">Classes</a></li>
+                <li><a href="javascript:page('student')">Students</a></li>
             </ul>
         </li>
         <li>
-            <a href="javascript:page('school')" class="bubble">
-                <i class="ti-book"></i> School
-            </a>
-        </li>
-        <li>
-            <a href="javascript:page('class')" class="bubble">
-                <i class="ti-blackboard"></i> Classes
-            </a>
-        </li>
-        <li>
-            <a href="javascript:page('student')" class="bubble">
-                <i class="ti-user"></i> Student
-            </a>
-        </li>
-        <li>
             <a href="javascript:page('bills')" class="bubble">
-                <i class="ti-credit-card"></i> Bills
+                <i class="ti-wallet"></i> Bills
             </a>
         </li>
         <li>
