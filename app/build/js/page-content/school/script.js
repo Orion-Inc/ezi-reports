@@ -185,7 +185,6 @@ $(document).ready(function() {
         )}
     });
 
-
     $(".app-form").unbind('submit').bind('submit', function(){
         var form = $(this);
         var data = form.serialize();

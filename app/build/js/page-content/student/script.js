@@ -1,16 +1,15 @@
 $(document).ready(function() {		
-	var studentsTable =  $('#all-students').DataTable( {
-		ajax:'../includes/actions/student/get-students.php',
-	    //select:{style:"os"},
-	    colReorder:!0,
-	    scrollX:!0,
-	    scrollCollapse:!0,
-	   	fixedHeader:!0,
-	   	columnDefs: [
+	var studentsTable =  $('#all-students').DataTable({
+        ajax:'../includes/actions/student/get-students.php',
+        //select:{style:"os"},
+        colReorder:true,
+        scrollX:true,
+        scrollCollapse:true,
+        columnDefs: [
             {
-            	width:'12%',
-            	orderable: false,
-                targets: 8,
+                width:'12%',
+                orderable: false,
+                targets: 8
             }
         ],
         order: [[ 7, 'asc' ]],
@@ -23,7 +22,7 @@ $(document).ready(function() {
             api.column(7, {page:'current'} ).data().each( function ( group, i ) {
                 if ( last !== group ) {
                     $(rows).eq( i ).before(
-                        '<tr class=""><td colspan="10" class="text-semibold" id="class-colspan">'+group+'</td></tr>'
+                        '<tr style="background-color: #f9f9f9"><td colspan="10" class="text-semibold" id="student-colspan">'+group+'</td></tr>'
                     );
  
                     last = group;
@@ -34,28 +33,30 @@ $(document).ready(function() {
         },
         preDrawCallback: function(settings) {
             $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').removeClass('dropup');
-            
-        }
-	});
-
+        },
+        stateSave: true
+    });
+/*
     setInterval( function () {
         studentsTable.ajax.reload( null, false );  
     }, 50000);
+*/
 
-	$("#class-colspan");
-
-	$("#all-students_length").append(
-		'<a href="#" style="margin-left:10px;" data-toggle="modal" data-target="#add-student-modal">'+
-			'<span class="hidden-xs">Create </span>New<span class="hidden-xs"> Student</span>'+
-		'</a>'
-	);
+    $("#all-students_length").append(
+        '<a href="#" style="margin-left:10px;" data-toggle="modal" data-target="#add-student-modal">'+
+            '<span class="hidden-xs">Create </span>New<span class="hidden-xs"> Student</span>'+
+        '</a>'
+    );
 
 	$('.dataTables_filter input[type=search]').attr('placeholder','Type to filter...');
+
+
 
 	$("#edit-student").steps({
 		headerTag:"h5",
 		bodyTag:"fieldset",
 		transitionEffect:"slide",
+        cssClass: 'wizard step-equal-width',
 		onFinished: function (event, currentIndex) {
 		    var form = $(this);
 		    form.submit();
@@ -66,6 +67,7 @@ $(document).ready(function() {
 		headerTag:"h5",
 		bodyTag:"fieldset",
 		transitionEffect:"slide",
+        cssClass: 'wizard step-equal-width',
 		onFinished: function (event, currentIndex) {
 		    var form = $(this);
 		    form.submit();
@@ -91,18 +93,6 @@ $(document).ready(function() {
         });
 
         $.ajax({
-            url: '../includes/actions/class/fetchSchoolClasses.php',
-            dataType:'json',
-            success:function(data){
-            	var options = '<option value="" selected="" disabled="">Select Class</option>';
-                $.each(data.array, function(key, val){
-                    options += '<option value="' + val.value + '">' + val.name +'</option>';
-                });
-                modal.find('#student_class').html(options);
-            }
-        }); 
-
-        $.ajax({
             url: '../json/student/student_settings.json',
             dataType:'json',
             success:function(data){
@@ -114,12 +104,30 @@ $(document).ready(function() {
             }
         }); 
 
-        $.ajax({
-            url: '../includes/actions/student/generateCode.php',
-            dataType:'json',
-            type:'POST',
-            success:function(data){
-                modal.find('#student_code').val(data.student_code);
+        modal.find('#student_name').on('keyup', function (e){
+            var student_name = $(this).val();
+
+            if (student_name == "") {
+                modal.find("#student_code").val("");
+            }
+        });
+
+        modal.find('#generateCode').on('click', function (e){
+            var student_name = modal.find("#student_name").val();
+
+            if (student_name != "") {
+                $.ajax({
+                    url: '../includes/actions/student/generateCode.php',
+                    dataType:'json',
+                    type:'POST',
+                    data:{student_name:student_name},
+                    success:function(data){
+                        modal.find('#student_code').val(data.student_code);
+                    }
+                });
+            } else {
+                modal.find("#student_code").val("");
+                alert('Enter Student Name!');
             }
         });
 
@@ -132,7 +140,7 @@ $(document).ready(function() {
 	            type:'POST',
 	            data:{course_code:course_code},
 	            success:function(data){
-	            	var options = '<option value="" selected="" disabled="">Select Class</option>';
+	            	var options = '<option value="" selected="" disabled="">Select a Class</option>';
 	                $.each(data.array, function(key, val){
 	                    options += '<option value="'+val.value+'">'+val.name+'</option>';
 	                });

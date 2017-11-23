@@ -80,4 +80,5 @@
     App::ViewPartial('edit-school-signatories','modals/school');
     App::ViewPartial('promote-academic-year','modals/school');
 ?>
+<!-- Custom Script -->
 <script type="text/javascript" src="../build/js/page-content/school/script.js"></script>

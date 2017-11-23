@@ -1,7 +1,7 @@
 
 <div class="row">
 	<div class="col-md-12">
-		<table id="all-students" cellspacing="0" width="100%" class="table table-striped table-bordered -table-condensed dt-responsive nowrap">
+		<table id="all-students" cellspacing="0" width="100%" class="table table-bordered -table-condensed dt-responsive nowrap">
 		    <thead>
 		      	<tr>
 		        	<th>Student Code</th>
@@ -25,6 +25,7 @@
 		</table>
 	</div>
 </div>
+
 
 
 

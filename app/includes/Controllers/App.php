@@ -25,19 +25,20 @@
 			}
 		}
 
-		public function random_string($length) {
-			$random_value = "";
-			$random_values = array_merge(range(0,9), range('A', 'Z'), range('a', 'z'));
+		public function randomizer($length) {
+			$code = "";
+			$randomValue = array();
+			$chars = array_merge(range(0,9));
 
-			for($count = 0; $count<$length; $count++){
-				$random_value .= $random_values[array_rand($random_values)];
+			for($count = 0; $count < $length; $count++){
+				$randomValue[] = $chars[array_rand($chars)];
 			}
 
-			foreach ($random_value as $key){
-				$key .= $random_value[array_rand($random_value)];
+			for ($i=0; $i < sizeof($randomValue); $i++) { 
+				$code .= $randomValue[$i];
 			}
 
-			return $key;
+			return $code;
 		}
 		
 	}

@@ -76,6 +76,14 @@
 			}
 		}
 
+		public static function getClassEnrollment($class_code){
+			$course = self::query("SELECT COUNT(`student_code`) FROM `ezi_student_details` WHERE `student_class`='{$class_code}'");
+			if (empty($course[0])) {
+				return false;
+			}else{
+				return $course[0]['COUNT(`student_code`)'];
+			}
+		}
 
 	}
 ?>

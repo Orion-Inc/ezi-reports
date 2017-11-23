@@ -29,7 +29,7 @@
         $guardian_email = '<a href="mailto:'.$student_guardian_info['guardian_email'].'" target="_blank">'.$student_guardian_info['guardian_email'].'</a>';
         $guardian_contact = '<a href="tel:'.$student_guardian_info['guardian_telephone'].'">'.$student_guardian_info['guardian_telephone'].'</a>';
 
-			$studenDetails = '
+			$studentDetails = '
 							<tr>
 	                            <td colspan="1">Student Name:</td>
 	                            <td><strong>'.$student_name.'</strong></td>
@@ -44,11 +44,11 @@
 	                        </tr>
 	                        <tr>
 	                            <td colspan="1">Course:</td>
-	                            <td><strong>'.$course.'</strong></td>
+	                            <td><strong>'.$course = (!empty($course)) ? $course : 'Not Assigned'.'</strong></td>
 	                        </tr>
 	                        <tr>
 	                            <td colspan="1">Class:</td>
-	                            <td><strong>'.$class.'</strong></td>
+	                            <td><strong>'.$class = (!empty($class)) ? $class : 'Not Assigned'.'</strong></td>
 	                        </tr>
 	                        <tr>
 	                            <td colspan="1">Status:</td>
@@ -90,16 +90,16 @@
 							</a>
 						</div>';
 
-        $student_details = $tableHeader.$studenDetails.'<tr><td colspan="2"><hr></td></tr>'.$guardianDetails.$tableFooter.$editButton;
+        $student_details = $tableHeader.$studentDetails.'<tr><td colspan="2"><hr></td></tr>'.$guardianDetails.$tableFooter.$editButton;
 
 			$response = array(
 					'error' => 'false', 
-					'url' => 'school', 
+					'url' => 'student', 
 					'student' => $student_details
 			);
 			
 	} catch (Exception $e) {
-		$response = array('error' => 'true', 'url' => 'school', 'message' => "An Error Occurred While Trying To Retrieve Student's Information!");
+		$response = array('error' => 'true', 'url' => 'student', 'message' => "An Error Occurred While Trying To Retrieve Student's Information!");
 	}
 
 	

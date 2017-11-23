@@ -21,13 +21,13 @@
                                 </a>
                             </li>
                             <li role="presentation" class="">
-                                <a id="classes-tab" href="#classes" role="tab" data-toggle="tab" aria-controls="classes" aria-expanded="true">
-                                    Class
+                                <a id="classes-tab" href="#" role="tab" data-toggle="tab" aria-controls="school-classes" aria-expanded="true">
+                                    
                                 </a>
                             </li>
                             <li role="presentation" class="hidden">
                                 <a id="academic-year-tab" href="#academic-year" role="tab" data-toggle="tab" aria-controls="academic-year" aria-expanded="true">
-                                    Academic Year
+                                    
                                 </a>
                             </li>
                         </ul>
@@ -41,9 +41,11 @@
                                 </div>
                             </div>
 
-                            <div id="classes" role="tabpanel" aria-labelledby="classes-tab" class="tab-pane fade in">
+                            <div id="" role="tabpanel" aria-labelledby="classes-tab" class="tab-pane fade in">
                                 <div class="row">
-                                    <?php App::ViewPartial('school-classes-overview-tab','class')?>
+                                    <div class="col-md-12">
+                                        
+                                    </div>
                                 </div>
                             </div>
 
@@ -59,9 +61,11 @@
         </div>
     </div>
 </div>
-<?php App::ViewPartial('view-student','modals/student')?>
-<?php App::ViewPartial('add-student','modals/student')?>
-<?php App::ViewPartial('edit-student','modals/student')?>
+<?php 
+    App::ViewPartial('view-student','modals/student');
+    App::ViewPartial('add-student','modals/student');
+    App::ViewPartial('edit-student','modals/student');
+?>
 <!-- Bootstrap File Input-->
 <script type="text/javascript" src="../plugins/bootstrap-fileinput/js/plugins/canvas-to-blob.min.js"></script>
 <script type="text/javascript" src="../plugins/bootstrap-fileinput/js/fileinput.min.js"></script>

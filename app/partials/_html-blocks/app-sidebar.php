@@ -18,9 +18,24 @@
                 <i class="ti-home"></i> Home
             </a>
         </li>
+        <li class="panel hidden">
+            <a data-toggle="collapse" href="#-list" aria-expanded="false" aria-controls="-list" class="collapsed">
+                <i class="ti-folder"></i> Group
+            </a>
+            <ul id="-list" class="list-unstyled collapse">
+                <li><a href="javascript:page('school')"><i class="ti-book"></i> School</a></li>
+                <li><a href="javascript:page('class')"><i class="ti-blackboard"></i> Classes</a></li>
+                <li><a href="javascript:page('student')"><i class="ti-user"></i> Students</a></li>
+            </ul>
+        </li>
         <li>
             <a href="javascript:page('school')" class="bubble">
                 <i class="ti-book"></i> School
+            </a>
+        </li>
+        <li>
+            <a href="javascript:page('class')" class="bubble">
+                <i class="ti-blackboard"></i> Classes
             </a>
         </li>
         <li>
@@ -36,11 +51,6 @@
         <li>
             <a href="javascript:page('reports')" class="bubble">
                 <i class="ti-files"></i> Reports
-            </a>
-        </li>
-        <li>
-            <a href="javascript:page('settings')" class="bubble">
-                <i class="ti-settings"></i> Settings
             </a>
         </li>
     </ul>

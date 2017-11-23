@@ -29,13 +29,18 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Full Name</label>
-                                                <input name="student_name" type="text" class="form-control input-sm" placeholder="Last              First               Others">
+                                                <input name="student_name" type="text" class="form-control input-sm" placeholder="Last              First               Others" id="student_name">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Student Code</label>
+                                            <label>Student Code</label>
+                                            <div class="input-group">
                                                 <input id="student_code" name="student_code" type="text" class="form-control input-sm" readonly="" placeholder="Student Code">
+                                                <span class="input-group-btn">
+                                                    <a href="javascript:void(0)" class="btn btn-outline btn-default btn-sm" id="generateCode">
+                                                        <i class="ti-reload"></i>
+                                                    </a>
+                                                </span>
                                             </div>
                                         </div>
                                     </div>

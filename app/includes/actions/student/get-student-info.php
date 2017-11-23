@@ -31,12 +31,12 @@
 
 			$response = array(
 					'error' => 'false', 
-					'url' => 'school', 
+					'url' => 'student', 
 					'array' => $student_details
 			);
 			
 	} catch (Exception $e) {
-		$response = array('error' => 'true', 'url' => 'school', 'message' => "An Error Occurred While Trying To Retrieve Student's Information");
+		$response = array('error' => 'true', 'url' => 'student', 'message' => "An Error Occurred While Trying To Retrieve Student's Information");
 	}
 
 	

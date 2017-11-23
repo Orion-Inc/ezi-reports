@@ -21,12 +21,12 @@
 
 			$response = array(
 					'error' => 'false', 
-					'url' => 'school', 
+					'url' => ' ', 
 					'array' => $courseArray
 			);
 			
 	} catch (Exception $e) {
-		$response = array('error' => 'true', 'url' => 'school', 'message' => "An Error Occurred While Trying To Retrieve Classes");
+		$response = array('error' => 'true', 'url' => ' ', 'message' => "An Error Occurred While Trying To Retrieve Courses");
 	}
 
 	
