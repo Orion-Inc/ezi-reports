@@ -20,3 +20,10 @@
 .dataTables_scroll{
 	padding-bottom: 15px
 }
+
+.bar-track{
+	height: 140px; 
+	width: 140px; 
+	line-height: 120px; 
+	padding: 10px;
+}

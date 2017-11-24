@@ -13,9 +13,11 @@
        	<div class="col-md-3 col-sm-6">
             <div class="widget text-center">
                 <div class="widget-body">
-                  	<h5 class="mb-5">New Comments</h5>
-                  	<div class="fs-36 fw-600 mb-20 counter">1,206</div>
-                  	<div id="esp-comment" data-percent="75" style="height: 140px; width: 140px; line-height: 120px; padding: 10px;" class="easy-pie-chart fs-36"><i class="ti-comment-alt text-muted"></i></div>
+                  	<h5 class="mb-5">Total Students</h5>
+                  	<div class="fs-36 fw-600 mb-20 counter">0</div>
+                  	<div id="total-students" data-percent="0" class="easy-pie-chart fs-36 bar-track">
+                  		<i class="ti-user text-muted"></i>
+                  	</div>
                 </div>
             </div>
         </div>
@@ -23,29 +25,11 @@
         <div class="col-md-3 col-sm-6">
             <div class="widget text-center">
                 <div class="widget-body">
-                  	<h5 class="mb-5">New Comments</h5>
-                  	<div class="fs-36 fw-600 mb-20 counter">1,206</div>
-                  	<div id="esp-comment" data-percent="75" style="height: 140px; width: 140px; line-height: 120px; padding: 10px;" class="easy-pie-chart fs-36"><i class="ti-comment-alt text-muted"></i></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3 col-sm-6">
-            <div class="widget text-center">
-                <div class="widget-body">
-                  	<h5 class="mb-5">New Comments</h5>
-                  	<div class="fs-36 fw-600 mb-20 counter">1,206</div>
-                  	<div id="esp-comment" data-percent="75" style="height: 140px; width: 140px; line-height: 120px; padding: 10px;" class="easy-pie-chart fs-36"><i class="ti-comment-alt text-muted"></i></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3 col-sm-6">
-            <div class="widget text-center">
-                <div class="widget-body">
-                  	<h5 class="mb-5">New Comments</h5>
-                  	<div class="fs-36 fw-600 mb-20 counter">1,206</div>
-                  	<div id="esp-comment" data-percent="75" style="height: 140px; width: 140px; line-height: 120px; padding: 10px;" class="easy-pie-chart fs-36"><i class="ti-comment-alt text-muted"></i></div>
+                  	<h5 class="mb-5">Total Classrooms</h5>
+                  	<div class="fs-36 fw-600 mb-20 counter">0</div>
+                  	<div id="total-classrooms" data-percent="0" class="easy-pie-chart fs-36 bar-track">
+                  		<i class="ti-blackboard text-muted"></i>
+                  	</div>
                 </div>
             </div>
         </div>
@@ -59,9 +43,20 @@
 <!-- jQuery Easy Pie Chart-->
     <script type="text/javascript" src="../plugins/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
 <script type="text/javascript">
+
+	$.ajax({
+        url: '../includes/actions/app/app.php',
+        dataType:'json',
+        type:'POST',
+        success:function(data){
+        	
+        }
+    });
+
 	$(".counter").counterUp({delay:10,time:1e3});
-	$("#esp-comment").easyPieChart({
-		barColor:"#8E23E0",
+
+	$(".easy-pie-chart").easyPieChart({
+		barColor:"#3498db",
 		trackColor:"#E6E6E6",
 		scaleColor:!1,
 		scaleLength:0,
@@ -69,5 +64,5 @@
 		lineWidth:10,
 		size:140,
 		animate:{duration:2e3,enabled:!0}
-	})
+	});
 </script>

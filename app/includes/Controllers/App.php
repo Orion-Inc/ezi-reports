@@ -40,6 +40,11 @@
 
 			return $code;
 		}
+
+		public function token_generator(){
+			$token = bin2hex(openssl_random_pseudo_bytes(30));
+			return $token;
+		}
 		
 	}
 ?>
