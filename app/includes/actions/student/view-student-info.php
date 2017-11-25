@@ -1,10 +1,5 @@
 <?php 
-	session_start();
-	require '../../Classes/Database.Class.php';
-	require '../../Controllers/App.php';  
-	require '../../Classes/School.Class.php'; 
-	require '../../Classes/Student.Class.php';
-	require '../../Classes/Course.Class.php'; 
+	require_once ('../Autoloader.php'); 
 
 	$errors = array();
 	$student_code = $_POST['student_code'];

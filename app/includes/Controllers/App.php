@@ -9,6 +9,7 @@
 				$value = "Not Available";
 			}
 			echo $value;
+			
 		}
 		
 		public static function CreateView($viewName)

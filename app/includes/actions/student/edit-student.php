@@ -1,6 +1,5 @@
 <?php 
-	session_start();
-	require '../../Classes/Database.Class.php'; 
+	require_once ('../Autoloader.php');
 	$transact = Database::connect();
 
 	$errors = array();

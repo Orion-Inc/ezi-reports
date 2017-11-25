@@ -1,7 +1,5 @@
 <?php 
-	session_start();
-	require '../../Classes/Database.Class.php'; 
-	require '../../Controllers/App.php';
+	require_once ('../Autoloader.php');
 
 	$app = new App();
 
