@@ -21,9 +21,9 @@
 
 
 			$response = array(
-					'error' => 'false', 
-					'url' => 'class', 
-					'array' => $class_details
+				'error' => 'false', 
+				'url' => 'class', 
+				'array' => $class_details
 			);
 			
 	} catch (Exception $e) {

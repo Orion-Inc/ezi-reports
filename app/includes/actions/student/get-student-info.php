@@ -30,9 +30,9 @@
 		$student_details = array_merge($student_details,$student_guardian_info);
 
 			$response = array(
-					'error' => 'false', 
-					'url' => 'student', 
-					'array' => $student_details
+				'error' => 'false', 
+				'url' => 'student', 
+				'array' => $student_details
 			);
 			
 	} catch (Exception $e) {

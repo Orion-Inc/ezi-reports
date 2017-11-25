@@ -5,6 +5,7 @@
         window.location.href='../includes/auth/logout.php';
     </script>
 <?php endif ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <?php App::ViewPartial('header','_html-blocks')?>

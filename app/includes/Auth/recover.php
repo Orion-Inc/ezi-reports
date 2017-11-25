@@ -23,7 +23,6 @@
 				$key = Database::query("SELECT `access_key` FROM `ezi_school_access_key` WHERE `school_code` = '$school_code'")[0];
 				$recover_url = $url.$key['access_key'];
 
-				echo $recover_url;
 				$response = array('error' => 'false', 'url' => '?verify');
 			} else {
 				$response = array('error' => 'true', 'message' => "An Error occured while trying to verify your School Code.\nPlease try again or Contact Us.");

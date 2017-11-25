@@ -14,8 +14,8 @@
             <div class="widget text-center">
                 <div class="widget-body">
                   	<h5 class="mb-5">Total Students</h5>
-                  	<div class="fs-36 fw-600 mb-20 counter">0</div>
-                  	<div id="total-students" data-percent="0" class="easy-pie-chart fs-36 bar-track">
+                  	<div class="fs-36 fw-600 mb-20 counter" id="total-students">0</div>
+                  	<div data-percent="0" class="easy-pie-chart fs-36 bar-track">
                   		<i class="ti-user text-muted"></i>
                   	</div>
                 </div>
@@ -26,8 +26,8 @@
             <div class="widget text-center">
                 <div class="widget-body">
                   	<h5 class="mb-5">Total Classrooms</h5>
-                  	<div class="fs-36 fw-600 mb-20 counter">0</div>
-                  	<div id="total-classrooms" data-percent="0" class="easy-pie-chart fs-36 bar-track">
+                  	<div class="fs-36 fw-600 mb-20 counter" id="total-classrooms"></div>
+                  	<div data-percent="0" class="easy-pie-chart fs-36 bar-track">
                   		<i class="ti-blackboard text-muted"></i>
                   	</div>
                 </div>
@@ -45,11 +45,16 @@
 <script type="text/javascript">
 
 	$.ajax({
-        url: '../includes/actions/app/app.php',
+        url: '../includes/actions/dashboard/charts.php',
         dataType:'json',
-        type:'POST',
         success:function(data){
-        	
+        	$.each(data.count, function( key, value ) {
+                $("#"+key).text(value);
+            });
+
+        	$.each(data.pieChart, function( key, value ) {
+                $("#"+key).find(".easy-pie-chart").attr('data-percent', value);
+            });
         }
     });
 
