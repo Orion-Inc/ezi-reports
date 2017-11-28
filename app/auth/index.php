@@ -1,3 +1,6 @@
+<?php if (empty($_GET)){
+    header("Location: ../");
+}?> 
 <?php 
     spl_autoload_register(function ($class_name){
         if (file_exists('../includes/Classes/'.$class_name.'.Class.php')) {
@@ -13,7 +16,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Ezi-reports</title>
+        <title>eziReports</title>
         <!-- PACE-->
         <link rel="stylesheet" type="text/css" href="../plugins/PACE/themes/blue/pace-theme-bounce.css">
         <script type="text/javascript" src="../plugins/PACE/pace.min.js"></script>
@@ -34,10 +37,6 @@
 
     </head>
     <body style="background-image: url()" class="body-bg-full">
-        <?php if (empty($_GET)): ?>
-            <?php App::ViewPartial('splash-screen','app')?>
-        <?php endif ?>  
-
         <?php if (isset($_GET['login'])): ?>
             <?php App::ViewPartial('login','auth-forms')?>
         <?php else: ?>
