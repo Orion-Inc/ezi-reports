@@ -12,33 +12,66 @@
         </p>
     </div>
 
-    <ul class="list-unstyled navigation mb-0">
-        <li>
-            <a href="javascript:page('dashboard')" class="bubble">
-                <i class="ion-speedometer"></i> Dashboard
-            </a>
-        </li>
-        <li class="panel">
-            <a data-toggle="collapse" href="#school-list" aria-expanded="false" aria-controls="-list" class="collapsed">
-                <i class="ti-home"></i> School
-            </a>
-            <ul id="school-list" class="list-unstyled collapse">
-                <li><a href="javascript:page('school')" class="bubble">Overview</a></li>
-                <li><a href="javascript:page('class')" class="bubble">Classes</a></li>
-                <li><a href="javascript:page('student')" class="bubble">Students</a></li>
-            </ul>
-        </li>
-        <li>
-            <a href="javascript:page('bills')" class="bubble">
-                <i class="ti-wallet"></i> Bills
-            </a>
-        </li>
-        <li>
-            <a href="javascript:page('reports')" class="bubble">
-                <i class="ti-files"></i> Reports
-            </a>
-        </li>
-    </ul>
+    <?php if ($_SESSION['SESS_USER_ID'] != 'eziAdmin'): ?>
+        <ul class="list-unstyled navigation mb-0">
+            <li>
+                <a href="javascript:page('dashboard')" class="bubble">
+                    <i class="ion-speedometer"></i> Dashboard
+                </a>
+            </li>
+            <li class="panel">
+                <a data-toggle="collapse" href="#school-list" aria-expanded="false" aria-controls="-list" class="collapsed">
+                    <i class="ti-home"></i> School
+                </a>
+                <ul id="school-list" class="list-unstyled collapse">
+                    <li><a href="javascript:page('school')" class="bubble">Overview</a></li>
+                    <li><a href="javascript:page('class')" class="bubble">Classes</a></li>
+                    <li><a href="javascript:page('student')" class="bubble">Students</a></li>
+                </ul>
+            </li>
+            <li class="hidden">
+                <a href="javascript:page('bills')" class="bubble">
+                    <i class="ti-wallet"></i> Bills
+                </a>
+            </li>
+            <li>
+                <a href="javascript:page('reports')" class="bubble">
+                    <i class="ti-files"></i> Reports
+                </a>
+            </li>
+        </ul>
+    <?php endif ?>
+
+    <?php if ($_SESSION['SESS_USER_ID'] == 'eziAdmin'): ?>
+        <ul class="list-unstyled navigation mb-0">
+            <li>
+                <a href="javascript:page('admin-dashboard')" class="bubble">
+                    <i class="ion-speedometer"></i> Dashboard
+                </a>
+            </li>
+            <li class="panel">
+                <a data-toggle="collapse" href="#school-list" aria-expanded="false" aria-controls="-list" class="collapsed">
+                    <i class="ti-home"></i> School
+                </a>
+                <ul id="school-list" class="list-unstyled collapse">
+                    <li><a href="javascript:page('admin-school')" class="bubble">School List</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:page('admin-subjects')" class="bubble">
+                    <i class="ti-wallet"></i> Subjects
+                </a>
+            </li>
+            <li>
+                <a href="javascript:page('admin-reports')" class="bubble">
+                    <i class="ti-files"></i> Reports
+                </a>
+            </li>
+        </ul>
+    <?php endif ?>
+
+
+    
 
 
     <!--App Status-->

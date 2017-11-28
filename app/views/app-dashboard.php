@@ -49,30 +49,6 @@
         </div>
         <div class="col-md-6 col-sm-12">
         	<div class="row">
-        		<div class="col-md-12">
-                  	<div class="mb-20">
-                    	<div class="media">
-	                      	<div class="media-body">
-	                        	<h5 class="media-heading">Total Revenue</h5>
-	                        	<div class="fs-24 fw-600">GHS <span class="counter">0.00</span></div>
-	                      	</div>
-	                      	<div class="media-right"><i class="fs-30 "></i></div>
-	                    </div>
-                    </div>
-            	</div>
-
-            	<div class="col-md-12">
-                  	<div class="mb-20">
-                    	<div class="media">
-	                      	<div class="media-body">
-	                        	<h5 class="media-heading">Total Revenue</h5>
-	                        	<div class="fs-24 fw-600">GHS <span class="counter">0.00</span></div>
-	                      	</div>
-	                      	<div class="media-right"><i class="fs-30 "></i></div>
-	                    </div>
-                    </div>
-            	</div>
-
             	<div class="col-md-12">
                   	<div class="mb-20">
 	                    <div class="media">
@@ -85,6 +61,28 @@
 	                      	<div class="media-right"><i class="fs-30 ti-stats-up"></i></div>
 	                    </div>
 	                    <ul class="list-unstyled">
+	                      	<li>
+	                        	<div class="block clearfix mb-5">
+	                        		<span class="pull-left fs-12">Today</span>
+	                        		<span class="pull-right label label-outline label-primary">0%</span>
+	                        	</div>
+	                        	<div class="progress progress-xs">
+	                          		<div role="progressbar" data-transitiongoal="0" class="progress-bar" aria-valuenow="0">
+	                          			
+	                          		</div>
+	                        	</div>
+	                      	</li>
+	                      	<li>
+		                        <div class="block clearfix mb-5">
+		                        	<span class="pull-left fs-12">Yesterday</span>
+		                        	<span class="pull-right label label-outline label-success">0%</span>
+		                        </div>
+		                        <div class="progress progress-xs">
+		                          	<div role="progressbar" data-transitiongoal="0" class="progress-bar progress-bar-success" aria-valuenow="0">
+		                          		
+		                          	</div>
+		                        </div>
+	                      	</li>
 	                      	<li>
 	                        	<div class="block clearfix mb-5">
 	                        		<span class="pull-left fs-12">Today</span>
