@@ -80,7 +80,7 @@
 	                        	<h5 class="media-heading">
 	                        		Task Completed
 	                        	</h5>
-	                        	<div class="fs-24 fw-600 counter">278</div>
+	                        	<div class="fs-24 fw-600 counter">0</div>
 	                      	</div>
 	                      	<div class="media-right"><i class="fs-30 ti-stats-up"></i></div>
 	                    </div>
@@ -88,10 +88,10 @@
 	                      	<li>
 	                        	<div class="block clearfix mb-5">
 	                        		<span class="pull-left fs-12">Today</span>
-	                        		<span class="pull-right label label-outline label-primary">65%</span>
+	                        		<span class="pull-right label label-outline label-primary">0%</span>
 	                        	</div>
 	                        	<div class="progress progress-xs">
-	                          		<div role="progressbar" data-transitiongoal="65" class="progress-bar" aria-valuenow="65" style="width: 65%;">
+	                          		<div role="progressbar" data-transitiongoal="0" class="progress-bar" aria-valuenow="0">
 	                          			
 	                          		</div>
 	                        	</div>
@@ -99,10 +99,10 @@
 	                      	<li>
 		                        <div class="block clearfix mb-5">
 		                        	<span class="pull-left fs-12">Yesterday</span>
-		                        	<span class="pull-right label label-outline label-success">80%</span>
+		                        	<span class="pull-right label label-outline label-success">0%</span>
 		                        </div>
 		                        <div class="progress progress-xs">
-		                          	<div role="progressbar" data-transitiongoal="80" class="progress-bar progress-bar-success" aria-valuenow="80" style="width: 80%;">
+		                          	<div role="progressbar" data-transitiongoal="0" class="progress-bar progress-bar-success" aria-valuenow="0">
 		                          		
 		                          	</div>
 		                        </div>

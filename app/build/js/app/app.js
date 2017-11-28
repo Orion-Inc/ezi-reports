@@ -20,12 +20,25 @@
         )
     });
 
-    $('ul li a.bubble').on('click', function (argument) {
+    $('ul li a.bubble').on('click', function () {
         $(this).addClass('active');
         $('ul li a.bubble').not(this).removeClass('active');
     });
 
-    $("#app-school-crest").easyPieChart({barColor:"#0667D6",trackColor:"rgba(0,0,0,0)",scaleColor:!1,scaleLength:0,lineCap:"round",lineWidth:2,size:104,animate:{duration:2e3,enabled:!0}}),$(".header-color").on("click",function(){var a=$(this).attr("data-color"),o=$("body").attr("data-header-color");$("body").removeClass(o).addClass(a).attr("data-header-color",a)}),$(".sidebar-color").on("click",function(){var a=$(this).attr("data-color"),o=$("body").attr("data-sidebar-color");$("body").removeClass(o).addClass(a).attr("data-sidebar-color",a)})
+    $('#school-list li a.bubble').on('click', function () {
+        $("li.panel").addClass('active');
+    });
+
+    $("#app-school-crest").easyPieChart({
+        barColor:"#0667D6",
+        trackColor:"rgba(0,0,0,0)",
+        scaleColor:!1,
+        scaleLength:0,
+        lineCap:"round",
+        lineWidth:2,
+        size:104,
+        animate:{duration:2e3,enabled:!0}
+    });
 });
 
 function page(file) {
