@@ -17,12 +17,12 @@
 			require_once '../views/'.$viewName.'.php';
 		}
 
-		public static function ViewPartial($partialName,$tree)
+		public static function ViewPartial($partialName,$tree,$page_index='../')
 		{
 			if (empty($tree)) {
-				include '../partials/app-'.$partialName.'.php';
+				include $page_index.'partials/app-'.$partialName.'.php';
 			}else{
-				include '../partials/'.$tree.'/app-'.$partialName.'.php';
+				include $page_index.'partials/'.$tree.'/app-'.$partialName.'.php';
 			}
 		}
 

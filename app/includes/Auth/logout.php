@@ -20,10 +20,10 @@
 		unset($_SESSION['SESS_TOKEN']);
 		
 		session_destroy();
-		header("Location: ../../app/?login");
+		header("Location: ../../auth/?login");
 	} catch (Exception $e) {
 		session_destroy();
-		header("Location: ../../app/?login");
+		header("Location: ../../auth/?login");
 	}
 		
 ?>

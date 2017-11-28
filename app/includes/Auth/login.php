@@ -49,7 +49,7 @@
 				$_SESSION['SESS_TOKEN'] = $token;
 
 
-				$response = array('error' => 'false', 'url' => 'app.php');
+				$response = array('error' => 'false', 'url' => '../app/?token='.$_SESSION['SESS_TOKEN']);
 			} catch (Exception $e) {
 				$response = array('error' => 'true', 'message' => "An Error Occured!\nPlease try again or Contact Us.");
 			}
