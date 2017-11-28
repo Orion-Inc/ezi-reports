@@ -77,10 +77,6 @@
         </ul>
     <?php endif ?>
 
-
-    
-
-
     <!--App Status-->
         <?php App::ViewPartial('status','app')?>
     <!--/App Status--> 

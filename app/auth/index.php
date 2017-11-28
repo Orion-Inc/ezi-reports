@@ -36,7 +36,7 @@
         <![endif]-->
 
     </head>
-    <body style="background-image: url()" class="body-bg-full">
+    <body style="background-image: url('../assets/images/doodle.png')" class="body-bg-full">
         <?php if (isset($_GET['login'])): ?>
             <?php App::ViewPartial('login','auth-forms')?>
         <?php else: ?>

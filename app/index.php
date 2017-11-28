@@ -33,7 +33,7 @@
         <![endif]-->
 
     </head>
-    <body style="background-image: url()" class="body-bg-full">
+    <body style="background-image: url('assets/images/doodle.png')" class="body-bg-full">
         <?php if (empty($_GET)): ?>
             <?php App::ViewPartial('splash-screen','app','')?>
         <?php endif ?> 
