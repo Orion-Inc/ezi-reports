@@ -1,8 +1,15 @@
 <aside data-mcs-theme="minimal-dark" class="main-sidebar mCustomScrollbar">
     <div class="user">
         <div id="app-school-crest" data-percent="100" style="height: 104px; width: 104px; line-height: 80px; padding: 12px;" class="easy-pie-chart">
-            <img src="<?php School::getSchoolCrest($_SESSION['SESS_USER_ID'])?>" alt="" class="avatar img-circle">
-            <span class="hidden status bg-primary"></span>
+            <?php if ($_SESSION['SESS_USER_ID'] != 'eziAdmin'): ?>
+                <img src="<?php School::getSchoolCrest($_SESSION['SESS_USER_ID'])?>" alt="" class="avatar img-circle">
+                <span class="hidden status bg-primary"></span>
+            <?php endif ?>
+
+            <?php if ($_SESSION['SESS_USER_ID'] == 'eziAdmin'): ?>
+                <img src="" alt="" class="avatar img-circle">
+                <span class="status bg-primary"></span>
+            <?php endif ?>
         </div>
         <h4 class="fs-14 text-muted mt-15 mb-5 fw-300">
             <?php App::show($_SESSION['SESS_SCHOOL_NAME']);?>
@@ -20,10 +27,10 @@
                 </a>
             </li>
             <li class="panel">
-                <a data-toggle="collapse" href="#school-list" aria-expanded="false" aria-controls="-list" class="collapsed">
+                <a data-toggle="collapse" href="#school-list" aria-expanded="true" aria-controls="-list" class="collapse">
                     <i class="ti-home"></i> School
                 </a>
-                <ul id="school-list" class="list-unstyled collapse">
+                <ul id="school-list" class="list-unstyled collapse in">
                     <li><a href="javascript:page('school')" class="bubble">Overview</a></li>
                     <li><a href="javascript:page('class')" class="bubble">Classes</a></li>
                     <li><a href="javascript:page('student')" class="bubble">Students</a></li>
