@@ -10,6 +10,10 @@ $(document).ready(function() {
                 width:'12%',
                 orderable: false,
                 targets: 6
+            },
+            {
+                className: 'dt-center', 
+                targets: 5
             }
         ],
         order: [[ 2, 'asc' ]],
@@ -96,7 +100,6 @@ $(document).ready(function() {
             }
         });  
     });
- 	
 
     $('#view-class-modal').on('shown.bs.modal', function (e) {
         var modal = $(this);
@@ -128,6 +131,11 @@ $(document).ready(function() {
     $('#edit-class-modal').on('show.bs.modal', function (e) {
         var modal = $(this);
         var school_type = modal.attr('data-school');
+        var url = modal.attr('data-fetch');
+
+        var button = $(e.relatedTarget);
+        var class_code = button.data('class');
+        modal.find('#class_code').val(class_code);
 
         $.ajax({
             url: '../includes/actions/course/fetchSchoolCourses.php',
@@ -142,15 +150,6 @@ $(document).ready(function() {
                 modal.find('#class_course').html(options);
             }
         }); 
-    });
-
-    $('#edit-class-modal').on('shown.bs.modal', function (e) {
-        var modal = $(this);
-        var url = modal.attr('data-fetch');
-
-        var button = $(e.relatedTarget);
-        var class_code = button.data('class');
-        modal.find('#class_code').val(class_code);
 
         $.ajax({
             url:url,
@@ -172,6 +171,7 @@ $(document).ready(function() {
             }
         });
     });
+
 
     $(".app-form").unbind('submit').bind('submit', function(){
         var form = $(this);

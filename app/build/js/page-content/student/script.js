@@ -150,9 +150,6 @@ $(document).ready(function() {
     	});  
     });
 
-    $('#add-student-modal').on('hidden.bs.modal', function (e) {
-        alert();
-    });
 
     $('#view-student-modal').on('shown.bs.modal', function (e) {
         var modal = $(this);
@@ -285,9 +282,6 @@ $(document).ready(function() {
         }); 
     });
 
-    $('#edit-student-modal').on('hidden.bs.modal', function (e) {
-        alert();
-    });
 
 	$(".app-form").unbind('submit').bind('submit', function(){
         var form = $(this);

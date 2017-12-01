@@ -17,6 +17,8 @@
     vertical-align: middle;
 }
 
+th.dt-center, td.dt-center { text-align: center; }
+
 .dataTables_scroll{
 	padding-bottom: 15px
 }
