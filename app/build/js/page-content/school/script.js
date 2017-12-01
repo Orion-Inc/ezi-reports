@@ -20,6 +20,12 @@ $(document).ready(function() {
 
     $('#edit-academic-year-modal').on('show.bs.modal', function (e) {
         var modal = $(this);
+        var url = $(this).attr('data-fetch');
+        var datepicker = modal.find('.date-year').datepicker({
+            minViewMode: 2,
+            format: 'yyyy'
+        });
+
         var options = '<option value="" selected="" disabled="">Select Current Term</option>';
 
         $.ajax({
@@ -31,15 +37,6 @@ $(document).ready(function() {
                 });
                 modal.find('#school_academic_term').html(options);
             }
-        });
-    });
-
-    $('#edit-academic-year-modal').on('shown.bs.modal', function (e) {
-        var modal = $(this);
-        var url = $(this).attr('data-fetch');
-        var datepicker = modal.find('.date-year').datepicker({
-            minViewMode: 2,
-            format: 'yyyy'
         });
 
         $.ajax({
@@ -69,6 +66,7 @@ $(document).ready(function() {
         });
     });
 
+
     $('#edit-administration-info-modal').on('show.bs.modal', function (e) {
         var modal = $(this);
         var url = $(this).attr('data-fetch');
@@ -82,6 +80,25 @@ $(document).ready(function() {
                     options += '<option value="' + val.value + '">' + val.name +'</option>';
                 });
                 modal.find('.title').html(options);
+            }
+        });
+
+        $.ajax({
+            url:url,
+            dataType:'json',
+            type:'POST',
+            success:function(data){
+                if (data.error != 'false') {
+                    toastr.error(data.message, 'Error!');
+                }else{ 
+                    $.each(data.array, function( key, value ) {
+                        modal.find('form #'+key).val(value);
+                    });
+
+                    $.each(data.array, function( key, value ) {
+                        modal.find("form #"+key+" option[value='"+value+"']").prop('selected', true);
+                    });
+                }
             }
         });
     });
@@ -122,31 +139,6 @@ $(document).ready(function() {
         });
     });
 
-    $('#edit-administration-info-modal').on('shown.bs.modal', function (e) {
-        var modal = $(this);
-        var url = $(this).attr('data-fetch');
-
-        $.ajax({
-            url:url,
-            dataType:'json',
-            type:'POST',
-            success:function(data){
-                if (data.error != 'false') {
-                    toastr.error(data.message, 'Error!');
-                }else{ 
-                    $.each(data.array, function( key, value ) {
-                        modal.find('form #'+key).val(value);
-                    });
-
-                    $.each(data.array, function( key, value ) {
-                        modal.find("form #"+key+" option[value='"+value+"']").prop('selected', true);
-                    });
-                }
-            }
-        });
-        
-    });
- 
 
     $("#school-crest-form").dropzone({
         paramName:"school_crest",
