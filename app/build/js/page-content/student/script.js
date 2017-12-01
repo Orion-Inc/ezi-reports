@@ -350,7 +350,7 @@ $(document).ready(function() {
                 }else{
                     $('.modal').modal('hide');
                     toastr.success(data.message, 'Success!');
-                    studentsTable.ajax.reload( null, false ); 
+                    $('#page-content').load('../views/app-'+data.url+'.php?'+data.url); 
                 }
             }
         });
