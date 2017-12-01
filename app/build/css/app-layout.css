@@ -27,3 +27,23 @@
 	line-height: 120px; 
 	padding: 10px;
 }
+
+.loading-gif {
+    position: absolute;
+    top: 500%;
+    left: 50%;
+}
+
+@media (max-width: 767px){
+	.loading-gif {
+	    left: 45%;
+	}
+}
+
+@media (max-width: 320px){
+	.loading-gif {
+		top: 400%;
+	    left: 40%;
+	}
+}
+

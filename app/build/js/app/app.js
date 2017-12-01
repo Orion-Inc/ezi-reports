@@ -42,5 +42,6 @@
 });
 
 function page(file) {
+    $('#page-content').html('<div class="loading-gif"><img src="../assets/images/loading.gif" width="64px" height="64px"/></div>');
     $('#page-content').load('../views/app-'+file+'.php?'+file);
 }
