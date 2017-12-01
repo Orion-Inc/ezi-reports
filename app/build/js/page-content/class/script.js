@@ -7,13 +7,12 @@ $(document).ready(function() {
         scrollCollapse:true,
         columnDefs: [
             {
-                width:'12%',
                 orderable: false,
                 targets: 6
             },
             {
                 className: 'dt-center', 
-                targets: 5
+                targets: [5,6]
             }
         ],
         order: [[ 2, 'asc' ]],
@@ -101,6 +100,11 @@ $(document).ready(function() {
         });  
     });
 
+    $('#add-class-modal').on('hidden.bs.modal', function (e) {
+        var modal = $(this);
+        modal.find('form')[0].reset();
+    });
+
     $('#view-class-modal').on('shown.bs.modal', function (e) {
         var modal = $(this);
         var url = $(this).attr('data-fetch');
@@ -172,6 +176,10 @@ $(document).ready(function() {
         });
     });
 
+    $('#edit-class-modal').on('hidden.bs.modal', function (e) {
+        var modal = $(this);
+        modal.find('form')[0].reset();
+    });
 
     $(".app-form").unbind('submit').bind('submit', function(){
         var form = $(this);

@@ -7,8 +7,11 @@ $(document).ready(function() {
         scrollCollapse:true,
         columnDefs: [
             {
-                width:'12%',
                 orderable: false,
+                targets: 8
+            },
+            {
+                className: 'dt-center', 
                 targets: 8
             }
         ],
