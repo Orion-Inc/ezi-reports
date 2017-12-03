@@ -4,16 +4,28 @@
 	*/
 	class Database 
 	{
+<<<<<<< HEAD
 		public static $server = "localhost";
 		public static $dbName = "ezi_reports";
 		public static $username = "root";
 		public static $password = "";
+=======
+		private static $server = "localhost";
+		private static $dbName = "ezi_reports";
+		private static $username = "root";
+		private static $password = "";
+>>>>>>> farid
 		
 
         public static function connect() {
-            $pdo = new PDO('mysql:host='.self::$server.';dbname='.self::$dbName.';charset=utf8', self::$username, self::$password);
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            return $pdo;
+            try {
+                $pdo = new PDO('mysql:host='.self::$server.';dbname='.self::$dbName.';charset=utf8', self::$username, self::$password);
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                return $pdo;
+            } catch (Exception $e) {
+                die("Unable to connect: " . $e->getMessage());
+            }
         }
 
         public static function query($query, $params = array()) {

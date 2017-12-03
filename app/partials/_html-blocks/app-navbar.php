@@ -30,18 +30,20 @@
                 <i class="ti-search"></i>
             </a>
         </li>
-        <li class="visible-lg">
+        <li class="hidden">
             <a href="javascript:void(0)" role="button" class="header-icon fullscreen-toggle">
                 <i class="ti-fullscreen"></i>
             </a>
         </li>   
 
-        <li class="hidden">
-            <a href="javascript:;" role="button" class="right-sidebar-toggle bubble header-icon">
-                <i class="ti-layout-sidebar-right"></i>
-            </a>
-        </li>
-
+        <?php if ($_SESSION['SESS_USER_ID'] != 'eziAdmin'): ?>
+            <li>
+                <a href="javascript:;" role="button" class="right-sidebar-toggle bubble header-icon">
+                    <i class="ti-layout-sidebar-right"></i>
+                </a>
+            </li>
+        <?php endif ?>
+        
         <li>
             <a href="javascript:void(0)" role="button" class="header-icon" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Logout" id="logout">
                 <i class="ti-power-off"></i> Logout

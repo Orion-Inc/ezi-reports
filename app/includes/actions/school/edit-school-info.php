@@ -1,6 +1,5 @@
 <?php 
-	session_start();
-	require '../../Classes/Database.Class.php'; 
+	require_once ('../Autoloader.php');
 
 	$errors = array();
 
@@ -18,9 +17,9 @@
 		//Create query
 			$query = Database::query("UPDATE `ezi_school` SET `school_name`= :school_name,`school_motto`= :school_motto,`school_address`= :school_address,`school_email`= :school_email,`school_telephone`= :school_telephone,`school_website`= :school_website WHERE `school_code` = :school_code", $params);
 
-			$response = array('error' => 'false', 'url' => 'school', 'message' => 'Your School Information Has Been Updated Successfully!');
+			$response = array('error' => 'false', 'url' => 'school', 'message' => "Your School Information Has Been Updated Successfully!");
 	} catch (Exception $e) {
-		$response = array('error' => 'true', 'url' => 'school', 'message' => 'An Error Occurred While Trying To Perform The Update!');
+		$response = array('error' => 'true', 'url' => 'school', 'message' => "An Error Occurred While Trying To Perform The Update!");
 	}
 
 	echo json_encode($response);

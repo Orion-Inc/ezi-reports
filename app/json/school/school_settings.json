@@ -1,0 +1,42 @@
+{
+	"term": [
+  		{
+    		"value": "1st Term",
+    		"name": "1st Term"
+  		},
+  		{
+    		"value": "2nd Term",
+    		"name": "2nd Term"
+  		},
+  		{
+    		"value": "3rd Term",
+    		"name": "3rd Term"
+  		},
+  		{
+    		"value": "Vacation",
+    		"name": "Vacation"
+  		}
+	],
+  "titles": [
+      {
+        "value": "Mr.",
+        "name": "Mr."
+      },
+      {
+        "value": "Mrs.",
+        "name": "Mrs."
+      },
+      {
+        "value": "Ms.",
+        "name": "Ms."
+      },
+      {
+        "value": "Dr.",
+        "name": "Dr."
+      },
+      {
+        "value": "Prof.",
+        "name": "Prof."
+      }
+  ]
+}

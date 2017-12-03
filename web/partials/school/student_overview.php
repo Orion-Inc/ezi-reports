@@ -6,6 +6,10 @@
 <table class="table">
     <tbody>
         <tr>
+            <td>SCHOOL:</td>
+            <td><?php App::show($student['school_code']);?></td>
+        </tr>
+        <tr>
             <td>STUDENT CODE:</td>
             <td><?php App::show($student['student_code']);?></td>
         </tr>
@@ -16,9 +20,9 @@
         <tr>
             <td>PROGRAM OF STUDY:</td>
             <td>
-                <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Course Description" data-placement="bottom" data-content='<?php App::show(Course::getCourse($student_details['course'],'course_description'));?>'>
+                <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Course Description" data-placement="bottom" data-content='<?php App::show(Course::getCourse($student_details['student_course'],'course_description'));?>'>
                 <?php 
-                    App::show(Course::getCourse($student_details['course'],'course_name'));
+                    App::show(Course::getCourse($student_details['student_course'],'course_name'));
                 ?>
                 </a>
                 <a href="#" data-toggle="modal" data-target="#subjects-modal" aria-expanded="false" aria-controls="subjects-modal">
@@ -28,15 +32,15 @@
         </tr>
         <tr>
             <td>CLASS:</td>
-            <td><?php App::show($student_details['class']);?></td>
+            <td><?php App::show($student_details['student_class']);?></td>
         </tr>
         <tr>
             <td>STATUS:</td>
-            <td><?php App::show(ucwords($student_details['status']));?></td>
+            <td><?php App::show(ucwords($student_details['student_status']));?></td>
         </tr>
         <tr>
             <td>HOUSE:</td>
-            <td><?php App::show($student_details['house']);?></td>
+            <td><?php App::show($student_details['student_house']);?></td>
         </tr>
     </tbody>
 </table>
