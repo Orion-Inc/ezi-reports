@@ -220,7 +220,7 @@
                             </form>
                         </div>
                         <div id="bulk-student" role="tabpanel" aria-labelledby="bulk-student-tab" class="tab-pane fade">
-                            <form class="app-bulk-form" method="POST" action="../includes/actions/student/add-new-student-bulk.php" id="new-student-bulk">
+                            <form class="app-bulk-form" method="POST" action="../includes/actions/student/add-new-student-bulk.php" id="new-student-bulk" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <div class="">
                                         <input id="bulk_student_file" name="bulk_student_file" type="file" data-allowed-file-extensions="[&quot;csv&quot;]" class="file file-loading">

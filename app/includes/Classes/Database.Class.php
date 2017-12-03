@@ -6,8 +6,8 @@
 	{
 		private static $server = "localhost";
 		private static $dbName = "ezi_reports";
-		private static $username = "faridibin";
-		private static $password = "hamzazara";
+		private static $username = "root";
+		private static $password = "";
 		
 
         public static function connect() {

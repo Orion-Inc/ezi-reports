@@ -1,18 +1,5 @@
-<?php
-    require_once ('../Autoloader.php');
-    $transact = Database::connect();
-    
-    
-	$errors = array();
 
-    if(!empty($_FILES['bulk_student_file']['name']))
-    {
-        $handle = fopen($_FILES['bulk_student_file']['tmp_name'],"r");
-        $count = 0;
-
-        while(($data = fgetcsv($handle,50000,",")) !== FALSE){
-
-            $studentParams = array( 
+$studentParams = array( 
                 'student_code' => $data[0],
                 'student_name' => $data[1],
                 'school_code' => $_SESSION['SESS_USER_ID']
@@ -94,18 +81,3 @@
                     $errors[] = $e->getMessage();
                     $response = array('error' => 'true', 'error_msg' => $errors[0], 'url' => 'student', 'message' => "An Error Occurred While Trying To Create Student.");
                 }
-             
-            $count++;
-            }
-                
-            fclose($handle);
-    }
-    else{
-
-        echo "Error2";
-    }
-
-
-
-
-?>
