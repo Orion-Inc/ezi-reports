@@ -1,4 +1,4 @@
-<aside data-mcs-theme="minimal-dark" class="main-sidebar mCustomScrollbar">
+<aside data-mcs-theme="minimal-dark" class="main-sidebar mCustomScrollbar animated fadeIn">
     <div class="user">
         <div id="app-school-crest" data-percent="100" style="height: 104px; width: 104px; line-height: 80px; padding: 12px;" class="easy-pie-chart">
             <?php if ($_SESSION['SESS_USER_ID'] != 'eziAdmin'): ?>
@@ -11,12 +11,20 @@
                 <span class="status bg-primary"></span>
             <?php endif ?>
         </div>
-        <h4 class="fs-14 text-muted mt-15 mb-5 fw-300">
-            <?php App::show($_SESSION['SESS_SCHOOL_NAME']);?>
-        </h4>
-        <p class="fs-13 mb-0 text-muted">
-            <?php App::show($_SESSION['SESS_USER_ID']);?>
-        </p>
+
+        <?php if ($_SESSION['SESS_USER_ID'] != 'eziAdmin'): ?>
+            <h4 class="fs-14 text-muted mt-15 mb-5 fw-300">
+                <?php App::show($_SESSION['SESS_SCHOOL_NAME']);?>
+            </h4>
+            <p class="fs-13 mb-0 text-muted">
+                <?php App::show($_SESSION['SESS_USER_ID']);?>
+            </p>
+        <?php endif ?>
+
+        <?php if ($_SESSION['SESS_USER_ID'] == 'eziAdmin'): ?>
+            
+        <?php endif ?>
+        
     </div>
 
     <?php if ($_SESSION['SESS_USER_ID'] != 'eziAdmin'): ?>

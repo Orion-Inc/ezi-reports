@@ -250,15 +250,6 @@ $(document).ready(function() {
         /*var datepicker = modal.find('#student_dob').datepicker({
         	orientation: "bottom auto"
         });*/  
-    });
-
-    $('#edit-student-modal').on('shown.bs.modal', function (e) {
-        var modal = $(this);
-        var url = modal.attr('data-fetch');
-
-        var button = $(e.relatedTarget);
-        var student_code = button.data('student');
-        modal.find('#student_code').val(student_code);
 
         $.ajax({
             url:url,
@@ -282,7 +273,7 @@ $(document).ready(function() {
                     });
                 }
             }
-        }); 
+        });
     });
 
 

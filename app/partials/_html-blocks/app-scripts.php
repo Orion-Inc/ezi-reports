@@ -46,5 +46,13 @@
     <!-- jQuery Steps-->
     <script type="text/javascript" src="../plugins/jquery.steps/build/jquery.steps.min.js"></script>
     
-    <!-- Custom JS-->
-    <script type="text/javascript" src="../build/js/app/app.js"></script>
+    <?php if ($_SESSION['SESS_USER_ID'] != 'eziAdmin'): ?>
+        <!-- Custom JS-->
+        <script type="text/javascript" src="../build/js/app/app.js"></script>
+    <?php endif ?>
+
+    <?php if ($_SESSION['SESS_USER_ID'] == 'eziAdmin'): ?>
+        <!-- Custom JS-->
+        <script type="text/javascript" src="../build/js/app/admin-app.js"></script>
+    <?php endif ?>
+    

@@ -39,11 +39,11 @@
     <body style="background-image: url('../assets/images/doodle.png')" class="body-bg-full">
         <?php if (isset($_GET['login'])): ?>
             <?php App::ViewPartial('login','auth-forms')?>
+        <?php elseif (isset($_GET['admin-login'])): ?>
+            <?php App::ViewPartial('admin-login','auth-forms')?>
         <?php else: ?>
-            <?php if (isset($_GET['lock']) && $_GET['token']!=false): ?>
-                <?php App::ViewPartial('lock-screen','auth-forms')?>          
-            <?php else: ?> 
-
+            <?php if (isset($_GET['lock']) && $_GET['token']!=NULL): ?>
+                <?php App::ViewPartial('lock-screen','auth-forms')?>  
             <?php endif ?>
 
             <?php if (isset($_GET['forgot'])): ?>
@@ -63,7 +63,7 @@
             <script type="text/javascript" src="../plugins/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
             <!-- jQuery Validation-->
             
-            <?php if (isset($_GET['login'])): ?>
+            <?php if (isset($_GET['login']) || isset($_GET['admin-login'])): ?>
             <script type="text/javascript" src="../build/js/page-content/auth-pages/login.js"></script>
             <?php endif ?>
             <?php if (isset($_GET['lock']) && $_GET['token']!=false): ?>
