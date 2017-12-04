@@ -1,18 +1,18 @@
 <aside data-mcs-theme="minimal-dark" class="main-sidebar mCustomScrollbar animated fadeIn">
     <div class="user">
         <div id="app-school-crest" data-percent="100" style="height: 104px; width: 104px; line-height: 80px; padding: 12px;" class="easy-pie-chart">
-            <?php if ($_SESSION['SESS_USER_ID'] != 'eziAdmin'): ?>
+            <?php if ($_SESSION['SESS_USER_TYP'] == 'school'): ?>
                 <img src="<?php School::getSchoolCrest($_SESSION['SESS_USER_ID'])?>" alt="" class="avatar img-circle">
                 <span class="hidden status bg-primary"></span>
             <?php endif ?>
 
-            <?php if ($_SESSION['SESS_USER_ID'] == 'eziAdmin'): ?>
+            <?php if ($_SESSION['SESS_USER_TYP'] == 'eziAdmin'): ?>
                 <img src="" alt="" class="avatar img-circle">
                 <span class="status bg-primary"></span>
             <?php endif ?>
         </div>
 
-        <?php if ($_SESSION['SESS_USER_ID'] != 'eziAdmin'): ?>
+        <?php if ($_SESSION['SESS_USER_TYP'] == 'school'): ?>
             <h4 class="fs-14 text-muted mt-15 mb-5 fw-300">
                 <?php App::show($_SESSION['SESS_SCHOOL_NAME']);?>
             </h4>
@@ -21,13 +21,18 @@
             </p>
         <?php endif ?>
 
-        <?php if ($_SESSION['SESS_USER_ID'] == 'eziAdmin'): ?>
-            
+        <?php if ($_SESSION['SESS_USER_TYP'] == 'eziAdmin'): ?>
+            <h4 class="fs-14 text-muted mt-15 mb-5 fw-300">
+                Administrator
+            </h4>
+            <p class="fs-13 mb-0 text-muted">
+                eziAdmin
+            </p>
         <?php endif ?>
         
     </div>
 
-    <?php if ($_SESSION['SESS_USER_ID'] != 'eziAdmin'): ?>
+    <?php if ($_SESSION['SESS_USER_TYP'] == 'school'): ?>
         <ul class="list-unstyled navigation mb-0">
             <li>
                 <a href="javascript:page('dashboard')" class="bubble">
@@ -57,7 +62,7 @@
         </ul>
     <?php endif ?>
 
-    <?php if ($_SESSION['SESS_USER_ID'] == 'eziAdmin'): ?>
+    <?php if ($_SESSION['SESS_USER_TYP'] == 'eziAdmin'): ?>
         <ul class="list-unstyled navigation mb-0">
             <li>
                 <a href="javascript:page('admin-dashboard')" class="bubble">

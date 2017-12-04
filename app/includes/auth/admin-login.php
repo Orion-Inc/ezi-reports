@@ -6,7 +6,7 @@
 
 
 	$_SESSION['SESS_IS_AUTH'] = true;
-	$_SESSION['SESS_USER_ID'] = 'eziAdmin';
+	$_SESSION['SESS_USER_TYP'] = 'eziAdmin';
 	
 
 	$response = array('error' => 'false', 'url' => '../admin/');

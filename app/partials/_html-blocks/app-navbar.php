@@ -36,7 +36,7 @@
             </a>
         </li>   
 
-        <?php if ($_SESSION['SESS_USER_ID'] != 'eziAdmin'): ?>
+        <?php if ($_SESSION['SESS_USER_TYP'] == 'school'): ?>
             <li>
                 <a href="javascript:;" role="button" class="right-sidebar-toggle bubble header-icon">
                     <i class="ti-layout-sidebar-right"></i>

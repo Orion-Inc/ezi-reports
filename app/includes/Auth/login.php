@@ -42,6 +42,7 @@
 				$query = Database::query("UPDATE `ezi_school_access_key` SET `token`= :token WHERE `school_code` = :school_code", $params);
 
 				$_SESSION['SESS_IS_AUTH'] = true;
+				$_SESSION['SESS_USER_TYP'] = 'school';
 				$_SESSION['SESS_USER_ID'] = School::getSchool($school_code,'school_code');
 				$_SESSION['SESS_SCHOOL_PREFIX'] = School::getSchool($school_code,'school_prefix');
 				$_SESSION['SESS_SCHOOL_NAME'] = School::getSchool($school_code,'school_name');
