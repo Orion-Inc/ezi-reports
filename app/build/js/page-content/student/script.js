@@ -350,6 +350,36 @@ $(document).ready(function() {
         });
         return false;
     });
+
+    $("#new-student-bulk").unbind('submit').bind('submit', function(){
+        var form = $(this);
+        var data = form.serialize();
+        var url = form.attr('action');
+        var modal = $('#add-student-progress-modal');
+
+        $.ajax( {
+            url: url,
+            dataType:'json',
+            type: 'POST',
+            data: new FormData(form[0]),
+            processData: false,
+            contentType: false,
+            beforeSend:function () {
+                $('.modal').modal('hide');
+                modal.modal('show');
+            },
+            success:function(data){
+                if (data.error != 'false') {
+                    modal.find('.modal-body').html('<p>'+data.message+'</p>');
+                }else{
+                    
+                }
+            }
+        });
+        return false;
+    });
+
+    
 });
 
 function deleteStudent(student_code,student_name) {

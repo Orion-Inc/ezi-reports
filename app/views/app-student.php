@@ -64,6 +64,7 @@
 <?php 
     App::ViewPartial('view-student','modals/student');
     App::ViewPartial('add-student','modals/student');
+    App::ViewPartial('add-student-progress','modals/student');
     App::ViewPartial('edit-student','modals/student');
 ?>
 <!-- Bootstrap File Input-->
