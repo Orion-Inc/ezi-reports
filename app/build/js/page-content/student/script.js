@@ -372,7 +372,11 @@ $(document).ready(function() {
                 if (data.error != 'false') {
                     modal.find('.modal-body').html('<p>'+data.message+'</p>');
                 }else{
-                    
+                    if (data.is_done == 'true') {
+                        
+                    }else{
+                        
+                    }
                 }
             }
         });
