@@ -29,6 +29,7 @@
 
 		$file = fopen($csv,"r");
 		$count = count(file($csv, FILE_SKIP_EMPTY_LINES));
+		$i = 0;
 
 		while (!feof($file)) {
 			$data = fgetcsv($file);
@@ -118,7 +119,10 @@
 				$errors[] = $e->getMessage();
 				$response = array('error' => 'true', 'error_msg' => $errors[0], 'url' => 'student', 'message' => "An Error Occurred While Trying To Create Bulk Entry!");
 			}*/
+			$i++;
+			echo $i;
 		}
+		
 	}else{
 		$response = array('error' => 'true', 'url' => 'student', 'message' => "An Error Occurred! Please <a href=\"javascript:page('student')\" data-dismiss=\"modal\">Try again.</a>");
 	}
