@@ -372,16 +372,23 @@ $(document).ready(function() {
                 if (data.error != 'false') {
                     modal.find('.modal-body').html('<p>'+data.message+'</p>');
                 }else{
-                    if (data.is_done == 'true') {
-                        
+                    if (data.current != data.total) {
+
                     }else{
-                        
+                        modal.find('.modal-body').html('<p>Creation Completed Successfully!'+
+                            ' <a href="javascript:page(\'student\')" data-dismiss="modal">Continue.</a>'+
+                            '</p>');
                     }
                 }
             }
         });
         return false;
     });
+
+    $('#add-student-progress-modal').on('hidden.bs.modal', function (e) {
+        studentsTable.ajax.reload( null, false );
+    });
+    
 
     
 });

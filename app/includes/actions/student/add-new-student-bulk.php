@@ -120,7 +120,7 @@
 				$response = array('error' => 'true', 'error_msg' => $errors[0], 'url' => 'student', 'message' => "An Error Occurred While Trying To Create Bulk Entry!");
 			}*/
 			$i++;
-			echo $i;
+			$response = array('error' => 'false', 'total' => $count, 'current' => $i);
 		}
 		
 	}else{
@@ -128,6 +128,6 @@
 	}
 
 
-	//echo json_encode($response);
+	echo json_encode($response);
 
 ?>
