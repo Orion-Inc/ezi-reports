@@ -43,6 +43,8 @@
     <link rel="stylesheet" type="text/css" href="../plugins/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css">
     <!-- Bootstrap File Input-->
     <link rel="stylesheet" type="text/css" href="../plugins/bootstrap-fileinput/css/fileinput.min.css">
+    <!-- Select2-->
+    <link rel="stylesheet" type="text/css" href="../plugins/select2/dist/css/select2.min.css" rel="stylesheet" />
     <!-- Primary Style-->
     <link rel="stylesheet" type="text/css" href="../build/css/app-layout.css">
     <link rel="stylesheet" type="text/css" href="../build/css/skins/blue-skin.css">

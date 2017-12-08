@@ -3,7 +3,7 @@
 	$transact = Database::connect();
 
 	$errors = array();
-
+/*
 	$classParams = array( 
 		'class_code' => stripslashes($_POST['class_code']),
 		'class_name' => stripslashes($_POST['class_name']),
@@ -40,5 +40,6 @@
 	}
 
 	echo json_encode($response);
+*/
 ?>
 

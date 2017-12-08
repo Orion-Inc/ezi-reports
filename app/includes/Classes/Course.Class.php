@@ -32,6 +32,18 @@
 			}
 		}
 
+		private function getSubjects($course_code)
+		{
+			$subjects = self::query("SELECT `subject_code`,`subject_name` FROM `ezi_subjects` WHERE `course_code` = '{$course_code}'");
+			if (empty($subjects[0])) {
+				return false;
+			}else{
+				return $subjects;
+			}
+		}
 
+		public function get($function,$arg) {
+	      	return $this->$function($arg);
+	    }
 	}
 ?>

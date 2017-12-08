@@ -59,8 +59,6 @@
                 'guardian_telephone' => $data[10]
             );
 
-
-/*
 			$transact->beginTransaction();
 
 			try {
@@ -118,7 +116,7 @@
 				$transact->rollBack();
 				$errors[] = $e->getMessage();
 				$response = array('error' => 'true', 'error_msg' => $errors[0], 'url' => 'student', 'message' => "An Error Occurred While Trying To Create Bulk Entry!");
-			}*/
+			}
 			$i++;
 			$response = array('error' => 'false', 'total' => $count, 'current' => $i);
 		}

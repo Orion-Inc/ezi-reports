@@ -41,7 +41,11 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Class Subjects</label>
-                                
+                                <select name="class_subjects[]" class="form-control input-sm" id="class_subjects" multiple="multiple" style="width: 100%">
+                                    <optgroup label="Select Course First">
+                                        
+                                    </optgroup>
+                                </select>
                             </div>
                         </div>
                     </div>

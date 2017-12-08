@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                <h4 id="view-class-subjects-label" class="modal-title"></h4>
+                <h4 id="view-class-subjects-label" class="modal-title">Class Subjects</h4>
             </div>
             <div class="modal-body">
                 

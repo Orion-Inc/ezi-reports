@@ -1,4 +1,4 @@
-$(document).ready(function() {		
+$(document).ready(function() {	
 	var studentsTable =  $('#all-students').DataTable({
         ajax:'../includes/actions/student/get-students.php',
         //select:{style:"os"},
@@ -152,7 +152,7 @@ $(document).ready(function() {
 	        });
     	});  
     });
-
+    $('#add-student-modal').modal('handleUpdate');
 
     $('#view-student-modal').on('shown.bs.modal', function (e) {
         var modal = $(this);
@@ -275,6 +275,7 @@ $(document).ready(function() {
             }
         });
     });
+    $('#edit-student-modal').modal('handleUpdate');
 
 
 	$(".app-form").unbind('submit').bind('submit', function(){
@@ -368,16 +369,27 @@ $(document).ready(function() {
                 $('.modal').modal('hide');
                 modal.modal('show');
             },
+            progress:function(){
+                modal.find('.modal-body').html(
+                    '<p>Please Wait...(<span id="current">0</span> out of <span id="total">0</span>)</p>'+
+                    '<div class="progress progress-striped progress-sm active hidden">'+
+                        '<div role="progressbar" data-transitiongoal="25" class="progress-bar progress-bar-striped"></div>'+
+                    '</div>'
+                );
+            },
             success:function(data){
                 if (data.error != 'false') {
                     modal.find('.modal-body').html('<p>'+data.message+'</p>');
                 }else{
                     if (data.current != data.total) {
-
+                        modal.find('.modal-body').find('#current').html(data.current);
+                        modal.find('.modal-body').find('#total').html(data.total);
                     }else{
-                        modal.find('.modal-body').html('<p>Creation Completed Successfully!'+
-                            ' <a href="javascript:page(\'student\')" data-dismiss="modal">Continue.</a>'+
-                            '</p>');
+                        modal.find('.modal-body').html(
+                            '<p>Creation Completed Successfully!'+
+                            '<p><span id="current">'+data.current+'</span> out of <span id="total">'+data.total+'</span></p>'+
+                            '<p><a href="javascript:page(\'student\')" data-dismiss="modal">Continue.</a></p>'
+                        );
                     }
                 }
             }
@@ -406,7 +418,7 @@ function deleteStudent(student_code,student_name) {
 		closeOnConfirm:!1
 	},function(){
 		$.ajax({
-            url:'../includes//actions/student/delete-student.php',
+            url:'../includes/actions/student/delete-student.php',
             dataType:'json',
             type:'POST',
             data:{student_code:student_code},

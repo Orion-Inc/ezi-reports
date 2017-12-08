@@ -46,6 +46,8 @@
 <!-- Bootstrap File Input-->
 <script type="text/javascript" src="../plugins/bootstrap-fileinput/js/plugins/canvas-to-blob.min.js"></script>
 <script type="text/javascript" src="../plugins/bootstrap-fileinput/js/fileinput.min.js"></script>
+<!-- Select2-->
+<script type="text/javascript" src="../plugins/select2/dist/js/select2.min.js"></script>
 <!-- Custom Script -->
 <script type="text/javascript" src="../build/js/page-content/class/script.js"></script>
 

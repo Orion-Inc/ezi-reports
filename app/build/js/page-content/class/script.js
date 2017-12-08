@@ -97,7 +97,30 @@ $(document).ready(function() {
                 modal.find("#class_code").val("");
                 alert('Enter Class Name!');
             }
-        });  
+        }); 
+
+        modal.find('#class_subjects').select2({
+            placeholder: 'Select Class Subjects'
+        });
+
+        modal.find('#class_course').on('change', function (e){
+            var course = $(this).val();
+            var url = "../includes/actions/subject/get-class-subjects.php";
+
+            if (school_type != "basic") {
+                url = url+"?school_type=secondary"+"&course_code="+course;
+            } else {
+                url = url+"?school_type=basic"+"&course_code="+course;
+            }
+
+            modal.find('#class_subjects').select2({
+                placeholder: 'Select Class Subjects',
+                ajax: {
+                    url: url,
+                    dataType: 'json'
+                }
+            });
+        }); 
     });
 
     $('#add-class-modal').on('hidden.bs.modal', function (e) {
@@ -174,6 +197,23 @@ $(document).ready(function() {
                 }
             }
         });
+
+        var course = modal.find("#class_course").val();
+        var source = "../includes/actions/subject/get-class-subjects.php";
+
+        if (school_type != "basic") {
+            source = source+"?school_type=secondary"+"&class_code="+class_code+"&course_code="+course;
+        } else {
+            source = source+"?school_type=basic"+"&class_code="+class_code+"&course_code="+course;
+        }
+
+        modal.find('#class_subjects').select2({
+            placeholder: 'Select Class Subjects',
+            ajax: {
+                url: source,
+                dataType: 'json'
+            }
+        });
     });
 
     $('#edit-class-modal').on('hidden.bs.modal', function (e) {
@@ -220,7 +260,7 @@ function deleteClass(class_code,class_name) {
         closeOnConfirm:!1
     },function(){
         $.ajax({
-            url:'../includes//actions/class/delete-class.php',
+            url:'../includes/actions/class/delete-class.php',
             dataType:'json',
             type:'POST',
             data:{class_code:class_code},
