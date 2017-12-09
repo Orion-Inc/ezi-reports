@@ -42,6 +42,24 @@
 			}
 		}
 
+		public static function getClassSujects($class_code)
+		{
+			$subjects = self::query("SELECT `class_subjects` FROM `ezi_school_class_subject` WHERE `class_code` = '{$class_code}'");
+			if (empty($subjects[0])) {
+				return false;
+			}else{
+				$subjectArray = explode(",", $subjects[0]['class_subjects']);
+				$subjectData = array();
+
+				foreach ($subjectArray as $subject_code) {
+					$subjects = self::query("SELECT `subject_code`,`subject_name` FROM `ezi_subjects` WHERE `subject_code` = '{$subject_code}'");
+					$subjectData[] = array('subject_code' => $subjects[0]['subject_code'], 'subject_name' => $subjects[0]['subject_name']); 
+				}
+
+				return $subjectData;	
+			}
+		}
+
 		public function get($function,$arg) {
 	      	return $this->$function($arg);
 	    }

@@ -6,7 +6,7 @@
                 <h4 id="view-class-label" class="modal-title"></h4>
             </div>
             <div class="modal-body">
-                
+                <div class="text-center"><img src="../assets/images/loading.gif" width="64px" height="64px"/></div>
             </div>
         </div>
     </div>

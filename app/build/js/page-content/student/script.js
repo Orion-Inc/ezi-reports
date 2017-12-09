@@ -47,7 +47,7 @@ $(document).ready(function() {
 
     $("#all-students_length").append(
         '<a href="#" style="margin-left:10px;" data-toggle="modal" data-target="#add-student-modal">'+
-            '<span class="hidden-xs">Create </span>New<span class="hidden-xs"> Student</span>'+
+            '<span class="hidden-xs">Create </span>New<span class="hidden-xs hidden-sm"> Student</span>'+
         '</a>'
     );
 

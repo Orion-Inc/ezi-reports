@@ -3,7 +3,8 @@
 	$transact = Database::connect();
 
 	$errors = array();
-/*
+	$classSubjects = $_POST['class_subjects'];
+
 	$classParams = array( 
 		'class_code' => stripslashes($_POST['class_code']),
 		'class_name' => stripslashes($_POST['class_name']),
@@ -12,10 +13,16 @@
 		'school_code' => $_SESSION['SESS_USER_ID']
 	);
 
+	$classSubjectsParams = array( 
+		'class_code' => stripslashes($_POST['class_code']),
+		'class_subjects' => addslashes(implode(",", $classSubjects))
+	);
+
+
 	$transact->beginTransaction();
 
 	try {
-		$updateClass = Database::query("INSERT INTO `ezi_school_class`(
+		$addClass = Database::query("INSERT INTO `ezi_school_class`(
 			`class_code`, 
 			`class_name`, 
 			`class_teacher`, 
@@ -30,6 +37,17 @@
 			)", 
 			$classParams
 		);
+		
+		$addClassSubjects = Database::query("INSERT INTO `ezi_school_class_subject`(
+			`class_code`, 
+			`class_subjects`) 
+			VALUES (
+			:class_code,
+			:class_subjects
+			)", 
+			$classSubjectsParams
+		);
+
 
 		$transact->commit();
 		$response = array('error' => 'false', 'url' => 'class', 'message' => "Class Created Successfully!");
@@ -40,6 +58,6 @@
 	}
 
 	echo json_encode($response);
-*/
+
 ?>
 

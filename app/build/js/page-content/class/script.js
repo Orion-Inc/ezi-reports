@@ -47,7 +47,7 @@ $(document).ready(function() {
 */
     $("#all-classes_length").append(
         '<a href="#" style="margin-left:10px;" data-toggle="modal" data-target="#add-class-modal">'+
-            '<span class="hidden-xs">Create </span>New<span class="hidden-xs"> Class</span>'+
+            '<span class="hidden-xs">Create </span>New<span class="hidden-xs hidden-sm"> Class</span>'+
         '</a>'
     );
 
@@ -150,6 +150,33 @@ $(document).ready(function() {
                         '</div>');
                 }else{
                     modal.find('.modal-body').html(data.class);
+                }
+            }
+        });
+    });
+
+    $('#view-class-subjects-modal').on('shown.bs.modal', function (e) {
+        var modal = $(this);
+        var url = $(this).attr('data-subjects');
+        var button = $(e.relatedTarget);
+        var class_code = button.data('class');
+
+        modal.find('.modal-title').html('<i class="ti-blackboard"></i> Class Subjects');
+        modal.find('.modal-body').html('<div class="text-center"><img src="../assets/images/loading.gif" width="64px" height="64px"/></div>');
+        $.ajax({
+            url:url,
+            dataType:'json',
+            type:'POST',
+            data:{class_code:class_code},
+            success:function (data) {
+                if (data.error != 'false') {
+                    modal.find('.modal-body').html(
+                        '<div class="fadeIn animated">'+
+                            '<p>'+data.message+'</p>'+
+                            '<p><a href="#" data-dismiss="modal">Try Again</a></p>'+
+                        '</div>');
+                }else{
+                    modal.find('.modal-body').html(data.subjects);
                 }
             }
         });

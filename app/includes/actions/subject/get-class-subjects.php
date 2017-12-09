@@ -22,9 +22,9 @@
 			if (!empty($subjects)) {
 				foreach ($subjects as $subject) {
 					$subjectArray[] = array(
-						'id' => utf8_encode($i),
+						'id' => utf8_encode($subject['subject_code']),
 						'text' => utf8_encode($subject['subject_name']),
-						'value' => utf8_encode($subject['subject_code'])
+						'value' => utf8_encode($i)
 					);
 					
 					$i++;

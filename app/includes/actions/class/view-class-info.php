@@ -40,11 +40,25 @@
 	                            <td><strong>'.$noEnrolled.'</strong></td>
 	                        </tr>';
 
+
+	        $subjectArray = Course::getClassSujects($class_code,'class_code');
+			$subjectList = "";
+			$coreSubjects = "";
+
+			foreach ($subjectArray as $subject) {
+				$subjectList .= "<li><a href=\"#\" data-subjectCode=\"".$subject['subject_code']."\">".$subject['subject_name']."</a></li>";
+			}
+
 			$subjects = '
 							<tr>
-                                <td colspan="1">Class Subjects:</td>
-                                <td><strong> </strong></td>
-                            </tr>';
+                                <td colspan="2">Class Subjects</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">'
+                                ."<ol>".$subjectList."</ol>".
+                                '</td>
+                            </tr>
+                        ';
 
 
 		    $tableHeader = '<table class="table table-borderless table-condensed animated fadeIn"><tbody>';
@@ -59,14 +73,14 @@
 			
 			$response = array(
 				'error' => 'false', 
-				'url' => 'school', 
+				'url' => 'class', 
 				'class' => $class_details
 			);
 		}else{
-
+			$response = array('error' => 'false', 'url' => 'class', 'class' => "<strong>Not Available.</strong>");
 		}	
 	} catch (Exception $e) {
-		$response = array('error' => 'true', 'url' => 'school', 'message' => "An Error Occurred While Trying To Retrieve Class Information!");
+		$response = array('error' => 'true', 'url' => 'class', 'message' => "An Error Occurred While Trying To Retrieve Class Information!");
 	}
 
 	
