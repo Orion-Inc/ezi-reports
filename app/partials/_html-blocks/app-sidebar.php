@@ -36,7 +36,7 @@
         <ul class="list-unstyled navigation mb-0">
             <li>
                 <a href="javascript:page('dashboard')" class="bubble">
-                    <i class="ion-speedometer"></i> Dashboard
+                    <i class="ti-dashboard"></i> Dashboard
                 </a>
             </li>
             <li class="panel">
@@ -66,7 +66,7 @@
         <ul class="list-unstyled navigation mb-0">
             <li>
                 <a href="javascript:page('admin-dashboard')" class="bubble">
-                    <i class="ion-speedometer"></i> Dashboard
+                    <i class="ti-dashboard"></i> Dashboard
                 </a>
             </li>
             <li class="panel">
@@ -79,7 +79,7 @@
             </li>
             <li>
                 <a href="javascript:page('admin-subjects')" class="bubble">
-                    <i class="ti-wallet"></i> Subjects
+                    <i class="ti-book"></i> Subjects
                 </a>
             </li>
             <li>
