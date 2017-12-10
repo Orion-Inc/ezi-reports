@@ -11,6 +11,15 @@
 		'class_teacher' => stripslashes($_POST['class_teacher'])
 	);
 
+	if (isset($_POST['class_subjects'])) {
+		$classSubjects = $_POST['class_subjects'];
+
+		$classSubjectsParams = array( 
+			'class_code' => stripslashes($_POST['class_code']),
+			'class_subjects' => addslashes(implode(",", $classSubjects))
+		);
+	}
+	
 	$transact->beginTransaction();
 
 	try {
@@ -22,6 +31,15 @@
 			`class_code`=:class_code", 
 			$classParams
 		);
+
+		if (isset($classSubjects)) {
+			$updateClassSubjects = Database::query("UPDATE `ezi_school_class_subject` SET 
+				`class_subjects`=:class_subjects
+				WHERE 
+				`class_code`=:class_code", 
+				$classSubjectsParams
+			);
+		}
 
 		$transact->commit();
 		$response = array('error' => 'false', 'url' => 'class', 'message' => "Class Details Updated Successfully!");

@@ -7,6 +7,7 @@ $(document).ready(function() {
         scrollCollapse:true,
         columnDefs: [
             {
+                width:"15%",
                 orderable: false,
                 targets: 8
             },

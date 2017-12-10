@@ -197,7 +197,7 @@ $(document).ready(function() {
             type:'POST',
             data:{school_type:school_type},
             success:function(data){
-                var options = '<option value="" selected="" disabled="">Select Course</option>';
+                var options = '<option value="" disabled="">Select Course</option>';
                 $.each(data.array, function(key, val){
                     options += '<option value="'+val.value+'">'+val.name+'</option>';
                 });
@@ -224,8 +224,13 @@ $(document).ready(function() {
                 }
             }
         });
+    });
 
-        var course = modal.find("#class_course").val();
+    $('#edit-class-modal').on('shown.bs.modal', function (e) {
+        var modal = $(this);
+        var school_type = modal.attr('data-school');
+        var class_code = modal.find('#class_code').val();
+
         var source = "../includes/actions/subject/get-class-subjects.php";
 
         if (school_type != "basic") {
@@ -234,13 +239,15 @@ $(document).ready(function() {
             source = source+"?school_type=basic"+"&class_code="+class_code;
         }
 
-        var user_ids = ['SUB001'];
+        $.ajax({
+            url:source+"&selected=list",
+            dataType:'json',
+            success:function(data){
+                modal.find('#subject-list').html(data.subject_list);
+            }
+        });
 
         modal.find('#class_subjects').select2({
-            initSelection : function (callback) {
-                var elementText = user_ids;
-                callback(JSON.parse(elementText));
-            },
             placeholder: 'Select Class Subjects',
             ajax: {
                 url: source,
@@ -248,8 +255,17 @@ $(document).ready(function() {
             }
         });
 
-        
-        //modal.find('#class_subjects').val(user_ids);
+        modal.find('#edit-subjects').on('click', function (e) {
+            modal.find('#cancel-subjects-div').addClass("hidden");
+            modal.find('#edit-subjects-div').removeClass("hidden");
+        });
+
+        modal.find('#cancel-edit').on('click', function (e) {
+            modal.find('#edit-subjects-div').addClass("hidden");
+            modal.find('#cancel-subjects-div').removeClass("hidden");
+
+            modal.find('#class_subjects').val(null).trigger('change');
+        });
     });
 
     $('#edit-class-modal').on('hidden.bs.modal', function (e) {

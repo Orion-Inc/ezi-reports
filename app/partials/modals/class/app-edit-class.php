@@ -39,9 +39,16 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="form-group">
-                                <label>Class Subjects</label>
-                                <select name="class_subjects[]" class="form-control input-sm" id="class_subjects" multiple="multiple" style="width: 100%">
+                            <div class="form-group" id="cancel-subjects-div">
+                                <label>
+                                    Class Subjects <a href="javascript:void(0)" id="edit-subjects"><small><i class="ti-pencil-alt"></i> Edit Subjects</small></a>
+                                </label>
+                                <p id="subject-list"></p>
+                            </div>
+
+                            <div class="form-group hidden" id="edit-subjects-div">
+                                <label>Class Subjects <a href="javascript:void(0)" id="cancel-edit"><small><i class="ti-na"></i> Cancel</small></a></label>
+                                <select name="class_subjects[]" class="form-control input-sm" id="class_subjects" multiple="multiple" style="width: 100%;">
                                     <optgroup label="Select Course First">
                                         
                                     </optgroup>
