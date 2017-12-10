@@ -229,9 +229,9 @@ $(document).ready(function() {
         var source = "../includes/actions/subject/get-class-subjects.php";
 
         if (school_type != "basic") {
-            source = source+"?school_type=secondary"+"&class_code="+class_code+"&course_code="+course;
+            source = source+"?school_type=secondary"+"&class_code="+class_code;
         } else {
-            source = source+"?school_type=basic"+"&class_code="+class_code+"&course_code="+course;
+            source = source+"?school_type=basic"+"&class_code="+class_code;
         }
 
         modal.find('#class_subjects').select2({
