@@ -234,13 +234,22 @@ $(document).ready(function() {
             source = source+"?school_type=basic"+"&class_code="+class_code;
         }
 
+        var user_ids = ['SUB001'];
+
         modal.find('#class_subjects').select2({
+            initSelection : function (callback) {
+                var elementText = user_ids;
+                callback(JSON.parse(elementText));
+            },
             placeholder: 'Select Class Subjects',
             ajax: {
                 url: source,
                 dataType: 'json'
             }
         });
+
+        
+        //modal.find('#class_subjects').val(user_ids);
     });
 
     $('#edit-class-modal').on('hidden.bs.modal', function (e) {
