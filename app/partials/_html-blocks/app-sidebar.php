@@ -7,8 +7,14 @@
             <?php endif ?>
 
             <?php if ($_SESSION['SESS_USER_TYP'] == 'eziAdmin'): ?>
-                <img src="" alt="" class="avatar img-circle">
-                <span class="status bg-primary"></span>
+                <img src="../assets/images/users/user-profile.png" alt="" class="avatar img-circle">
+                <?php 
+                $conn = new Database();
+                if ($conn->connect()): ?>
+                    <span class="status bg-primary"></span>
+                <?php else: ?>
+                    <span class="status bg-danger"></span>
+                <?php endif ?>
             <?php endif ?>
         </div>
 
@@ -69,13 +75,10 @@
                     <i class="ti-dashboard"></i> Dashboard
                 </a>
             </li>
-            <li class="panel">
-                <a data-toggle="collapse" href="#school-list" aria-expanded="false" aria-controls="-list" class="collapsed">
-                    <i class="ti-home"></i> School
+            <li>
+               <a href="javascript:page('admin-school')" class="bubble">
+                    <i class="ti-user"></i>Schools
                 </a>
-                <ul id="school-list" class="list-unstyled collapse">
-                    <li><a href="javascript:page('admin-school')" class="bubble">School List</a></li>
-                </ul>
             </li>
             <li>
                 <a href="javascript:page('admin-subjects')" class="bubble">
@@ -85,6 +88,11 @@
             <li>
                 <a href="javascript:page('admin-reports')" class="bubble">
                     <i class="ti-files"></i> Reports
+                </a>
+            </li>
+            <li class="hidden">
+                <a href="javascript:page('admin-live-chat')" class="bubble">
+                    <i class="ti-comments"></i> Live Chat
                 </a>
             </li>
         </ul>
