@@ -11,8 +11,9 @@
 
     	try {
 			$course_code = Classes::getClass($class_code,"class_course");
-			
+
 			$subjects = $get->get("getSubjects",$course_code);
+			$selectedSubjects = Course::getClassSujects($class_code);
 			
 			$subjectArray = array();
 			
@@ -28,8 +29,7 @@
 				}
 
 				$return_arr = $subjectArray;
-				$selectedSubjects = Course::getClassSujects($class_code);
-				
+
 			}else{
 				$return_arr = array('id' => $i,'text' => 'No subjects found!');
 			}
