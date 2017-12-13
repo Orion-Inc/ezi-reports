@@ -121,18 +121,18 @@
     <script type="text/javascript" src="../plugins/Counter-Up/jquery.counterup.min.js"></script>
 <!-- jQuery Easy Pie Chart-->
     <script type="text/javascript" src="../plugins/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
-<script type="text/javascript">
+	<script type="text/javascript">
 
-	$(".counter").counterUp({delay:10,time:1e3});
+		$(".counter").counterUp({delay:10,time:1e3});
 
-	$(".easy-pie-chart").easyPieChart({
-		barColor:"#3498db",
-		trackColor:"#E6E6E6",
-		scaleColor:!1,
-		scaleLength:0,
-		lineCap:"round",
-		lineWidth:10,
-		size:140,
-		animate:{duration:2e3,enabled:!0}
-	});
-</script>
+		$(".easy-pie-chart").easyPieChart({
+			barColor:"#3498db",
+			trackColor:"#E6E6E6",
+			scaleColor:!1,
+			scaleLength:0,
+			lineCap:"round",
+			lineWidth:10,
+			size:140,
+			animate:{duration:2e3,enabled:!0}
+		});
+	</script>
