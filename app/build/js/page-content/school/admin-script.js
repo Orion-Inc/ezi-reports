@@ -29,15 +29,38 @@ $(document).ready(function() {
 */
 
     $("#all-schools_length").append(
-        '<a href="#" style="margin-left:10px;" data-toggle="modal" data-target="#add-school-modal">'+
+        '<a href="#" style="margin-left:10px;" data-toggle="modal" data-target="#admin-add-school-modal">'+
             '<span class="hidden-xs">Add </span>New<span class="hidden-xs hidden-sm"> School</span>'+
         '</a>'
     );
 
 	$('.dataTables_filter input[type=search]').attr('placeholder','Type to filter...');
 
+	$('#admin-add-school-modal').on('show.bs.modal', function (e) {
+        var modal = $(this);
 
-	$('#view-school-modal').on('shown.bs.modal', function (e) {
+        modal.find('#generateCode').on('click', function (e){
+            var school_name = modal.find("#school_name").val();
+
+            if (school_name != "") {
+                $.ajax({
+                    url: '../includes/actions/school/generateCode.php',
+                    dataType:'json',
+                    type:'POST',
+                    data:{school_name:school_name},
+                    success:function(data){
+                        modal.find('#school_code').val(data.school_code);
+                    }
+                });
+            } else {
+                modal.find("#school_code").val("");
+                alert('Enter School Name!');
+            }
+        }); 
+    });
+    $('#admin-add-school-modal').modal('handleUpdate');
+
+	$('#admin-view-school-modal').on('shown.bs.modal', function (e) {
         var modal = $(this);
         var url = $(this).attr('data-fetch');
         var button = $(e.relatedTarget);
@@ -62,6 +85,57 @@ $(document).ready(function() {
                 }
             }
         });
+    });
+
+    $('#admin-edit-school-modal').on('show.bs.modal', function (e) {
+        var modal = $(this);
+        var url = modal.attr('data-fetch');
+
+        var button = $(e.relatedTarget);
+        var school_code = button.data('school');
+        modal.find('#school_code').val(school_code);
+
+        $.ajax({
+            url:url,
+            dataType:'json',
+            type:'POST',
+            data:{school_code:school_code},
+            success:function(data){
+                if (data.error != 'false') {
+                    toastr.error(data.message, 'Error!');
+                }else{ 
+                    $.each(data.array, function( key, value ) {
+                        modal.find('form #'+key).val(value);
+                    });
+                }
+            }
+        });
+    });
+    $('#admin-edit-school-modal').modal('handleUpdate');
+
+    $(".app-form").unbind('submit').bind('submit', function(){
+        var form = $(this);
+        var data = form.serialize();
+        var url = form.attr('action');
+
+        $.ajax({
+            url:url,
+            dataType:'json',
+            type:'POST',
+            data:data,
+            success:function(data){
+                if (data.error != 'false') {
+                    $('.modal').modal('hide');
+                    toastr.error(data.message, 'Error!');
+                    $('#page-content').load('../views/app-'+data.url+'.php?'+data.url);
+                }else{
+                    $('.modal').modal('hide');
+                    toastr.success(data.message, 'Success!');
+                    $('#page-content').load('../views/app-'+data.url+'.php?'+data.url);
+                }
+            }
+        });
+        return false;
     });
 });
 
