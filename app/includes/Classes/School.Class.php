@@ -44,11 +44,19 @@
 			}
 		}
 
-		public static function getSchoolCrest($school_code){
-			try {
-				$files = glob('../../school_crests/'.$school_code.'{*.jpg,*.jpeg,*.gif,*.png}', GLOB_BRACE);
-			} catch (Exception $e) {
-				$files = glob('../../school_crests/default{*.png}', GLOB_BRACE);
+		public static function getSchoolCrest($school_code,$index=""){
+			if (isset($index) && !empty($index)) {
+				try {
+					$files = glob($index.'school_crests/'.$school_code.'{*.jpg,*.jpeg,*.gif,*.png}', GLOB_BRACE);
+				} catch (Exception $e) {
+					$files = glob($index.'school_crests/default{*.png}', GLOB_BRACE);
+				}
+			} else {
+				try {
+					$files = glob('../../school_crests/'.$school_code.'{*.jpg,*.jpeg,*.gif,*.png}', GLOB_BRACE);
+				} catch (Exception $e) {
+					$files = glob('../../school_crests/default{*.png}', GLOB_BRACE);
+				}
 			}
 			App::show($files[0]);
 		}
