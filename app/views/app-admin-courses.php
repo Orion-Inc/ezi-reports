@@ -15,7 +15,7 @@
         		<div class="widget-body">
         			<div class="row">
                         <div class="col-md-12">
-                            <?php App::ViewPartial('admin-schools','school')?>
+                            <?php App::ViewPartial('admin-courses','courses')?>
                         </div>
                     </div>
         		</div>
@@ -26,11 +26,11 @@
 	
 </div>
 <?php 
-    App::ViewPartial('admin-view-school','modals/school');
+    /*App::ViewPartial('admin-view-school','modals/school');
     App::ViewPartial('admin-view-school-crest','modals/school');
     App::ViewPartial('admin-edit-school-crest','modals/school');
     App::ViewPartial('admin-add-school','modals/school');
-    App::ViewPartial('admin-edit-school','modals/school');
+    App::ViewPartial('admin-edit-school','modals/school');*/
 ?>
 <!-- Custom Script -->
-<script type="text/javascript" src="../build/js/page-content/school/admin-script.js"></script>
+<script type="text/javascript" src="../build/js/page-content/courses/admin-script.js"></script>

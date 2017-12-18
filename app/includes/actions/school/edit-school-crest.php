@@ -13,7 +13,7 @@
 			
 
 			if (file_exists($files[0])==true) {
-				if (array_map('unlink', glob("../../../../school_crests/'.$school_code.'{*.jpg,*.jpeg,*.gif,*.png}"))) {
+				if (array_map('unlink', glob('../../../../school_crests/'.$school_code.'{*.jpg,*.jpeg,*.gif,*.png}'))) {
 					move_uploaded_file($tempfile,$targetfile);
 				}
 			}else{

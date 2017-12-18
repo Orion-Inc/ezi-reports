@@ -1,6 +1,6 @@
 $(document).ready(function() {
-	var schoolsTable =  $('#all-schools').DataTable({
-        ajax:'../includes/actions/school/admin-fetch-all-schools.php',
+	var schoolsTable =  $('#all-courses').DataTable({
+        ajax:'../includes/actions/course/admin-fetch-all-courses.php',
         //select:{style:"os"},
         colReorder:true,
         scrollX:true,
@@ -8,9 +8,8 @@ $(document).ready(function() {
         columnDefs: [
             {
             	className: 'dt-center', 
-                width:"15%",
                 orderable: false,
-                targets: 7
+                targets: 5
             },
             {
                 className: 'dt-center', 
@@ -28,14 +27,14 @@ $(document).ready(function() {
     }, 50000);
 */
 
-    $("#all-schools_length").append(
-        '<a href="#" style="margin-left:10px;" data-toggle="modal" data-target="#admin-add-school-modal">'+
-            '<span class="hidden-xs">Add </span>New<span class="hidden-xs hidden-sm"> School</span>'+
+    $("#all-courses_length").append(
+        '<a href="#" style="margin-left:10px;" data-toggle="modal" data-target="#admin-add-course-modal">'+
+            '<span class="hidden-xs">Add </span>New<span class="hidden-xs hidden-sm"> Course</span>'+
         '</a>'
     );
 
 	$('.dataTables_filter input[type=search]').attr('placeholder','Type to filter...');
-
+/*
 	$('#admin-add-school-modal').on('show.bs.modal', function (e) {
         var modal = $(this);
 
@@ -120,63 +119,7 @@ $(document).ready(function() {
         var modal = $(this);
         modal.find('form')[0].reset();
     });
-
-
-    $('#admin-edit-school-crest-modal').on('show.bs.modal', function (e) {
-        var modal = $(this);
-        
-        var button = $(e.relatedTarget);
-        var school_code = button.data('school');
-
-        var url = "../includes/actions/school/admin-edit-school-crest.php?school_code="+school_code;
-        
-        modal.find("#school-crest-form").dropzone({
-	        paramName:"school_crest",
-	        maxFilesize:2,
-	        maxThumbnailFilesize:2,
-	        maxFiles:1,
-	        acceptedFiles:"image/*",
-	        dictDefaultMessage:"<i class='icon-dz ti-image'></i><b>Click</b> or <b>Drop</b> image here to change Crest.",
-	        url:url,
-	        init:function(){
-	            this.on("success",function(e){
-	                this.fileTracker&&this.removeFile(this.fileTracker),this.fileTracker=e;
-	                modal.modal('hide');
-	                var dataUrl = modal.attr('dataUrl');
-	                $('#page-content').load('../views/app-'+dataUrl+'.php?'+dataUrl);
-	                toastr.success("School Crest Changed Successfully!", 'Success!');
-	            }
-	        )}
-	    });
-    });
-
-    $('#admin-view-school-crest-modal').on('show.bs.modal', function (e) {
-        var modal = $(this);
-        
-        var button = $(e.relatedTarget);
-        var school_code = button.data('school');
-
-
-        $.ajax({
-            url:'../includes/actions/school/admin-view-school-crest.php',
-            dataType:'json',
-            type:'POST',
-            data:{school_code:school_code},
-            success:function(data){
-                if (data.error != 'false') {
-                    modal.find('.modal-body').html(
-                        '<div class="fadeIn animated">'+
-                            '<p>'+data.message+'</p>'+
-                            '<p><a href="#" data-dismiss="modal">Try Again</a></p>'+
-                        '</div>');
-                }else{
-                    modal.find('.modal-body').html(data.school_crest);
-                }
-            }
-        });
-    });
-    
-
+*/
     $(".app-form").unbind('submit').bind('submit', function(){
         var form = $(this);
         var data = form.serialize();
@@ -203,10 +146,10 @@ $(document).ready(function() {
     });
 });
 
-function deleteSchool(school_code,school_name) {
+function deleteCourse(course_code,course_name) {
 	swal({
 		title:"Are you sure?",
-		text:"You are about to delete this school's details",
+		text:"You are about to delete this course's details",
 		type:"warning",
 		showCancelButton:!0,
 		cancelButtonClass:"btn-default",
@@ -216,10 +159,10 @@ function deleteSchool(school_code,school_name) {
 		closeOnConfirm:!1
 	},function(){
 		$.ajax({
-            url:'../includes/actions/school/admin-delete-school.php',
+            url:'../includes/actions/course/admin-delete-course.php',
             dataType:'json',
             type:'POST',
-            data:{school_code:school_code},
+            data:{course_code:course_code},
             success:function(data){
                 if (data.error != 'false') {
                 	swal({title:"Oops!",text:data.message,type:"error",confirmButtonClass:"btn-danger",confirmButtonText:"OK"});

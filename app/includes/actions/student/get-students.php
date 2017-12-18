@@ -15,7 +15,7 @@
 
                 $edit = '<button class="btn btn-outline btn-primary btn-sm" data-toggle="modal" data-target="#edit-student-modal" data-student="'.$student['student_code'].'"><i class="ti-pencil"></i></button>';
 
-                $delete = '<button class="btn btn-outline btn-danger btn-sm" onclick="deleteStudent(\''.$student['student_code'].'\',\''.$student['student_name'].'\')"><i class="ti-trash"></i></button>';
+                $delete = '<button class="btn btn-outline btn-danger btn-sm" onclick="deleteStudent(\''.addslashes($student['student_code']).'\',\''.addslashes($student['student_name']).'\')"><i class="ti-trash"></i></button>';
                 $subjects = '';
 
                 $student_options = '<div role="group" class="btn-group">'.$view.$edit.$delete.'</div>';

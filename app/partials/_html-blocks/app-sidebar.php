@@ -81,8 +81,8 @@
                 </a>
             </li>
             <li>
-                <a href="javascript:page('admin-subjects')" class="bubble">
-                    <i class="ti-book"></i> Subjects
+                <a href="javascript:page('admin-courses')" class="bubble">
+                    <i class="ti-book"></i> Courses
                 </a>
             </li>
             <li>

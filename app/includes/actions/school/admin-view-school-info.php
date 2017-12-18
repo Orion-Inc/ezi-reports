@@ -74,12 +74,12 @@
 
 			$response = array(
 					'error' => 'false', 
-					'url' => 'student', 
+					'url' => 'admin-school', 
 					'school' => $school_details
 			);
 			
 	} catch (Exception $e) {
-		$response = array('error' => 'true', 'url' => 'school', 'message' => "An Error Occurred While Trying To Retrieve School's Information!");
+		$response = array('error' => 'true', 'url' => 'admin-school', 'message' => "An Error Occurred While Trying To Retrieve School's Information!");
 	}
 
 	

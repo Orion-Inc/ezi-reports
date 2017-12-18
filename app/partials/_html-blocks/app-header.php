@@ -4,8 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>eziReports</title>
     <!-- PACE-->
-    <link rel="stylesheet" type="text/css" href="../plugins/PACE/themes/blue/pace-theme-center-simple.css">
-    <script type="text/javascript" src="../plugins/PACE/pace.min.js"></script>
+    <!--<link rel="stylesheet" type="text/css" href="../plugins/PACE/themes/blue/pace-theme-center-simple.css">
+    <script type="text/javascript" src="../plugins/PACE/pace.min.js"></script>-->
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" type="text/css" href="../plugins/bootstrap/dist/css/bootstrap.min.css">
     <!-- Fonts-->

@@ -18,7 +18,7 @@
 			$year = substr(date('Y'),2);
 			$school_number = $app->randomizer(4);
 
-			$school_code = $school_prefix.$school_number;
+			$school_code = 'SCH'.$school_prefix.$school_number;
 		}
 
 

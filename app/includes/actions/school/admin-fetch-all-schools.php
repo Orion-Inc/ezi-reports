@@ -17,7 +17,7 @@
 
                 $edit = '<button class="btn btn-outline btn-primary btn-sm" data-toggle="modal" data-target="#admin-edit-school-modal" data-school="'.$school['school_code'].'"><i class="ti-pencil"></i></button>';
 
-                $delete = '<button class="btn btn-outline btn-danger btn-sm" onclick="deleteSchool(\''.$school['school_code'].'\',\''.$school['school_name'].'\')"><i class="ti-trash"></i></button>';
+                $delete = '<button class="btn btn-outline btn-danger btn-sm" onclick="deleteSchool(\''.addslashes($school['school_code']).'\',\''.addslashes($school['school_name']).'\')"><i class="ti-trash"></i></button>';
                 $school_options = '<div role="group" class="btn-group">'.$view.$edit.$delete.'</div>';
 
 
@@ -46,7 +46,10 @@
                    '',
                    $school_motto,
                    $school_address,
-                   '<a href="#" data-toggle="modal" data-target="#view-crest-modal" data-school="'.$school['school_code'].'">View</a>'                
+                   '
+                    <a href="#" data-toggle="modal" data-target="#admin-view-school-crest-modal" data-school="'.$school['school_code'].'">View</a> | 
+                    <a href="#" data-toggle="modal" data-target="#admin-edit-school-crest-modal" data-school="'.$school['school_code'].'">Change</a>
+                   '                
                 );
             }
         }

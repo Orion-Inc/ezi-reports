@@ -18,8 +18,12 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Location</label>
-                                <input name="school_location" type="text" class="form-control input-sm" placeholder="School Location" id="school_location">
+                                <label>School Type</label>
+                                <select name="school_type" class="form-control input-sm" id="school_type">
+                                    <option value="" selected="" disabled="">Select School Type</option>
+                                    <option value="basic">Basic</option>
+                                    <option value="secondary">Secondary</option>
+                                </select>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -46,16 +50,22 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="school_email">Email</label>
-                                <input id="school_email" type="email" class="form-control input-sm" name="school_email" placeholder="Email Address">
+                                <label>Location</label>
+                                <input name="school_location" type="text" class="form-control input-sm" placeholder="School Location" id="school_location">
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="school_website">Website</label>
                                 <input id="school_website" type="text" class="form-control input-sm" name="school_website" placeholder="Website">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="school_email">Email</label>
+                                <input id="school_email" type="email" class="form-control input-sm" name="school_email" placeholder="Email Address">
                             </div>
                         </div>
                     </div>
