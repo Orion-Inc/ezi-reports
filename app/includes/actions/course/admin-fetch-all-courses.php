@@ -20,12 +20,16 @@
                 $delete = '<button class="btn btn-outline btn-danger btn-sm" onclick="deleteCourse(\''.addslashes($course['course_code']).'\',\''.addslashes($course['course_name']).'\')"><i class="ti-trash"></i></button>';
                 $course_options = '<div role="group" class="btn-group">'.$view.$edit.$delete.'</div>';
 
+                $course_code = '<a href="#">'.$course['course_code'].'</a>';
+                $course_name = ucwords($course['course_name']);
+                $course_prefix = (!empty($course['course_prefix'])) ? $course['course_prefix'] : "-";
+                $course_type = ucwords($course['course_type']);
 
                 $data['data'][] = array(
-                    '',
-                    '',
-                    '',
-                    '',
+                    $course_code,
+                    $course_name,
+                    $course_prefix,
+                    $course_type,
                     '',
                     $course_options           
                 );

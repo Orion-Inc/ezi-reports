@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    var lastIdx = null;
 	var schoolsTable =  $('#all-courses').DataTable({
         ajax:'../includes/actions/course/admin-fetch-all-courses.php',
         //select:{style:"os"},
@@ -14,11 +15,31 @@ $(document).ready(function() {
             {
                 className: 'dt-center', 
                 orderable: false,
-                targets: 2
+                targets: [2,4]
             }
         ],
-        order: [[ 0, 'asc' ]],
+        order: [[ 1, 'asc' ]],
         lengthMenu: [10, 60, 100, 250, 500],
+        drawCallback: function (settings) {
+            var api = this.api();
+            var rows = api.rows( {page:'current'} ).nodes();
+            var last=null;
+ 
+            api.column(3, {page:'current'}).data().each(function(group,i){
+                if ( last !== group ) {
+                    $(rows).eq( i ).before(
+                        '<tr style="background-color: #f9f9f9"><td colspan="7" class="text-semibold" id="course-colspan">'+group+'</td></tr>'
+                    );
+ 
+                    last = group;
+                }
+            });
+
+            $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').addClass('dropup');
+        },
+        preDrawCallback: function(settings) {
+            $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').removeClass('dropup');
+        },
         stateSave: true
     });
 /*
