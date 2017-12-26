@@ -3,22 +3,24 @@ $(document).ready(function() {
 	var schoolsTable =  $('#all-courses').DataTable({
         ajax:'../includes/actions/course/admin-fetch-all-courses.php',
         //select:{style:"os"},
-        colReorder:true,
+        //colReorder:true,
         scrollX:true,
         scrollCollapse:true,
         columnDefs: [
             {
             	className: 'dt-center', 
+                width: '15%',
                 orderable: false,
                 targets: 5
             },
             {
                 className: 'dt-center', 
+                width: '10%',
                 orderable: false,
                 targets: [2,4]
             }
         ],
-        order: [[ 1, 'asc' ]],
+        order: [1, 'asc'],
         lengthMenu: [10, 60, 100, 250, 500],
         drawCallback: function (settings) {
             var api = this.api();
@@ -83,20 +85,20 @@ $(document).ready(function() {
         var modal = $(this);
         modal.find('form')[0].reset();
     });
-
-	$('#admin-view-school-modal').on('shown.bs.modal', function (e) {
+*/
+	$('#admin-view-course-modal').on('shown.bs.modal', function (e) {
         var modal = $(this);
         var url = $(this).attr('data-fetch');
         var button = $(e.relatedTarget);
-        var school_code = button.data('school');
+        var course_code = button.data('course');
 
-        modal.find('.modal-title').html('<i class="ti-user"></i> School Details');
+        modal.find('.modal-title').html('<i class="ti-book"></i> View Course');
         modal.find('.modal-body').html('<div class="text-center"><img src="../assets/images/loading.gif" width="64px" height="64px"/></div>');
         $.ajax({
             url:url,
             dataType:'json',
             type:'POST',
-            data:{school_code:school_code},
+            data:{course_code:course_code},
             success:function (data) {
                 if (data.error != 'false') {
                     modal.find('.modal-body').html(
@@ -105,12 +107,12 @@ $(document).ready(function() {
                             '<p><a href="#" data-dismiss="modal">Try Again</a></p>'+
                         '</div>');
                 }else{
-                    modal.find('.modal-body').html(data.school);
+                    modal.find('.modal-body').html(data.course);
                 }
             }
         });
     });
-
+/*
     $('#admin-edit-school-modal').on('show.bs.modal', function (e) {
         var modal = $(this);
         var url = modal.attr('data-fetch');
@@ -176,7 +178,7 @@ function deleteCourse(course_code,course_name) {
 		cancelButtonClass:"btn-default",
 		cancelButtonText:"Cancel",
 		confirmButtonClass:"btn-danger",
-		confirmButtonText:"Delete Student",
+		confirmButtonText:"Delete Course",
 		closeOnConfirm:!1
 	},function(){
 		$.ajax({

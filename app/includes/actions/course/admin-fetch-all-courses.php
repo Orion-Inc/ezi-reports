@@ -23,6 +23,7 @@
                 $course_code = '<a href="#">'.$course['course_code'].'</a>';
                 $course_name = ucwords($course['course_name']);
                 $course_prefix = (!empty($course['course_prefix'])) ? $course['course_prefix'] : "-";
+                $course_description = '<a href="#" data-toggle="popover" data-trigger="focus" title="Course Description" data-content="">View</a>';
                 $course_type = ucwords($course['course_type']);
 
                 $data['data'][] = array(
@@ -30,7 +31,7 @@
                     $course_name,
                     $course_prefix,
                     $course_type,
-                    '',
+                    $course_description,
                     $course_options           
                 );
             }

@@ -77,7 +77,7 @@
             </li>
             <li>
                <a href="javascript:page('admin-school')" class="bubble">
-                    <i class="ti-user"></i>Schools
+                    <i class="ti-home"></i>Schools
                 </a>
             </li>
             <li>

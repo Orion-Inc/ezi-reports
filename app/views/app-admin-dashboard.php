@@ -9,11 +9,23 @@
     </div>
 </div>
 <div class="page-content container-fluid animated fadeIn">
+    <?php
+        $errors = array();
+
+        $totalSchools = Database::query("SELECT COUNT(*) FROM `ezi_school`")[0];
+        $schools = $totalSchools[0];
+        
+        $totalStudents = Database::query("SELECT COUNT(*) FROM `ezi_student`")[0];
+        $students = $totalStudents[0];
+
+        $schoolPercent = @($students/$totalStudents[0])*100;
+        $studentPercent = @($students/$totalStudents[0])*100;  
+    ?>
 	<div class="row">
         <div class="col-lg-12">
             <div class="widget clear">
             	<div class="widget-heading clearfix">
-                  	<h3 class="widget-title pull-left">Site Traffic</h3>
+                  	<h3 class="widget-title pull-left">Overview <small>(Statistics,Site Traffic etc)</small></h3>
                   	<ul class="widget-tools pull-right list-inline">
                     	<li><a href="javascript:;" class="widget-collapse"><i class="ti-angle-up"></i></a></li>
                     	<li><a href="javascript:;" class="widget-reload"><i class="ti-reload"></i></a></li>
@@ -21,9 +33,33 @@
             	</div>
             	<div class="widget-body">
                   	<div class="row">
-                    	
+                    	<div class="col-md-6">
+                            <div class="col-md-6">
+                                <div class="widget text-center">
+                                    <div class="widget-body">
+                                        <h5 class="mb-5">Total Schools</h5>
+                                        <div class="fs-36 fw-600 mb-20 counter"><?php echo $schools?></div>
+                                        <div data-percent="<?php App::show($schoolPercent)?>" class="easy-pie-chart fs-36 bar-track">
+                                            <i class="ti-home text-muted"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                    	<div class="col-md-4">
+                            <div class="col-md-6">
+                                <div class="widget text-center">
+                                    <div class="widget-body">
+                                        <h5 class="mb-5">Total Students</h5>
+                                        <div class="fs-36 fw-600 mb-20 counter" id="total-students"><?php echo $students?></div>
+                                        <div data-percent="<?php App::show($studentPercent)?>" class="easy-pie-chart fs-36 bar-track">
+                                            <i class="ti-user text-muted"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    	<div class="col-md-6">
 	                      	<div class="table-responsive">
 		                        <table class="table table-hover mt-20">
 		                          	<thead>
@@ -34,6 +70,7 @@
 		                            	</tr>
 		                          	</thead>
 		                          	
+                                    <?php  ?>
 		                        </table>
 	                      	</div>
                     	</div>
@@ -45,12 +82,53 @@
 
 	
 </div>
-	<!-- Flot Charts--> 
-    <!--[if lte IE 8]>
-    <script type="text/javascript" src="https://raw.githubusercontent.com/flot/flot/master/excanvas.min.js"></script>
-    <![endif]-->
-	<script type="text/javascript" src="../plugins/flot/jquery.flot.js"></script>
-    <script type="text/javascript" src="../plugins/flot/jquery.flot.resize.js"></script>
-    <script type="text/javascript" src="../plugins/flot.curvedlines/curvedLines.js"></script>
-    <script type="text/javascript" src="../plugins/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
 
+<!-- jQuery Counter Up-->
+    <script type="text/javascript" src="../plugins/jquery-waypoints/waypoints.min.js"></script>
+    <script type="text/javascript" src="../plugins/Counter-Up/jquery.counterup.min.js"></script>
+<!-- jQuery Easy Pie Chart-->
+    <script type="text/javascript" src="../plugins/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+    <script type="text/javascript">
+
+        $(".counter").counterUp({delay:10,time:1e3});
+
+        $(".easy-pie-chart").easyPieChart({
+            barColor:"#3498db",
+            trackColor:"#E6E6E6",
+            scaleColor:!1,
+            scaleLength:0,
+            lineCap:"round",
+            lineWidth:10,
+            size:140,
+            animate:{duration:2e3,enabled:!0}
+        });
+
+        function e(e){
+            $(e).block({
+                message:"<div class='sk-three-bounce'>"+
+                            "<div class='sk-child sk-bounce1'></div>"+
+                            "<div class='sk-child sk-bounce2'></div>"+
+                            "<div class='sk-child sk-bounce3'></div>"+
+                        "</div>",
+                css:{border:"none",backgroundColor:"transparent"},
+                overlayCSS:{backgroundColor:"#FAFEFF",
+                opacity:.5,cursor:"wait"}
+            });
+        }
+
+        function n(e){$(e).unblock()}
+
+        $(".widget-collapse").on("click",function(){
+            $(this).closest(".widget").find(".widget-body").slideToggle(300)
+        });
+
+        $(".widget-reload").on("click",function (){
+            var o=$(this).closest(".widget");
+            e(o),window.setTimeout(function(){n(o)},3e3)
+        });
+
+        $(".widget-remove").on("click",function(){$(this).closest(".widget").hide()});
+
+        $(".progress").length>0&&$(".progress .progress-bar").progressbar();
+        $(".animated").animo({duration:.2});
+    </script>

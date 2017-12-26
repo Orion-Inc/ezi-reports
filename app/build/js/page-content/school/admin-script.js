@@ -18,7 +18,7 @@ $(document).ready(function() {
                 targets: 2
             }
         ],
-        order: [[ 0, 'asc' ]],
+        order: [1, 'asc'],
         lengthMenu: [10, 60, 100, 250, 500],
         stateSave: true
     });

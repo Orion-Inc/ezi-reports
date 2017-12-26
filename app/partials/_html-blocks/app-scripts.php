@@ -10,6 +10,10 @@
     <script type="text/javascript" src="../plugins/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
     <!-- jQuery Easy Pie Chart-->
     <script type="text/javascript" src="../plugins/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+    <!-- jQuery UI-->
+    <script type="text/javascript" src="../plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- jQuery BlockUI-->
+    <script type="text/javascript" src="../plugins/blockUI/jquery.blockUI.js"></script>
     <!-- MomentJS-->
     <script type="text/javascript" src="../plugins/moment/min/moment.min.js"></script>
     <!-- Bootstrap Date Range Picker-->

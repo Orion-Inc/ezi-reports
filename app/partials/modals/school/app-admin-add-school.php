@@ -27,14 +27,16 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <label>School Code</label>
-                            <div class="input-group">
-                                <input name="school_code" type="text" class="form-control input-sm" readonly="" placeholder="School Code" id="school_code">
-                                <span class="input-group-btn">
-                                    <a href="javascript:void(0)" class="btn btn-outline btn-default btn-sm" id="generateCode">
-                                        <i class="ti-reload"></i>
-                                    </a>
-                                </span>
+                            <div class="form-group">
+                                <label>School Code</label>
+                                <div class="input-group">
+                                    <input name="school_code" type="text" class="form-control input-sm" readonly="" placeholder="School Code" id="school_code">
+                                    <span class="input-group-btn">
+                                        <a href="javascript:void(0)" class="btn btn-outline btn-default btn-sm" id="generateCode">
+                                            <i class="ti-reload"></i>
+                                        </a>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -20,6 +20,8 @@
     <link rel="stylesheet" type="text/css" href="../plugins/bootstrap-sweetalert/lib/sweet-alert.css">
     <!-- Bootstrap Progressbar-->
     <link rel="stylesheet" type="text/css" href="../plugins/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css">
+    <!-- SpinKit-->
+    <link rel="stylesheet" type="text/css" href="../plugins/SpinKit/css/spinkit.css">
     <!-- jQuery Steps-->
     <link rel="stylesheet" type="text/css" href="../plugins/jquery.steps/demo/css/jquery.steps.css">
     <!-- Toastr-->

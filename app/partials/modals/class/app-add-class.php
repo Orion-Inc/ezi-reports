@@ -15,14 +15,16 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <label>Class Code</label>
-                            <div class="input-group">
-                                <input name="class_code" type="text" class="form-control input-sm" readonly="" placeholder="Class Code" id="class_code">
-                                <span class="input-group-btn">
-                                    <a href="javascript:void(0)" class="btn btn-outline btn-default btn-sm" id="generateCode">
-                                        <i class="ti-reload"></i>
-                                    </a>
-                                </span>
+                            <div class="form-group">
+                                <label>Class Code</label>
+                                <div class="input-group">
+                                    <input name="class_code" type="text" class="form-control input-sm" readonly="" placeholder="Class Code" id="class_code">
+                                    <span class="input-group-btn">
+                                        <a href="javascript:void(0)" class="btn btn-outline btn-default btn-sm" id="generateCode">
+                                            <i class="ti-reload"></i>
+                                        </a>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>

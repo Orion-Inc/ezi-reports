@@ -26,11 +26,14 @@
 	
 </div>
 <?php 
-    /*App::ViewPartial('admin-view-school','modals/school');
-    App::ViewPartial('admin-view-school-crest','modals/school');
-    App::ViewPartial('admin-edit-school-crest','modals/school');
-    App::ViewPartial('admin-add-school','modals/school');
-    App::ViewPartial('admin-edit-school','modals/school');*/
+    App::ViewPartial('admin-view-course','modals/course');
+    App::ViewPartial('admin-add-course','modals/course');
+    App::ViewPartial('admin-edit-course','modals/course');
+    App::ViewPartial('admin-add-subject','modals/course');
 ?>
+<script type="text/javascript">
+    $("[data-toggle='tooltip']").tooltip();
+    $("[data-toggle='popover']").popover();
+</script>
 <!-- Custom Script -->
 <script type="text/javascript" src="../build/js/page-content/courses/admin-script.js"></script>
