@@ -20,7 +20,7 @@ $(document).ready(function() {
                 targets: [2,4]
             }
         ],
-        order: [1, 'asc'],
+        order: [[1, 'asc']],
         lengthMenu: [10, 60, 100, 250, 500],
         drawCallback: function (settings) {
             var api = this.api();
@@ -57,35 +57,35 @@ $(document).ready(function() {
     );
 
 	$('.dataTables_filter input[type=search]').attr('placeholder','Type to filter...');
-/*
-	$('#admin-add-school-modal').on('show.bs.modal', function (e) {
+
+	$('#admin-add-course-modal').on('show.bs.modal', function (e) {
         var modal = $(this);
 
         modal.find('#generateCode').on('click', function (e){
-            var school_name = modal.find("#school_name").val();
+            var course_name = modal.find("#course_name").val();
 
-            if (school_name != "") {
+            if (course_name != "") {
                 $.ajax({
-                    url: '../includes/actions/school/generateCode.php',
+                    url: '../includes/actions/course/generateCode.php',
                     dataType:'json',
                     type:'POST',
-                    data:{school_name:school_name},
+                    data:{course_name:course_name},
                     success:function(data){
-                        modal.find('#school_code').val(data.school_code);
+                        modal.find('#course_code').val(data.course_code);
                     }
                 });
             } else {
-                modal.find("#school_code").val("");
-                alert('Enter School Name!');
+                modal.find("#course_code").val("");
+                alert('Enter Course Name!');
             }
         }); 
     });
-    $('#admin-add-school-modal').modal('handleUpdate');
-    $('#admin-add-school-modal').on('hidden.bs.modal', function (e) {
+    $('#admin-add-course-modal').modal('handleUpdate');
+    $('#admin-add-course-modal').on('hidden.bs.modal', function (e) {
         var modal = $(this);
         modal.find('form')[0].reset();
     });
-*/
+
 	$('#admin-view-course-modal').on('shown.bs.modal', function (e) {
         var modal = $(this);
         var url = $(this).attr('data-fetch');
@@ -112,20 +112,20 @@ $(document).ready(function() {
             }
         });
     });
-/*
-    $('#admin-edit-school-modal').on('show.bs.modal', function (e) {
+
+    $('#admin-edit-course-modal').on('show.bs.modal', function (e) {
         var modal = $(this);
         var url = modal.attr('data-fetch');
 
         var button = $(e.relatedTarget);
-        var school_code = button.data('school');
-        modal.find('#school_code').val(school_code);
+        var course_code = button.data('course');
+        modal.find('#course_code').val(course_code);
 
         $.ajax({
             url:url,
             dataType:'json',
             type:'POST',
-            data:{school_code:school_code},
+            data:{course_code:course_code},
             success:function(data){
                 if (data.error != 'false') {
                     toastr.error(data.message, 'Error!');
@@ -133,16 +133,20 @@ $(document).ready(function() {
                     $.each(data.array, function( key, value ) {
                         modal.find('form #'+key).val(value);
                     });
+
+                    $.each(data.array, function( key, value ) {
+                        modal.find("form #"+key+" option[value='"+value+"']").prop('selected', true);
+                    });
                 }
             }
         });
     });
-    $('#admin-edit-school-modal').modal('handleUpdate');
-    $('#admin-edit-school-modal').on('hidden.bs.modal', function (e) {
+    $('#admin-edit-course-modal').modal('handleUpdate');
+    $('#admin-edit-course-modal').on('hidden.bs.modal', function (e) {
         var modal = $(this);
         modal.find('form')[0].reset();
     });
-*/
+
     $(".app-form").unbind('submit').bind('submit', function(){
         var form = $(this);
         var data = form.serialize();

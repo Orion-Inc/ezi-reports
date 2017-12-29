@@ -12,14 +12,18 @@
     <?php
         $errors = array();
 
-        $totalSchools = Database::query("SELECT COUNT(*) FROM `ezi_school`")[0];
+        $totalSchools = Database::query("SELECT COUNT(`school_code`) FROM `ezi_school`")[0];
+        $totalMalePopulation = '';
+        $totalFemalePopulation = '';
         $schools = $totalSchools[0];
         
-        $totalStudents = Database::query("SELECT COUNT(*) FROM `ezi_student`")[0];
+        $totalStudents = Database::query("SELECT COUNT(`student_code`) FROM `ezi_student`")[0];
+        $totalBasicSchools = '';
+        $totalSecondarySchools = '';
         $students = $totalStudents[0];
 
-        $schoolPercent = @($students/$totalStudents[0])*100;
-        $studentPercent = @($students/$totalStudents[0])*100;  
+        $schoolPercent = @($schools/$totalSchools[0])*100;
+        $studentPercent = @($students/$totalStudents[0])*100;
     ?>
 	<div class="row">
         <div class="col-lg-12">
@@ -42,6 +46,16 @@
                                         <div data-percent="<?php App::show($schoolPercent)?>" class="easy-pie-chart fs-36 bar-track">
                                             <i class="ti-home text-muted"></i>
                                         </div>
+                                        <div class="clearfix mt-10 ml-10 mr-10">
+                                            <div class="pull-left">
+                                                <div class="fs-12">Basic Schools</div>
+                                                <div class="text-primary"><?php echo $totalBasicSchools;?></div>
+                                            </div>
+                                            <div class="pull-right">
+                                                <div class="fs-12">Secondary Schools</div>
+                                                <div class="text-primary"><?php echo $totalSecondarySchools;?></div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -53,6 +67,16 @@
                                         <div class="fs-36 fw-600 mb-20 counter" id="total-students"><?php echo $students?></div>
                                         <div data-percent="<?php App::show($studentPercent)?>" class="easy-pie-chart fs-36 bar-track">
                                             <i class="ti-user text-muted"></i>
+                                        </div>
+                                        <div class="clearfix mt-10 ml-10 mr-10">
+                                            <div class="pull-left">
+                                                <div class="fs-12">Male Students</div>
+                                                <div class="text-primary"><?php echo $totalMalePopulation;?></div>
+                                            </div>
+                                            <div class="pull-right">
+                                                <div class="fs-12">Female Students</div>
+                                                <div class="text-primary"><?php echo $totalFemalePopulation;?></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

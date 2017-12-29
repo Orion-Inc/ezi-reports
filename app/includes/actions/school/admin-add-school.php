@@ -9,6 +9,8 @@
 
 		if (sizeof($generateSchoolPrefix) >= 2) {
 			$school_prefix = strtoupper($generateSchoolPrefix[0][0].$generateSchoolPrefix[0][1].$generateSchoolPrefix[1][0]);
+		}else{
+			$school_prefix = strtoupper($generateSchoolPrefix[0][0].$generateSchoolPrefix[0][1].$generateSchoolPrefix[0][2]);
 		}
 
 	$params = array( 

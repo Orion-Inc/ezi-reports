@@ -1,8 +1,5 @@
 <?php
-	session_start();
-	require_once '../Classes/Database.Class.php'; 
-	require_once '../Controllers/App.php'; 
-	require_once '../Classes/School.Class.php'; 
+	require_once 'Autoloader.php';  
 
 	$errors = array();
 	$url = "http://app02.localhost/ezi-reports/app/app/?recover=";

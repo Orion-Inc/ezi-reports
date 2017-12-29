@@ -1,76 +1,113 @@
-<?php if (empty($_GET)){
-    header("Location: ../");
-}?> 
 <?php 
-    spl_autoload_register(function ($class_name){
-        if (file_exists('../includes/Classes/'.$class_name.'.Class.php')) {
-            require_once '../includes/Classes/'.$class_name.'.Class.php';
-        }else if (file_exists('../includes/Controllers/'.$class_name.'.php')) {
-            require_once '../includes/Controllers/'.$class_name.'.php';
-        }
-    });
+	session_start();
+	if (isset($_GET['auth'])): 
 ?>
 <!DOCTYPE html>
-<html lang="en" style="height: 100%">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>eziReports</title>
-        <!-- PACE-->
-        <link rel="stylesheet" type="text/css" href="../plugins/PACE/themes/blue/pace-theme-bounce.css">
-        <script type="text/javascript" src="../plugins/PACE/pace.min.js"></script>
-        <!-- Bootstrap CSS-->
-        <link rel="stylesheet" type="text/css" href="../plugins/bootstrap/dist/css/bootstrap.min.css">
-        <!-- Fonts-->
-        <link rel="stylesheet" type="text/css" href="../plugins/themify-icons/themify-icons.css">
-        <!-- Primary Style-->
-        <link rel="stylesheet" type="text/css" href="../build/css/app-layout.css">
-        
-        
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file://--> 
-        <!--[if lt IE 9]>
-        <script type="text/javascript" src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script type="text/javascript" src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>eziReports</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+	<meta name="description" content="eziReports, O.Rion Ltd., Orion" />
+	<link rel="shortcut icon" sizes="196x196" href="assets/images/">
+	
+	<link rel="stylesheet" href="../plugins/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../plugins/material-design-iconic-font/dist/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" href="../plugins/animate-css/animate.css">
+	<link rel="stylesheet" href="../assets/auth/bootstrap.css">
+	<link rel="stylesheet" href="../assets/auth/core.css">
+	<link rel="stylesheet" href="../assets/auth/misc-pages.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900,300">
+</head>
+<body class="simple-page">
+	<div id="back-to-home" class="animated zoomIn hidden-xs">
+		<a href="#" class="btn btn-outline btn-default"><i class="fa fa-arrow-left animated zoomIn"></i></a>
+	</div>
 
-    </head>
-    <body style="background-image: url('../assets/images/doodle.png')" class="body-bg-full">
-        <?php if (isset($_GET['login'])): ?>
-            <?php App::ViewPartial('login','auth-forms')?>
-        <?php elseif (isset($_GET['admin-login'])): ?>
-            <?php App::ViewPartial('admin-login','auth-forms')?>
-        <?php else: ?>
-            <?php if (isset($_GET['lock']) && $_GET['token']!=NULL): ?>
-                <?php App::ViewPartial('lock-screen','auth-forms')?>  
-            <?php endif ?>
+	<div class="container">
+		<div class="simple-page-logo animated zoomIn">
+			<a href="#">
+				<span><i class="fa fa-files-o"></i></span>
+				<span>eziReports</span>
+			</a>
+		</div>
 
-            <?php if (isset($_GET['forgot'])): ?>
-                <?php App::ViewPartial('forgot','auth-forms')?>         
-            <?php endif ?>
+		<?php if ($_GET['auth']=="login"): ?>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">
+					<div class="simple-page-form animated zoomIn" id="login-form">
+						<h4 class="form-title m-b-xl text-center">Sign In With Your ezi-Account</h4>
+						<form action="../includes/auth/login.php" method="POST">
+							<div class="form-group">
+								<input id="eziAccountcode" name="eziAccountcode" type="text" class="form-control" placeholder="ezi-Account Code" required="" oninvalid="this.setCustomValidity('Please Enter Your eziAccountcode')" oninput="setCustomValidity('')">
+							</div>
 
-            <?php if (isset($_GET['verify'])): ?>
-                <?php App::ViewPartial('verify','auth-forms')?>         
-            <?php endif ?>
-        <?php endif ?>
+							<div class="form-group">
+								<input id="access_key" name="access_key" type="password" class="form-control" placeholder="Password" required="" oninvalid="this.setCustomValidity('Enter Your Password')" oninput="setCustomValidity('')">
+							</div>
 
-        <!-- jQuery-->
-            <script type="text/javascript" src="../plugins/jquery/dist/jquery.min.js"></script>
-            <!-- Bootstrap JavaScript-->
-            <script type="text/javascript" src="../plugins/bootstrap/dist/js/bootstrap.min.js"></script>
-            <!-- jQuery Easy Pie Chart-->
-            <script type="text/javascript" src="../plugins/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
-            <!-- jQuery Validation-->
-            
-            <?php if (isset($_GET['login']) || isset($_GET['admin-login'])): ?>
-            <script type="text/javascript" src="../build/js/page-content/auth-pages/login.js"></script>
-            <?php endif ?>
-            <?php if (isset($_GET['lock']) && $_GET['token']!=false): ?>
-            <script type="text/javascript" src="../build/js/page-content/auth-pages/lock-screen.js"></script>
-            <?php endif ?>
-            <?php if (isset($_GET['forgot'])): ?>
-            <script type="text/javascript" src="../build/js/page-content/auth-pages/recover.js"></script>
-            <?php endif ?>
-  </body>
-</html>
+							<div class="form-group m-b-xl">
+								<div class="checkbox checkbox-primary">
+									<input type="checkbox" id="keep_me_logged_in"/>
+									<label for="keep_me_logged_in">Keep me signed in</label>
+								</div>
+							</div>
+							<button class="btn btn-primary">Sign In</button>
+						</form>
+					</div>
+					<div class="simple-page-footer animated zoomIn">
+						<p><a href="?auth=forgot-password">Forgot Your Password?</a></p>
+						<p>
+							<small>Don't have an account?</small>
+							<a href="#">Visit Our Website</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		<?php elseif($_GET['auth']=="forgot-password"): ?>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">
+					<div class="simple-page-form animated flipInY" id="reset-password-form">
+						<h4 class="form-title m-b-xl text-center">Forgot Your Password ?</h4>
+
+						<form action="../includes/auth/reset-password.php" method="POST">
+							<div class="form-group">
+								<input id="reset-password-email" type="email" class="form-control" placeholder="Enter Email Address eg. School or Individual">
+							</div>
+							<button type="submit" class="btn btn-primary">Rest Password</button>
+						</form>
+					</div>
+					<div class="simple-page-footer animated zoomIn">
+						<p><a href="?auth=login">Go Back</a></p>
+						<p>
+							<small>Don't have an account?</small>
+							<a href="#">Visit Our Website</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		<?php else: header('Location:?auth=login');?>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">
+					<p class="text-center text-white">
+						Redirecting <i class="fa fa-spinner fa-pulse fa-fw"></i>
+					</p>
+				</div>
+			</div>
+		<?php endif ?>
+
+		<?php if (isset($_SESSION['ERRORS'])):?>
+			<script type="text/javascript">
+				var msg = <?php echo $_SESSION['ERRORS']?>;
+				alert(msg.message);
+			</script>
+		<?php endif; unset($_SESSION['ERRORS']);?>
+    </div>
+</body>
+</html>	
+<?php else:
+	header('Location:?auth=login');
+endif
+?>
+
