@@ -13,13 +13,13 @@
         $errors = array();
 
         $totalSchools = Database::query("SELECT COUNT(`school_code`) FROM `ezi_school`")[0];
-        $totalMalePopulation = '';
-        $totalFemalePopulation = '';
+        $totalBasicSchools = Database::query("SELECT COUNT(`school_code`) FROM `ezi_school` WHERE `school_type`='basic'")[0];
+        $totalSecondarySchools = Database::query("SELECT COUNT(`school_code`) FROM `ezi_school` WHERE `school_type`='secondary'")[0];
         $schools = $totalSchools[0];
         
         $totalStudents = Database::query("SELECT COUNT(`student_code`) FROM `ezi_student`")[0];
-        $totalBasicSchools = '';
-        $totalSecondarySchools = '';
+        $totalMalePopulation = Database::query("SELECT COUNT(`student_code`) FROM `ezi_student_details` WHERE `student_gender`='male'")[0];
+        $totalFemalePopulation = Database::query("SELECT COUNT(`student_code`) FROM `ezi_student_details` WHERE `student_gender`='female'")[0];
         $students = $totalStudents[0];
 
         $schoolPercent = @($schools/$totalSchools[0])*100;
@@ -49,11 +49,11 @@
                                         <div class="clearfix mt-10 ml-10 mr-10">
                                             <div class="pull-left">
                                                 <div class="fs-12">Basic Schools</div>
-                                                <div class="text-primary"><?php echo $totalBasicSchools;?></div>
+                                                <div class="text-primary"><?php echo $totalBasicSchools[0];?></div>
                                             </div>
                                             <div class="pull-right">
                                                 <div class="fs-12">Secondary Schools</div>
-                                                <div class="text-primary"><?php echo $totalSecondarySchools;?></div>
+                                                <div class="text-primary"><?php echo $totalSecondarySchools[0];?></div>
                                             </div>
                                         </div>
                                     </div>
@@ -71,11 +71,11 @@
                                         <div class="clearfix mt-10 ml-10 mr-10">
                                             <div class="pull-left">
                                                 <div class="fs-12">Male Students</div>
-                                                <div class="text-primary"><?php echo $totalMalePopulation;?></div>
+                                                <div class="text-primary"><?php echo $totalMalePopulation[0];?></div>
                                             </div>
                                             <div class="pull-right">
                                                 <div class="fs-12">Female Students</div>
-                                                <div class="text-primary"><?php echo $totalFemalePopulation;?></div>
+                                                <div class="text-primary"><?php echo $totalFemalePopulation[0];?></div>
                                             </div>
                                         </div>
                                     </div>
