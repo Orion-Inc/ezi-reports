@@ -102,9 +102,7 @@
                 </div>
             </div>
         </div>
-    </div>
-
-	
+    </div>	
 </div>
 
 <!-- jQuery Counter Up-->
