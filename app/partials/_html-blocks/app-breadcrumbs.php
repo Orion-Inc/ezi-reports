@@ -31,7 +31,7 @@
 <?php endif ?>
 
 <?php if (isset($_GET['bills'])): ?>
-	<h4 class="mt-0 mb-5"><i class="ti-credit-card"></i> Bills</h4>
+	<h4 class="mt-0 mb-5"><i class="ti-wallet"></i> Bills</h4>
 	<ol class="breadcrumb mb-0">
 	    <li class="active">{Description}</li>
 	</ol>

@@ -55,7 +55,7 @@
                     <li><a href="javascript:page('student')" class="bubble">Students</a></li>
                 </ul>
             </li>
-            <li class="hidden">
+            <li>
                 <a href="javascript:page('bills')" class="bubble">
                     <i class="ti-wallet"></i> Bills
                 </a>
