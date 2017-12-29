@@ -3,26 +3,22 @@ $(document).ready(function() {
     var schoolsTable = $('#all-courses').DataTable({
         ajax: '../includes/actions/course/admin-fetch-all-courses.php',
         //select:{style:"os"},
-        //colReorder:true,
+        colReorder: true,
         scrollX: true,
         scrollCollapse: true,
         columnDefs: [{
                 className: 'dt-center',
-                width: '15%',
                 orderable: false,
                 targets: 5
             },
             {
                 className: 'dt-center',
-                width: '10%',
                 orderable: false,
                 targets: [2, 4]
             }
         ],
         order: [
-            [
-                [4, 'asc']
-            ]
+            [3, 'asc']
         ],
         lengthMenu: [10, 60, 100, 250, 500],
         drawCallback: function(settings) {
@@ -33,7 +29,7 @@ $(document).ready(function() {
             api.column(3, { page: 'current' }).data().each(function(group, i) {
                 if (last !== group) {
                     $(rows).eq(i).before(
-                        '<tr style="background-color: #f9f9f9"><td colspan="7" class="text-semibold" id="course-colspan">' + group + '</td></tr>'
+                        '<tr style="background-color: #f9f9f9"><td colspan="6" class="text-semibold" id="course-colspan">' + group + '</td></tr>'
                     );
 
                     last = group;

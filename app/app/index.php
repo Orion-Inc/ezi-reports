@@ -10,6 +10,7 @@
 <html lang="en">
     <?php App::ViewPartial('header','_html-blocks')?>
     <body data-sidebar-color="sidebar-light" class="sidebar-light">
+        
         <!--App Navbar-->
             <?php App::ViewPartial('navbar','_html-blocks')?>
         <!--/App Navbar-->
