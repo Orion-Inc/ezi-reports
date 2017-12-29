@@ -43,5 +43,31 @@
 				}
 			}
 		}
+
+		public static function getSchoolCrest($school_code,$index=""){
+			if (isset($index) && !empty($index)) {
+				try {
+					$files = glob($index.'school_crests/'.$school_code.'{*.jpg,*.jpeg,*.gif,*.png}', GLOB_BRACE);
+				} catch (Exception $e) {
+					$files = glob($index.'school_crests/default{*.png}', GLOB_BRACE);
+				}
+			} else {
+				try {
+					$files = glob('../../school_crests/'.$school_code.'{*.jpg,*.jpeg,*.gif,*.png}', GLOB_BRACE);
+				} catch (Exception $e) {
+					$files = glob('../../school_crests/default{*.png}', GLOB_BRACE);
+				}
+			}
+			App::show($files[0]);
+		}
+
+		public static function getSchoolSignatories($school_code,$signatory){
+			$signature = self::query("SELECT {$signatory} FROM `ezi_school_signatories` WHERE `school_code` = '{$school_code}'");
+			if (empty($signature[0])) {
+				return '';
+			}else{
+				App::show('data:image;base64,'.base64_encode($signature[0][$signatory]));
+			}
+		}
 	}
 ?>

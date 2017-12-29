@@ -15,7 +15,7 @@
         </tr>
         <tr>
             <td>PROGRAM OF STUDY:</td>
-            <td><input type="text" class="form-control no-margin" disabled="" value="<?php App::show(Course::getCourse($student_details['course'],'course_name'));?>"></td>
+            <td><input type="text" class="form-control no-margin" disabled="" value="<?php App::show(Course::getCourse($student_details['student_course'],'course_name'));?>"></td>
         </tr>
     </tbody>
 </table>
