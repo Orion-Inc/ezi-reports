@@ -46,12 +46,12 @@
                 </a>
             </li>
             <li class="panel">
-                <a data-toggle="collapse" href="#school-list" aria-expanded="true" aria-controls="-list" class="collapse">
+                <a data-toggle="collapse" href="#school-list" aria-expanded="false" aria-controls="school-list" class="collapsed">
                     <i class="ti-home"></i> School
                 </a>
-                <ul id="school-list" class="list-unstyled collapse in">
+                <ul id="school-list" class="list-unstyled collapse">
                     <li><a href="javascript:page('school')" class="bubble">Overview</a></li>
-                    <li><a href="javascript:page('class')" class="bubble">Classes</a></li>
+                    <li><a href="javascript:page('class')" class="bubble">Class Room</a></li>
                     <li><a href="javascript:page('student')" class="bubble">Students</a></li>
                 </ul>
             </li>

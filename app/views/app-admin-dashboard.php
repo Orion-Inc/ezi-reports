@@ -29,7 +29,7 @@
         <div class="col-lg-12">
             <div class="widget clear">
             	<div class="widget-heading clearfix">
-                  	<h3 class="widget-title pull-left">Overview <small>(Statistics,Site Traffic etc)</small></h3>
+                  	<h3 class="widget-title pull-left">Overview <small>(Statistics, Site Traffic etc.)</small></h3>
                   	<ul class="widget-tools pull-right list-inline">
                     	<li><a href="javascript:;" class="widget-collapse"><i class="ti-angle-up"></i></a></li>
                     	<li><a href="javascript:;" class="widget-reload"><i class="ti-reload"></i></a></li>
@@ -98,6 +98,39 @@
 		                        </table>
 	                      	</div>
                     	</div>
+                  	</div>
+                </div>
+            </div>
+            <div class="widget clear">
+            	<div class="widget-heading clearfix">
+                  	<h3 class="widget-title pull-left">Notifications <small>(Messages, Alerts etc.)</small></h3>
+                  	<ul class="widget-tools pull-right list-inline">
+                    	<li><a href="javascript:;" class="widget-collapse"><i class="ti-angle-up"></i></a></li>
+                    	<li><a href="javascript:;" class="widget-reload"><i class="ti-reload"></i></a></li>
+                  	</ul>
+            	</div>
+            	<div class="widget-body">
+                  	<div class="row">
+                    	<div class="col-md-12">
+                            <div role="tabpanel">
+                                <ul role="tablist" class="nav nav-tabs mb-15">
+                                    <li role="presentation" class="active">
+                                        <a id="alerts-tab" href="#alerts" role="tab" data-toggle="tab" aria-controls="alerts" aria-expanded="true">Alerts</a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a id="messages-tab" href="#messages" role="tab" data-toggle="tab" aria-controls="messages" aria-expanded="false">Messages</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div id="alerts" role="tabpanel" aria-labelledby="alerts-tab" class="tab-pane fade active in">
+                                        Alerts
+                                    </div>
+                                    <div id="messages" role="tabpanel" aria-labelledby="messages-tab" class="tab-pane fade">
+                                        Messages
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                   	</div>
                 </div>
             </div>

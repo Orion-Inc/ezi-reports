@@ -14,12 +14,16 @@
 		$school_code = $_SESSION['SESS_USER_ID'];
 
 		$students = (Student::getStudents($school_code) == false) ? 0 : count(Student::getStudents($school_code));
+		$totalMalePopulation = '';
+        $totalFemalePopulation = '';
 		$totalStudents = Database::query("SELECT COUNT(*) FROM `ezi_student`")[0];
 		$studentPercent = @($students/$totalStudents[0])*100;
 
 
 
 		$classrooms = (Classes::fetchClasses($school_code,"*") == false) ? 0 : count(Classes::fetchClasses($school_code,"*"));
+		$totalCourses = '';
+        $totalSubjects = '';
 		$totalClassrooms = Database::query("SELECT COUNT(*) FROM `ezi_school_class`")[0];
 		$classroomsPercent = @($classrooms/$totalClassrooms[0])*100;
 	?>
@@ -32,6 +36,16 @@
                   	<div data-percent="<?php App::show($studentPercent)?>" class="easy-pie-chart fs-36 bar-track">
                   		<i class="ti-user text-muted"></i>
                   	</div>
+					<div class="clearfix mt-10">
+						<div class="pull-left">
+							<div class="fs-12">Male Students</div>
+							<div class="text-primary"><?php echo $totalMalePopulation//[0];?></div>
+						</div>
+						<div class="pull-right">
+							<div class="fs-12">Female Students</div>
+							<div class="text-primary"><?php echo $totalFemalePopulation//[0];?></div>
+						</div>
+					</div>
                 </div>
             </div>
         </div>
@@ -44,70 +58,22 @@
                   	<div data-percent="<?php App::show($classroomsPercent)?>" class="easy-pie-chart fs-36 bar-track">
                   		<i class="ti-blackboard text-muted"></i>
                   	</div>
+					<div class="clearfix mt-10">
+						<div class="pull-left">
+							<div class="fs-12">Courses</div>
+							<div class="text-primary"><?php echo $totalCourses//[0];?></div>
+						</div>
+						<div class="pull-right">
+							<div class="fs-12">Subjects</div>
+							<div class="text-primary"><?php echo $totalSubjects//[0];?></div>
+						</div>
+					</div>
                 </div>
             </div>
         </div>
         <div class="col-md-6 col-sm-12">
         	<div class="row">
-            	<div class="col-md-12 hidden">
-                  	<div class="mb-20">
-	                    <div class="media">
-	                      	<div class="media-body">
-	                        	<h5 class="media-heading">
-	                        		Task Completed
-	                        	</h5>
-	                        	<div class="fs-24 fw-600 counter">0</div>
-	                      	</div>
-	                      	<div class="media-right"><i class="fs-30 ti-stats-up"></i></div>
-	                    </div>
-	                    <ul class="list-unstyled">
-	                      	<li>
-	                        	<div class="block clearfix mb-5">
-	                        		<span class="pull-left fs-12">Today</span>
-	                        		<span class="pull-right label label-outline label-primary">0%</span>
-	                        	</div>
-	                        	<div class="progress progress-xs">
-	                          		<div role="progressbar" data-transitiongoal="0" class="progress-bar" aria-valuenow="0">
-	                          			
-	                          		</div>
-	                        	</div>
-	                      	</li>
-	                      	<li>
-		                        <div class="block clearfix mb-5">
-		                        	<span class="pull-left fs-12">Yesterday</span>
-		                        	<span class="pull-right label label-outline label-success">0%</span>
-		                        </div>
-		                        <div class="progress progress-xs">
-		                          	<div role="progressbar" data-transitiongoal="0" class="progress-bar progress-bar-success" aria-valuenow="0">
-		                          		
-		                          	</div>
-		                        </div>
-	                      	</li>
-	                      	<li>
-	                        	<div class="block clearfix mb-5">
-	                        		<span class="pull-left fs-12">Today</span>
-	                        		<span class="pull-right label label-outline label-primary">0%</span>
-	                        	</div>
-	                        	<div class="progress progress-xs">
-	                          		<div role="progressbar" data-transitiongoal="0" class="progress-bar" aria-valuenow="0">
-	                          			
-	                          		</div>
-	                        	</div>
-	                      	</li>
-	                      	<li>
-		                        <div class="block clearfix mb-5">
-		                        	<span class="pull-left fs-12">Yesterday</span>
-		                        	<span class="pull-right label label-outline label-success">0%</span>
-		                        </div>
-		                        <div class="progress progress-xs">
-		                          	<div role="progressbar" data-transitiongoal="0" class="progress-bar progress-bar-success" aria-valuenow="0">
-		                          		
-		                          	</div>
-		                        </div>
-	                      	</li>
-	                    </ul>
-                  	</div>
-                </div>
+            	
         	</div>
         </div>
     </div>

@@ -4,9 +4,9 @@
 	$errors = array();
 	$url = "http://app02.localhost/ezi-reports/app/app/?recover=";
 
-	$school_code = stripslashes($_POST['school_code']);
+	$email = stripslashes($_POST['school_code']);
 
-	if (empty($school_code)) {
+	if (empty($email)) {
 		$response = array('error' => 'true', 'message' => 'Please enter Your School Code!');
 	} else {
 

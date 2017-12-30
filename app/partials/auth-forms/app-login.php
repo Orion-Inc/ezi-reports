@@ -1,31 +1,31 @@
-<div class="container page-container">
-    <div class="page-content">
-        <div class="logo"><i class="ti-files"></i></div>
-        <form method="POST" action="../includes/auth/login.php" class="form-horizontal" id="loginForm">
-            <div class="form-group">
-                <div class="col-xs-12">
-                    <input type="text" placeholder="School Code" name="school_code" class="form-control" autocomplete="off">
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">
+        <div class="simple-page-form animated zoomIn" id="login-form">
+            <h4 class="form-title m-b-xl text-center">Sign In With Your ezi-Account</h4>
+            <form action="../includes/auth/login.php" method="POST">
+                <div class="form-group">
+                    <input id="eziAccountcode" name="eziAccountcode" type="text" class="form-control" placeholder="ezi-Account Code" required="" oninvalid="this.setCustomValidity('Please Enter Your eziAccountcode')" oninput="setCustomValidity('')">
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="col-xs-12">
-                    <input type="password" placeholder="Access Key" name="access_key" class="form-control" autocomplete="off">
+
+                <div class="form-group">
+                    <input id="access_key" name="access_key" type="password" class="form-control" placeholder="Password" required="" oninvalid="this.setCustomValidity('Enter Your Password')" oninput="setCustomValidity('')">
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="col-xs-12">
-                    <div class="pull-right">
-                        <a href="?forgot" class="inline-block form-control-static">Forgot a Passowrd?</a>
+
+                <div class="form-group m-b-xl">
+                    <div class="checkbox checkbox-primary">
+                        <input type="checkbox" id="keep_me_logged_in"/>
+                        <label for="keep_me_logged_in">Keep me signed in</label>
                     </div>
                 </div>
-            </div>
-            <button type="submit" class="btn-lg btn btn-primary btn-rounded btn-block">Sign in</button>
-        </form>
-        <hr>
-        <?php App::ViewPartial('version','app')?>
-        <div class="clearfix hidden">
-            <p class="text-muted mb-0 pull-left">Want new account?</p>
-            <a href="register.html" class="inline-block pull-right">Sign Up</a>
+                <button class="btn btn-primary">Sign In</button>
+            </form>
+        </div>
+        <div class="simple-page-footer animated zoomIn">
+            <p><a href="?auth=forgot-password">Forgot Your Password?</a></p>
+            <p>
+                <small>Don't have an account?</small>
+                <a href="#">Visit Our Website</a>
+            </p>
         </div>
     </div>
 </div>

@@ -1,5 +1,5 @@
 <?php 
-	session_start();
+	require_once ('../includes/Autoloader.php');
 	if (isset($_GET['auth'])): 
 ?>
 <!DOCTYPE html>
@@ -33,60 +33,13 @@
 			</a>
 		</div>
 
-		<?php if ($_GET['auth']=="login"): ?>
-			<div class="row">
-				<div class="col-xs-12 col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">
-					<div class="simple-page-form animated zoomIn" id="login-form">
-						<h4 class="form-title m-b-xl text-center">Sign In With Your ezi-Account</h4>
-						<form action="../includes/auth/login.php" method="POST">
-							<div class="form-group">
-								<input id="eziAccountcode" name="eziAccountcode" type="text" class="form-control" placeholder="ezi-Account Code" required="" oninvalid="this.setCustomValidity('Please Enter Your eziAccountcode')" oninput="setCustomValidity('')">
-							</div>
-
-							<div class="form-group">
-								<input id="access_key" name="access_key" type="password" class="form-control" placeholder="Password" required="" oninvalid="this.setCustomValidity('Enter Your Password')" oninput="setCustomValidity('')">
-							</div>
-
-							<div class="form-group m-b-xl">
-								<div class="checkbox checkbox-primary">
-									<input type="checkbox" id="keep_me_logged_in"/>
-									<label for="keep_me_logged_in">Keep me signed in</label>
-								</div>
-							</div>
-							<button class="btn btn-primary">Sign In</button>
-						</form>
-					</div>
-					<div class="simple-page-footer animated zoomIn">
-						<p><a href="?auth=forgot-password">Forgot Your Password?</a></p>
-						<p>
-							<small>Don't have an account?</small>
-							<a href="#">Visit Our Website</a>
-						</p>
-					</div>
-				</div>
-			</div>
+		<?php if ($_GET['auth']=="login"): App::ViewPartial('login','auth-forms')?>
+			
 		<?php elseif($_GET['auth']=="forgot-password"): ?>
-			<div class="row">
-				<div class="col-xs-12 col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">
-					<div class="simple-page-form animated flipInY" id="reset-password-form">
-						<h4 class="form-title m-b-xl text-center">Forgot Your Password ?</h4>
-
-						<form action="../includes/auth/reset-password.php" method="POST">
-							<div class="form-group">
-								<input id="reset-password-email" type="email" class="form-control" placeholder="Enter Email Address eg. School or Individual">
-							</div>
-							<button type="submit" class="btn btn-primary">Rest Password</button>
-						</form>
-					</div>
-					<div class="simple-page-footer animated zoomIn">
-						<p><a href="?auth=login">Go Back</a></p>
-						<p>
-							<small>Don't have an account?</small>
-							<a href="#">Visit Our Website</a>
-						</p>
-					</div>
-				</div>
-			</div>
+		<!-- Work on Reset Password -->
+			<?php if($_GET['auth']=="forgot-password"): ?>
+			<?php elseif($_GET['auth']=="forgot-password"): ?>
+			<?php endif ?>
 		<?php else: header('Location:?auth=login');?>
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">

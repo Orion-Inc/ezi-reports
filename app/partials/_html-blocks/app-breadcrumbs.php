@@ -17,7 +17,7 @@
 <?php endif ?>
 
 <?php if (isset($_GET['class'])): ?>
-	<h4 class="mt-0 mb-5"><i class="ti-blackboard"></i> Classes</h4>
+	<h4 class="mt-0 mb-5"><i class="ti-blackboard"></i> Class Room</h4>
 	<ol class="breadcrumb mb-0">
 	    <li class="active">{Description}</li>
 	</ol>

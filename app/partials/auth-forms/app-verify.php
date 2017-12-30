@@ -1,12 +1,21 @@
-<div class="container page-container">
-    <div class="page-content">
-        <div class="logo"><i class="ti-files"></i></div>
-        <h4 class="fs-16 text-white fw-300 mt-0">A request to reset your password has been made.</h4>
-        <p class="text-muted">We have sent you your login information. Please check your email.</p>
-        <div class="clearfix">
-            <a href="?login" class="inline-block form-control-static">Go Back</a>
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">
+        <div class="simple-page-form animated flipInY" id="reset-password-form">
+            <h4 class="form-title m-b-xl text-center">Forgot Your Password ?</h4>
+
+            <form action="../includes/auth/reset-password.php" method="POST">
+                <div class="form-group">
+                    <input id="reset-password-email" type="email" class="form-control" placeholder="Enter Email Address eg. School or Individual" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Rest Password</button>
+            </form>
         </div>
-        <hr>
-        <?php App::ViewPartial('version','app')?>
+        <div class="simple-page-footer animated zoomIn">
+            <p><a href="?auth=login">Go Back</a></p>
+            <p>
+                <small>Don't have an account?</small>
+                <a href="#">Visit Our Website</a>
+            </p>
+        </div>
     </div>
-</div> 
+</div>
