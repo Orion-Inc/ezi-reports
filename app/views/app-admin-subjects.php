@@ -27,7 +27,7 @@
                     <h5 class="mb-5">Total Courses</h5>
                     <div class="fs-36 fw-600 mb-20 counter"><?php echo $courses?></div>
                     <div data-percent="<?php App::show($coursePercent)?>" class="easy-pie-chart fs-36 bar-track">
-                        <i class="ti-home text-muted"></i>
+                        <i class="ti-book text-muted"></i>
                     </div>
                     <div class="clearfix mt-10 ml-10 mr-10">
                         <div class="pull-left">
