@@ -95,6 +95,54 @@ $(document).ready(function() {
         modal.find('form')[0].reset();
     });
 
+    $('#admin-edit-subject-modal').on('show.bs.modal', function(e) {
+        var modal = $(this);
+        var url = modal.attr('data-fetch');
+
+        var button = $(e.relatedTarget);
+        var subject_code = button.data('subject');
+        modal.find('#subject_code').val(subject_code);
+
+        $.ajax({
+            url: '../includes/actions/course/fetchEziCourses.php',
+            dataType: 'json',
+            type: 'POST',
+            data: {},
+            success: function(data) {
+                var options = '<option value="" disabled="" selected="">Select Course to Assign this Subject</option>';
+                $.each(data.array, function(key, val) {
+                    options += '<option value="' + val.value + '">' + val.name + '</option>';
+                });
+                modal.find('#course_code').html(options);
+            }
+        });
+
+        $.ajax({
+            url: url,
+            dataType: 'json',
+            type: 'POST',
+            data: { subject_code: subject_code },
+            success: function(data) {
+                if (data.error != 'false') {
+                    toastr.error(data.message, 'Error!');
+                } else {
+                    $.each(data.array, function(key, value) {
+                        modal.find('form #' + key).val(value);
+                    });
+
+                    $.each(data.array, function(key, value) {
+                        modal.find("form #" + key + " option[value='" + value + "']").prop('selected', true);
+                    });
+                }
+            }
+        });
+    });
+    $('#admin-edit-subject-modal').modal('handleUpdate');
+    $('#admin-edit-subject-modal').on('hidden.bs.modal', function(e) {
+        var modal = $(this);
+        modal.find('form')[0].reset();
+    });
+
     $(".app-form").unbind('submit').bind('submit', function() {
         var form = $(this);
         var data = form.serialize();

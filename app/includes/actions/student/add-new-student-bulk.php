@@ -62,7 +62,7 @@
 			$transact->beginTransaction();
 
 			try {
-				$updateStudent = Database::query("INSERT INTO `ezi_student`(
+				$addStudent = Database::query("INSERT INTO `ezi_student`(
 					`student_code`,
 					`student_name`,  
 					`school_code`) 
@@ -74,7 +74,7 @@
 					$studentParams
 				);
 
-				$updateStudentDetails = Database::query("INSERT INTO `ezi_student_details`(
+				$addStudentDetails = Database::query("INSERT INTO `ezi_student_details`(
 					`student_code`, 
 					`student_dob`, 
 					`student_gender`, 
@@ -92,7 +92,7 @@
 					$student_detailsParams
 				);
 
-				$updateGuardianInfo = Database::query("INSERT INTO `ezi_student_guardian`(
+				$addGuardianInfo = Database::query("INSERT INTO `ezi_student_guardian`(
 					`student_code`, 
 					`guardian_name`, 
 					`guardian_relationship`, 

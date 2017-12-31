@@ -1,12 +1,12 @@
-<div tabindex="-1" role="dialog" aria-labelledby="admin-add-subject-label" class="modal in" id="admin-add-subject-modal">
+<div tabindex="-1" role="dialog" aria-labelledby="admin-edit-subject-label" class="modal in" id="admin-edit-subject-modal" data-fetch="../includes/actions/subject/admin-get-subject-info.php">
     <div role="document" class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                <h4 class="modal-title"><i class="ti-book"></i> New Subject</h4>
+                <h4 class="modal-title"><i class="ti-book"></i> Edit Subject</h4>
             </div>
             <div class="modal-body">
-                <form class="app-form" method="POST" action="../includes/actions/subject/admin-add-subject.php" id="add-subject">
+                <form class="app-form" method="POST" action="../includes/actions/subject/admin-edit-subject.php" id="edit-subject">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
@@ -19,14 +19,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Subject Code</label>
-                                <div class="input-group">
-                                    <input name="subject_code" type="text" class="form-control input-sm" readonly="" placeholder="Subject Code" id="subject_code">
-                                    <span class="input-group-btn">
-                                        <a href="javascript:void(0)" class="btn btn-outline btn-default btn-sm" id="generateCode">
-                                            <i class="ti-reload"></i>
-                                        </a>
-                                    </span>
-                                </div>
+                                <input name="subject_code" type="text" class="form-control input-sm" readonly="" placeholder="Subject Code" id="subject_code">
                             </div>
                         </div>
                         <div class="col-md-6">

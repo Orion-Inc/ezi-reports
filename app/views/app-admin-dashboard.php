@@ -99,7 +99,6 @@
 		                              		<th style="width:25%">Sessions</th>
 		                            	</tr>
 		                          	</thead>
-		                          	
                                     <?php  ?>
 		                        </table>
 	                      	</div>
