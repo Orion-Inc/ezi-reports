@@ -80,10 +80,14 @@
                     <i class="ti-home"></i>Schools
                 </a>
             </li>
-            <li>
-                <a href="javascript:page('admin-courses')" class="bubble">
+            <li class="panel">
+                <a data-toggle="collapse" href="#course-list" aria-expanded="false" aria-controls="course-list" class="collapsed">
                     <i class="ti-book"></i> Courses
                 </a>
+                <ul id="course-list" class="list-unstyled collapse">
+                    <li><a href="javascript:page('admin-courses')" class="bubble">Add Course</a></li>
+                    <li><a href="javascript:page('admin-subjects')" class="bubble">Add Subject</a></li>
+                </ul>
             </li>
             <li>
                 <a href="javascript:page('admin-reports')" class="bubble">

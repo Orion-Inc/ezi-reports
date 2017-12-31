@@ -1,6 +1,6 @@
 $(document).ready(function() {
     var lastIdx = null;
-    var schoolsTable = $('#all-courses').DataTable({
+    var coursesTable = $('#all-courses').DataTable({
         ajax: '../includes/actions/course/admin-fetch-all-courses.php',
         //select:{style:"os"},
         colReorder: true,
@@ -50,7 +50,7 @@ $(document).ready(function() {
     */
 
     $("#all-courses_length").append(
-        '<a href="#" style="margin-left:10px;" data-toggle="modal" data-target="#admin-add-course-modal">' +
+        '<a href="#" class="ml-10" data-toggle="modal" data-target="#admin-add-course-modal">' +
         '<span class="hidden-xs">Add </span>New<span class="hidden-xs hidden-sm"> Course</span>' +
         '</a>'
     );

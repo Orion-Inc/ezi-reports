@@ -21,9 +21,7 @@
         		</div>
         	</div>
         </div>
-    </div>	
-
-	
+    </div>		
 </div>
 <?php 
     App::ViewPartial('admin-view-school','modals/school');
