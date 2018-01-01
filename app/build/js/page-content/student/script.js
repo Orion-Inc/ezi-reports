@@ -62,9 +62,26 @@ $(document).ready(function() {
         bodyTag: "fieldset",
         transitionEffect: "slide",
         cssClass: 'wizard step-equal-width',
+        onStepChanging: function(event, currentIndex, newIndex) {
+            var form = $(this);
+            form.validate().settings.ignore = ":disabled,:hidden";
+            return form.valid();
+        },
         onFinished: function(event, currentIndex) {
             var form = $(this);
             form.submit();
+        }
+    }).validate({
+        highlight: function(r) {
+            $(r).closest(".form-group").addClass("has-error")
+        },
+        unhighlight: function(r) {
+            $(r).closest(".form-group").removeClass("has-error")
+        },
+        errorElement: "span",
+        errorClass: "help-block",
+        errorPlacement: function(r, e) {
+            e.parent(".input-group").length ? r.insertAfter(e.parent()) : e.parent("label").length ? r.insertBefore(e.parent()) : r.insertAfter(e)
         }
     });
 
@@ -73,9 +90,26 @@ $(document).ready(function() {
         bodyTag: "fieldset",
         transitionEffect: "slide",
         cssClass: 'wizard step-equal-width',
+        onStepChanging: function(event, currentIndex, newIndex) {
+            var form = $(this);
+            form.validate().settings.ignore = ":disabled,:hidden";
+            return form.valid();
+        },
         onFinished: function(event, currentIndex) {
             var form = $(this);
             form.submit();
+        }
+    }).validate({
+        highlight: function(r) {
+            $(r).closest(".form-group").addClass("has-error")
+        },
+        unhighlight: function(r) {
+            $(r).closest(".form-group").removeClass("has-error")
+        },
+        errorElement: "span",
+        errorClass: "help-block",
+        errorPlacement: function(r, e) {
+            e.parent(".input-group").length ? r.insertAfter(e.parent()) : e.parent("label").length ? r.insertBefore(e.parent()) : r.insertAfter(e)
         }
     });
 
@@ -152,6 +186,17 @@ $(document).ready(function() {
                     modal.find('#student_class').html(options);
                 }
             });
+        });
+        modal.find('input[name="student_status"]').on('change', function(e) {
+            var student_status = $(this).val();
+            switch (student_status) {
+                case "day":
+
+                    break;
+                case "boarding":
+
+                    break;
+            }
         });
     });
     $('#add-student-modal').modal('handleUpdate');

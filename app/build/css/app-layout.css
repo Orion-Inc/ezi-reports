@@ -594,18 +594,18 @@ input[type=checkbox]:focus {
 }
 
 .has-success .form-control {
-    border-color: #17A88B;
+    border-color: #17A88B !important;
     box-shadow: none
 }
 
 .has-success .form-control:focus {
     box-shadow: none;
-    border-color: #17A88B
+    border-color: #17A88B !important
 }
 
 .has-success .input-group-addon {
     color: #17A88B;
-    border-color: #17A88B;
+    border-color: #17A88B !important;
     background-color: transparent
 }
 
@@ -630,18 +630,18 @@ input[type=checkbox]:focus {
 }
 
 .has-warning .form-control {
-    border-color: #FFB61E;
+    border-color: #FFB61E !important;
     box-shadow: none
 }
 
 .has-warning .form-control:focus {
     box-shadow: none;
-    border-color: #FFB61E
+    border-color: #FFB61E !important
 }
 
 .has-warning .input-group-addon {
     color: #FFB61E;
-    border-color: #FFB61E;
+    border-color: #FFB61E !important;
     background-color: transparent
 }
 
@@ -666,18 +666,18 @@ input[type=checkbox]:focus {
 }
 
 .has-error .form-control {
-    border-color: #E5343D;
+    border-color: #E5343D !important;
     box-shadow: none
 }
 
 .has-error .form-control:focus {
     box-shadow: none;
-    border-color: #E5343D
+    border-color: #E5343D !important
 }
 
 .has-error .input-group-addon {
     color: #E5343D;
-    border-color: #E5343D;
+    border-color: #E5343D !important;
     background-color: transparent
 }
 
