@@ -11,7 +11,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Subject Name</label>
-                                <input name="subject_name" type="text" class="form-control input-sm" placeholder="Subject Name" id="subject_name">
+                                <input name="subject_name" type="text" class="form-control input-sm" placeholder="Subject Name" id="subject_name" data-rule-required="true">
                             </div>
                         </div>
                     </div>
@@ -20,7 +20,7 @@
                             <div class="form-group">
                                 <label>Subject Code</label>
                                 <div class="input-group">
-                                    <input name="subject_code" type="text" class="form-control input-sm" readonly="" placeholder="Subject Code" id="subject_code">
+                                    <input name="subject_code" type="text" class="form-control input-sm" readonly="" placeholder="Subject Code" id="subject_code" data-rule-required="true">
                                     <span class="input-group-btn">
                                         <a href="javascript:void(0)" class="btn btn-outline btn-default btn-sm" id="generateCode">
                                             <i class="ti-reload"></i>
@@ -32,7 +32,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Assign Course</label>
-                                <select name="course_code" class="form-control input-sm" id="course_code">
+                                <select name="course_code" class="form-control input-sm" id="course_code" data-rule-required="true">
                                     <option value="" disabled="" selected="">Select Course to Assign this Subject</option>
                                 </select>
                             </div>
@@ -42,7 +42,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Description</label>
-                                <textarea name="subject_description" class="form-control input-sm" rows="4" id="subject_description" placeholder="Type Course Description Here"></textarea>
+                                <textarea name="subject_description" class="form-control input-sm" rows="4" id="subject_description" placeholder="Type Course Description Here" data-rule-required="true"></textarea>
                             </div>
                         </div>
                     </div>

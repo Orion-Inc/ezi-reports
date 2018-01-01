@@ -16,6 +16,9 @@
     <script type="text/javascript" src="../plugins/blockUI/jquery.blockUI.js"></script>
     <!-- MomentJS-->
     <script type="text/javascript" src="../plugins/moment/min/moment.min.js"></script>
+     <!-- jQuery Validation-->
+    <script type="text/javascript" src="../plugins/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="../plugins/jquery-validation/dist/additional-methods.min.js"></script>
     <!-- Bootstrap Date Range Picker-->
     <script type="text/javascript" src="../plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
     <!-- Date Picker-->

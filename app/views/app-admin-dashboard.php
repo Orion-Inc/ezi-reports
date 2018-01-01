@@ -54,11 +54,11 @@
                                         </div>
                                         <div class="clearfix mt-10 ml-10 mr-10">
                                             <div class="pull-left">
-                                                <div class="fs-12">Basic Schools</div>
+                                                <div class="fs-12">Basic</div>
                                                 <div class="text-primary"><?php echo "<strong>".$totalBasicSchools[0]."</strong>"." (".$totalBasicSchoolsPercent."%)";?></div>
                                             </div>
                                             <div class="pull-right">
-                                                <div class="fs-12">Secondary Schools</div>
+                                                <div class="fs-12">Secondary</div>
                                                 <div class="text-primary"><?php echo "<strong>".$totalSecondarySchools[0]."</strong>"." (".$totalSecondarySchoolsPercent."%)";?></div>
                                             </div>
                                         </div>
@@ -76,11 +76,11 @@
                                         </div>
                                         <div class="clearfix mt-10 ml-10 mr-10">
                                             <div class="pull-left">
-                                                <div class="fs-12">Male Students</div>
+                                                <div class="fs-12">Male</div>
                                                 <div class="text-primary"><?php echo "<strong>".$totalMalePopulation[0]."</strong>"." (".$totalMalePopulationPercent."%)";?></div>
                                             </div>
                                             <div class="pull-right">
-                                                <div class="fs-12">Female Students</div>
+                                                <div class="fs-12">Female</div>
                                                 <div class="text-primary"><?php echo "<strong>".$totalFemalePopulation[0]."</strong>"." (".$totalFemalePopulationPercent."%)";?></div>
                                             </div>
                                         </div>

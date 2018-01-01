@@ -93,6 +93,8 @@ $(document).ready(function() {
     $('#admin-add-subject-modal').on('hidden.bs.modal', function(e) {
         var modal = $(this);
         modal.find('form')[0].reset();
+        modal.find('form .form-group').removeClass("has-error");
+        validateAddForm.resetForm();
     });
 
     $('#admin-edit-subject-modal').on('show.bs.modal', function(e) {
@@ -141,30 +143,68 @@ $(document).ready(function() {
     $('#admin-edit-subject-modal').on('hidden.bs.modal', function(e) {
         var modal = $(this);
         modal.find('form')[0].reset();
+        modal.find('form .form-group').removeClass("has-error");
+        validateEditForm.resetForm();
     });
 
-    $(".app-form").unbind('submit').bind('submit', function() {
+    var validateAddForm = $("#add-subject").validate({
+        highlight: function(r) {
+            $(r).closest(".form-group").addClass("has-error")
+        },
+        unhighlight: function(r) {
+            $(r).closest(".form-group").removeClass("has-error")
+        },
+        errorElement: "span",
+        errorClass: "help-block",
+        errorPlacement: function(r, e) {
+            e.parent(".input-group").length ? r.insertAfter(e.parent()) : e.parent("label").length ? r.insertBefore(e.parent()) : r.insertAfter(e)
+        }
+    });
+
+    var validateEditForm = $("#edit-subject").validate({
+        highlight: function(r) {
+            $(r).closest(".form-group").addClass("has-error")
+        },
+        unhighlight: function(r) {
+            $(r).closest(".form-group").removeClass("has-error")
+        },
+        errorElement: "span",
+        errorClass: "help-block",
+        errorPlacement: function(r, e) {
+            e.parent(".input-group").length ? r.insertAfter(e.parent()) : e.parent("label").length ? r.insertBefore(e.parent()) : r.insertAfter(e)
+        }
+    });
+
+    $(".app-form").on('submit', function() {
         var form = $(this);
         var data = form.serialize();
         var url = form.attr('action');
+        var whichForm = form.attr('id');
 
-        $.ajax({
-            url: url,
-            dataType: 'json',
-            type: 'POST',
-            data: data,
-            success: function(data) {
-                if (data.error != 'false') {
-                    $('.modal').modal('hide');
-                    toastr.error(data.message, 'Error!');
-                    $('#page-content').load('../views/app-' + data.url + '.php?' + data.url);
-                } else {
-                    $('.modal').modal('hide');
-                    toastr.success(data.message, 'Success!');
-                    $('#page-content').load('../views/app-' + data.url + '.php?' + data.url);
+        if (whichForm == "add-subject") {
+            var isValid = validateAddForm.valid();
+        } else if (whichForm == "edit-subject") {
+            var isValid = validateEditForm.valid();
+        }
+        if (isValid == true) {
+            $.ajax({
+                url: url,
+                dataType: 'json',
+                type: 'POST',
+                data: data,
+                success: function(data) {
+                    if (data.error != 'false') {
+                        $('.modal').modal('hide');
+                        toastr.error(data.message, 'Error!');
+                        $('#page-content').load('../views/app-' + data.url + '.php?' + data.url);
+                    } else {
+                        $('.modal').modal('hide');
+                        toastr.success(data.message, 'Success!');
+                        $('#page-content').load('../views/app-' + data.url + '.php?' + data.url);
+                    }
                 }
-            }
-        });
+            });
+        }
         return false;
     });
 });

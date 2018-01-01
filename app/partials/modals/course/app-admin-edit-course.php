@@ -6,12 +6,12 @@
                 <h4 class="modal-title"><i class="ti-book"></i> Edit Course</h4>
             </div>
             <div class="modal-body">
-                <form class="app-form" method="POST" action="../includes/actions/course/admin-edit-course.php" id="add-course">
+                <form class="app-form" method="POST" action="../includes/actions/course/admin-edit-course.php" id="edit-course">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Course Name</label>
-                                <input name="course_name" type="text" class="form-control input-sm" placeholder="Course Name" id="course_name">
+                                <input name="course_name" type="text" class="form-control input-sm" placeholder="Course Name" id="course_name" data-rule-required="true">
                             </div>
                         </div>
                     </div>
@@ -19,13 +19,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Course Code</label>
-                                <input name="course_code" type="text" class="form-control input-sm" readonly="" placeholder="Course Code" id="course_code">
+                                <input name="course_code" type="text" class="form-control input-sm" readonly="" placeholder="Course Code" id="course_code" data-rule-required="true">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Course Type</label>
-                                <select name="course_type" class="form-control input-sm" id="course_type">
+                                <select name="course_type" class="form-control input-sm" id="course_type" data-rule-required="true">
                                     <option value="" readonly="" selected="">Select Course Type</option>
                                     <option value="basic">Basic</option>
                                     <option value="secondary">Secondary</option>
@@ -37,7 +37,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Description</label>
-                                <textarea name="course_description" class="form-control input-sm" rows="4" id="course_description" placeholder="Type Course Description Here"></textarea>
+                                <textarea name="course_description" class="form-control input-sm" rows="4" id="course_description" placeholder="Type Course Description Here" data-rule-required="true"></textarea>
                             </div>
                         </div>
                     </div>

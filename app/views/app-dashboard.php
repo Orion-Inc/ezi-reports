@@ -38,11 +38,11 @@
                   	</div>
 					<div class="clearfix mt-10">
 						<div class="pull-left">
-							<div class="fs-12">Male Students</div>
+							<div class="fs-12">Male</div>
 							<div class="text-primary"><?php echo $totalMalePopulation//[0];?></div>
 						</div>
 						<div class="pull-right">
-							<div class="fs-12">Female Students</div>
+							<div class="fs-12">Female</div>
 							<div class="text-primary"><?php echo $totalFemalePopulation//[0];?></div>
 						</div>
 					</div>

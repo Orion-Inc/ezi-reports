@@ -16,6 +16,8 @@
                     $errors = array();
 
                     $totalCourses = Database::query("SELECT COUNT(`course_code`) FROM `ezi_course`")[0];
+                    $basicCourses = Database::query("SELECT COUNT(`course_code`) FROM `ezi_course` WHERE `course_type`='basic'")[0];
+                    $secondaryCourses = Database::query("SELECT COUNT(`course_code`) FROM `ezi_course` WHERE `course_type`='secondary'")[0];
                     $totalSubjects = Database::query("SELECT COUNT(`subject_code`) FROM `ezi_subjects`")[0];
 
                     $courses = $totalCourses[0];
@@ -32,11 +34,11 @@
                     <div class="clearfix mt-10 ml-10 mr-10">
                         <div class="pull-left">
                             <div class="fs-12">Basic</div>
-                            <div class="text-primary"><?php echo '';?></div>
+                            <div class="text-primary"><?php echo $basicCourses[0];?></div>
                         </div>
                         <div class="pull-right">
                             <div class="fs-12">Secondary</div>
-                            <div class="text-primary"><?php echo '';?></div>
+                            <div class="text-primary"><?php echo $secondaryCourses[0];?></div>
                         </div>
                     </div>
                 </div>

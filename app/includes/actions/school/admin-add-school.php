@@ -54,9 +54,9 @@
 				$params
 			);
 
-			$response = array('error' => 'false', 'url' => 'admin-school', 'message' => "The School Information Has Been Updated Successfully!");
+			$response = array('error' => 'false', 'url' => 'admin-school', 'message' => "The School Information Has Been Added Successfully!");
 	} catch (Exception $e) {
-		$response = array('error' => 'true', 'url' => 'admin-school', 'message' => "An Error Occurred While Trying To Perform The Update!");
+		$response = array('error' => 'true', 'url' => 'admin-school', 'message' => "An Error Occurred While Trying To Add School!");
 	}
 
 	echo json_encode($response);
