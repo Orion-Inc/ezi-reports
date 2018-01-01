@@ -191,10 +191,10 @@ $(document).ready(function() {
             var student_status = $(this).val();
             switch (student_status) {
                 case "day":
-
+                    modal.find('#student_house').removeAttr("data-rule-required");
                     break;
                 case "boarding":
-
+                    modal.find('#student_house').attr("data-rule-required", "true");
                     break;
             }
         });
