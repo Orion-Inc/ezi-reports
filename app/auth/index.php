@@ -37,8 +37,9 @@
 			
 		<?php elseif($_GET['auth']=="forgot-password"): ?>
 		<!-- Work on Reset Password -->
-			<?php if($_GET['auth']=="forgot-password"): ?>
-			<?php elseif($_GET['auth']=="forgot-password"): ?>
+			<?php if($_GET['auth']=="forgot-password" && isset($_GET['status'])): ?>
+				
+			<?php else:  App::ViewPartial('forgot','auth-forms')?>
 			<?php endif ?>
 		<?php else: header('Location:?auth=login');?>
 			<div class="row">
@@ -52,7 +53,7 @@
 
 		<?php if (isset($_SESSION['ERRORS'])):?>
 			<script type="text/javascript">
-				var msg = <?php echo $_SESSION['ERRORS']?>;
+				var msg = <?php echo json_encode($_SESSION['ERRORS'])?>;
 				alert(msg.message);
 			</script>
 		<?php endif; unset($_SESSION['ERRORS']);?>

@@ -2,37 +2,19 @@
 	require_once 'Autoloader.php';  
 
 	$errors = array();
-	$url = "http://app02.localhost/ezi-reports/app/app/?recover=";
+	//$url = "http://app02.localhost/ezi-reports/app/auth/?recover=";
 
-	$email = stripslashes($_POST['school_code']);
+	$suffix = '?auth=forgot-password&status=';
+	$email = stripslashes($_POST['school_email']);
 
 	if (empty($email)) {
-		$response = array('error' => 'true', 'message' => 'Please enter Your School Code!');
+		$errors[0] = array('auth_error' => 'true', 'message' => "Please enter Your School's Email Address");
+		$_SESSION['ERRORS'] = $errors[0];
+		header("Location:../../../app/auth/?auth=forgot-password");
 	} else {
-
-		$school = Database::query("SELECT `school_id` FROM `ezi_school` WHERE (`school_code`='$school_code' OR `school_email`='$school_code')")[0];
-
-
-		if($school['school_id']) {
-			$_school = Database::query("SELECT `school_email` FROM `ezi_school` WHERE `school_id`='{$school['school_id']}'")[0];
-
-			if ($_school['school_email']) {
-				$key = Database::query("SELECT `access_key` FROM `ezi_school_access_key` WHERE `school_code` = '$school_code'")[0];
-				$recover_url = $url.$key['access_key'];
-
-				$response = array('error' => 'false', 'url' => '?verify');
-			} else {
-				$response = array('error' => 'true', 'message' => "An Error occured while trying to verify your School Code.\nPlease try again or Contact Us.");
-			}
-		}else{
-			$response = array('error' => 'true', 'message' => "Wrong School Code!");
-		}
+		
+		
 	}
-	
-
-	
-
-	//echo json_encode($response);
 ?>
 
 
