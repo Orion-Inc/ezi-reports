@@ -123,7 +123,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Guardian Name</label>
-                                                <input name="guardian_name" type="text" class="form-control input-sm" placeholder="Enter Guardian's Full Name" data-rule-required="true">
+                                                <input name="guardian_name" type="text" class="form-control input-sm" placeholder="Enter Guardian's Full Name" id="guardian_name" data-rule-required="true">
                                             </div>
                                         </div>
 

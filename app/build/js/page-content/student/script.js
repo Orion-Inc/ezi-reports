@@ -57,7 +57,7 @@ $(document).ready(function() {
 
 
 
-    $("#edit-student").steps({
+    var validateEditForm = $("#edit-student").steps({
         headerTag: "h5",
         bodyTag: "fieldset",
         transitionEffect: "slide",
@@ -85,7 +85,7 @@ $(document).ready(function() {
         }
     });
 
-    $("#new-student").steps({
+    var validateAddForm = $("#new-student").steps({
         headerTag: "h5",
         bodyTag: "fieldset",
         transitionEffect: "slide",
@@ -200,6 +200,12 @@ $(document).ready(function() {
         });
     });
     $('#add-student-modal').modal('handleUpdate');
+    $('#add-student-modal').on('hidden.bs.modal', function(e) {
+        var modal = $(this);
+        modal.find('form')[0].reset();
+        modal.find('form .form-group').removeClass("has-error");
+        validateAddForm.resetForm();
+    });
 
     $('#view-student-modal').on('shown.bs.modal', function(e) {
         var modal = $(this);
@@ -321,9 +327,25 @@ $(document).ready(function() {
                 }
             }
         });
+        modal.find('input[name="student_status"]').on('change', function(e) {
+            var student_status = $(this).val();
+            switch (student_status) {
+                case "day":
+                    modal.find('#student_house').removeAttr("data-rule-required");
+                    break;
+                case "boarding":
+                    modal.find('#student_house').attr("data-rule-required", "true");
+                    break;
+            }
+        });
     });
     $('#edit-student-modal').modal('handleUpdate');
-
+    $('#edit-student-modal').on('hidden.bs.modal', function(e) {
+        var modal = $(this);
+        modal.find('form')[0].reset();
+        modal.find('form .form-group').removeClass("has-error");
+        validateEditForm.resetForm();
+    });
 
     $(".app-form").unbind('submit').bind('submit', function() {
         var form = $(this);
@@ -447,9 +469,6 @@ $(document).ready(function() {
     $('#add-student-progress-modal').on('hidden.bs.modal', function(e) {
         studentsTable.ajax.reload(null, false);
     });
-
-
-
 });
 
 function deleteStudent(student_code, student_name) {
