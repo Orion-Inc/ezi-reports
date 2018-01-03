@@ -21,7 +21,7 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900,300">
 </head>
 <body class="simple-page">
-	<div id="back-to-home" class="animated zoomIn hidden-xs">
+	<div id="back-to-home" class="animated zoomIn hidden">
 		<a href="#" class="btn btn-outline btn-default"><i class="fa fa-arrow-left animated zoomIn"></i></a>
 	</div>
 
@@ -37,8 +37,10 @@
 			
 		<?php elseif($_GET['auth']=="forgot-password"): ?>
 		<!-- Work on Reset Password -->
-			<?php if($_GET['auth']=="forgot-password" && isset($_GET['status'])): ?>
-				
+			<?php if($_GET['auth']=="forgot-password" && isset($_GET['token'])): 
+				App::ViewPartial('verify','auth-forms');
+			?>
+
 			<?php else:  App::ViewPartial('forgot','auth-forms')?>
 			<?php endif ?>
 		<?php else: header('Location:?auth=login');?>

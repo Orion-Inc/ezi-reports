@@ -7,7 +7,7 @@
                 <div class="form-group">
                     <input name="school_email" type="email" class="form-control" placeholder="Enter Email Address eg. School or Individual" id="school_email" required>
                 </div>
-                <button type="submit" class="btn btn-primary">Rest Password</button>
+                <button type="submit" class="btn btn-primary">Reset Password</button>
             </form>
         </div>
         <div class="simple-page-footer animated zoomIn">

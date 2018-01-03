@@ -4,7 +4,7 @@
 	$errors = array();
 	//$url = "http://app02.localhost/ezi-reports/app/auth/?recover=";
 
-	$suffix = '?auth=forgot-password&status=';
+	$suffix = '?auth=forgot-password&token=';
 	$email = stripslashes($_POST['school_email']);
 
 	if (empty($email)) {
