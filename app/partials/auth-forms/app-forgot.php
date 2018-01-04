@@ -5,7 +5,7 @@
 
             <form action="../includes/auth/reset-password.php" method="POST">
                 <div class="form-group">
-                    <input name="school_email" type="email" class="form-control" placeholder="Enter Email Address eg. School or Individual" id="school_email" required>
+                    <input name="code_email" type="text" class="form-control" placeholder="Enter Your Email Address or User Code" id="code_email" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Reset Password</button>
             </form>

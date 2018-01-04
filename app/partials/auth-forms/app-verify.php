@@ -8,7 +8,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
                 <p class="text-center mt-10">We've sent you an email with a verification code.</p>
-                <p class="text-center"><small>If you haven't received it <a href="#">Click Here</a></small></p>
+                <p class="text-center"><small>If you haven't received it <a href="#">Click Here</a>.</small></p>
             </form>
         </div>
         <div class="simple-page-footer animated zoomIn">

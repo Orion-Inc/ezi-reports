@@ -24,13 +24,13 @@
 
 				if(!empty($school)) {
 					$schoolParams = array( 
-						'student_code' => $school_code,
+						'school_code' => $school_code,
 						'access_key' => sha1($access_key)
 					);
 
 
-					$_school = Database::query("SELECT `school_code` FROM `ezi_school_access_key` WHERE 
-						`school_code`='{$schoolParams['student_code']}'  
+					$_school = Database::query("SELECT `user_code` FROM `ezi_users` WHERE 
+						`user_code`='{$schoolParams['school_code']}'  
 						AND 
 						`access_key`='{$schoolParams['access_key']}'"
 					);
@@ -45,7 +45,7 @@
 
 
 						try {
-							$query = Database::query("UPDATE `ezi_school_access_key` SET `token`= :token WHERE `school_code` = :school_code", $params);
+							$query = Database::query("UPDATE `ezi_users` SET `token`= :token WHERE `user_code` = :school_code", $params);
 
 							$_SESSION['SESS_IS_AUTH'] = true;
 							$_SESSION['SESS_USER_TYP'] = 'school';
