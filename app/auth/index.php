@@ -18,6 +18,8 @@
 	<link rel="stylesheet" href="../assets/auth/bootstrap.css">
 	<link rel="stylesheet" href="../assets/auth/core.css">
 	<link rel="stylesheet" href="../assets/auth/misc-pages.css">
+	<!-- Sweet Alert-->
+    <link rel="stylesheet" type="text/css" href="../plugins/bootstrap-sweetalert/lib/sweet-alert.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900,300">
 </head>
 <body class="simple-page">
@@ -27,9 +29,9 @@
 
 	<div class="container">
 		<div class="simple-page-logo animated zoomIn">
-			<a href="#">
-				<span><i class="fa fa-files-o"></i></span>
-				<span>eziReports</span>
+			<a href="">
+				<img src="../assets/images/logo-1.png" alt="eziReports" style="height:60px;">
+				<span class="hidden">eziReports</span>
 			</a>
 		</div>
 
@@ -40,7 +42,6 @@
 			<?php if($_GET['auth']=="forgot-password" && isset($_GET['token'])): 
 				App::ViewPartial('verify','auth-forms');
 			?>
-
 			<?php else:  App::ViewPartial('forgot','auth-forms')?>
 			<?php endif ?>
 		<?php else: header('Location:?auth=login');?>
@@ -52,14 +53,23 @@
 				</div>
 			</div>
 		<?php endif ?>
-
-		<?php if (isset($_SESSION['ERRORS'])):?>
-			<script type="text/javascript">
-				var msg = <?php echo json_encode($_SESSION['ERRORS'])?>;
-				alert(msg.message);
-			</script>
-		<?php endif; unset($_SESSION['ERRORS']);?>
-    </div>
+	</div>
+	<?php if (isset($_SESSION['ERRORS'])):;?>
+		<!-- Sweet Alert-->
+		<script type="text/javascript" src="../plugins/bootstrap-sweetalert/lib/sweet-alert.min.js"></script>
+		<script type="text/javascript">
+			var msg = <?php echo json_encode($_SESSION['ERRORS']);?>;
+			setTimeout(function () {
+				swal({
+					title:"Oops!",
+					text:msg.message,
+					type:"error",
+					confirmButtonClass:"btn-sm",
+					confirmButtonText:"OK"
+				});
+			}, 1000);
+		</script>
+	<?php endif; unset($_SESSION['ERRORS']);?>
 </body>
 </html>	
 <?php else:

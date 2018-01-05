@@ -16,7 +16,7 @@
 
 		public static function getStudent($student_code,$params){
 			$student = Database::query("SELECT * FROM `ezi_student` WHERE `student_code` = '{$student_code}'");
-			$student_details = self::query("SELECT {$params} FROM `ezi_student_details` WHERE `student_code` = '{$student_code}'");
+			$student_details = self::query("SELECT * FROM `ezi_student_details` WHERE `student_code` = '{$student_code}'");
 
 			$student_info[] = array_merge($student[0],$student_details[0]);
 

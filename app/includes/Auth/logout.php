@@ -2,13 +2,13 @@
 	require_once 'Autoloader.php'; 
 	
 	$params = array( 
-		'school_code' => $_SESSION['SESS_USER_ID'], 
+		'user_code' => $_SESSION['SESS_USER_ID'], 
 		'token' => NULL
 	);
 
 
 	try {
-		$query = Database::query("UPDATE `ezi_school_access_key` SET `token`= :token WHERE `school_code` = :school_code", $params);
+		$query = Database::query("UPDATE `ezi_users` SET `token`= :token WHERE `user_code` = :user_code", $params);
 
 		unset($_SESSION['SESS_IS_AUTH']);
 		unset($_SESSION['SESS_USER_ID']);

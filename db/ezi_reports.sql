@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 23, 2017 at 07:37 PM
+-- Generation Time: Jan 05, 2018 at 06:42 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -40,10 +40,13 @@ CREATE TABLE `ezi_course` (
 --
 
 INSERT INTO `ezi_course` (`course_id`, `course_code`, `course_type`, `course_name`, `course_prefix`, `course_description`) VALUES
-(1, 'COS0001', 'secondary', 'General Arts', '', 'General arts is the generalized study of the liberal arts and sciences. These courses are sometime referred to as \"classical education studies.\" The curriculum in general arts is ongeneral knowledge and intellectual capacities.'),
-(2, 'COS0002', 'secondary', 'General Science', '', ''),
-(3, 'Primary', 'basic', 'Primary', '', ''),
-(4, 'Jhs', 'basic', 'Jhs', '', '');
+(6, 'CSGEA3640', 'secondary', 'General Arts', 'GEA', 'The Arts'),
+(7, 'CSGES8093', 'secondary', 'General Science', 'GES', 'Science it is'),
+(8, 'CSVIA4496', 'secondary', 'Visual Arts', 'VIA', 'Drawings and such'),
+(9, 'CSBUS9397', 'secondary', 'Business', 'BUS', 'Accounting and such'),
+(10, 'CSJHS3493', 'basic', 'JHS', 'JHS', 'Junior High School Course'),
+(11, 'CSPRI6070', 'basic', 'Primary', 'PRI', 'Primary'),
+(12, 'CSHOE7220', 'secondary', 'Home Economics', 'HOE', 'Cooking and stuff');
 
 -- --------------------------------------------------------
 
@@ -73,9 +76,7 @@ CREATE TABLE `ezi_school` (
 --
 
 INSERT INTO `ezi_school` (`school_id`, `school_code`, `school_prefix`, `school_type`, `school_name`, `school_motto`, `school_location`, `school_address`, `school_email`, `school_telephone`, `school_website`, `school_crest`, `created_at`, `updated_at`) VALUES
-(1, 'SCH00117', '', 'basic', '2ND GENERATION INTERNATIONAL SCHOOL', NULL, 'Kumasi Metro', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2, 'SCH00217', '', 'basic', '3 STARS EDUCATIONAL CENTRE', NULL, 'BUOKROM, Kumasi Metro', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3, 'SCH00317', '', 'basic', 'A M E ZION EDUCATIONAL UNIT', NULL, '69A/17 11TH STREET SEKONDI , Sekondi-Takoradi', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3, 'SCH00317', '', 'basic', 'A M E ZION EDUCATIONAL UNIT', '', '69A/17 11TH STREET SEKONDI , Sekondi-Takoradi', '', '', '', 'http://amezion.com', NULL, '0000-00-00 00:00:00', '2017-12-31 12:33:47'),
 (4, 'SCH00417', '', 'basic', 'A.M.A. ANNE HEALTH ACADEMY', NULL, 'OFORIKROM, Atwima Kwanwoma', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (5, 'SCH00517', '', 'basic', 'ABIBIMAN INTERNATIONAL SCHOOL', NULL, 'KWADASO, Kwabre', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (6, 'SCH00617', '', 'basic', 'ABOABOMAN PREPARATOY &JSS', NULL, 'Dormaa', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -393,10 +394,10 @@ INSERT INTO `ezi_school` (`school_id`, `school_code`, `school_prefix`, `school_t
 (318, 'SCH31817', '', 'basic', 'ANGLICAN UNIVERSITY COLLEGE OF TECHNOLOGY', NULL, 'House No. 3 Oak Street, Teshie-Nungua Estate, Accra, Ghana, Adenta', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (319, 'SCH31917', '', 'basic', 'ANLO AFIADENYIGHA SEC', NULL, 'Keta', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (320, 'SCH32017', '', 'basic', 'ANLO AVOMEFIA SNR SEC', NULL, 'Keta', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(321, 'SCH32117', '', 'basic', 'ANLO SEC', NULL, 'Keta', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
-INSERT INTO `ezi_school` (`school_id`, `school_code`, `school_prefix`, `school_type`, `school_name`, `school_motto`, `school_location`, `school_address`, `school_email`, `school_telephone`, `school_website`, `school_crest`, `created_at`, `updated_at`) VALUES
+(321, 'SCH32117', '', 'basic', 'ANLO SEC', NULL, 'Keta', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (322, 'SCH32217', '', 'basic', 'ANNOR ADJEYE SEC', NULL, 'Jomoro', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(323, 'SCH32317', '', 'basic', 'ANTOA SEC', NULL, 'Kwabre', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(323, 'SCH32317', '', 'basic', 'ANTOA SEC', NULL, 'Kwabre', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `ezi_school` (`school_id`, `school_code`, `school_prefix`, `school_type`, `school_name`, `school_motto`, `school_location`, `school_address`, `school_email`, `school_telephone`, `school_website`, `school_crest`, `created_at`, `updated_at`) VALUES
 (324, 'SCH32417', '', 'basic', 'ANUM PRESBY SEC', NULL, 'Asuogyaman', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (325, 'SCH32517', '', 'basic', 'APAM SEC', NULL, 'Gomoa', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (326, 'SCH32617', '', 'basic', 'APEGUSO COMM/SEC', NULL, 'Asuogyaman', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -525,7 +526,6 @@ INSERT INTO `ezi_school` (`school_id`, `school_code`, `school_prefix`, `school_t
 (449, 'SCH44917', '', 'basic', 'EREMON SEC/TECH', NULL, 'Lawra', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (450, 'SCH45017', '', 'basic', 'ESASE BONTEFUFUO SEC', NULL, 'Amansie West', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (451, 'SCH45117', '', 'basic', 'ESIAMA SEC/TECH', NULL, 'Nzema East', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(452, 'SCH45217', '', 'basic', 'EVANGELICAL PRESBYTERIAN SECONDARY SCHOOL', NULL, 'HOHOE, Hohoe', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (453, 'SCH45317', '', 'basic', 'EYAN DENKYIRA SEC', NULL, 'Ajumako/Enyan/Esiam', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (454, 'SCH45417', '', 'basic', 'FAITH SECONDARY/COMMERCIAL SCHOOL', NULL, 'Ayigya, Adansi East', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (455, 'SCH45517', '', 'basic', 'FIASEMAN SEC', NULL, 'Wassa West', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -734,21 +734,21 @@ INSERT INTO `ezi_school` (`school_id`, `school_code`, `school_prefix`, `school_t
 (658, 'SCH65817', '', 'basic', 'OUR LADY OF PROVIDENCE GIRLS\' SENIOR HIGH SCHOOL', NULL, 'Jaman South', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (659, 'SCH65917', '', 'basic', 'OUR LADY OF PROVIDENCE SEC', NULL, 'Jaman', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (660, 'SCH66017', '', 'basic', 'OWERRIMAN SEC', NULL, 'Asante Akim North', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(661, 'SCH66117', '', 'basic', 'PANK SECONDARY BUSINESS COLLEGE', NULL, 'Awutu Bawjiase, Cape Coast', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
-INSERT INTO `ezi_school` (`school_id`, `school_code`, `school_prefix`, `school_type`, `school_name`, `school_motto`, `school_location`, `school_address`, `school_email`, `school_telephone`, `school_website`, `school_crest`, `created_at`, `updated_at`) VALUES
+(661, 'SCH66117', '', 'basic', 'PANK SECONDARY BUSINESS COLLEGE', NULL, 'Awutu Bawjiase, Cape Coast', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (662, 'SCH66217', '', 'basic', 'PANK SECONDARY BUSINESS COLLEGE', NULL, 'Awoshie-Accra and Awutu Bawjiase, Accra Metro', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (663, 'SCH66317', '', 'basic', 'PEKI SEC/TECH', NULL, 'Kpando', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(664, 'SCH66417', '', 'basic', 'PEKI SECONDARY', NULL, 'Kpando', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(664, 'SCH66417', '', 'basic', 'PEKI SECONDARY', NULL, 'Kpando', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `ezi_school` (`school_id`, `school_code`, `school_prefix`, `school_type`, `school_name`, `school_motto`, `school_location`, `school_address`, `school_email`, `school_telephone`, `school_website`, `school_crest`, `created_at`, `updated_at`) VALUES
 (665, 'SCH66517', '', 'basic', 'PENTECOST SENIOR HIGH SCHOOL', NULL, 'Koforidua, Akwapim North', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (666, 'SCH66617', '', 'basic', 'PHILIPS COMM COLLEGE', NULL, 'Kumasi Metro', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (667, 'SCH66717', '', 'basic', 'PIINA SECONDARY', NULL, 'Jirapa/Lambushie', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (668, 'SCH66817', '', 'basic', 'PONG-TAMALE SEC', NULL, 'Savelugu-Nanton', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (669, 'SCH66917', '', 'basic', 'PONG-TAMALE SENIOR HIGH SCHOOL', NULL, 'Savelugu/Talale', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(670, 'SCH67017', '', 'basic', 'POPE JOHN SEC', NULL, 'New Juaben', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(670, 'SCH67017', '', 'secondary', 'POPE JOHN SEC', NULL, 'New Juaben', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '2017-12-29 19:13:36'),
 (671, 'SCH67117', '', 'basic', 'POSTIN T.I AHM SEC', NULL, 'Gomoa', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (672, 'SCH67217', '', 'basic', 'PRANG SEC', NULL, 'Atebubu', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (673, 'SCH67317', '', 'basic', 'PREMPEH COLLEGE', NULL, 'Kumasi Metro', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(674, 'SCH67417', 'PSB', 'secondary', 'PRESBYTERIAN BOYS\' SENIOR HIGH SCHOOL', 'In Lumine Tuo Videbimus Lumen', 'GA', 'P. O. Box LG 98 Legon, Ghana', 'admin@odadee.net', '030 250 0945', 'www.odadee.net', NULL, '0000-00-00 00:00:00', '2017-11-18 21:27:38'),
+(674, 'SCH67417', 'PSB', 'secondary', 'PRESBYTERIAN BOYS\' SENIOR HIGH SCHOOL', 'In Lumine Tuo Videbimus Lumen', 'GA', 'P. O. Box LG 98 Legon, Ghana', 'admin@odadee.net', '0302500945', 'https://www.odadee.net', NULL, '0000-00-00 00:00:00', '2018-01-01 11:47:23'),
 (675, 'SCH67517', '', 'basic', 'PRESBY SEC', NULL, 'Asante Akim South', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (676, 'SCH67617', '', 'basic', 'PRESBY SEC', NULL, 'Tano', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (677, 'SCH67717', '', 'basic', 'PRESBY SEC', NULL, 'Berekum', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -910,7 +910,9 @@ INSERT INTO `ezi_school` (`school_id`, `school_code`, `school_prefix`, `school_t
 (833, 'SCH83317', '', 'basic', 'ZAMSE SEC/TECH', NULL, 'Bolgatanga', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (834, 'SCH83417', '', 'basic', 'ZEBILLA SEC/TECH', NULL, 'Bawku West', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (835, 'SCH83517', '', 'basic', 'ZION SEC', NULL, 'Keta', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(836, 'SCH83617', '', 'basic', 'ZUARUNGU SNR SEC', NULL, 'Bolgatanga', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(860, 'SCHTE7384', 'TES', 'secondary', 'Test', 'Test', 'Kaneshie', 'Accra', 'test@gmail.com', '0000000000', 'https://Test.com', NULL, '2017-12-31 12:53:00', '2017-12-31 12:53:00'),
+(861, 'SCHTL0714', 'TEL', 'basic', 'Test Last', 'Testing', 'Accra', 'Testing Again', 'fdf@fdf.com', '0000000000', 'https://www.vv.om', NULL, '2017-12-31 12:57:08', '2017-12-31 13:02:22'),
+(862, 'SCHAF2011', 'ADF', 'secondary', 'Adam Farid', 'ewew', 'ewew', 'wjewke', 'ewe@ewe.com', '0000000000', 'https://rere.com', NULL, '2017-12-31 12:59:01', '2017-12-31 12:59:01');
 
 -- --------------------------------------------------------
 
@@ -934,27 +936,6 @@ CREATE TABLE `ezi_school_academic_year` (
 INSERT INTO `ezi_school_academic_year` (`id`, `school_code`, `school_current_academic_year`, `school_academic_term`, `created_at`, `updated_at`) VALUES
 (1, 'SCH67417', '2017 - 2018', '1st Term', '2017-10-22 21:39:03', '2017-11-04 18:18:14'),
 (2, 'SCH28217', '2017 - 2018', '1st Term', '2017-10-28 19:15:51', '2017-10-28 19:16:53');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `ezi_school_access_key`
---
-
-CREATE TABLE `ezi_school_access_key` (
-  `access_key_id` int(11) NOT NULL,
-  `school_code` varchar(20) NOT NULL,
-  `access_key` varchar(255) NOT NULL,
-  `token` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
-
---
--- Dumping data for table `ezi_school_access_key`
---
-
-INSERT INTO `ezi_school_access_key` (`access_key_id`, `school_code`, `access_key`, `token`) VALUES
-(1, 'SCH67417', '8cb2237d0679ca88db6464eac60da96345513964', ''),
-(2, 'SCH28217', '8cb2237d0679ca88db6464eac60da96345513964', '');
 
 -- --------------------------------------------------------
 
@@ -1005,8 +986,30 @@ CREATE TABLE `ezi_school_class` (
 --
 
 INSERT INTO `ezi_school_class` (`id`, `class_code`, `class_name`, `class_teacher`, `class_course`, `school_code`, `created_at`, `updated_at`) VALUES
-(8, 'CL0001', 'Form 1A1', 'John Tetteh', 'COS0001', 'SCH67417', '2017-11-21 18:59:22', '2017-11-22 20:26:10'),
-(9, 'CL17/PSB/1155', 'Form 1S1', 'Ankomah Nana Yaw', 'COS0002', 'SCH67417', '2017-11-23 18:08:20', '2017-11-23 18:08:20');
+(29, 'CL17/PSB/7032', 'Form 1A1', 'Adjeity Annan', 'CSGEA3640', 'SCH67417', '2017-12-31 00:38:00', '2017-12-31 00:38:00'),
+(30, 'CL18/PSB/8946', 'Form 1S1', 'Godfred Mintim', 'CSGES8093', 'SCH67417', '2018-01-04 09:35:29', '2018-01-04 09:35:29');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ezi_school_class_subject`
+--
+
+CREATE TABLE `ezi_school_class_subject` (
+  `class_subject_id` int(11) NOT NULL,
+  `class_code` varchar(20) NOT NULL,
+  `class_subjects` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `ezi_school_class_subject`
+--
+
+INSERT INTO `ezi_school_class_subject` (`class_subject_id`, `class_code`, `class_subjects`, `created_at`, `updated_at`) VALUES
+(5, 'CL17/PSB/7032', 'SJECO9520,SJELM7073,SJENL6788', '2017-12-31 00:38:00', '2018-01-04 08:42:20'),
+(6, 'CL18/PSB/8946', 'SJBIO8297,SJELM4428', '2018-01-04 09:35:29', '2018-01-04 09:35:29');
 
 -- --------------------------------------------------------
 
@@ -1053,80 +1056,9 @@ CREATE TABLE `ezi_student` (
 --
 
 INSERT INTO `ezi_student` (`student_id`, `student_code`, `student_name`, `school_code`, `created_at`, `updated_at`) VALUES
-(1, 'SCIAF/001/17', 'Adam Farid', 'SCH67417', '0000-00-00 00:00:00', '2017-11-15 04:33:17'),
-(2, 'SCIAF/002/17', 'Tetteh John', 'SCH67417', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3, 'SCIAF/003/17', 'Ampadu Kwame', 'SCH67417', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(5, 'SCIAF/005/17', 'Otto Mark', 'SCH67417', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(6, 'SCIAF/006/17', 'Airi Satou', 'SCH67417', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(7, 'SCIAF/007/17', 'Angelica Ramos', 'SCH67417', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(8, 'SCIAF/008/17', 'Ashton Cox', 'SCH67417', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(9, 'SCIAF/009/17', 'Bradley Greer', 'SCH67417', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(10, 'SCIAF/0010/17', 'Brenden Wagner', 'SCH67417', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(11, 'SCIAF/0011/17', 'Brielle Williamson', 'SCH67417', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(12, 'SCIAF/0012/17', 'Bruno Nash', 'SCH67417', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(13, 'SCIAF/0013/17', 'Caesar Vance', 'SCH67417', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(14, 'SCIAF/0014/17', 'Cara Stevens', 'SCH67417', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(15, 'SCIAF/0015/17', 'Cedric Kelly', 'SCH67417', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(16, 'SCIAF/0016/17', 'Charde Marshall', 'SCH67417', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(19, 'SCIAF/0019/17', 'Donna Snider', 'SCH67417', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(20, 'SCIAF/0020/17', 'Doris Wilder', 'SCH67417', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(21, 'SCIAF/0021/17', 'Finn Camacho', 'SCH67417', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(22, 'SCIAF/0022/17', 'Fiona Green', 'SCH67417', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(23, 'SCIAF/0023/17', 'Garrett Winters', 'SCH67417', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(24, 'SCIAF/0024/17', 'Gavin Cortez', 'SCH67417', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(25, 'SCIAF/0025/17', 'Zenaida Frank', 'SCH67417', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(26, 'SCIAF/0026/17', 'Yuri Berry', 'SCH67417', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(27, 'SCIAF/0027/17', 'Haley Kennedy', 'SCH67417', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(28, 'SCIAF/0028/17', 'Hermione Butler', 'SCH67417', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(29, 'SCIAF/0029/17', 'Herrod Chandler', 'SCH67417', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(30, 'SCIAF/0030/17', 'Hope Fuentes', 'SCH67417', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(35, 'S17/PSB/HB3200', 'Hanson Benson', 'SCH67417', '2017-11-19 06:35:09', '2017-11-19 06:35:09'),
-(36, 'S17/PSB/AN1795', 'Ankomah Nana Yaw Abdul Razark', 'SCH67417', '2017-11-23 17:42:26', '2017-11-23 17:43:16');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `ezi_student_access_key`
---
-
-CREATE TABLE `ezi_student_access_key` (
-  `access_key_id` int(11) NOT NULL,
-  `student_code` varchar(20) NOT NULL,
-  `access_key` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
-
---
--- Dumping data for table `ezi_student_access_key`
---
-
-INSERT INTO `ezi_student_access_key` (`access_key_id`, `student_code`, `access_key`) VALUES
-(1, 'SCIAF/001/17', '8cb2237d0679ca88db6464eac60da96345513964'),
-(2, 'SCIAF/002/17', '8cb2237d0679ca88db6464eac60da96345513964'),
-(3, 'SCIAF/003/17', '8cb2237d0679ca88db6464eac60da96345513964'),
-(5, 'SCIAF/005/17', '8cb2237d0679ca88db6464eac60da96345513964'),
-(6, 'SCIAF/006/17', '8cb2237d0679ca88db6464eac60da96345513964'),
-(7, 'SCIAF/007/17', '8cb2237d0679ca88db6464eac60da96345513964'),
-(8, 'SCIAF/008/17', '8cb2237d0679ca88db6464eac60da96345513964'),
-(9, 'SCIAF/009/17', '8cb2237d0679ca88db6464eac60da96345513964'),
-(10, 'SCIAF/0010/17', '8cb2237d0679ca88db6464eac60da96345513964'),
-(11, 'SCIAF/0011/17', '8cb2237d0679ca88db6464eac60da96345513964'),
-(12, 'SCIAF/0012/17', '8cb2237d0679ca88db6464eac60da96345513964'),
-(13, 'SCIAF/0013/17', '8cb2237d0679ca88db6464eac60da96345513964'),
-(14, 'SCIAF/0014/17', '8cb2237d0679ca88db6464eac60da96345513964'),
-(15, 'SCIAF/0015/17', '8cb2237d0679ca88db6464eac60da96345513964'),
-(16, 'SCIAF/0016/17', '8cb2237d0679ca88db6464eac60da96345513964'),
-(19, 'SCIAF/0019/17', '8cb2237d0679ca88db6464eac60da96345513964'),
-(20, 'SCIAF/0020/17', '8cb2237d0679ca88db6464eac60da96345513964'),
-(21, 'SCIAF/0021/17', '8cb2237d0679ca88db6464eac60da96345513964'),
-(22, 'SCIAF/0022/17', '8cb2237d0679ca88db6464eac60da96345513964'),
-(23, 'SCIAF/0023/17', '8cb2237d0679ca88db6464eac60da96345513964'),
-(24, 'SCIAF/0024/17', '8cb2237d0679ca88db6464eac60da96345513964'),
-(25, 'SCIAF/0025/17', '8cb2237d0679ca88db6464eac60da96345513964'),
-(26, 'SCIAF/0026/17', '8cb2237d0679ca88db6464eac60da96345513964'),
-(27, 'SCIAF/0027/17', '8cb2237d0679ca88db6464eac60da96345513964'),
-(28, 'SCIAF/0028/17', '8cb2237d0679ca88db6464eac60da96345513964'),
-(29, 'SCIAF/0029/17', '8cb2237d0679ca88db6464eac60da96345513964'),
-(30, 'SCIAF/0030/17', '8cb2237d0679ca88db6464eac60da96345513964');
+(32, 'S17/PSB/AF9267', 'Adam Farid', 'SCH67417', '2017-12-31 00:39:37', '2017-12-31 00:39:37'),
+(33, 'S17/PSB/AN3327', 'Adjoa Nti', 'SCH67417', '2017-12-31 00:41:35', '2017-12-31 00:41:35'),
+(34, 'S17/PSB/HA6558', 'Hamza Adam', 'SCH67417', '2017-12-31 00:47:14', '2017-12-31 00:47:14');
 
 -- --------------------------------------------------------
 
@@ -1151,35 +1083,9 @@ CREATE TABLE `ezi_student_details` (
 --
 
 INSERT INTO `ezi_student_details` (`id`, `student_code`, `student_dob`, `student_gender`, `student_class`, `student_status`, `student_house`, `created_at`, `updated_at`) VALUES
-(1, 'SCIAF/001/17', '1995-11-27', 'male', 'CL0001', 'boarding', 'House 3', '0000-00-00 00:00:00', '2017-11-21 19:08:19'),
-(2, 'SCIAF/002/17', '1995-11-28', 'male', 'CL0001', 'day', '', '0000-00-00 00:00:00', '2017-11-21 19:09:54'),
-(3, 'SCIAF/003/17', '1995-11-29', 'male', 'CL0001', 'day', '', '0000-00-00 00:00:00', '2017-11-21 19:10:12'),
-(5, 'SCIAF/005/17', '1995-12-01', 'male', 'CL17/PSB/1155', 'day', '', '0000-00-00 00:00:00', '2017-11-23 18:08:46'),
-(6, 'SCIAF/006/17', '1995-12-02', 'male', NULL, 'day', '', '0000-00-00 00:00:00', '2017-11-10 15:12:13'),
-(7, 'SCIAF/007/17', '1995-12-03', 'male', NULL, 'day', '', '0000-00-00 00:00:00', '2017-11-10 15:12:13'),
-(8, 'SCIAF/008/17', '1995-12-04', 'male', NULL, 'day', '', '0000-00-00 00:00:00', '2017-11-10 15:12:13'),
-(9, 'SCIAF/009/17', '1995-12-05', 'male', NULL, 'day', '', '0000-00-00 00:00:00', '2017-11-10 15:12:13'),
-(10, 'SCIAF/0010/17', '1995-12-06', 'male', 'CL0001', 'boarding', 'House 2', '0000-00-00 00:00:00', '2017-11-21 19:27:43'),
-(11, 'SCIAF/0011/17', '1995-12-07', 'male', NULL, 'day', '', '0000-00-00 00:00:00', '2017-11-10 15:12:13'),
-(12, 'SCIAF/0012/17', '1995-12-08', 'male', NULL, 'day', '', '0000-00-00 00:00:00', '2017-11-10 15:12:13'),
-(13, 'SCIAF/0013/17', '1995-12-09', 'male', NULL, 'day', '', '0000-00-00 00:00:00', '2017-11-10 15:12:13'),
-(14, 'SCIAF/0014/17', '1995-12-10', 'male', NULL, 'boarding', 'House 2', '0000-00-00 00:00:00', '2017-11-10 15:12:13'),
-(15, 'SCIAF/0015/17', '1995-12-11', 'male', NULL, 'boarding', 'House 3', '0000-00-00 00:00:00', '2017-11-11 18:30:56'),
-(16, 'SCIAF/0016/17', '1995-12-12', 'male', NULL, 'boarding', 'House 4', '0000-00-00 00:00:00', '2017-11-11 18:30:56'),
-(19, 'SCIAF/0019/17', '1995-12-15', 'male', NULL, 'boarding', 'House 3', '0000-00-00 00:00:00', '2017-11-11 18:30:56'),
-(20, 'SCIAF/0020/17', '1995-12-16', 'male', NULL, 'day', '', '0000-00-00 00:00:00', '2017-11-11 18:30:56'),
-(21, 'SCIAF/0021/17', '1995-12-17', 'male', NULL, 'day', '', '0000-00-00 00:00:00', '2017-11-11 18:30:57'),
-(22, 'SCIAF/0022/17', '1995-12-18', 'male', NULL, 'day', '', '0000-00-00 00:00:00', '2017-11-11 18:30:57'),
-(23, 'SCIAF/0023/17', '1995-12-19', 'male', NULL, 'day', '', '0000-00-00 00:00:00', '2017-11-11 18:30:57'),
-(24, 'SCIAF/0024/17', '1995-12-20', 'male', NULL, 'day', '', '0000-00-00 00:00:00', '2017-11-11 18:30:57'),
-(25, 'SCIAF/0025/17', '1995-12-21', 'male', NULL, 'day', '', '0000-00-00 00:00:00', '2017-11-11 18:30:57'),
-(26, 'SCIAF/0026/17', '1995-12-22', 'male', NULL, 'day', '', '0000-00-00 00:00:00', '2017-11-11 18:30:57'),
-(27, 'SCIAF/0027/17', '1995-12-23', 'male', NULL, 'day', '', '0000-00-00 00:00:00', '2017-11-11 18:30:57'),
-(28, 'SCIAF/0028/17', '1995-12-24', 'male', NULL, 'boarding', 'House 3', '0000-00-00 00:00:00', '2017-11-10 15:12:13'),
-(29, 'SCIAF/0029/17', '1995-12-25', 'male', NULL, 'boarding', 'House 3', '0000-00-00 00:00:00', '2017-11-10 15:12:13'),
-(30, 'SCIAF/0030/17', '1995-12-26', 'male', NULL, 'boarding', 'House 1', '0000-00-00 00:00:00', '2017-11-10 15:12:13'),
-(33, 'S17/PSB/HB3200', '2000-11-19', 'male', NULL, 'day', '', '2017-11-19 06:35:09', '2017-11-21 01:16:13'),
-(34, 'S17/PSB/AN1795', '2017-11-23', 'male', 'CL0001', 'day', '', '2017-11-23 17:42:27', '2017-11-23 17:42:27');
+(32, 'S17/PSB/AF9267', '1995-11-27', 'male', 'CL17/PSB/7032', 'day', '', '2017-12-31 00:39:37', '2017-12-31 00:39:37'),
+(33, 'S17/PSB/AN3327', '2017-12-31', 'female', 'CL17/PSB/7032', 'day', '', '2017-12-31 00:41:35', '2017-12-31 00:41:35'),
+(34, 'S17/PSB/HA6558', '2017-12-31', 'male', 'CL17/PSB/7032', 'day', '', '2017-12-31 00:47:14', '2017-12-31 00:47:14');
 
 -- --------------------------------------------------------
 
@@ -1204,91 +1110,9 @@ CREATE TABLE `ezi_student_guardian` (
 --
 
 INSERT INTO `ezi_student_guardian` (`guardian_id`, `student_code`, `guardian_name`, `guardian_relationship`, `guardian_occupation`, `guardian_email`, `guardian_telephone`, `created_at`, `updated_at`) VALUES
-(1, 'SCIAF/001/17', 'Iklimatu Adam', 'Mother', 'Business Woman', 'phobaike@gmail.com', '0243002444', '0000-00-00 00:00:00', '2017-11-12 12:32:46'),
-(2, 'SCIAF/002/17', 'Howard Hatfield', 'Father', 'Accountant', 'testemail123@gmail.com', '0275454564', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3, 'SCIAF/003/17', 'Jackson Bradshaw', 'Father', 'Chief Executive Officer (CEO)', 'testemail133@gmail.com', '0544434443', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(5, 'SCIAF/005/17', 'Jenette Caldwell', 'Mother', 'Software Engineer', 'testemail153@gmail.com', '0243002444', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(6, 'SCIAF/006/17', 'Jennifer Acosta', 'Grandparent', 'Software Engineer', 'testemail163@gmail.com', '0275454564', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(7, 'SCIAF/007/17', 'Jennifer Chang', 'Aunt', 'Integration Specialist', 'testemail173@gmail.com', '0544434443', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(8, 'SCIAF/008/17', 'Jonas Alexander', 'Uncle', 'Software Engineer', 'testemail183@gmail.com', '0475454564', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(9, 'SCIAF/009/17', 'Lael Greer', 'Sibling', 'Pre-Sales Support', 'testemail193@gmail.com', '0243002444', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(10, 'SCIAF/0010/17', 'Martena Mccray', 'Other', 'Sales Assistant', 'testemail1103@gmail.com', '0275454564', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(11, 'SCIAF/0011/17', 'Michael Bruce', 'Mother', 'Senior Javascript Developer', 'testemail1113@gmail.com', '0544434443', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(12, 'SCIAF/0012/17', 'Michael Silva', 'Father', 'Regional Director', 'testemail1123@gmail.com', '0475454564', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(13, 'SCIAF/0013/17', 'Michelle House', 'Father', 'Javascript Developer', 'testemail1133@gmail.com', '0243002444', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(14, 'SCIAF/0014/17', 'Olivia Liang', 'Mother', 'Personnel Lead', 'testemail1143@gmail.com', '0275454564', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(15, 'SCIAF/0015/17', 'Paul Byrd', 'Mother', 'Customer Support', 'testemail1153@gmail.com', '0544434443', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(16, 'SCIAF/0016/17', 'Prescott Bartlett', 'Grandparent', 'Sales Assistant', 'testemail1163@gmail.com', '0475454564', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(19, 'SCIAF/0019/17', 'Sakura Yamamoto', 'Sibling', 'Accountant', 'testemail1193@gmail.com', '0544434443', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(20, 'SCIAF/0020/17', 'Serge Baldwin', 'Other', 'Team Leader', 'testemail1203@gmail.com', '0475454564', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(21, 'SCIAF/0021/17', 'Shad Decker', 'Mother', 'Developer', 'testemail1213@gmail.com', '0243002444', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(22, 'SCIAF/0022/17', 'Shou Itou', 'Father', 'Systems Administrator', 'testemail1223@gmail.com', '0275454564', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(23, 'SCIAF/0023/17', 'Sonya Frost', 'Father', 'Senior Marketing Designer', 'testemail1233@gmail.com', '0544434443', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(24, 'SCIAF/0024/17', 'Suki Burks', 'Mother', 'Regional Director', 'testemail1243@gmail.com', '0475454564', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(25, 'SCIAF/0025/17', 'Tatyana Fitzpatrick', 'Mother', 'Sales Assistant', 'testemail1253@gmail.com', '0243002444', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(26, 'SCIAF/0026/17', 'Thor Walton', 'Grandparent', 'Secretary', 'testemail1263@gmail.com', '0275454564', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(27, 'SCIAF/0027/17', 'Tiger Nixon', 'Aunt', 'Office Manager', 'testemail1273@gmail.com', '0544434443', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(28, 'SCIAF/0028/17', 'Timothy Mooney', 'Uncle', 'Director', 'testemail1283@gmail.com', '0475454564', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(29, 'SCIAF/0029/17', 'Unity Butler', 'Sibling', 'Office Manager', 'testemail1293@gmail.com', '0243002444', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(30, 'SCIAF/0030/17', 'Vivian Harrell', 'Other', 'Development Lead', 'testemail1303@gmail.com', '0275454564', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(60, 'S17/PSB/HB3200', 'Joe Benson', 'Father', 'Doctor', 'joebenson@gmail.com', '0273284746', '2017-11-19 06:35:09', '2017-11-19 06:35:09'),
-(61, 'S17/PSB/AN1795', 'Adeunji Baba Salako Abdulhaq', 'Father', 'Big Man', 'adetunji@gmail.com', '000000000', '2017-11-23 17:42:27', '2017-11-23 17:42:27');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `ezi_student_subject`
---
-
-CREATE TABLE `ezi_student_subject` (
-  `student_subject_id` int(11) NOT NULL,
-  `student_code` varchar(20) NOT NULL,
-  `subject_1` varchar(20) NOT NULL,
-  `subject_2` varchar(20) NOT NULL,
-  `subject_3` varchar(20) NOT NULL,
-  `subject_4` varchar(20) NOT NULL,
-  `subject_5` varchar(20) DEFAULT NULL,
-  `subject_6` varchar(20) DEFAULT NULL,
-  `subject_7` varchar(20) DEFAULT NULL,
-  `subject_8` varchar(20) DEFAULT NULL,
-  `subject_9` varchar(20) DEFAULT NULL,
-  `subject_10` varchar(20) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
-
---
--- Dumping data for table `ezi_student_subject`
---
-
-INSERT INTO `ezi_student_subject` (`student_subject_id`, `student_code`, `subject_1`, `subject_2`, `subject_3`, `subject_4`, `subject_5`, `subject_6`, `subject_7`, `subject_8`, `subject_9`, `subject_10`, `created_at`, `updated_at`) VALUES
-(1, 'SCIAF/001/17', 'SUB001', 'SUB002', 'SUB003', 'SUB004', NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2, 'SCIAF/002/17', 'SUB001', 'SUB002', 'SUB003', 'SUB004', NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3, 'SCIAF/003/17', 'SUB001', 'SUB002', 'SUB003', 'SUB004', NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(5, 'SCIAF/005/17', 'SUB001', 'SUB002', 'SUB003', 'SUB004', NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(6, 'SCIAF/006/17', 'SUB001', 'SUB002', 'SUB003', 'SUB004', NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(7, 'SCIAF/007/17', 'SUB001', 'SUB002', 'SUB003', 'SUB004', NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(8, 'SCIAF/008/17', 'SUB001', 'SUB002', 'SUB003', 'SUB004', NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(9, 'SCIAF/009/17', 'SUB001', 'SUB002', 'SUB003', 'SUB004', NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(10, 'SCIAF/0010/17', 'SUB001', 'SUB002', 'SUB003', 'SUB004', NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(11, 'SCIAF/0011/17', 'SUB001', 'SUB002', 'SUB003', 'SUB004', NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(12, 'SCIAF/0012/17', 'SUB001', 'SUB002', 'SUB003', 'SUB004', NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(13, 'SCIAF/0013/17', 'SUB001', 'SUB002', 'SUB003', 'SUB004', NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(14, 'SCIAF/0014/17', 'SUB001', 'SUB002', 'SUB003', 'SUB004', NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(15, 'SCIAF/0015/17', 'SUB001', 'SUB002', 'SUB003', 'SUB004', NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(16, 'SCIAF/0016/17', 'SUB001', 'SUB002', 'SUB003', 'SUB004', NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(19, 'SCIAF/0019/17', 'SUB001', 'SUB002', 'SUB003', 'SUB004', NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(20, 'SCIAF/0020/17', 'SUB001', 'SUB002', 'SUB003', 'SUB004', NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(21, 'SCIAF/0021/17', 'SUB001', 'SUB002', 'SUB003', 'SUB004', NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(22, 'SCIAF/0022/17', 'SUB001', 'SUB002', 'SUB003', 'SUB004', NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(23, 'SCIAF/0023/17', 'SUB001', 'SUB002', 'SUB003', 'SUB004', NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(24, 'SCIAF/0024/17', 'SUB001', 'SUB002', 'SUB003', 'SUB004', NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(25, 'SCIAF/0025/17', 'SUB001', 'SUB002', 'SUB003', 'SUB004', NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(26, 'SCIAF/0026/17', 'SUB001', 'SUB002', 'SUB003', 'SUB004', NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(27, 'SCIAF/0027/17', 'SUB001', 'SUB002', 'SUB003', 'SUB004', NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(28, 'SCIAF/0028/17', 'SUB001', 'SUB002', 'SUB003', 'SUB004', NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(29, 'SCIAF/0029/17', 'SUB001', 'SUB002', 'SUB003', 'SUB004', NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(30, 'SCIAF/0030/17', 'SUB001', 'SUB002', 'SUB003', 'SUB004', NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(32, 'S17/PSB/AF9267', 'Iklimatu Adam', 'Mother', 'Trader', 'phobaike@gmail.com', '0243002444', '2017-12-31 00:39:37', '2017-12-31 00:39:37'),
+(33, 'S17/PSB/AN3327', 'Rita Nti', 'Sibling', 'Banker', 'ritanit@gmail.com', '0573849384', '2017-12-31 00:41:35', '2017-12-31 00:41:35'),
+(34, 'S17/PSB/HA6558', 'Iklimatu Adam', 'Mother', 'Trader', 'phobaike@gmail.com', '0243002444', '2017-12-31 00:47:14', '2017-12-31 00:47:14');
 
 -- --------------------------------------------------------
 
@@ -1299,19 +1123,23 @@ INSERT INTO `ezi_student_subject` (`student_subject_id`, `student_code`, `subjec
 CREATE TABLE `ezi_subjects` (
   `subject_id` int(11) NOT NULL,
   `subject_code` varchar(20) NOT NULL,
-  `subject_name` varchar(255) NOT NULL,
-  `subject_description` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+  `subject_name` varchar(100) NOT NULL,
+  `course_code` varchar(20) DEFAULT NULL,
+  `subject_description` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `ezi_subjects`
 --
 
-INSERT INTO `ezi_subjects` (`subject_id`, `subject_code`, `subject_name`, `subject_description`) VALUES
-(1, 'SUB001', 'Mathematics (Core)', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
-(2, 'SUB002', 'English (Core)', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
-(3, 'SUB003', 'Social Studies (Core)', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
-(4, 'SUB004', 'Integrated Science (Core)', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.');
+INSERT INTO `ezi_subjects` (`subject_id`, `subject_code`, `subject_name`, `course_code`, `subject_description`, `created_at`, `updated_at`) VALUES
+(9, 'SJECO9520', 'Economics', 'CSGEA3640', 'Chisel People', '2017-12-31 00:31:28', '2017-12-31 06:21:25'),
+(10, 'SJELM7073', 'Elective Mathematics', 'CSGEA3640', 'Ashikas', '2017-12-31 00:37:29', '2017-12-31 00:37:29'),
+(11, 'SJENL6788', 'English Literature', 'CSGEA3640', 'Shakes Spear Stuff', '2018-01-04 08:41:29', '2018-01-04 08:41:29'),
+(12, 'SJBIO8297', 'Biology', 'CSGES8093', 'Nature Stuff', '2018-01-04 09:34:43', '2018-01-04 09:34:43'),
+(13, 'SJELM4428', 'Elective Mathematics', 'CSGES8093', 'Calculatioins', '2018-01-04 09:35:09', '2018-01-04 09:35:09');
 
 -- --------------------------------------------------------
 
@@ -1321,11 +1149,50 @@ INSERT INTO `ezi_subjects` (`subject_id`, `subject_code`, `subject_name`, `subje
 
 CREATE TABLE `ezi_terminal_report` (
   `terminal_report_id` int(11) NOT NULL,
-  `student_id` int(11) NOT NULL,
-  `term_1` longblob NOT NULL,
-  `term_2` longblob NOT NULL,
-  `term_3` longblob NOT NULL
+  `terminal_report_code` varchar(20) NOT NULL,
+  `student_code` varchar(20) NOT NULL,
+  `terminal_report_grades` longtext NOT NULL,
+  `academic_year` varchar(11) NOT NULL,
+  `academic_term` enum('1st Term','2nd Term','3rd Term','Vacation') NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ezi_users`
+--
+
+CREATE TABLE `ezi_users` (
+  `access_key_id` int(11) NOT NULL,
+  `user_code` varchar(20) NOT NULL,
+  `access_key` varchar(255) NOT NULL,
+  `token` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `ezi_users`
+--
+
+INSERT INTO `ezi_users` (`access_key_id`, `user_code`, `access_key`, `token`, `created_at`, `updated_at`) VALUES
+(1, 'SCH67417', '8cb2237d0679ca88db6464eac60da96345513964', '93647d7c53be0143210b44f4b9fbff4f2d1f0ababa116d3f875cbe46c923', '2017-11-25 08:17:35', '2018-01-04 09:31:41'),
+(2, 'SCH28217', '8cb2237d0679ca88db6464eac60da96345513964', NULL, '2017-11-25 08:17:35', '2017-12-09 18:26:39'),
+(3, 'S17/PSB/AF9267', '8cb2237d0679ca88db6464eac60da96345513964', 'c6b28c0596837b80aaf5f3cecb103dc0435ab05e0352b751a65bbe124143', '2018-01-04 11:21:09', '2018-01-05 05:39:44');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ezi_user_password_resets`
+--
+
+CREATE TABLE `ezi_user_password_resets` (
+  `user_code` varchar(20) NOT NULL,
+  `token` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
@@ -1353,13 +1220,6 @@ ALTER TABLE `ezi_school_academic_year`
   ADD UNIQUE KEY `school_code` (`school_code`);
 
 --
--- Indexes for table `ezi_school_access_key`
---
-ALTER TABLE `ezi_school_access_key`
-  ADD PRIMARY KEY (`access_key_id`),
-  ADD KEY `school_code` (`school_code`);
-
---
 -- Indexes for table `ezi_school_administration`
 --
 ALTER TABLE `ezi_school_administration`
@@ -1374,6 +1234,13 @@ ALTER TABLE `ezi_school_class`
   ADD UNIQUE KEY `class_code` (`class_code`),
   ADD KEY `ezi_school_class_ibfk_1` (`class_course`),
   ADD KEY `school_code` (`school_code`);
+
+--
+-- Indexes for table `ezi_school_class_subject`
+--
+ALTER TABLE `ezi_school_class_subject`
+  ADD PRIMARY KEY (`class_subject_id`),
+  ADD KEY `class_code` (`class_code`);
 
 --
 -- Indexes for table `ezi_school_signatories`
@@ -1391,13 +1258,6 @@ ALTER TABLE `ezi_student`
   ADD KEY `school_code` (`school_code`);
 
 --
--- Indexes for table `ezi_student_access_key`
---
-ALTER TABLE `ezi_student_access_key`
-  ADD PRIMARY KEY (`access_key_id`),
-  ADD KEY `ezi_student_access_key_ibfk_1` (`student_code`);
-
---
 -- Indexes for table `ezi_student_details`
 --
 ALTER TABLE `ezi_student_details`
@@ -1413,25 +1273,27 @@ ALTER TABLE `ezi_student_guardian`
   ADD KEY `ezi_student_guardian_ibfk_1` (`student_code`);
 
 --
--- Indexes for table `ezi_student_subject`
---
-ALTER TABLE `ezi_student_subject`
-  ADD PRIMARY KEY (`student_subject_id`),
-  ADD KEY `ezi_student_subject_ibfk_1` (`student_code`);
-
---
 -- Indexes for table `ezi_subjects`
 --
 ALTER TABLE `ezi_subjects`
   ADD PRIMARY KEY (`subject_id`),
-  ADD UNIQUE KEY `subject_code` (`subject_code`);
+  ADD UNIQUE KEY `subject_code` (`subject_code`,`course_code`),
+  ADD KEY `course_code` (`course_code`);
 
 --
 -- Indexes for table `ezi_terminal_report`
 --
 ALTER TABLE `ezi_terminal_report`
   ADD PRIMARY KEY (`terminal_report_id`),
-  ADD KEY `student_id` (`student_id`);
+  ADD UNIQUE KEY `terminal_report_code` (`terminal_report_code`),
+  ADD KEY `student_code` (`student_code`);
+
+--
+-- Indexes for table `ezi_users`
+--
+ALTER TABLE `ezi_users`
+  ADD PRIMARY KEY (`access_key_id`),
+  ADD KEY `school_code` (`user_code`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -1441,22 +1303,17 @@ ALTER TABLE `ezi_terminal_report`
 -- AUTO_INCREMENT for table `ezi_course`
 --
 ALTER TABLE `ezi_course`
-  MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `ezi_school`
 --
 ALTER TABLE `ezi_school`
-  MODIFY `school_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=837;
+  MODIFY `school_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=863;
 --
 -- AUTO_INCREMENT for table `ezi_school_academic_year`
 --
 ALTER TABLE `ezi_school_academic_year`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `ezi_school_access_key`
---
-ALTER TABLE `ezi_school_access_key`
-  MODIFY `access_key_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `ezi_school_administration`
 --
@@ -1466,7 +1323,12 @@ ALTER TABLE `ezi_school_administration`
 -- AUTO_INCREMENT for table `ezi_school_class`
 --
 ALTER TABLE `ezi_school_class`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+--
+-- AUTO_INCREMENT for table `ezi_school_class_subject`
+--
+ALTER TABLE `ezi_school_class_subject`
+  MODIFY `class_subject_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `ezi_school_signatories`
 --
@@ -1476,12 +1338,7 @@ ALTER TABLE `ezi_school_signatories`
 -- AUTO_INCREMENT for table `ezi_student`
 --
 ALTER TABLE `ezi_student`
-  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
---
--- AUTO_INCREMENT for table `ezi_student_access_key`
---
-ALTER TABLE `ezi_student_access_key`
-  MODIFY `access_key_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 --
 -- AUTO_INCREMENT for table `ezi_student_details`
 --
@@ -1491,22 +1348,22 @@ ALTER TABLE `ezi_student_details`
 -- AUTO_INCREMENT for table `ezi_student_guardian`
 --
 ALTER TABLE `ezi_student_guardian`
-  MODIFY `guardian_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
---
--- AUTO_INCREMENT for table `ezi_student_subject`
---
-ALTER TABLE `ezi_student_subject`
-  MODIFY `student_subject_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `guardian_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 --
 -- AUTO_INCREMENT for table `ezi_subjects`
 --
 ALTER TABLE `ezi_subjects`
-  MODIFY `subject_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `subject_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `ezi_terminal_report`
 --
 ALTER TABLE `ezi_terminal_report`
   MODIFY `terminal_report_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `ezi_users`
+--
+ALTER TABLE `ezi_users`
+  MODIFY `access_key_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Constraints for dumped tables
 --
@@ -1516,12 +1373,6 @@ ALTER TABLE `ezi_terminal_report`
 --
 ALTER TABLE `ezi_school_academic_year`
   ADD CONSTRAINT `ezi_school_academic_year_ibfk_1` FOREIGN KEY (`school_code`) REFERENCES `ezi_school` (`school_code`) ON UPDATE CASCADE;
-
---
--- Constraints for table `ezi_school_access_key`
---
-ALTER TABLE `ezi_school_access_key`
-  ADD CONSTRAINT `ezi_school_access_key_ibfk_1` FOREIGN KEY (`school_code`) REFERENCES `ezi_school` (`school_code`);
 
 --
 -- Constraints for table `ezi_school_administration`
@@ -1537,6 +1388,12 @@ ALTER TABLE `ezi_school_class`
   ADD CONSTRAINT `ezi_school_class_ibfk_2` FOREIGN KEY (`school_code`) REFERENCES `ezi_school` (`school_code`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+-- Constraints for table `ezi_school_class_subject`
+--
+ALTER TABLE `ezi_school_class_subject`
+  ADD CONSTRAINT `ezi_school_class_subject_ibfk_1` FOREIGN KEY (`class_code`) REFERENCES `ezi_school_class` (`class_code`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `ezi_school_signatories`
 --
 ALTER TABLE `ezi_school_signatories`
@@ -1547,12 +1404,6 @@ ALTER TABLE `ezi_school_signatories`
 --
 ALTER TABLE `ezi_student`
   ADD CONSTRAINT `ezi_student_ibfk_1` FOREIGN KEY (`school_code`) REFERENCES `ezi_school` (`school_code`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
---
--- Constraints for table `ezi_student_access_key`
---
-ALTER TABLE `ezi_student_access_key`
-  ADD CONSTRAINT `ezi_student_access_key_ibfk_1` FOREIGN KEY (`student_code`) REFERENCES `ezi_student` (`student_code`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `ezi_student_details`
@@ -1568,16 +1419,16 @@ ALTER TABLE `ezi_student_guardian`
   ADD CONSTRAINT `ezi_student_guardian_ibfk_1` FOREIGN KEY (`student_code`) REFERENCES `ezi_student` (`student_code`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `ezi_student_subject`
+-- Constraints for table `ezi_subjects`
 --
-ALTER TABLE `ezi_student_subject`
-  ADD CONSTRAINT `ezi_student_subject_ibfk_1` FOREIGN KEY (`student_code`) REFERENCES `ezi_student` (`student_code`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ezi_subjects`
+  ADD CONSTRAINT `ezi_subjects_ibfk_1` FOREIGN KEY (`course_code`) REFERENCES `ezi_course` (`course_code`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Constraints for table `ezi_terminal_report`
 --
 ALTER TABLE `ezi_terminal_report`
-  ADD CONSTRAINT `ezi_terminal_report_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `ezi_student` (`student_id`);
+  ADD CONSTRAINT `ezi_terminal_report_ibfk_1` FOREIGN KEY (`student_code`) REFERENCES `ezi_student` (`student_code`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

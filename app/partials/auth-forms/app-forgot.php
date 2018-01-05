@@ -9,9 +9,12 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Reset Password</button>
             </form>
+            <p class="mt-10 text-center">
+                <small>Remember your password now?</small>
+                <a href="?auth=login">Login</a>
+            </p>
         </div>
         <div class="simple-page-footer animated zoomIn">
-            <p><a href="?auth=login">Go Back</a></p>
             <p>
                 <small>Don't have an account?</small>
                 <a href="#">Visit Our Website</a>
