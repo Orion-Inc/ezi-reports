@@ -53,9 +53,7 @@
 					$errors[0] = array('auth_error' => 'true', 'message' => "Wrong Username or Password!");
 					$_SESSION['ERRORS'] = $errors[0];
 					header("Location:../../../app/auth/?auth=login");
-				}
-				
-				
+				}	
 			break;
 
 		case 'SCH':
