@@ -9,14 +9,11 @@
     </div>
 </div>
 <div class="page-content container-fluid animated fadeIn">
-    <div class="col-md-12">
-        <div class="widget">
-            <div class="widget-heading">
-                <h3 class="widget-title">Welcome</h3>
-            </div>
-            <div class="widget-body">
-                
-            </div>
+    <div class="row">
+        <div class="col-md-5 col-md-offset-3">
+            <?php App::ViewPartial('change-access-key','auth-forms')?>
         </div>
     </div>
 </div>
+<!-- Custom Script -->
+<script type="text/javascript" src="../build/js/page-content/settings/school-script.js"></script>

@@ -90,6 +90,11 @@
                     <i class="ti-files"></i> Reports
                 </a>
             </li>
+            <li>
+                <a href="javascript:page('settings')" class="bubble">
+                    <i class="ti-settings"></i> Settings
+                </a>
+            </li>
         </ul>
     <?php endif ?>
 

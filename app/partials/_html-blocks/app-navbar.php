@@ -13,7 +13,7 @@
     </div>
     <a class="navbar-brand" href="" style="padding: 11px 25px;display:inline-flex">
         <img src="../assets/images/logo-1.png" alt="eziReports" style="height:40px;">
-        <span class="text-white mt-10">eziReports</span>
+        <span class="text-white mt-10 hidden-xs">eziReports</span>
     </a>
     <a href="javascript:;" role="button" class="hamburger-menu pull-left visible-xs"><span></span></a>
     <form class="search-form pull-left hidden-xs hidden" method="GET" action="?search">

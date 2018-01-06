@@ -3,7 +3,7 @@
 
 	$generate = new App();
 	$errors = array();
-	$prefix = '?token=';
+	$prefix = 'app/?token=';
 
 	$eziAccountcode = stripslashes($_POST['eziAccountcode']);
 	$access_key  = stripslashes($_POST['access_key']);
@@ -43,7 +43,7 @@
 						$_SESSION['SESS_USER_NAME'] = $username;
 						$_SESSION['SESS_TOKEN'] = $token;
 
-						header("Location:../../admin/{$prefix}{$token}");
+						header("Location:../../{$prefix}{$token}");
 					} catch (Exception $e) {
 						$errors[0] = array('auth_error' => 'true', 'message' => "An Error Occured!\nPlease try again or Contact Us.");
 						$_SESSION['ERRORS'] = $errors[0];
@@ -93,7 +93,7 @@
 							$_SESSION['SESS_SCHOOL_TYP'] = School::getSchool($school_code,'school_type');
 							$_SESSION['SESS_TOKEN'] = $token;
 
-							header("Location:../../app/{$prefix}{$token}");
+							header("Location:../../{$prefix}{$token}");
 						} catch (Exception $e) {
 							$errors[0] = array('auth_error' => 'true', 'message' => "An Error Occured!\nPlease try again or Contact Us.");
 							$_SESSION['ERRORS'] = $errors[0];
@@ -145,7 +145,7 @@
 							$_SESSION['SESS_STUDENT_NAME'] = Student::getStudent($student_code,'student_name');
 							$_SESSION['SESS_TOKEN'] = $token;
 
-							header("Location:../../student/{$prefix}{$token}");
+							header("Location:../../{$prefix}{$token}");
 						} catch (Exception $e) {
 							$errors[0] = array('auth_error' => 'true', 'message' => "An Error Occured!\nPlease try again or Contact Us.");
 							$_SESSION['ERRORS'] = $errors[0];

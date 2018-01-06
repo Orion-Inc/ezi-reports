@@ -1,6 +1,6 @@
 <?php require_once ('../includes/Autoloader.php');?>
 
-<?php if (@User::userSession('SESS_IS_AUTH') != true): ?>
+<?php if (User::userSession('SESS_IS_AUTH') != true): ?>
     <script type="text/javascript">
         window.location.href='../includes/auth/logout.php';
     </script>
