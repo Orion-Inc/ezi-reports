@@ -21,9 +21,7 @@
 	<?php endif ?>
 
 	<?php if (isset($_GET['admin-subjects'])): ?>
-		<h4 class="mt-0">
-			<h4 class="mt-0 mb-5"><i class="ti-book"></i> Subjects</h4>
-		</h4>
+		<h4 class="mt-0 mb-5"><i class="ti-book"></i> Subjects</h4>
 		<ol class="breadcrumb mb-0">
 			<li class="active">{Description}</li>
 		</ol>
