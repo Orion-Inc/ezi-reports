@@ -14,6 +14,8 @@
 			case 'eziAdmin':
 				unset($_SESSION['SESS_IS_AUTH']);
 				unset($_SESSION['SESS_USER_TYP']);
+				unset($_SESSION['SESS_USER_ID']);
+				unset($_SESSION['SESS_USER_NAME']);
 				unset($_SESSION['SESS_TOKEN']);
 				break;
 			

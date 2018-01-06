@@ -54,10 +54,10 @@
 
         <?php if ($_SESSION['SESS_USER_TYP'] == 'eziAdmin'): ?>
             <h4 class="fs-14 text-muted mt-15 mb-5 fw-300">
-                Administrator
+                <?php App::show($_SESSION['SESS_USER_NAME'])?>
             </h4>
             <p class="fs-13 mb-0 text-muted">
-                eziAdmin
+                Administrator
             </p>
         <?php endif ?>
         

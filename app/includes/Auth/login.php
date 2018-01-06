@@ -13,11 +13,49 @@
 
 	switch ($loginPrefix) {
 		case 'ezi':
-				$_SESSION['SESS_IS_AUTH'] = true;
-				$_SESSION['SESS_USER_TYP'] = 'eziAdmin';
-				$_SESSION['SESS_TOKEN'] = '';
+				$adminParams = array( 
+					'username' => $eziAccountcode,
+					'access_key' => sha1($access_key)
+				);
 
-				header("Location:../../admin/{$prefix}{$token}".$_SESSION['SESS_TOKEN']);
+				$_admin = Database::query("SELECT `id`,`username` FROM `ezi_admin` WHERE 
+					`username`='{$adminParams['username']}'  
+					AND 
+					`password`='{$adminParams['access_key']}'"
+				);
+
+				if (!empty($_admin[0])) {
+					$id = $_admin[0]['id'];
+					$username = $_admin[0]['username'];
+					$token = $generate->token_generator();
+
+					$params = array( 
+						'id' => $id, 
+						'token' => $token
+					);
+
+					try {
+						$query = Database::query("UPDATE `ezi_admin` SET `token`= :token WHERE `id` = :id", $params);
+
+						$_SESSION['SESS_IS_AUTH'] = true;
+						$_SESSION['SESS_USER_TYP'] = 'eziAdmin';
+						$_SESSION['SESS_USER_ID'] = $id;
+						$_SESSION['SESS_USER_NAME'] = $username;
+						$_SESSION['SESS_TOKEN'] = $token;
+
+						header("Location:../../admin/{$prefix}{$token}");
+					} catch (Exception $e) {
+						$errors[0] = array('auth_error' => 'true', 'message' => "An Error Occured!\nPlease try again or Contact Us.");
+						$_SESSION['ERRORS'] = $errors[0];
+						header("Location:../../../app/auth/?auth=login");
+					}
+				} else{
+					$errors[0] = array('auth_error' => 'true', 'message' => "Wrong Username or Password!");
+					$_SESSION['ERRORS'] = $errors[0];
+					header("Location:../../../app/auth/?auth=login");
+				}
+				
+				
 			break;
 
 		case 'SCH':
