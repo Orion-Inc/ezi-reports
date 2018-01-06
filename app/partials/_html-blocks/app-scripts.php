@@ -58,6 +58,11 @@
         <script type="text/javascript" src="../build/js/app/app.js"></script>
     <?php endif ?>
 
+    <?php if ($_SESSION['SESS_USER_TYP'] == 'student'): ?>
+        <!-- Custom JS-->
+        <script type="text/javascript" src="../build/js/app/student-app.js"></script>
+    <?php endif ?>
+
     <?php if ($_SESSION['SESS_USER_TYP'] == 'eziAdmin'): ?>
         <!-- Custom JS-->
         <script type="text/javascript" src="../build/js/app/admin-app.js"></script>

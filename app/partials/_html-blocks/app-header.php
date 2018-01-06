@@ -3,7 +3,7 @@
     <title>eziReports</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" sizes="196x196" href="#">
+    <link rel="shortcut icon" sizes="196x196" href="../assets/images/logo-2.png">
     
     <!-- PACE-->
     <!--<link rel="stylesheet" type="text/css" href="../plugins/PACE/themes/blue/pace-theme-center-simple.css">

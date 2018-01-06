@@ -96,7 +96,33 @@
 <?php endif ?>
 
 <?php if ($_SESSION['SESS_USER_TYP'] == 'student'): ?>
-	
+	<?php if (isset($_GET['student-overview'])): ?>
+		<h4 class="mt-0 mb-5"><i class="ti-briefcase"></i> Overview</h4>
+		<ol class="breadcrumb mb-0">
+			<li class="active">{Description}</li>
+		</ol>
+	<?php endif ?>
+
+	<?php if (isset($_GET['student-reports'])): ?>
+		<h4 class="mt-0 mb-5"><i class="ti-files"></i> Reports</h4>
+		<ol class="breadcrumb mb-0">
+			<li class="active">{Description}</li>
+		</ol>
+	<?php endif ?>
+
+	<?php if (isset($_GET['student-bills'])): ?>
+		<h4 class="mt-0 mb-5"><i class="ti-wallet"></i> Bills</h4>
+		<ol class="breadcrumb mb-0">
+			<li class="active">{Description}</li>
+		</ol>
+	<?php endif ?>
+
+	<?php if (isset($_GET['student-settings'])): ?>
+		<h4 class="mt-0 mb-5"><i class="ti-settings"></i> Settings</h4>
+		<ol class="breadcrumb mb-0">
+			<li class="active">{Description}</li>
+		</ol>
+	<?php endif ?>
 <?php endif ?>
 
 

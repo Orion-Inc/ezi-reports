@@ -39,7 +39,7 @@ $(document).ready(function() {
         $("li.panel").addClass('active');
     });
 
-    $("#app-school-crest").easyPieChart({
+    $("#app-user-pic").easyPieChart({
         barColor: "#0667D6",
         trackColor: "rgba(0,0,0,0)",
         scaleColor: !1,

@@ -15,7 +15,7 @@
 	$student = Database::query("SELECT * FROM `ezi_student` WHERE `student_code`='$student_code'  AND `school_code`='$school_code'");
 
 	if($student) {
-		$_student = Database::query("SELECT * FROM `ezi_student_access_key` WHERE `student_code`='$student_code'  AND `access_key`='".sha1($access_key)."'");
+		$_student = Database::query("SELECT * FROM `ezi_users` WHERE `user_code`='$student_code'  AND `access_key`='".sha1($access_key)."'");
 		if ($_student) {
 			$_SESSION['SESS_IS_AUTH'] = true;
 			$_SESSION['SESS_USER_ID'] = $student_code;

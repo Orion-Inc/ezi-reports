@@ -8,7 +8,7 @@ $(document).ready(function() {
         e(o), window.setTimeout(function() { n(o) }, 3e3)
     }), $(".widget-remove").on("click", function() { $(this).closest(".widget").hide() }), $(".progress").length > 0 && $(".progress .progress-bar").progressbar(), $(".animated").animo({ duration: .2 })
 
-    $('#page-content').load('../views/app-admin-dashboard.php?admin-dashboard');
+    $('#page-content').load('../views/app-student-overview.php?student-overview');
 
     $("#logout").on("click", function() {
         swal({
@@ -33,12 +33,12 @@ $(document).ready(function() {
         $('ul li a.bubble').not(this).removeClass('active');
         $(".panel a[href='#school-list']").removeClass('active');
     });
-
-    $('#course-list li a.bubble').on('click', function() {
-        $(".panel a[href='#course-list']").addClass('active');
-        $("li.panel").addClass('active');
-    });
-
+    /*
+        $('#student-list li a.bubble').on('click', function() {
+            $(".panel a[href='#school-list']").addClass('active');
+            $("li.panel").addClass('active');
+        });
+    */
     $("#app-user-pic").easyPieChart({
         barColor: "#0667D6",
         trackColor: "rgba(0,0,0,0)",

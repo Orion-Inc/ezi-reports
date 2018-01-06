@@ -10,7 +10,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
 	<meta name="description" content="eziReports, O.Rion Ltd., Orion" />
-	<link rel="shortcut icon" sizes="196x196" href="#">
+	<link rel="shortcut icon" sizes="196x196" href="../assets/images/logo-2.png">
 	
 	<link rel="stylesheet" href="../plugins/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="../plugins/material-design-iconic-font/dist/css/material-design-iconic-font.min.css">
