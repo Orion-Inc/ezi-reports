@@ -1,11 +1,12 @@
 <?php require_once ('../includes/Autoloader.php');?>
-
-<?php if (User::userSession('SESS_IS_AUTH') != true): ?>
-    <script type="text/javascript">
-        window.location.href='../includes/auth/logout.php';
-    </script>
-<?php endif ?>
-
+<?php
+    if (User::userSession('SESS_IS_AUTH') != true) {
+        header("Location: ../includes/auth/logout.php");
+    }
+    if (isset($_GET['token']) && $_GET['token'] !== User::userSession('SESS_TOKEN')) {
+        header("Location: ../includes/auth/logout.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
     <?php App::ViewPartial('header','_html-blocks')?>

@@ -1,4 +1,4 @@
-<?php if ($_SESSION['SESS_USER_TYP'] == 'eziAdmin'): ?>
+<?php if (User::userSession('SESS_USER_TYP') == 'eziAdmin'): ?>
 	<?php if (isset($_GET['admin-dashboard'])): ?>
 		<h4 class="mt-0 mb-5"><i class="ti-dashboard"></i> Dashboard</h4>
 		<ol class="breadcrumb mb-0">
@@ -49,7 +49,7 @@
 	<?php endif ?>
 <?php endif ?>
 
-<?php if ($_SESSION['SESS_USER_TYP'] == 'school'): ?>
+<?php if (User::userSession('SESS_USER_TYP') == 'school'): ?>
 	<?php if (isset($_GET['dashboard'])): ?>
 		<h4 class="mt-0 mb-5"><i class="ti-dashboard"></i> Dashboard</h4>
 		<ol class="breadcrumb mb-0">
@@ -100,7 +100,7 @@
 	<?php endif ?>
 <?php endif ?>
 
-<?php if ($_SESSION['SESS_USER_TYP'] == 'student'): ?>
+<?php if (User::userSession('SESS_USER_TYP') == 'student'): ?>
 	<?php if (isset($_GET['student-overview'])): ?>
 		<h4 class="mt-0 mb-5"><i class="ti-briefcase"></i> Overview</h4>
 		<ol class="breadcrumb mb-0">

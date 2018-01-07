@@ -37,7 +37,7 @@
             </a>
         </li>   
 
-        <?php if ($_SESSION['SESS_USER_TYP'] === 'school' || $_SESSION['SESS_USER_TYP'] === 'student'): ?>
+        <?php if (User::userSession('SESS_USER_TYP') === 'school' || User::userSession('SESS_USER_TYP') === 'student'): ?>
             <li>
                 <a href="javascript:;" role="button" class="right-sidebar-toggle bubble header-icon">
                     <i class="ti-layout-sidebar-right"></i>

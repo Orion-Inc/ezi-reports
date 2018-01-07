@@ -1,12 +1,12 @@
 <aside data-mcs-theme="minimal-dark" class="main-sidebar mCustomScrollbar animated fadeIn">
     <div class="user">
         <div id="app-user-pic" data-percent="100" style="height: 104px; width: 104px; line-height: 80px; padding: 12px;" class="easy-pie-chart">
-            <?php if ($_SESSION['SESS_USER_TYP'] == 'school'): ?>
+            <?php if (User::userSession('SESS_USER_TYP') === 'school'): ?>
                 <img src="<?php School::getSchoolCrest($_SESSION['SESS_USER_ID'])?>" alt="" class="avatar img-circle">
                 <span class="hidden status bg-primary"></span>
             <?php endif ?>
 
-            <?php if ($_SESSION['SESS_USER_TYP'] == 'student'): 
+            <?php if (User::userSession('SESS_USER_TYP') === 'student'): 
                 $gender = Database::query("SELECT `student_gender` FROM `ezi_student_details` WHERE `student_code`='{$_SESSION['SESS_USER_ID']}'")[0];
                 switch ($gender['student_gender']) {
                     case 'male':?>
@@ -22,7 +22,7 @@
             ?>
             <?php endif ?>
 
-            <?php if ($_SESSION['SESS_USER_TYP'] == 'eziAdmin'): ?>
+            <?php if (User::userSession('SESS_USER_TYP') === 'eziAdmin'): ?>
                 <img src="../assets/images/logo-2.png" alt="" class="avatar img-circle">
                 <?php 
                 $conn = new Database();
@@ -34,27 +34,27 @@
             <?php endif ?>
         </div>
 
-        <?php if ($_SESSION['SESS_USER_TYP'] == 'school'): ?>
+        <?php if (User::userSession('SESS_USER_TYP') === 'school'): ?>
             <h4 class="fs-14 text-muted mt-15 mb-5 fw-300">
-                <?php App::show($_SESSION['SESS_SCHOOL_NAME']);?>
+                <?php App::show(User::userSession('SESS_SCHOOL_NAME'));?>
             </h4>
             <p class="fs-13 mb-0 text-muted">
-                <?php App::show($_SESSION['SESS_USER_ID']);?>
+                <?php App::show(User::userSession('SESS_USER_ID'));?>
             </p>
         <?php endif ?>
 
-        <?php if ($_SESSION['SESS_USER_TYP'] == 'student'): ?>
+        <?php if (User::userSession('SESS_USER_TYP') === 'student'): ?>
             <h4 class="fs-14 text-muted mt-15 mb-5 fw-300">
-                <?php App::show($_SESSION['SESS_STUDENT_NAME']);?>
+                <?php App::show(User::userSession('SESS_STUDENT_NAME'));?>
             </h4>
             <p class="fs-13 mb-0 text-muted">
-                <?php App::show($_SESSION['SESS_USER_ID']);?>
+                <?php App::show(User::userSession('SESS_USER_ID'));?>
             </p>
         <?php endif ?>
 
-        <?php if ($_SESSION['SESS_USER_TYP'] == 'eziAdmin'): ?>
+        <?php if (User::userSession('SESS_USER_TYP') === 'eziAdmin'): ?>
             <h4 class="fs-14 text-muted mt-15 mb-5 fw-300">
-                <?php App::show($_SESSION['SESS_USER_NAME'])?>
+                <?php App::show(User::userSession('SESS_USER_NAME'))?>
             </h4>
             <p class="fs-13 mb-0 text-muted">
                 Administrator
@@ -63,7 +63,7 @@
         
     </div>
 
-    <?php if ($_SESSION['SESS_USER_TYP'] == 'school'): ?>
+    <?php if (User::userSession('SESS_USER_TYP') === 'school'): ?>
         <ul class="list-unstyled navigation mb-0">
             <li>
                 <a href="javascript:page('dashboard')" class="bubble">
@@ -98,7 +98,7 @@
         </ul>
     <?php endif ?>
 
-    <?php if ($_SESSION['SESS_USER_TYP'] == 'student'): ?>
+    <?php if (User::userSession('SESS_USER_TYP') === 'student'): ?>
         <ul class="list-unstyled navigation mb-0">
             <li>
                 <a href="javascript:page('student-overview')" class="bubble">
@@ -123,7 +123,7 @@
         </ul>
     <?php endif ?>
 
-    <?php if ($_SESSION['SESS_USER_TYP'] == 'eziAdmin'): ?>
+    <?php if (User::userSession('SESS_USER_TYP') === 'eziAdmin'): ?>
         <ul class="list-unstyled navigation mb-0">
             <li>
                 <a href="javascript:page('admin-dashboard')" class="bubble">
