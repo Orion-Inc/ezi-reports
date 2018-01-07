@@ -67,7 +67,7 @@ $(document).ready(function() {
                 $.ajax({
                     url: '../includes/actions/course/generateCode.php',
                     dataType: 'json',
-                    type: 'POST',
+                    type: 'GET',
                     data: { course_name: course_name },
                     success: function(data) {
                         modal.find('#course_code').val(data.course_code);
@@ -98,7 +98,7 @@ $(document).ready(function() {
         $.ajax({
             url: url,
             dataType: 'json',
-            type: 'POST',
+            type: 'GET',
             data: { course_code: course_code },
             success: function(data) {
                 if (data.error != 'false') {
@@ -125,7 +125,7 @@ $(document).ready(function() {
         $.ajax({
             url: url,
             dataType: 'json',
-            type: 'POST',
+            type: 'GET',
             data: { course_code: course_code },
             success: function(data) {
                 if (data.error != 'false') {

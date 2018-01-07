@@ -8,7 +8,7 @@
 
 	try {
 		$subject_code = "";
-		$subject_name = stripslashes($_POST['subject_name']);
+		$subject_name = stripslashes($_GET['subject_name']);
 
 		$generateSubjectPrefix = explode(' ', $subject_name);
 

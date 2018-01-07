@@ -8,7 +8,7 @@
 
 	try {
 		$school_code = "";
-		$school_name = stripslashes($_POST['school_name']);
+		$school_name = stripslashes($_GET['school_name']);
 
 		$generateSchoolPrefix = explode(' ', $school_name);
 

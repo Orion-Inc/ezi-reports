@@ -46,7 +46,7 @@ $(document).ready(function() {
                 $.ajax({
                     url: '../includes/actions/school/generateCode.php',
                     dataType: 'json',
-                    type: 'POST',
+                    type: 'GET',
                     data: { school_name: school_name },
                     success: function(data) {
                         modal.find('#school_code').val(data.school_code);
@@ -77,7 +77,7 @@ $(document).ready(function() {
         $.ajax({
             url: url,
             dataType: 'json',
-            type: 'POST',
+            type: 'GET',
             data: { school_code: school_code },
             success: function(data) {
                 if (data.error != 'false') {
@@ -104,7 +104,7 @@ $(document).ready(function() {
         $.ajax({
             url: url,
             dataType: 'json',
-            type: 'POST',
+            type: 'GET',
             data: { school_code: school_code },
             success: function(data) {
                 if (data.error != 'false') {
@@ -164,7 +164,7 @@ $(document).ready(function() {
         $.ajax({
             url: '../includes/actions/school/admin-view-school-crest.php',
             dataType: 'json',
-            type: 'POST',
+            type: 'GET',
             data: { school_code: school_code },
             success: function(data) {
                 if (data.error != 'false') {

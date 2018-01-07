@@ -8,7 +8,7 @@
 
 	try {
 		$school_prefix = $_SESSION['SESS_SCHOOL_PREFIX'];
-		$class_name = stripslashes($_POST['class_name']);
+		$class_name = stripslashes($_GET['class_name']);
 
 		if (!empty($class_name)) {
 

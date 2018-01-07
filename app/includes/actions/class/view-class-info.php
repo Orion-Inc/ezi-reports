@@ -2,7 +2,7 @@
 	require_once ('../Autoloader.php');
 
 	$errors = array();
-	$class_code = $_POST['class_code'];
+	$class_code = $_GET['class_code'];
 
 	try {
 		if (Classes::getClass($class_code,'class_code') != false) {

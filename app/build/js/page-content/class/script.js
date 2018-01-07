@@ -62,7 +62,7 @@ $(document).ready(function() {
         $.ajax({
             url: '../includes/actions/course/fetchSchoolCourses.php',
             dataType: 'json',
-            type: 'POST',
+            type: 'GET',
             data: { school_type: school_type },
             success: function(data) {
                 var options = '<option value="" selected="" disabled="">Select Course</option>';
@@ -88,7 +88,7 @@ $(document).ready(function() {
                 $.ajax({
                     url: '../includes/actions/class/generateCode.php',
                     dataType: 'json',
-                    type: 'POST',
+                    type: 'GET',
                     data: { class_name: class_name },
                     success: function(data) {
                         modal.find('#class_code').val(data.class_code);
@@ -141,7 +141,7 @@ $(document).ready(function() {
         $.ajax({
             url: url,
             dataType: 'json',
-            type: 'POST',
+            type: 'GET',
             data: { class_code: class_code },
             success: function(data) {
                 if (data.error != 'false') {
@@ -168,7 +168,7 @@ $(document).ready(function() {
         $.ajax({
             url: url,
             dataType: 'json',
-            type: 'POST',
+            type: 'GET',
             data: { class_code: class_code },
             success: function(data) {
                 if (data.error != 'false') {
@@ -196,7 +196,7 @@ $(document).ready(function() {
         $.ajax({
             url: '../includes/actions/course/fetchSchoolCourses.php',
             dataType: 'json',
-            type: 'POST',
+            type: 'GET',
             data: { school_type: school_type },
             success: function(data) {
                 var options = '<option value="" disabled="">Select Course</option>';
@@ -210,7 +210,7 @@ $(document).ready(function() {
         $.ajax({
             url: url,
             dataType: 'json',
-            type: 'POST',
+            type: 'GET',
             data: { class_code: class_code },
             success: function(data) {
                 if (data.error != 'false') {

@@ -3,7 +3,7 @@
     $get = new Database();
 
 	$errors = array();
-	$course_code = $_POST['course_code'];
+	$course_code = $_GET['course_code'];
 	
 
 	try {

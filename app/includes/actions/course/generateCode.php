@@ -8,7 +8,7 @@
 
 	try {
 		$course_code = "";
-		$course_name = stripslashes($_POST['course_name']);
+		$course_name = stripslashes($_GET['course_name']);
 
 		$generateCoursePrefix = explode(' ', $course_name);
 

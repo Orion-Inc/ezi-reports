@@ -120,7 +120,7 @@ $(document).ready(function() {
         $.ajax({
             url: '../includes/actions/course/fetchSchoolCourses.php',
             dataType: 'json',
-            type: 'POST',
+            type: 'GET',
             data: { school_type: school_type },
             success: function(data) {
                 var options = '<option value="" selected="" disabled="">Select an Option</option>';
@@ -158,7 +158,7 @@ $(document).ready(function() {
                 $.ajax({
                     url: '../includes/actions/student/generateCode.php',
                     dataType: 'json',
-                    type: 'POST',
+                    type: 'GET',
                     data: { student_name: student_name },
                     success: function(data) {
                         modal.find('#student_code').val(data.student_code);
@@ -176,7 +176,7 @@ $(document).ready(function() {
             $.ajax({
                 url: '../includes/actions/class/fetchSchoolCourseClasses.php',
                 dataType: 'json',
-                type: 'POST',
+                type: 'GET',
                 data: { course_code: course_code },
                 success: function(data) {
                     var options = '<option value="" selected="" disabled="">Select a Class</option>';
@@ -219,7 +219,7 @@ $(document).ready(function() {
         $.ajax({
             url: url,
             dataType: 'json',
-            type: 'POST',
+            type: 'GET',
             data: { student_code: student_code },
             success: function(data) {
                 if (data.error != 'false') {
@@ -259,7 +259,7 @@ $(document).ready(function() {
         $.ajax({
             url: '../includes/actions/course/fetchSchoolCourses.php',
             dataType: 'json',
-            type: 'POST',
+            type: 'GET',
             data: { school_type: school_type },
             success: function(data) {
                 var options = '<option value="" selected="" disabled="">Select an Option</option>';
@@ -276,7 +276,7 @@ $(document).ready(function() {
             $.ajax({
                 url: '../includes/actions/class/fetchSchoolCourseClasses.php',
                 dataType: 'json',
-                type: 'POST',
+                type: 'GET',
                 data: { course_code: course_code },
                 success: function(data) {
                     var options = '<option value="" selected="" disabled="">Select Class</option>';
@@ -307,7 +307,7 @@ $(document).ready(function() {
         $.ajax({
             url: url,
             dataType: 'json',
-            type: 'POST',
+            type: 'GET',
             data: { student_code: student_code },
             success: function(data) {
                 if (data.error != 'false') {

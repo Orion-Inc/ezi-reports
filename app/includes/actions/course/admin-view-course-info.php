@@ -3,7 +3,7 @@
 	$get = new Database();
 
 	$errors = array();
-	$_course_code = $_POST['course_code'];
+	$_course_code = $_GET['course_code'];
 
 	try {
 		$courseArray = $get->query("SELECT * FROM `ezi_course` WHERE `course_code`='{$_course_code}'");

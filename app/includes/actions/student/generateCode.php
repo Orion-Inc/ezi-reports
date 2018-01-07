@@ -9,7 +9,7 @@
 	try {
 		$student_code = "";
 		$school_prefix = $_SESSION['SESS_SCHOOL_PREFIX'];
-		$student_name = stripslashes($_POST['student_name']);
+		$student_name = stripslashes($_GET['student_name']);
 
 		$generateStudentPrefix = explode(' ', $student_name);
 

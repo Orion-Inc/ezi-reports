@@ -57,7 +57,7 @@ $(document).ready(function() {
         $.ajax({
             url: '../includes/actions/course/fetchEziCourses.php',
             dataType: 'json',
-            type: 'POST',
+            type: 'GET',
             data: {},
             success: function(data) {
                 var options = '<option value="" disabled="" selected="">Select Course to Assign this Subject</option>';
@@ -75,7 +75,7 @@ $(document).ready(function() {
                 $.ajax({
                     url: '../includes/actions/subject/generateCode.php',
                     dataType: 'json',
-                    type: 'POST',
+                    type: 'GET',
                     data: { subject_name: subject_name },
                     success: function(data) {
                         modal.find('#subject_code').val(data.subject_code);
@@ -108,7 +108,7 @@ $(document).ready(function() {
         $.ajax({
             url: '../includes/actions/course/fetchEziCourses.php',
             dataType: 'json',
-            type: 'POST',
+            type: 'GET',
             data: {},
             success: function(data) {
                 var options = '<option value="" disabled="" selected="">Select Course to Assign this Subject</option>';
@@ -122,7 +122,7 @@ $(document).ready(function() {
         $.ajax({
             url: url,
             dataType: 'json',
-            type: 'POST',
+            type: 'GET',
             data: { subject_code: subject_code },
             success: function(data) {
                 if (data.error != 'false') {

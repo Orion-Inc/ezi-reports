@@ -2,7 +2,7 @@
 	require_once ('../Autoloader.php'); 
 
 	$errors = array();
-	$student_code = $_POST['student_code'];
+	$student_code = $_GET['student_code'];
 
 	try {
 		$student = Database::query("SELECT * FROM `ezi_student` WHERE `student_code` = '{$student_code}'")[0];

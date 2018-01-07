@@ -3,7 +3,7 @@
 
 	$errors = array();
 	$school_code = $_SESSION['SESS_USER_ID'];
-	$course_code = $_POST['course_code'];
+	$course_code = $_GET['course_code'];
     
 
     try {

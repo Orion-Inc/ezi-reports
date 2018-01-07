@@ -5,7 +5,7 @@ $(document).ready(function() {
         $.ajax({
             url: url,
             dataType: 'json',
-            type: 'POST',
+            type: 'GET',
             success: function(data) {
                 if (data.error != 'false') {
                     toastr.error(data.message, 'Error!');
@@ -45,7 +45,7 @@ $(document).ready(function() {
         $.ajax({
             url: url,
             dataType: 'json',
-            type: 'POST',
+            type: 'GET',
             success: function(data) {
                 if (data.error != 'false') {
                     toastr.error(data.message, 'Error!');
@@ -106,7 +106,7 @@ $(document).ready(function() {
         $.ajax({
             url: url,
             dataType: 'json',
-            type: 'POST',
+            type: 'GET',
             success: function(data) {
                 if (data.error != 'false') {
                     toastr.error(data.message, 'Error!');
@@ -137,7 +137,7 @@ $(document).ready(function() {
         $.ajax({
             url: url,
             dataType: 'json',
-            type: 'POST',
+            type: 'GET',
             success: function(data) {
                 if (data.error != 'false') {
                     toastr.error(data.message, 'Error!');

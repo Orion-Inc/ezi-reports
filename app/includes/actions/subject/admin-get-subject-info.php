@@ -3,7 +3,7 @@
     $get = new Database();
 
 	$errors = array();
-	$subject_code = $_POST['subject_code'];
+	$subject_code = $_GET['subject_code'];
 	
 
 	try {

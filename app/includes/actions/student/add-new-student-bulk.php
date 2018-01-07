@@ -13,13 +13,15 @@
 		$generateStudentPrefix = explode(' ', $student_name);
 
 		if (sizeof($generateStudentPrefix) >= 2) {
-			$student_prefix = strtoupper($generateStudentPrefix[0][0].$generateStudentPrefix[1][0]);
-
-			$year = substr(date('Y'),2);
-			$student_number = App::randomizer(4);
-
-			$student_code = 'S'.$year.'/'.$school_prefix.'/'.$student_prefix.$student_number;
+			$student_prefix = strtoupper($generateStudentPrefix[0][0].$generateStudentPrefix[1][0]);	
+		}else{
+			$student_prefix = strtoupper($generateStudentPrefix[0][0].$generateStudentPrefix[0][1]);
 		}
+
+		$year = substr(date('Y'),2);
+		$student_number = App::randomizer(4);
+
+		$student_code = 'S'.$year.'/'.$school_prefix.'/'.$student_prefix.$student_number;
 
 		return $student_code;
 	}
