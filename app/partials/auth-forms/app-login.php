@@ -8,7 +8,7 @@
                 </div>
 
                 <div class="form-group">
-                    <input id="access_key" name="access_key" type="password" class="form-control" placeholder="Password" required="" oninvalid="this.setCustomValidity('Enter Your Password')" oninput="setCustomValidity('')">
+                    <input id="access_key" name="access_key" type="password" class="form-control" placeholder="Access Code" required="" oninvalid="this.setCustomValidity('Enter Your Access Code')" oninput="setCustomValidity('')">
                 </div>
 
                 <div class="form-group m-b-xl">
