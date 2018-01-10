@@ -15,7 +15,7 @@
                 <h3 class="widget-title">
                     Some Heading Goes Here
                     <div class="pull-right">
-                        <small>Having Issues? <a href="mailto:" >Contact Us</a></small>
+                        <small>Having Issues? <a href="mailto:" target="_blank">Contact Us</a></small>
                     </div>
                 </h3>
             </div>
