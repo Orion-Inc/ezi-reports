@@ -13,7 +13,7 @@
         <div class="widget">
             <div class="widget-heading">
                 <h3 class="widget-title">
-                    Some Heading Goes Here
+                    Details
                     <div class="pull-right">
                         <small>Having Issues? <a href="mailto:" target="_blank">Contact Us</a></small>
                     </div>

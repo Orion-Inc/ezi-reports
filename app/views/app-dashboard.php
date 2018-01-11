@@ -14,15 +14,15 @@
 		$school_code = $_SESSION['SESS_USER_ID'];
 
 		$students = (Student::getStudents($school_code) == false) ? 0 : count(Student::getStudents($school_code));
-		$totalMalePopulation = '';
-        $totalFemalePopulation = '';
+		$totalMalePopulation = Database::query("SELECT COUNT(`ezi_student`.`student_code`) FROM `ezi_student` JOIN `ezi_student_details` ON `ezi_student`.`student_code` = `ezi_student_details`.`student_code` WHERE `ezi_student`.`school_code` = '{$school_code}' AND `ezi_student_details`.`student_gender`= 'male' ")[0];
+        $totalFemalePopulation = Database::query("SELECT COUNT(`ezi_student`.`student_code`) FROM `ezi_student` JOIN `ezi_student_details` ON `ezi_student`.`student_code` = `ezi_student_details`.`student_code` WHERE `ezi_student`.`school_code` = '{$school_code}' AND `ezi_student_details`.`student_gender`= 'female' ")[0];
 		$totalStudents = Database::query("SELECT COUNT(*) FROM `ezi_student`")[0];
 		$studentPercent = @($students/$totalStudents[0])*100;
-
-
+		$totalMalePercent = number_format(@($totalMalePopulation[0]/$totalStudents[0])*100,2);
+		$totalFemalePercent = number_format(@($totalFemalePopulation[0]/$totalStudents[0])*100,2);
 
 		$classrooms = (Classes::fetchClasses($school_code,"*") == false) ? 0 : count(Classes::fetchClasses($school_code,"*"));
-		$totalCourses = '';
+		$totalCourses = Database::query("SELECT COUNT(DISTINCT `class_course`) FROM `ezi_school_class` WHERE `school_code` = '{$school_code}'")[0];
         $totalSubjects = '';
 		$totalClassrooms = Database::query("SELECT COUNT(*) FROM `ezi_school_class`")[0];
 		$classroomsPercent = @($classrooms/$totalClassrooms[0])*100;
@@ -39,11 +39,11 @@
 					<div class="clearfix mt-10">
 						<div class="pull-left">
 							<div class="fs-12">Male</div>
-							<div class="text-primary"><?php echo $totalMalePopulation//[0];?></div>
+							<div class="text-primary"><?php App::show("<strong>".$totalMalePopulation[0]."</strong>"." (".$totalMalePercent."%)");?></div>
 						</div>
 						<div class="pull-right">
 							<div class="fs-12">Female</div>
-							<div class="text-primary"><?php echo $totalFemalePopulation//[0];?></div>
+							<div class="text-primary"><?php App::show("<strong>".$totalFemalePopulation[0]."</strong>"." (".$totalFemalePercent."%)");?></div>
 						</div>
 					</div>
                 </div>
@@ -59,11 +59,11 @@
                   		<i class="ti-blackboard text-muted"></i>
                   	</div>
 					<div class="clearfix mt-10">
-						<div class="pull-left">
+						<div class="text-center">
 							<div class="fs-12">Courses</div>
-							<div class="text-primary"><?php echo $totalCourses//[0];?></div>
+							<div class="text-primary"><?php echo $totalCourses[0];?></div>
 						</div>
-						<div class="pull-right">
+						<div class="pull-right hidden">
 							<div class="fs-12">Subjects</div>
 							<div class="text-primary"><?php echo $totalSubjects//[0];?></div>
 						</div>

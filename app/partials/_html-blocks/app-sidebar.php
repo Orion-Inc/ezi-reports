@@ -76,7 +76,7 @@
                 </a>
                 <ul id="school-list" class="list-unstyled collapse">
                     <li><a href="javascript:page('school')" class="bubble">Overview</a></li>
-                    <li><a href="javascript:page('class')" class="bubble">Class Room</a></li>
+                    <li><a href="javascript:page('class')" class="bubble">Class Rooms</a></li>
                     <li><a href="javascript:page('student')" class="bubble">Students</a></li>
                 </ul>
             </li>
