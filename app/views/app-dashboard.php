@@ -12,6 +12,7 @@
 	<?php
 		$errors = array();
 		$school_code = $_SESSION['SESS_USER_ID'];
+		$count = '';
 
 		$students = (Student::getStudents($school_code) == false) ? 0 : count(Student::getStudents($school_code));
 		$totalMalePopulation = Database::query("SELECT COUNT(`ezi_student`.`student_code`) FROM `ezi_student` JOIN `ezi_student_details` ON `ezi_student`.`student_code` = `ezi_student_details`.`student_code` WHERE `ezi_student`.`school_code` = '{$school_code}' AND `ezi_student_details`.`student_gender`= 'male' ")[0];
@@ -23,7 +24,11 @@
 
 		$classrooms = (Classes::fetchClasses($school_code,"*") == false) ? 0 : count(Classes::fetchClasses($school_code,"*"));
 		$totalCourses = Database::query("SELECT COUNT(DISTINCT `class_course`) FROM `ezi_school_class` WHERE `school_code` = '{$school_code}'")[0];
-        $totalSubjects = '';
+		$totalSubjects = Database::query("SELECT `ezi_school_class_subject`.`class_subjects` FROM `ezi_school_class_subject` JOIN `ezi_school_class` ON `ezi_school_class`.`class_code`=`ezi_school_class_subject`.`class_code` WHERE `ezi_school_class`.`school_code`='{$school_code}'");
+		$schoolSubjects = implode(',', array_column($totalSubjects, 'class_subjects'));
+		$schoolSubjects = explode(',',$schoolSubjects);
+		$subjectCount = count(array_unique($schoolSubjects));
+
 		$totalClassrooms = Database::query("SELECT COUNT(*) FROM `ezi_school_class`")[0];
 		$classroomsPercent = @($classrooms/$totalClassrooms[0])*100;
 	?>
@@ -49,7 +54,7 @@
                 </div>
             </div>
         </div>
-
+		
         <div class="col-md-3 col-sm-6">
             <div class="widget text-center">
                 <div class="widget-body">
@@ -59,13 +64,13 @@
                   		<i class="ti-blackboard text-muted"></i>
                   	</div>
 					<div class="clearfix mt-10">
-						<div class="text-center">
+						<div class="pull-left">
 							<div class="fs-12">Courses</div>
 							<div class="text-primary"><?php echo $totalCourses[0];?></div>
 						</div>
-						<div class="pull-right hidden">
+						<div class="pull-right">
 							<div class="fs-12">Subjects</div>
-							<div class="text-primary"><?php echo $totalSubjects//[0];?></div>
+							<div class="text-primary"><?php echo $subjectCount;?></div>
 						</div>
 					</div>
                 </div>
