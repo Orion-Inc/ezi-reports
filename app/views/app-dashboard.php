@@ -37,7 +37,7 @@
             <div class="widget text-center">
                 <div class="widget-body">
                   	<h5 class="mb-5">Total Students</h5>
-                  	<div class="fs-36 fw-600 mb-20 counter"><?php echo $students?></div>
+                  	<div class="fs-36 fw-600 mb-20 counter"><?php echo App::show($students)?></div>
                   	<div data-percent="<?php App::show($studentPercent)?>" class="easy-pie-chart fs-36 bar-track">
                   		<i class="ti-user text-muted"></i>
                   	</div>
@@ -59,18 +59,18 @@
             <div class="widget text-center">
                 <div class="widget-body">
                   	<h5 class="mb-5">Total Classrooms</h5>
-                  	<div class="fs-36 fw-600 mb-20 counter" id="total-classrooms"><?php echo $classrooms?></div>
+                  	<div class="fs-36 fw-600 mb-20 counter" id="total-classrooms"><?php App::show($classrooms)?></div>
                   	<div data-percent="<?php App::show($classroomsPercent)?>" class="easy-pie-chart fs-36 bar-track">
                   		<i class="ti-blackboard text-muted"></i>
                   	</div>
 					<div class="clearfix mt-10">
 						<div class="pull-left">
 							<div class="fs-12">Courses</div>
-							<div class="text-primary"><?php echo $totalCourses[0];?></div>
+							<div class="text-primary"><?php App::show($totalCourses[0]);?></div>
 						</div>
 						<div class="pull-right">
 							<div class="fs-12">Subjects</div>
-							<div class="text-primary"><?php echo $subjectCount;?></div>
+							<div class="text-primary"><?php App::show($subjectCount);?></div>
 						</div>
 					</div>
                 </div>
