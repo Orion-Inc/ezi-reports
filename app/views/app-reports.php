@@ -46,17 +46,53 @@
         </div>
         <div class="col-md-9 col-sm-12">
         	<div class="row">
-            	
+            	<div class="widget">
+					<div class="widget-body">
+						<div role="tabpanel">
+							<ul role="tablist" class="nav nav-tabs mb-15">
+								<li role="presentation" class="active">
+									<a id="upload-tab" href="#upload" role="tab" data-toggle="tab" aria-controls="upload" aria-expanded="true">
+										<i class="ti-upload fs-20"></i> Upload 
+									</a>
+								</li>
+								<li role="presentation">
+									<a id="query-tab" href="#query" role="tab" data-toggle="tab" aria-controls="query" aria-expanded="false">
+										<i class="ti-search fs-20"></i> Query 
+									</a>
+								</li>
+							</ul>
+							<div class="tab-content">
+								<div id="upload" role="tabpanel" aria-labelledby="upload-tab" class="tab-pane fade active in">
+									<?php App::ViewPartial('upload-report','reports')?>
+								</div>
+								<div id="query" role="tabpanel" aria-labelledby="query-tab" class="tab-pane fade">
+									<?php App::ViewPartial('query-report','reports')?>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
         	</div>
         </div>
     </div>
 </div>
-
+<?php 
+   /* App::ViewPartial('edit-school-crest','modals/school');
+    App::ViewPartial('edit-school-info','modals/school');
+    App::ViewPartial('edit-administration-info','modals/school');
+    App::ViewPartial('edit-academic-year','modals/school');
+    App::ViewPartial('edit-school-signatories','modals/school');
+    App::ViewPartial('promote-academic-year','modals/school');*/
+?>
 <!-- jQuery Counter Up-->
     <script type="text/javascript" src="../plugins/jquery-waypoints/waypoints.min.js"></script>
     <script type="text/javascript" src="../plugins/Counter-Up/jquery.counterup.min.js"></script>
 <!-- jQuery Easy Pie Chart-->
     <script type="text/javascript" src="../plugins/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+<!-- Bootstrap File Input-->
+	<script type="text/javascript" src="../plugins/bootstrap-fileinput/js/plugins/canvas-to-blob.min.js"></script>
+	<script type="text/javascript" src="../plugins/bootstrap-fileinput/js/fileinput.min.js"></script>
+
 	<script type="text/javascript">
 
 		$(".counter").counterUp({delay:10,time:1e3});
@@ -72,3 +108,5 @@
 			animate:{duration:2e3,enabled:!0}
 		});
 	</script>
+<!-- Custom Script -->
+<script type="text/javascript" src="../build/js/page-content/reports/script.js"></script>
