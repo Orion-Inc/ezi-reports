@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2018 at 06:42 PM
+-- Generation Time: Jan 17, 2018 at 12:15 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -19,6 +19,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `ezi_reports`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ezi_admin`
+--
+
+CREATE TABLE `ezi_admin` (
+  `id` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `token` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ezi_admin`
+--
+
+INSERT INTO `ezi_admin` (`id`, `username`, `password`, `token`, `created_at`, `updated_at`) VALUES
+(1, 'eziAdmin', '8cb2237d0679ca88db6464eac60da96345513964', '3cd34a47aeeec2e8fde0cca8a7eba48491e41f810f083c57f5cc77e92f85', '2018-01-06 12:32:45', '2018-01-16 21:28:27');
 
 -- --------------------------------------------------------
 
@@ -923,8 +945,8 @@ INSERT INTO `ezi_school` (`school_id`, `school_code`, `school_prefix`, `school_t
 CREATE TABLE `ezi_school_academic_year` (
   `id` int(11) NOT NULL,
   `school_code` varchar(20) NOT NULL,
-  `school_current_academic_year` varchar(11) NOT NULL,
-  `school_academic_term` enum('1st Term','2nd Term','3rd Term','Vacation') NOT NULL,
+  `school_current_academic_year` varchar(11) DEFAULT NULL,
+  `school_academic_term` enum('1st Term','2nd Term','3rd Term','Vacation') DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
@@ -947,11 +969,11 @@ CREATE TABLE `ezi_school_administration` (
   `id` int(11) NOT NULL,
   `school_code` varchar(20) NOT NULL,
   `school_head_title` varchar(100) DEFAULT NULL,
-  `school_head_fullname` text NOT NULL,
+  `school_head_fullname` text,
   `school_ass_head_title` varchar(100) DEFAULT NULL,
-  `school_ass_head_fullname` text NOT NULL,
+  `school_ass_head_fullname` text,
   `school_accountant_title` varchar(100) DEFAULT NULL,
-  `school_accountant_fullname` text NOT NULL,
+  `school_accountant_fullname` text,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
@@ -987,7 +1009,8 @@ CREATE TABLE `ezi_school_class` (
 
 INSERT INTO `ezi_school_class` (`id`, `class_code`, `class_name`, `class_teacher`, `class_course`, `school_code`, `created_at`, `updated_at`) VALUES
 (29, 'CL17/PSB/7032', 'Form 1A1', 'Adjeity Annan', 'CSGEA3640', 'SCH67417', '2017-12-31 00:38:00', '2017-12-31 00:38:00'),
-(30, 'CL18/PSB/8946', 'Form 1S1', 'Godfred Mintim', 'CSGES8093', 'SCH67417', '2018-01-04 09:35:29', '2018-01-04 09:35:29');
+(30, 'CL18/PSB/8946', 'Form 1S1', 'Godfred Mintim', 'CSGES8093', 'SCH67417', '2018-01-04 09:35:29', '2018-01-04 09:35:29'),
+(31, 'CL18/PSB/5265', 'Form 2A1', 'Quavo Huncho', 'CSGEA3640', 'SCH67417', '2018-01-11 22:27:40', '2018-01-11 22:27:40');
 
 -- --------------------------------------------------------
 
@@ -1008,8 +1031,9 @@ CREATE TABLE `ezi_school_class_subject` (
 --
 
 INSERT INTO `ezi_school_class_subject` (`class_subject_id`, `class_code`, `class_subjects`, `created_at`, `updated_at`) VALUES
-(5, 'CL17/PSB/7032', 'SJECO9520,SJELM7073,SJENL6788', '2017-12-31 00:38:00', '2018-01-04 08:42:20'),
-(6, 'CL18/PSB/8946', 'SJBIO8297,SJELM4428', '2018-01-04 09:35:29', '2018-01-04 09:35:29');
+(5, 'CL17/PSB/7032', 'SJENL6788', '2017-12-31 00:38:00', '2018-01-11 23:41:29'),
+(6, 'CL18/PSB/8946', 'SJBIO8297', '2018-01-04 09:35:29', '2018-01-11 23:41:16'),
+(7, 'CL18/PSB/5265', 'SJECO9520', '2018-01-11 22:27:40', '2018-01-11 23:41:22');
 
 -- --------------------------------------------------------
 
@@ -1058,7 +1082,8 @@ CREATE TABLE `ezi_student` (
 INSERT INTO `ezi_student` (`student_id`, `student_code`, `student_name`, `school_code`, `created_at`, `updated_at`) VALUES
 (32, 'S17/PSB/AF9267', 'Adam Farid', 'SCH67417', '2017-12-31 00:39:37', '2017-12-31 00:39:37'),
 (33, 'S17/PSB/AN3327', 'Adjoa Nti', 'SCH67417', '2017-12-31 00:41:35', '2017-12-31 00:41:35'),
-(34, 'S17/PSB/HA6558', 'Hamza Adam', 'SCH67417', '2017-12-31 00:47:14', '2017-12-31 00:47:14');
+(34, 'S17/PSB/HA6558', 'Hamza Adam', 'SCH67417', '2017-12-31 00:47:14', '2017-12-31 00:47:14'),
+(35, 'S18/PSB/JH5756', 'James Hokpi', 'SCH67417', '2018-01-16 21:33:05', '2018-01-16 21:33:05');
 
 -- --------------------------------------------------------
 
@@ -1085,7 +1110,8 @@ CREATE TABLE `ezi_student_details` (
 INSERT INTO `ezi_student_details` (`id`, `student_code`, `student_dob`, `student_gender`, `student_class`, `student_status`, `student_house`, `created_at`, `updated_at`) VALUES
 (32, 'S17/PSB/AF9267', '1995-11-27', 'male', 'CL17/PSB/7032', 'day', '', '2017-12-31 00:39:37', '2017-12-31 00:39:37'),
 (33, 'S17/PSB/AN3327', '2017-12-31', 'female', 'CL17/PSB/7032', 'day', '', '2017-12-31 00:41:35', '2017-12-31 00:41:35'),
-(34, 'S17/PSB/HA6558', '2017-12-31', 'male', 'CL17/PSB/7032', 'day', '', '2017-12-31 00:47:14', '2017-12-31 00:47:14');
+(34, 'S17/PSB/HA6558', '2017-12-31', 'male', 'CL17/PSB/7032', 'day', '', '2017-12-31 00:47:14', '2017-12-31 00:47:14'),
+(35, 'S18/PSB/JH5756', '2018-01-16', 'male', 'CL18/PSB/8946', 'day', '', '2018-01-16 21:33:06', '2018-01-16 21:33:06');
 
 -- --------------------------------------------------------
 
@@ -1112,7 +1138,8 @@ CREATE TABLE `ezi_student_guardian` (
 INSERT INTO `ezi_student_guardian` (`guardian_id`, `student_code`, `guardian_name`, `guardian_relationship`, `guardian_occupation`, `guardian_email`, `guardian_telephone`, `created_at`, `updated_at`) VALUES
 (32, 'S17/PSB/AF9267', 'Iklimatu Adam', 'Mother', 'Trader', 'phobaike@gmail.com', '0243002444', '2017-12-31 00:39:37', '2017-12-31 00:39:37'),
 (33, 'S17/PSB/AN3327', 'Rita Nti', 'Sibling', 'Banker', 'ritanit@gmail.com', '0573849384', '2017-12-31 00:41:35', '2017-12-31 00:41:35'),
-(34, 'S17/PSB/HA6558', 'Iklimatu Adam', 'Mother', 'Trader', 'phobaike@gmail.com', '0243002444', '2017-12-31 00:47:14', '2017-12-31 00:47:14');
+(34, 'S17/PSB/HA6558', 'Iklimatu Adam', 'Mother', 'Trader', 'phobaike@gmail.com', '0243002444', '2017-12-31 00:47:14', '2017-12-31 00:47:14'),
+(35, 'S18/PSB/JH5756', 'Kodjo Hokpi', 'Father', 'Doctor', 'kjhopki@gmail.com', '0245654356', '2018-01-16 21:33:06', '2018-01-16 21:33:06');
 
 -- --------------------------------------------------------
 
@@ -1178,9 +1205,9 @@ CREATE TABLE `ezi_users` (
 --
 
 INSERT INTO `ezi_users` (`access_key_id`, `user_code`, `access_key`, `token`, `created_at`, `updated_at`) VALUES
-(1, 'SCH67417', '8cb2237d0679ca88db6464eac60da96345513964', '93647d7c53be0143210b44f4b9fbff4f2d1f0ababa116d3f875cbe46c923', '2017-11-25 08:17:35', '2018-01-04 09:31:41'),
+(1, 'SCH67417', '8cb2237d0679ca88db6464eac60da96345513964', '6e20e54b9ba5ec57a73b60d00612461573c36b564504f34e201c390907ec', '2017-11-25 08:17:35', '2018-01-16 21:28:14'),
 (2, 'SCH28217', '8cb2237d0679ca88db6464eac60da96345513964', NULL, '2017-11-25 08:17:35', '2017-12-09 18:26:39'),
-(3, 'S17/PSB/AF9267', '8cb2237d0679ca88db6464eac60da96345513964', 'c6b28c0596837b80aaf5f3cecb103dc0435ab05e0352b751a65bbe124143', '2018-01-04 11:21:09', '2018-01-05 05:39:44');
+(3, 'S17/PSB/AF9267', '8cb2237d0679ca88db6464eac60da96345513964', '45355a0654ca2536a55227bf67e135dedafd34f048f7e90bc20fc2386b29', '2018-01-04 11:21:09', '2018-01-16 21:30:05');
 
 -- --------------------------------------------------------
 
@@ -1191,12 +1218,19 @@ INSERT INTO `ezi_users` (`access_key_id`, `user_code`, `access_key`, `token`, `c
 CREATE TABLE `ezi_user_password_resets` (
   `user_code` varchar(20) NOT NULL,
   `token` varchar(255) NOT NULL,
+  `verification_code` varchar(5) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `ezi_admin`
+--
+ALTER TABLE `ezi_admin`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `ezi_course`
@@ -1300,6 +1334,11 @@ ALTER TABLE `ezi_users`
 --
 
 --
+-- AUTO_INCREMENT for table `ezi_admin`
+--
+ALTER TABLE `ezi_admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT for table `ezi_course`
 --
 ALTER TABLE `ezi_course`
@@ -1323,12 +1362,12 @@ ALTER TABLE `ezi_school_administration`
 -- AUTO_INCREMENT for table `ezi_school_class`
 --
 ALTER TABLE `ezi_school_class`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT for table `ezi_school_class_subject`
 --
 ALTER TABLE `ezi_school_class_subject`
-  MODIFY `class_subject_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `class_subject_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `ezi_school_signatories`
 --
@@ -1338,17 +1377,17 @@ ALTER TABLE `ezi_school_signatories`
 -- AUTO_INCREMENT for table `ezi_student`
 --
 ALTER TABLE `ezi_student`
-  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 --
 -- AUTO_INCREMENT for table `ezi_student_details`
 --
 ALTER TABLE `ezi_student_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 --
 -- AUTO_INCREMENT for table `ezi_student_guardian`
 --
 ALTER TABLE `ezi_student_guardian`
-  MODIFY `guardian_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `guardian_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 --
 -- AUTO_INCREMENT for table `ezi_subjects`
 --
