@@ -29,6 +29,14 @@
             <!-- Right Sidebar end-->
         </div>
         <!-- Scripts-->
+            <noscript>
+                <style type="text/css">
+                    .main-container {display:none;}
+                </style>
+                <div class="noscriptmsg">
+                    You don't have javascript enabled.
+                </div>
+            </noscript>
             <?php App::ViewPartial('scripts','_html-blocks')?>
         <!-- /Scripts -->
     </body>

@@ -27,7 +27,19 @@ $(document).ready(function() {
             $("#query-class-row").addClass('hidden');
             $("#query-report-row").removeClass('hidden');
 
-
+            $.ajax({
+                url: '../includes/actions/report/fetch-class-report.php',
+                dataType: 'json',
+                type: 'GET',
+                data: { class_code: selectedClass },
+                success: function(data) {
+                    if (data.error != 'false') {
+                        toastr.error(data.message, 'Error!');
+                    } else {
+                        $("#query-report-row").html(data.page);
+                    }
+                }
+            });
 
         }
     });
