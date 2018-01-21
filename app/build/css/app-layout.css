@@ -4552,3 +4552,8 @@ td.dt-center {
         left: 40%;
     }
 }
+
+.noscriptmsg {
+    color: #000;
+    display: none;
+}

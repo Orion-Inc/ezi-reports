@@ -14,7 +14,7 @@
                 <?php endforeach ?>
             </select>
             <span class="input-group-btn">
-                <button type="button" class="btn btn-outline btn-success" id="select-class-upload">Submit</button>
+                <button type="button" class="btn btn-outline btn-primary" id="select-class-upload">Submit</button>
             </span>
         </div>
     </div>

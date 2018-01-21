@@ -60,6 +60,11 @@
 										<i class="ti-search fs-20"></i> Query 
 									</a>
 								</li>
+								<li role="presentation">
+									<a id="template-tab" href="#template" role="tab" data-toggle="tab" aria-controls="template" aria-expanded="false">
+										<i class="ti-receipt fs-20"></i> Entry Template 
+									</a>
+								</li>
 							</ul>
 							<div class="tab-content">
 								<div id="upload" role="tabpanel" aria-labelledby="upload-tab" class="tab-pane fade active in">
@@ -67,6 +72,9 @@
 								</div>
 								<div id="query" role="tabpanel" aria-labelledby="query-tab" class="tab-pane fade">
 									<?php App::ViewPartial('query-report','reports')?>
+								</div>
+								<div id="template" role="tabpanel" aria-labelledby="query-tab" class="tab-pane fade">
+									<?php App::ViewPartial('template-report','reports')?>
 								</div>
 							</div>
 						</div>

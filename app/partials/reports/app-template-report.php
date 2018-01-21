@@ -2,7 +2,7 @@
     <div class="col-md-6 col-md-offset-3">
         <p></p>
         <div class="input-group">
-            <select class="form-control" id="selected-class-query">
+            <select class="form-control" id="selected-class-template"><i></i>
                 <option value="" selected="" disabled>Select a Class</option>
                 <?php 
                     $school_code = User::userSession('SESS_USER_ID');
@@ -14,12 +14,12 @@
                 <?php endforeach ?>
             </select>
             <span class="input-group-btn">
-                <button type="button" class="btn btn-outline btn-primary" id="select-class-query">Submit</button>
+                <button type="button" class="btn btn-outline btn-primary" id="select-class-template"><i class="ti-download"></i> Download</button>
             </span>
         </div>
     </div>
-</div>
-
-<div class="row hidden animated fadeIn" id="query-report-row">
-    <div class="text-center"><img src="../assets/images/loading.gif" width="30px" height="30px"/></div>
+    <div class="col-md-1 hidden animated fadeIn" id="template-download-row">
+        <p></p>
+        <img src="../assets/images/loading.gif" width="30px" height="30px"/>
+    </div>
 </div>

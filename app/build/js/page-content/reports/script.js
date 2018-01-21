@@ -43,4 +43,17 @@ $(document).ready(function() {
 
         }
     });
+
+    $("#select-class-template").on('click', function() {
+        var selectedClass = $("#selected-class-template").val();
+
+        if (selectedClass == null) {
+            alert("Please Select a Class First!");
+        } else {
+            //$('#selected-class-template').prop('selectedIndex', 0);
+            $("#template-download-row").removeClass("hidden");
+
+
+        }
+    });
 });

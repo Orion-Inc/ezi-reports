@@ -31,7 +31,7 @@ $(document).ready(function() {
     $('ul li a.bubble').on('click', function() {
         $(this).addClass('active');
         $('ul li a.bubble').not(this).removeClass('active');
-        $(".panel a[href='#school-list']").removeClass('active');
+        $(".panel a[href='#course-list']").removeClass('active');
     });
 
     $('#course-list li a.bubble').on('click', function() {

@@ -15,6 +15,9 @@
         <!--App Navbar-->
             <?php App::ViewPartial('navbar','_html-blocks')?>
         <!--/App Navbar-->
+        <div class="noscriptmsg">
+            You don't have javascript enabled. Please enable and <a href="">Reload Page</a>
+        </div>
         <div class="main-container">
             <!-- Main Sidebar start-->
                 <?php App::ViewPartial('sidebar','_html-blocks')?>
@@ -31,11 +34,10 @@
         <!-- Scripts-->
             <noscript>
                 <style type="text/css">
+                    header {display:none;}
                     .main-container {display:none;}
+                    .noscriptmsg {display:unset;}
                 </style>
-                <div class="noscriptmsg">
-                    You don't have javascript enabled.
-                </div>
             </noscript>
             <?php App::ViewPartial('scripts','_html-blocks')?>
         <!-- /Scripts -->
