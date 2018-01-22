@@ -44,16 +44,15 @@ $(document).ready(function() {
         }
     });
 
+
     $("#select-class-template").on('click', function() {
-        var selectedClass = $("#selected-class-template").val();
+        var classCode = $("#selected-class-template").val();
 
-        if (selectedClass == null) {
-            alert("Please Select a Class First!");
-        } else {
-            //$('#selected-class-template').prop('selectedIndex', 0);
-            $("#template-download-row").removeClass("hidden");
-
-
-        }
+        $.AjaxDownloader({
+            url: "../includes/actions/report/download-report-template.php",
+            data: {
+                class_code: classCode
+            }
+        });
     });
 });
