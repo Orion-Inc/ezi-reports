@@ -100,6 +100,8 @@
 <!-- Bootstrap File Input-->
 	<script type="text/javascript" src="../plugins/bootstrap-fileinput/js/plugins/canvas-to-blob.min.js"></script>
 	<script type="text/javascript" src="../plugins/bootstrap-fileinput/js/fileinput.min.js"></script>
+<!-- Ajax Download-->
+	<script type="text/javascript" src="../plugins/ajaxdownloader/ajaxdownloader.min.js"></script>
 
 	<script type="text/javascript">
 
