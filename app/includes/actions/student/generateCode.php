@@ -22,7 +22,7 @@
 		$year = substr(date('Y'),2);
 		$student_number = $app->randomizer(4);
 
-		$student_code = 'S'.$year.'/'.$school_prefix.'/'.$student_prefix.$student_number;
+		$student_code = 'S'.$year.$school_prefix.$student_prefix.$student_number;
 
 
 		$response = array('error' => 'false', 'url' => 'student', 'student_code' => $student_code);

@@ -48,11 +48,24 @@ $(document).ready(function() {
     $("#select-class-template").on('click', function() {
         var classCode = $("#selected-class-template").val();
 
-        $.AjaxDownloader({
-            url: "../includes/actions/report/download-report-template.php",
-            data: {
-                class_code: classCode
-            }
-        });
+        if (classCode == null) {
+            alert("Please Select a Class First!");
+        } else {
+            $("#template-download-row").removeClass("hidden");
+            $.AjaxDownloader({
+                url: "../includes/actions/report/download-report-template.php",
+                data: {
+                    class_code: classCode
+                },
+                success: reset()
+            });
+        }
     });
+
+    reset = function() {
+        $("#template-download-row").addClass("hidden");
+        $('#selected-class-template').prop('selectedIndex', 0);
+
+        toastr.success("CSV File Downloaded. Please fill and upload.", 'Success!');
+    }
 });
