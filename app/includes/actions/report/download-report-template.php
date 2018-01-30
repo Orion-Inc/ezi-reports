@@ -2,7 +2,7 @@
     require_once ('../Autoloader.php');
     $get = new Database();
 
-    $class_code = "CL17PSB7032";//addslashes($_POST['class_code']);
+    $class_code = addslashes($_POST['class_code']);
     $school_code = User::userSession('SESS_USER_ID');
 
     $class_name = Classes::getClass($class_code,"class_name");
