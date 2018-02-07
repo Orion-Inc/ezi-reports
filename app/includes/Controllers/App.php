@@ -64,6 +64,11 @@
 			return $token;
 		}
 
-		
+		public function multiexplode($delimiters, $string){
+			$ready = str_replace($delimiters, $delimiters[0], $string);
+			$array = explode($delimiters[0], $ready);
+			return $array;
+		}
+
 	}
 ?>

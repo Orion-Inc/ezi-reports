@@ -37,7 +37,7 @@
             $subjects_header = array(
                 'STUDENT',
                 'Mathematics (SJCMA0000)',
-                'English Language (SJCEN000)',
+                'English Language (SJCEN0000)',
                 'Intergerated Science (SJCIN0000)',
                 'Socail Studies (SJCSS0000)',
             );
@@ -47,7 +47,7 @@
              $subjects_header = array(
                 'STUDENT',
                 'Mathematics (SJCMA0001)',
-                'English Language (SJCEN001)',
+                'English Language (SJCEN0001)',
                 'Intergerated Science (SJCIN0001)',
                 'Environmental Studies (SJCEN0001)',
             );
