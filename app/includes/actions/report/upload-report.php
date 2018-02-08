@@ -30,23 +30,22 @@ if (!empty($_FILES['bulk_report_file']) && isset($_FILES['bulk_report_file']['na
         $file = fopen($csv, "r");
         $count = count(file($csv, FILE_SKIP_EMPTY_LINES));
         $k = 0;
-/*
-        $class_courses = Course::getClassSujects($class_code);
 
+        $csv = array_map('str_getcsv', file($_FILES['bulk_report_file']['tmp_name']));
+
+        for ($i = 1; $i < sizeof($csv[0]); $i++) {
+            $csv_class_subjects[] = App::multiexplode(array("(", ")"), $csv[0][$i])[1];
+        }
+        print_r($csv_class_subjects);
 
         while (!feof($file)) {
             $data = fgetcsv($file);
 
-
-        }*/
-
-        $csv = array_map('str_getcsv', file($_FILES['bulk_report_file']['tmp_name']));
-
-        for ($i=1; $i < sizeof($csv[0]); $i++) { 
-           $csv_class_subjects[] = App::multiexplode(array("(", ")"), $csv[0][$i])[1];
+           
         }
-        print_r($csv_class_subjects);
-        $csv_subjects;
+
+        
+        
        // print_r($csv[0]); # remove column header
     }
 } else {
