@@ -10,12 +10,12 @@
     $school_type = School::getSchool($school_code,'school_type');
     $students = $get->query("SELECT `ezi_student`.`student_name`, `ezi_student`.`student_code` FROM `ezi_student` JOIN `ezi_student_details` ON `ezi_student`.`student_code` = `ezi_student_details`.`student_code` WHERE `ezi_student`.`school_code` = '{$school_code}' AND `ezi_student_details`.`student_class`= '{$class_code}' ");
 
-    $filepath = $class_name.' ('.$class_code.').csv';
+    $fileName = $class_name.' ('.$class_code.').csv';
 
 
     //header('Content-Description: File Transfer');
     header('Content-Type: application/excel');
-    header('Content-Disposition: attachment; filename="'.basename($filepath).'"');
+    header('Content-Disposition: attachment; filename="'.basename($fileName).'"');
     /*
     header('Content-Transfer-Encoding: binary');
     header('Cache-Control: must-revalidate');
