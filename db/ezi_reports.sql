@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 17, 2018 at 12:15 AM
+-- Generation Time: Feb 15, 2018 at 06:56 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -40,7 +40,7 @@ CREATE TABLE `ezi_admin` (
 --
 
 INSERT INTO `ezi_admin` (`id`, `username`, `password`, `token`, `created_at`, `updated_at`) VALUES
-(1, 'eziAdmin', '8cb2237d0679ca88db6464eac60da96345513964', '3cd34a47aeeec2e8fde0cca8a7eba48491e41f810f083c57f5cc77e92f85', '2018-01-06 12:32:45', '2018-01-16 21:28:27');
+(1, 'eziAdmin', '8cb2237d0679ca88db6464eac60da96345513964', '5467218fc625bccbfbafac8971ba819020c16501868a89016900798e3991', '2018-01-06 12:32:45', '2018-02-11 19:15:28');
 
 -- --------------------------------------------------------
 
@@ -1008,9 +1008,10 @@ CREATE TABLE `ezi_school_class` (
 --
 
 INSERT INTO `ezi_school_class` (`id`, `class_code`, `class_name`, `class_teacher`, `class_course`, `school_code`, `created_at`, `updated_at`) VALUES
-(29, 'CL17/PSB/7032', 'Form 1A1', 'Adjeity Annan', 'CSGEA3640', 'SCH67417', '2017-12-31 00:38:00', '2017-12-31 00:38:00'),
-(30, 'CL18/PSB/8946', 'Form 1S1', 'Godfred Mintim', 'CSGES8093', 'SCH67417', '2018-01-04 09:35:29', '2018-01-04 09:35:29'),
-(31, 'CL18/PSB/5265', 'Form 2A1', 'Quavo Huncho', 'CSGEA3640', 'SCH67417', '2018-01-11 22:27:40', '2018-01-11 22:27:40');
+(29, 'CL17PSB7032', 'Form 1A1', 'Adjeity Annan', 'CSGEA3640', 'SCH67417', '2017-12-31 00:38:00', '2018-01-24 14:33:35'),
+(30, 'CL18PSB8946', 'Form 1S1', 'Godfred Mintim', 'CSGES8093', 'SCH67417', '2018-01-04 09:35:29', '2018-01-24 14:33:41'),
+(31, 'CL18PSB5265', 'Form 2A1', 'Quavo Huncho', 'CSGEA3640', 'SCH67417', '2018-01-11 22:27:40', '2018-01-24 14:33:50'),
+(32, 'CL18PSB6809', 'Form 3A1', 'Goat Boss', 'CSGEA3640', 'SCH67417', '2018-01-23 22:16:01', '2018-01-23 22:16:01');
 
 -- --------------------------------------------------------
 
@@ -1031,9 +1032,10 @@ CREATE TABLE `ezi_school_class_subject` (
 --
 
 INSERT INTO `ezi_school_class_subject` (`class_subject_id`, `class_code`, `class_subjects`, `created_at`, `updated_at`) VALUES
-(5, 'CL17/PSB/7032', 'SJENL6788', '2017-12-31 00:38:00', '2018-01-11 23:41:29'),
-(6, 'CL18/PSB/8946', 'SJBIO8297', '2018-01-04 09:35:29', '2018-01-11 23:41:16'),
-(7, 'CL18/PSB/5265', 'SJECO9520', '2018-01-11 22:27:40', '2018-01-11 23:41:22');
+(5, 'CL17PSB7032', 'SJECO9520,SJELM7073,SJENL6788,SJGOV0762', '2017-12-31 00:38:00', '2018-02-07 20:33:07'),
+(6, 'CL18PSB8946', 'SJELM4428,SJBIO8297', '2018-01-04 09:35:29', '2018-01-22 17:48:19'),
+(7, 'CL18PSB5265', 'SJECO9520,SJELM7073,SJENL6788', '2018-01-11 22:27:40', '2018-01-22 17:35:20'),
+(8, 'CL18PSB6809', 'SJECO9520,SJELM7073,SJENL6788', '2018-01-23 22:16:02', '2018-01-23 22:16:02');
 
 -- --------------------------------------------------------
 
@@ -1080,10 +1082,10 @@ CREATE TABLE `ezi_student` (
 --
 
 INSERT INTO `ezi_student` (`student_id`, `student_code`, `student_name`, `school_code`, `created_at`, `updated_at`) VALUES
-(32, 'S17/PSB/AF9267', 'Adam Farid', 'SCH67417', '2017-12-31 00:39:37', '2017-12-31 00:39:37'),
-(33, 'S17/PSB/AN3327', 'Adjoa Nti', 'SCH67417', '2017-12-31 00:41:35', '2017-12-31 00:41:35'),
-(34, 'S17/PSB/HA6558', 'Hamza Adam', 'SCH67417', '2017-12-31 00:47:14', '2017-12-31 00:47:14'),
-(35, 'S18/PSB/JH5756', 'James Hokpi', 'SCH67417', '2018-01-16 21:33:05', '2018-01-16 21:33:05');
+(32, 'S17PSBAF9267', 'Adam Farid', 'SCH67417', '2017-12-31 00:39:37', '2018-01-30 18:08:21'),
+(33, 'S17PSBAN3327', 'Adjoa Nti', 'SCH67417', '2017-12-31 00:41:35', '2018-01-30 18:08:28'),
+(34, 'S17PSBHA6558', 'Hamza Adam', 'SCH67417', '2017-12-31 00:47:14', '2018-01-30 18:08:52'),
+(35, 'S18PSBJH5756', 'James Hokpi', 'SCH67417', '2018-01-16 21:33:05', '2018-01-30 18:08:59');
 
 -- --------------------------------------------------------
 
@@ -1108,10 +1110,10 @@ CREATE TABLE `ezi_student_details` (
 --
 
 INSERT INTO `ezi_student_details` (`id`, `student_code`, `student_dob`, `student_gender`, `student_class`, `student_status`, `student_house`, `created_at`, `updated_at`) VALUES
-(32, 'S17/PSB/AF9267', '1995-11-27', 'male', 'CL17/PSB/7032', 'day', '', '2017-12-31 00:39:37', '2017-12-31 00:39:37'),
-(33, 'S17/PSB/AN3327', '2017-12-31', 'female', 'CL17/PSB/7032', 'day', '', '2017-12-31 00:41:35', '2017-12-31 00:41:35'),
-(34, 'S17/PSB/HA6558', '2017-12-31', 'male', 'CL17/PSB/7032', 'day', '', '2017-12-31 00:47:14', '2017-12-31 00:47:14'),
-(35, 'S18/PSB/JH5756', '2018-01-16', 'male', 'CL18/PSB/8946', 'day', '', '2018-01-16 21:33:06', '2018-01-16 21:33:06');
+(32, 'S17PSBAF9267', '1995-11-27', 'male', 'CL17PSB7032', 'day', '', '2017-12-31 00:39:37', '2017-12-31 00:39:37'),
+(33, 'S17PSBAN3327', '2017-12-31', 'female', 'CL17PSB7032', 'day', '', '2017-12-31 00:41:35', '2017-12-31 00:41:35'),
+(34, 'S17PSBHA6558', '2017-12-31', 'male', 'CL17PSB7032', 'day', '', '2017-12-31 00:47:14', '2017-12-31 00:47:14'),
+(35, 'S18PSBJH5756', '2018-01-16', 'male', 'CL18PSB8946', 'day', '', '2018-01-16 21:33:06', '2018-01-16 21:33:06');
 
 -- --------------------------------------------------------
 
@@ -1136,10 +1138,10 @@ CREATE TABLE `ezi_student_guardian` (
 --
 
 INSERT INTO `ezi_student_guardian` (`guardian_id`, `student_code`, `guardian_name`, `guardian_relationship`, `guardian_occupation`, `guardian_email`, `guardian_telephone`, `created_at`, `updated_at`) VALUES
-(32, 'S17/PSB/AF9267', 'Iklimatu Adam', 'Mother', 'Trader', 'phobaike@gmail.com', '0243002444', '2017-12-31 00:39:37', '2017-12-31 00:39:37'),
-(33, 'S17/PSB/AN3327', 'Rita Nti', 'Sibling', 'Banker', 'ritanit@gmail.com', '0573849384', '2017-12-31 00:41:35', '2017-12-31 00:41:35'),
-(34, 'S17/PSB/HA6558', 'Iklimatu Adam', 'Mother', 'Trader', 'phobaike@gmail.com', '0243002444', '2017-12-31 00:47:14', '2017-12-31 00:47:14'),
-(35, 'S18/PSB/JH5756', 'Kodjo Hokpi', 'Father', 'Doctor', 'kjhopki@gmail.com', '0245654356', '2018-01-16 21:33:06', '2018-01-16 21:33:06');
+(32, 'S17PSBAF9267', 'Iklimatu Adam', 'Mother', 'Trader', 'phobaike@gmail.com', '0243002444', '2017-12-31 00:39:37', '2017-12-31 00:39:37'),
+(33, 'S17PSBAN3327', 'Rita Nti', 'Sibling', 'Banker', 'ritanit@gmail.com', '0573849384', '2017-12-31 00:41:35', '2017-12-31 00:41:35'),
+(34, 'S17PSBHA6558', 'Iklimatu Adam', 'Mother', 'Trader', 'phobaike@gmail.com', '0243002444', '2017-12-31 00:47:14', '2017-12-31 00:47:14'),
+(35, 'S18PSBJH5756', 'Kodjo Hokpi', 'Father', 'Doctor', 'kjhopki@gmail.com', '0245654356', '2018-01-16 21:33:06', '2018-01-16 21:33:06');
 
 -- --------------------------------------------------------
 
@@ -1166,17 +1168,20 @@ INSERT INTO `ezi_subjects` (`subject_id`, `subject_code`, `subject_name`, `cours
 (10, 'SJELM7073', 'Elective Mathematics', 'CSGEA3640', 'Ashikas', '2017-12-31 00:37:29', '2017-12-31 00:37:29'),
 (11, 'SJENL6788', 'English Literature', 'CSGEA3640', 'Shakes Spear Stuff', '2018-01-04 08:41:29', '2018-01-04 08:41:29'),
 (12, 'SJBIO8297', 'Biology', 'CSGES8093', 'Nature Stuff', '2018-01-04 09:34:43', '2018-01-04 09:34:43'),
-(13, 'SJELM4428', 'Elective Mathematics', 'CSGES8093', 'Calculatioins', '2018-01-04 09:35:09', '2018-01-04 09:35:09');
+(13, 'SJELM4428', 'Elective Mathematics', 'CSGES8093', 'Calculatioins', '2018-01-04 09:35:09', '2018-01-04 09:35:09'),
+(14, 'SJGOV0762', 'Government', 'CSGEA3640', 'Government', '2018-02-07 20:32:49', '2018-02-07 20:32:49');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ezi_terminal_report`
+-- Table structure for table `ezi_terminal_reports`
 --
 
-CREATE TABLE `ezi_terminal_report` (
+CREATE TABLE `ezi_terminal_reports` (
   `terminal_report_id` int(11) NOT NULL,
   `terminal_report_code` varchar(20) NOT NULL,
+  `school_code` varchar(20) NOT NULL,
+  `class_code` varchar(20) NOT NULL,
   `student_code` varchar(20) NOT NULL,
   `terminal_report_grades` longtext NOT NULL,
   `academic_year` varchar(11) NOT NULL,
@@ -1205,9 +1210,9 @@ CREATE TABLE `ezi_users` (
 --
 
 INSERT INTO `ezi_users` (`access_key_id`, `user_code`, `access_key`, `token`, `created_at`, `updated_at`) VALUES
-(1, 'SCH67417', '8cb2237d0679ca88db6464eac60da96345513964', '6e20e54b9ba5ec57a73b60d00612461573c36b564504f34e201c390907ec', '2017-11-25 08:17:35', '2018-01-16 21:28:14'),
-(2, 'SCH28217', '8cb2237d0679ca88db6464eac60da96345513964', NULL, '2017-11-25 08:17:35', '2017-12-09 18:26:39'),
-(3, 'S17/PSB/AF9267', '8cb2237d0679ca88db6464eac60da96345513964', '45355a0654ca2536a55227bf67e135dedafd34f048f7e90bc20fc2386b29', '2018-01-04 11:21:09', '2018-01-16 21:30:05');
+(1, 'SCH67417', '8cb2237d0679ca88db6464eac60da96345513964', '0d6cd08cf073bd4ad8b31f9890acf822fe330fb6d29fd1de7b003eb06a39', '2017-11-25 08:17:35', '2018-02-13 19:44:40'),
+(2, 'SCH28217', '8cb2237d0679ca88db6464eac60da96345513964', NULL, '2017-11-25 08:17:35', '2018-02-13 19:44:31'),
+(3, 'S17PSBAF9267', '8cb2237d0679ca88db6464eac60da96345513964', 'fac97b9702127b0042f23e0a6aeea88fee4ae8fddb2f674a1cf40d9bdb3f', '2018-01-04 11:21:09', '2018-02-11 19:15:36');
 
 -- --------------------------------------------------------
 
@@ -1315,11 +1320,13 @@ ALTER TABLE `ezi_subjects`
   ADD KEY `course_code` (`course_code`);
 
 --
--- Indexes for table `ezi_terminal_report`
+-- Indexes for table `ezi_terminal_reports`
 --
-ALTER TABLE `ezi_terminal_report`
+ALTER TABLE `ezi_terminal_reports`
   ADD PRIMARY KEY (`terminal_report_id`),
   ADD UNIQUE KEY `terminal_report_code` (`terminal_report_code`),
+  ADD UNIQUE KEY `school_code` (`school_code`),
+  ADD UNIQUE KEY `class_code` (`class_code`),
   ADD KEY `student_code` (`student_code`);
 
 --
@@ -1362,12 +1369,12 @@ ALTER TABLE `ezi_school_administration`
 -- AUTO_INCREMENT for table `ezi_school_class`
 --
 ALTER TABLE `ezi_school_class`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT for table `ezi_school_class_subject`
 --
 ALTER TABLE `ezi_school_class_subject`
-  MODIFY `class_subject_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `class_subject_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `ezi_school_signatories`
 --
@@ -1392,11 +1399,11 @@ ALTER TABLE `ezi_student_guardian`
 -- AUTO_INCREMENT for table `ezi_subjects`
 --
 ALTER TABLE `ezi_subjects`
-  MODIFY `subject_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `subject_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
--- AUTO_INCREMENT for table `ezi_terminal_report`
+-- AUTO_INCREMENT for table `ezi_terminal_reports`
 --
-ALTER TABLE `ezi_terminal_report`
+ALTER TABLE `ezi_terminal_reports`
   MODIFY `terminal_report_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `ezi_users`
@@ -1464,10 +1471,12 @@ ALTER TABLE `ezi_subjects`
   ADD CONSTRAINT `ezi_subjects_ibfk_1` FOREIGN KEY (`course_code`) REFERENCES `ezi_course` (`course_code`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Constraints for table `ezi_terminal_report`
+-- Constraints for table `ezi_terminal_reports`
 --
-ALTER TABLE `ezi_terminal_report`
-  ADD CONSTRAINT `ezi_terminal_report_ibfk_1` FOREIGN KEY (`student_code`) REFERENCES `ezi_student` (`student_code`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ezi_terminal_reports`
+  ADD CONSTRAINT `ezi_terminal_reports_ibfk_1` FOREIGN KEY (`student_code`) REFERENCES `ezi_student` (`student_code`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ezi_terminal_reports_ibfk_2` FOREIGN KEY (`school_code`) REFERENCES `ezi_school` (`school_code`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ezi_terminal_reports_ibfk_3` FOREIGN KEY (`class_code`) REFERENCES `ezi_school_class` (`class_code`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
