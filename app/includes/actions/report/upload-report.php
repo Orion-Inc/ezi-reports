@@ -36,12 +36,13 @@ if (!empty($_FILES['bulk_report_file']) && isset($_FILES['bulk_report_file']['na
         for ($i = 1; $i < sizeof($csv[0]); $i++) {
             $csv_class_subjects[] = App::multiexplode(array("(", ")"), $csv[0][$i])[1];
         }
-        print_r($csv_class_subjects);
+        print("<pre>" . print_r($csv_class_subjects, true) . "</pre><br>");
 
         while (!feof($file)) {
             $data = fgetcsv($file);
 
-           
+            //print_r($data);
+            print("<pre>" . print_r($data, true) . "</pre>");
         }
 
         
