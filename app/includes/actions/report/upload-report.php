@@ -41,7 +41,7 @@ if (!empty($_FILES['bulk_report_file']) && isset($_FILES['bulk_report_file']['na
         while (!feof($file)) {
             $data = fgetcsv($file);
 
-            //print_r($data);
+            //print_r($data[0]);
             print("<pre>" . print_r($data, true) . "</pre>");
         }
 
