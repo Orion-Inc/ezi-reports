@@ -40,26 +40,37 @@ if (!empty($_FILES['bulk_report_file']) && isset($_FILES['bulk_report_file']['na
 
         $data = array();
         $report_data = array();
+        $stringified_report_data = array();
+
         while (!feof($file)) {
             $data[] = fgetcsv($file);
         }
         array_shift($data);
+        $_data = array_values(array_filter($data));
 
-        print("<pre>" . print_r($data, true) . "</pre>");
-        //print("<pre>" . print_r($report_data, true) . "</pre>");
-        /*$report_data[] = array(
-                'student_code' => App::multiexplode(array("(", ")"), $data[0])[1],
-                $csv_class_subjects[0] => $data[1],
-                $csv_class_subjects[1] => $data[2],
-                $csv_class_subjects[2] => $data[3],
-                $csv_class_subjects[3] => $data[4],
-                $csv_class_subjects[4] => $data[5],
-                $csv_class_subjects[5] => $data[6],
-                $csv_class_subjects[6] => $data[7],
-                $csv_class_subjects[7] => $data[8]
-            );*/
+        foreach ($_data as $student_grade) {
+            $report_data = array(
+                'student_code:'.App::multiexplode(array("(", ")"), $student_grade[0])[1],
+                $csv_class_subjects[0].':'.$student_grade[1],
+                $csv_class_subjects[1].':'.$student_grade[2],
+                $csv_class_subjects[2].':'.$student_grade[3],
+                $csv_class_subjects[3].':'.$student_grade[4],
+                $csv_class_subjects[4].':'.$student_grade[5],
+                $csv_class_subjects[5].':'.$student_grade[6],
+                $csv_class_subjects[6].':'.$student_grade[7],
+                $csv_class_subjects[7].':'.$student_grade[8]
+            );
+
+            $stringified_report_data[] = implode(",", $report_data);
+        }
+
+        
+        
+        
             //print_r($data[0]);
             //print("<pre>" . print_r($data, true) . "</pre>");
+
+        print("<pre>" . print_r($stringified_report_data, true) . "</pre>");
     }
 } else {
     $response = array('error' => 'true', 'url' => 'reports', 'message' => "An Error Occurred! Please <a href=\"javascript:page('reports')\" data-dismiss=\"modal\">Try again.</a>");
