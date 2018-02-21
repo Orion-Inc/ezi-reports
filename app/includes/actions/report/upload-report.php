@@ -71,12 +71,6 @@ if (!empty($_FILES['bulk_report_file']) && isset($_FILES['bulk_report_file']['na
             );
         }
 
-        
-        
-        
-            //print_r($data[0]);
-            //print("<pre>" . print_r($data, true) . "</pre>");
-
         print("<pre>" . print_r($stringified_report_data, true) . "</pre>");
     }
 } else {
