@@ -50,7 +50,6 @@ if (!empty($_FILES['bulk_report_file']) && isset($_FILES['bulk_report_file']['na
 
         foreach ($_data as $student_grade) {
             $report_data = array(
-                'student_code:'.App::multiexplode(array("(", ")"), $student_grade[0])[1],
                 $csv_class_subjects[0].':'.$student_grade[1],
                 $csv_class_subjects[1].':'.$student_grade[2],
                 $csv_class_subjects[2].':'.$student_grade[3],
@@ -61,7 +60,10 @@ if (!empty($_FILES['bulk_report_file']) && isset($_FILES['bulk_report_file']['na
                 $csv_class_subjects[7].':'.$student_grade[8]
             );
 
-            $stringified_report_data[] = implode(",", $report_data);
+            $stringified_report_data[] = array(
+                'student_code' => App::multiexplode(array("(", ")"), $student_grade[0])[1], 
+                'report_grades' => implode(",", $report_data)
+            );
         }
 
         
