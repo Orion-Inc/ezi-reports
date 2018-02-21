@@ -36,18 +36,30 @@ if (!empty($_FILES['bulk_report_file']) && isset($_FILES['bulk_report_file']['na
         for ($i = 1; $i < sizeof($csv[0]); $i++) {
             $csv_class_subjects[] = App::multiexplode(array("(", ")"), $csv[0][$i])[1];
         }
-        print("<pre>" . print_r($csv_class_subjects, true) . "</pre><br>");
 
+
+        $data = array();
+        $report_data = array();
         while (!feof($file)) {
-            $data = fgetcsv($file);
-
-            //print_r($data[0]);
-            print("<pre>" . print_r($data, true) . "</pre>");
+            $data[] = fgetcsv($file);
         }
+        array_shift($data);
 
-        
-        
-       // print_r($csv[0]); # remove column header
+        print("<pre>" . print_r($data, true) . "</pre>");
+        //print("<pre>" . print_r($report_data, true) . "</pre>");
+        /*$report_data[] = array(
+                'student_code' => App::multiexplode(array("(", ")"), $data[0])[1],
+                $csv_class_subjects[0] => $data[1],
+                $csv_class_subjects[1] => $data[2],
+                $csv_class_subjects[2] => $data[3],
+                $csv_class_subjects[3] => $data[4],
+                $csv_class_subjects[4] => $data[5],
+                $csv_class_subjects[5] => $data[6],
+                $csv_class_subjects[6] => $data[7],
+                $csv_class_subjects[7] => $data[8]
+            );*/
+            //print_r($data[0]);
+            //print("<pre>" . print_r($data, true) . "</pre>");
     }
 } else {
     $response = array('error' => 'true', 'url' => 'reports', 'message' => "An Error Occurred! Please <a href=\"javascript:page('reports')\" data-dismiss=\"modal\">Try again.</a>");
