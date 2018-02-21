@@ -61,8 +61,13 @@ if (!empty($_FILES['bulk_report_file']) && isset($_FILES['bulk_report_file']['na
             );
 
             $stringified_report_data[] = array(
-                'student_code' => App::multiexplode(array("(", ")"), $student_grade[0])[1], 
-                'report_grades' => implode(",", $report_data)
+                'terminal_report_code' => generateCode(),
+                'school_code' => $school_code,
+                'class_code' => $class_code,
+                'student_code' => App::multiexplode(array("(", ")"), $student_grade[0])[1],
+                'terminal_report_grades' => implode(",", $report_data),
+                'academic_year' => $academic_year,
+                'academic_term' => $academic_term
             );
         }
 
