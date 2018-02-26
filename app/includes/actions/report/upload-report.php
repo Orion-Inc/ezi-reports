@@ -71,7 +71,29 @@ if (!empty($_FILES['bulk_report_file']) && isset($_FILES['bulk_report_file']['na
             );
         }
 
-        print("<pre>" . print_r($stringified_report_data, true) . "</pre>");
+        $a = 0;
+
+        while ($a < sizeof($stringified_report_data)) {
+            $student_report = $stringified_report_data[$a];
+
+            $params = array(
+                'terminal_report_code' => $student_report['terminal_report_code'],
+                'school_code' => $student_report['school_code'],
+                'class_code' => $student_report['class_code'],
+                'student_code' => $student_report['student_code'],
+                'terminal_report_grades' => $student_report['terminal_report_grades'],
+                'academic_year' => $student_report['academic_year'],
+                'academic_term' => $student_report['academic_term']
+            );
+
+
+
+
+
+            $a++;
+        }
+
+        print("<pre>" . print_r($params, true) . "</pre>");
     }
 } else {
     $response = array('error' => 'true', 'url' => 'reports', 'message' => "An Error Occurred! Please <a href=\"javascript:page('reports')\" data-dismiss=\"modal\">Try again.</a>");
