@@ -3,7 +3,7 @@
 	$get = new Database();
 
 	$errors = array();
-	$_school_code = $_POST['school_code'];
+	$_school_code = $_GET['school_code'];
 
 	try {
 		

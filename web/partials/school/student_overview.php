@@ -22,7 +22,7 @@
             <td>
                 <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Course Description" data-placement="bottom" data-content='<?php App::show(Course::getCourse($student_details['student_course'],'course_description'));?>'>
                 <?php 
-                    App::show(Course::getCourse($student_details['student_course'],'course_name'));
+                    @App::show(Course::getCourse($student_details['student_course'],'course_name'));
                 ?>
                 </a>
                 <a href="#" data-toggle="modal" data-target="#subjects-modal" aria-expanded="false" aria-controls="subjects-modal">
@@ -55,7 +55,7 @@
                     <h4 class="modal-title" id="subjects-modal"> Subjects</h4> 
                 </div>
                 <div class="modal-body">
-                    <?php App::ViewPartial('student_subjects','school');?>
+                    <?php //App::ViewPartial('student_subjects','school');?>
                 </div>
             </div>
         </div>

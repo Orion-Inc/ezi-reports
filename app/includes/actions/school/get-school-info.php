@@ -3,8 +3,8 @@
 
 	$errors = array();
 
-	if (isset($_POST['school_code']) && !empty($_POST['school_code'])) {
-		$school_code = $_POST['school_code'];
+	if (isset($_GET['school_code']) && !empty($_GET['school_code'])) {
+		$school_code = $_GET['school_code'];
 	} else {
 		$school_code = $_SESSION['SESS_USER_ID'];
 	}

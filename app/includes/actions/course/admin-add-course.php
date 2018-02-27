@@ -23,7 +23,7 @@
 	$transact->beginTransaction();
 
 	try {
-       $addClass = Database::query("INSERT INTO `ezi_course`(
+       $addCourse = Database::query("INSERT INTO `ezi_course`(
             `course_code`, 
             `course_type`, 
             `course_name`, 

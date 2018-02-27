@@ -11,8 +11,9 @@
             </div>
         </form>
     </div>
-    <a href="javascript:void(0)" class="brand pull-left">
-        <h2>eziReports</h2>
+    <a class="navbar-brand" href="" style="padding: 11px 25px;display:inline-flex">
+        <img src="../assets/images/logo-1.png" alt="eziReports" style="height:40px;">
+        <span class="text-white mt-10 hidden-xs">eziReports</span>
     </a>
     <a href="javascript:;" role="button" class="hamburger-menu pull-left visible-xs"><span></span></a>
     <form class="search-form pull-left hidden-xs hidden" method="GET" action="?search">
@@ -36,7 +37,7 @@
             </a>
         </li>   
 
-        <?php if ($_SESSION['SESS_USER_TYP'] == 'school'): ?>
+        <?php if (User::userSession('SESS_USER_TYP') === 'school' || User::userSession('SESS_USER_TYP') === 'student'): ?>
             <li>
                 <a href="javascript:;" role="button" class="right-sidebar-toggle bubble header-icon">
                     <i class="ti-layout-sidebar-right"></i>

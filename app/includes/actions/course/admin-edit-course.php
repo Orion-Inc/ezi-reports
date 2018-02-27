@@ -14,7 +14,7 @@
 	$transact->beginTransaction();
 
 	try {
-		$updateStudent = Database::query("UPDATE `ezi_course` SET 
+		$updateCourse = Database::query("UPDATE `ezi_course` SET 
             `course_type`=:course_type,
             `course_name`=:course_name,
             `course_description`=:course_description

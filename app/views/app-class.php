@@ -17,7 +17,7 @@
                         <ul role="tablist" class="nav nav-tabs mb-15">
                             <li role="presentation" class="active">
                                 <a id="school-classes-tab" href="#school-classes" role="tab" data-toggle="tab" aria-controls="school-classes" aria-expanded="true">
-                                    Classes
+                                    Class Rooms
                                 </a>
                             </li>
                         </ul>

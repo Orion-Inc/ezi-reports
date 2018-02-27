@@ -1,6 +1,6 @@
 $(document).ready(function() {
     var lastIdx = null;
-    var schoolsTable = $('#all-courses').DataTable({
+    var coursesTable = $('#all-courses').DataTable({
         ajax: '../includes/actions/course/admin-fetch-all-courses.php',
         //select:{style:"os"},
         colReorder: true,
@@ -50,7 +50,7 @@ $(document).ready(function() {
     */
 
     $("#all-courses_length").append(
-        '<a href="#" style="margin-left:10px;" data-toggle="modal" data-target="#admin-add-course-modal">' +
+        '<a href="#" class="ml-10" data-toggle="modal" data-target="#admin-add-course-modal">' +
         '<span class="hidden-xs">Add </span>New<span class="hidden-xs hidden-sm"> Course</span>' +
         '</a>'
     );
@@ -67,7 +67,7 @@ $(document).ready(function() {
                 $.ajax({
                     url: '../includes/actions/course/generateCode.php',
                     dataType: 'json',
-                    type: 'POST',
+                    type: 'GET',
                     data: { course_name: course_name },
                     success: function(data) {
                         modal.find('#course_code').val(data.course_code);
@@ -83,6 +83,8 @@ $(document).ready(function() {
     $('#admin-add-course-modal').on('hidden.bs.modal', function(e) {
         var modal = $(this);
         modal.find('form')[0].reset();
+        modal.find('form .form-group').removeClass("has-error");
+        validateAddForm.resetForm();
     });
 
     $('#admin-view-course-modal').on('shown.bs.modal', function(e) {
@@ -96,7 +98,7 @@ $(document).ready(function() {
         $.ajax({
             url: url,
             dataType: 'json',
-            type: 'POST',
+            type: 'GET',
             data: { course_code: course_code },
             success: function(data) {
                 if (data.error != 'false') {
@@ -123,7 +125,7 @@ $(document).ready(function() {
         $.ajax({
             url: url,
             dataType: 'json',
-            type: 'POST',
+            type: 'GET',
             data: { course_code: course_code },
             success: function(data) {
                 if (data.error != 'false') {
@@ -144,30 +146,68 @@ $(document).ready(function() {
     $('#admin-edit-course-modal').on('hidden.bs.modal', function(e) {
         var modal = $(this);
         modal.find('form')[0].reset();
+        modal.find('form .form-group').removeClass("has-error");
+        validateEditForm.resetForm();
     });
 
-    $(".app-form").unbind('submit').bind('submit', function() {
+    var validateAddForm = $("#add-course").validate({
+        highlight: function(r) {
+            $(r).closest(".form-group").addClass("has-error")
+        },
+        unhighlight: function(r) {
+            $(r).closest(".form-group").removeClass("has-error")
+        },
+        errorElement: "span",
+        errorClass: "help-block",
+        errorPlacement: function(r, e) {
+            e.parent(".input-group").length ? r.insertAfter(e.parent()) : e.parent("label").length ? r.insertBefore(e.parent()) : r.insertAfter(e)
+        }
+    });
+
+    var validateEditForm = $("#edit-course").validate({
+        highlight: function(r) {
+            $(r).closest(".form-group").addClass("has-error")
+        },
+        unhighlight: function(r) {
+            $(r).closest(".form-group").removeClass("has-error")
+        },
+        errorElement: "span",
+        errorClass: "help-block",
+        errorPlacement: function(r, e) {
+            e.parent(".input-group").length ? r.insertAfter(e.parent()) : e.parent("label").length ? r.insertBefore(e.parent()) : r.insertAfter(e)
+        }
+    });
+
+    $(".app-form").on('submit', function() {
         var form = $(this);
         var data = form.serialize();
         var url = form.attr('action');
+        var whichForm = form.attr('id');
 
-        $.ajax({
-            url: url,
-            dataType: 'json',
-            type: 'POST',
-            data: data,
-            success: function(data) {
-                if (data.error != 'false') {
-                    $('.modal').modal('hide');
-                    toastr.error(data.message, 'Error!');
-                    $('#page-content').load('../views/app-' + data.url + '.php?' + data.url);
-                } else {
-                    $('.modal').modal('hide');
-                    toastr.success(data.message, 'Success!');
-                    $('#page-content').load('../views/app-' + data.url + '.php?' + data.url);
+        if (whichForm == "add-course") {
+            var isValid = validateAddForm.valid();
+        } else if (whichForm == "edit-course") {
+            var isValid = validateEditForm.valid();
+        }
+        if (isValid == true) {
+            $.ajax({
+                url: url,
+                dataType: 'json',
+                type: 'POST',
+                data: data,
+                success: function(data) {
+                    if (data.error != 'false') {
+                        $('.modal').modal('hide');
+                        toastr.error(data.message, 'Error!');
+                        $('#page-content').load('../views/app-' + data.url + '.php?' + data.url);
+                    } else {
+                        $('.modal').modal('hide');
+                        toastr.success(data.message, 'Success!');
+                        $('#page-content').load('../views/app-' + data.url + '.php?' + data.url);
+                    }
                 }
-            }
-        });
+            });
+        }
         return false;
     });
 });

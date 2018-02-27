@@ -2,7 +2,7 @@
 	require_once ('../Autoloader.php');
 
 	$errors = array();
-	$student_code = $_POST['student_code'];
+	$student_code = $_GET['student_code'];
 	
 
 	try {

@@ -13,13 +13,13 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Full Name</label>
-                                    <input name="student_name" type="text" class="form-control input-sm" placeholder="Last              First               Others" id="student_name">
+                                    <input name="student_name" type="text" class="form-control input-sm" placeholder="Enter Student's Full Name" id="student_name" data-rule-required="true">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Student Code</label>
-                                    <input name="student_code" type="text" class="form-control input-sm" readonly="" placeholder="Student Code" id="student_code">
+                                    <input name="student_code" type="text" class="form-control input-sm" readonly="" placeholder="Student Code" id="student_code" data-rule-required="true">
                                 </div>
                             </div>
                         </div>
@@ -28,7 +28,7 @@
                                 <div class="form-group">
                                     <label>Date Of Birth</label>
                                     <div class="input-group date">
-                                        <input name="student_dob" type="date" class="form-control input-sm" id="student_dob" placeholder="Date of Birth">
+                                        <input name="student_dob" type="date" class="form-control input-sm" id="student_dob" placeholder="Date of Birth" data-rule-required="true">
                                         <span class="input-group-addon">
                                             <i class="ti-calendar"></i>
                                         </span>
@@ -41,7 +41,7 @@
                                     <div>
                                         <div class="radio">
                                             <label for="_male" class="radio-inline">
-                                                <input id="_male" type="radio" value="male" name="student_gender" checked="">Male
+                                                <input id="_male" type="radio" value="male" name="student_gender" checked="" data-rule-required="true">Male
                                             </label>
                                             <label for="_female" class="radio-inline">
                                                 <input id="_female" type="radio" value="female" name="student_gender">Female
@@ -55,7 +55,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Course</label>
-                                    <select name="student_course" class="form-control input-sm" id="student_course">
+                                    <select name="student_course" class="form-control input-sm" id="student_course" data-rule-required="true">
                                         <option value="" readonly="" selected="">Select Course</option>
                                     </select>
                                 </div>
@@ -63,7 +63,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Class</label>
-                                    <select name="student_class" class="form-control input-sm" id="student_class">
+                                    <select name="student_class" class="form-control input-sm" id="student_class" data-rule-required="true">
                                         <option value="" readonly="" selected="">Select a Class</option>
 
                                     </select>
@@ -77,7 +77,7 @@
                                     <div>
                                         <div class="radio">
                                             <label for="_day" class="radio-inline">
-                                                <input id="_day" type="radio" value="day" name="student_status" checked="">Day
+                                                <input id="_day" type="radio" value="day" name="student_status" checked="" data-rule-required="true">Day
                                             </label>
                                             <label for="_boarding" class="radio-inline"> 
                                                 <input id="_boarding" type="radio" value="boarding" name="student_status">Boarding
@@ -101,14 +101,14 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Guardian Name</label>
-                                    <input name="guardian_name" type="text" class="form-control input-sm" placeholder="Last              First               Others" id="guardian_name">
+                                    <input name="guardian_name" type="text" class="form-control input-sm" placeholder="Enter Guardian's Full Name" id="guardian_name" data-rule-required="true">
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Relationship</label>
-                                    <select name="guardian_relationship" class="form-control input-sm" id="guardian_relationship">
+                                    <select name="guardian_relationship" class="form-control input-sm" id="guardian_relationship" data-rule-required="true">
                                         <option value="" readonly="" selected="">Select an Option</option>
                                     </select>
                                 </div>
@@ -118,7 +118,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Occupation</label>
-                                    <input name="guardian_occupation" type="text" class="form-control input-sm" placeholder="Occupation" id="guardian_occupation">
+                                    <input name="guardian_occupation" type="text" class="form-control input-sm" placeholder="Occupation" id="guardian_occupation" data-rule-required="true">
                                 </div>
                             </div>
                         </div>
@@ -132,7 +132,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Telephone</label>
-                                    <input name="guardian_telephone" type="text" class="form-control input-sm" placeholder="Telephone Number" id="guardian_telephone">
+                                    <input name="guardian_telephone" type="text" class="form-control input-sm" placeholder="Telephone Number" id="guardian_telephone" data-rule-required="true" data-rule-digits="true" data-rule-minlength="10" data-rule-maxlength="10">
                                 </div>
                             </div>
                         </div>
@@ -202,3 +202,4 @@
         </div>
     </div>
 </div>
+

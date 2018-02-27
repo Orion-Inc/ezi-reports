@@ -1,54 +1,57 @@
 $(document).ready(function() {
- 	$('#edit-school-info-modal').on('show.bs.modal', function (e) {
+    $('#edit-school-info-modal').on('show.bs.modal', function(e) {
         var modal = $(this);
         var url = $(this).attr('data-fetch');
         $.ajax({
-            url:url,
-            dataType:'json',
-            type:'POST',
-            success:function(data){
+            url: url,
+            dataType: 'json',
+            type: 'GET',
+            success: function(data) {
                 if (data.error != 'false') {
                     toastr.error(data.message, 'Error!');
-                }else{
-                    $.each( data.array, function( key, value ) {
-                        modal.find('form #'+key).val(value);
+                } else {
+                    $.each(data.array, function(key, value) {
+                        modal.find('form #' + key).val(value);
                     });
                 }
             }
         });
     });
+    $('#edit-school-info-modal').modal('handleUpdate');
+    $('#edit-school-info-modal').on('hidden.bs.modal', function(e) {
+        var modal = $(this);
+        modal.find('form')[0].reset();
+        modal.find('form .form-group').removeClass("has-error");
+        validateEditSchoolInfoForm.resetForm();
+    });
 
-    $('#edit-academic-year-modal').on('show.bs.modal', function (e) {
+    $('#edit-academic-year-modal').on('show.bs.modal', function(e) {
         var modal = $(this);
         var url = $(this).attr('data-fetch');
-        var datepicker = modal.find('.date-year').datepicker({
-            minViewMode: 2,
-            format: 'yyyy'
-        });
 
         var options = '<option value="" selected="" disabled="">Select Current Term</option>';
 
         $.ajax({
             url: '../json/school/school_settings.json',
-            dataType:'json',
-            success:function(data){
-                $.each(data.term, function(key, val){
-                    options += '<option value="' + val.value + '">' + val.name +'</option>';
+            dataType: 'json',
+            success: function(data) {
+                $.each(data.term, function(key, val) {
+                    options += '<option value="' + val.value + '">' + val.name + '</option>';
                 });
                 modal.find('#school_academic_term').html(options);
             }
         });
 
         $.ajax({
-            url:url,
-            dataType:'json',
-            type:'POST',
-            success:function(data){
+            url: url,
+            dataType: 'json',
+            type: 'GET',
+            success: function(data) {
                 if (data.error != 'false') {
                     toastr.error(data.message, 'Error!');
-                }else{ 
+                } else {
                     modal.find('#school_current_academic_year').val(data.array.school_current_academic_year);
-                    modal.find("#school_academic_term option[value='"+data.array.school_academic_term+"']").prop('selected', true);
+                    modal.find("#school_academic_term option[value='" + data.array.school_academic_term + "']").prop('selected', true);
 
                     var school_current_academic_year = modal.find('#school_current_academic_year').val();
                     var year = school_current_academic_year.toString();
@@ -56,82 +59,106 @@ $(document).ready(function() {
 
                     modal.find('#term_from').val(arrayYear[0]);
                     modal.find('#term_to').val(arrayYear[1]);
-
-                    datepicker.on('changeDate', function() {
-                        var academic_year = modal.find('#term_from').val()+' - '+modal.find('#term_to').val();
-                        modal.find('#school_current_academic_year').val(academic_year.toString());
-                    });
                 }
             }
         });
     });
+    /**
+     * Edit Code below
+     */
+    $('#edit-academic-year-modal').on('shown.bs.modal', function(e) {
+        var modal = $(this);
+        var datepicker = modal.find('.date-year').datepicker({
+            minViewMode: 'years',
+            format: 'yyyy'
+        });
 
+        datepicker.on('changeDate', function() {
+            alert();
+            var academic_year = modal.find('#term_from').val() + ' - ' + modal.find('#term_to').val();
+            modal.find('#school_current_academic_year').val(academic_year.toString());
+        });
+    });
+    $('#edit-academic-year-modal').modal('handleUpdate');
+    $('#edit-academic-year-modal').on('hidden.bs.modal', function(e) {
+        var modal = $(this);
+        modal.find('form')[0].reset();
+        modal.find('form .form-group').removeClass("has-error");
+        validateEditSchoolInfoForm.resetForm();
+    });
 
-    $('#edit-administration-info-modal').on('show.bs.modal', function (e) {
+    $('#edit-administration-info-modal').on('show.bs.modal', function(e) {
         var modal = $(this);
         var url = $(this).attr('data-fetch');
         var options = '<option value="" selected="" disabled="">Select Title</option>';
 
         $.ajax({
             url: '../json/school/school_settings.json',
-            dataType:'json',
-            success:function(data){
-                $.each(data.titles, function(key, val){
-                    options += '<option value="' + val.value + '">' + val.name +'</option>';
+            dataType: 'json',
+            success: function(data) {
+                $.each(data.titles, function(key, val) {
+                    options += '<option value="' + val.value + '">' + val.name + '</option>';
                 });
                 modal.find('.title').html(options);
             }
         });
 
         $.ajax({
-            url:url,
-            dataType:'json',
-            type:'POST',
-            success:function(data){
+            url: url,
+            dataType: 'json',
+            type: 'GET',
+            success: function(data) {
                 if (data.error != 'false') {
                     toastr.error(data.message, 'Error!');
-                }else{ 
-                    $.each(data.array, function( key, value ) {
-                        modal.find('form #'+key).val(value);
+                } else {
+                    $.each(data.array, function(key, value) {
+                        modal.find('form #' + key).val(value);
                     });
 
-                    $.each(data.array, function( key, value ) {
-                        modal.find("form #"+key+" option[value='"+value+"']").prop('selected', true);
+                    $.each(data.array, function(key, value) {
+                        modal.find("form #" + key + " option[value='" + value + "']").prop('selected', true);
                     });
                 }
             }
         });
     });
+    $('#edit-administration-info-modal').modal('handleUpdate');
+    $('#edit-administration-info-modal').on('hidden.bs.modal', function(e) {
+        var modal = $(this);
+        modal.find('form')[0].reset();
+        modal.find('form .form-group').removeClass("has-error");
+        validateEditSchoolInfoForm.resetForm();
+    });
 
-    $('#promote-academic-year-modal').on('show.bs.modal', function (e) {
+    $('#promote-academic-year-modal').on('show.bs.modal', function(e) {
         var modal = $(this);
         var url = $(this).attr('data-fetch');
 
         $.ajax({
-            url:url,
-            dataType:'json',
-            type:'POST',
-            success:function(data){
+            url: url,
+            dataType: 'json',
+            type: 'GET',
+            success: function(data) {
                 if (data.error != 'false') {
                     toastr.error(data.message, 'Error!');
-                }else{
-                    var term = ["1st Term","2nd Term","3rd Term"];
+                } else {
+                    var term = ["1st Term", "2nd Term", "3rd Term"];
                     var school_current_academic_year = data.array.school_current_academic_year;
                     var school_current_academic_term = data.array.school_academic_term;
                     var new_academic_year = school_current_academic_year;
                     var new_academic_term = school_current_academic_term;
 
-                        if (school_current_academic_term == term[2]) {
-                            var year = school_current_academic_year.toString();
-                            var arrayYear = year.split(' - ');
+                    if (school_current_academic_term == term[2]) {
+                        var year = school_current_academic_year.toString();
+                        var arrayYear = year.split(' - ');
 
-                            new_academic_year = ((parseInt(arrayYear[0])+1)+' - '+(parseInt(arrayYear[1])+1)).toString();
-                            new_academic_term = term[0];
-                        } else {
-                           var i = term.indexOf(school_current_academic_term)+1;
-                           new_academic_term = term[i];
-                        }
-                    
+                        new_academic_year = ((parseInt(arrayYear[0]) + 1) + ' - ' + (parseInt(arrayYear[1]) + 1)).toString();
+                        new_academic_term = term[0];
+                    } else {
+                        var i = term.indexOf(school_current_academic_term) + 1;
+                        new_academic_term = term[i];
+                    }
+
                     modal.find('#school_academic_term').val(new_academic_term);
                     modal.find('#school_current_academic_year').val(new_academic_year);
                 }
@@ -139,66 +166,116 @@ $(document).ready(function() {
         });
     });
 
-
     $("#school-crest-form").dropzone({
-        paramName:"school_crest",
-        maxFilesize:2,
-        maxThumbnailFilesize:2,
-        maxFiles:1,
-        acceptedFiles:"image/*",
-        dictDefaultMessage:"<i class='icon-dz ti-image'></i><b>Click</b> or <b>Drop</b> image here to change Crest.",
-        init:function(){
-            this.on("success",function(e){
-                this.fileTracker&&this.removeFile(this.fileTracker),this.fileTracker=e;
+        paramName: "school_crest",
+        maxFilesize: 2,
+        maxThumbnailFilesize: 2,
+        maxFiles: 1,
+        acceptedFiles: "image/*",
+        dictDefaultMessage: "<i class='icon-dz ti-image'></i><b>Click</b> or <b>Drop</b> image here to change Crest.",
+        init: function() {
+            this.on("success", function(e) {
+                this.fileTracker && this.removeFile(this.fileTracker), this.fileTracker = e;
                 $('#edit-school-crest-modal').modal('hide');
                 var dataUrl = $('#edit-school-crest-modal').attr('dataUrl');
-                $('#page-content').load('../views/app-'+dataUrl+'.php?'+dataUrl);
+                $('#page-content').load('../views/app-' + dataUrl + '.php?' + dataUrl);
                 toastr.success("Crest Changed Successfully!\n<small>Change will take effect next time you log in.</small>", 'Success!');
-            }
-        )}
+            })
+        }
     });
-
 
     $(".signature-form").dropzone({
-        paramName:"school_signature",
-        maxFilesize:2,
-        maxThumbnailFilesize:2,
-        maxFiles:1,
-        acceptedFiles:"image/*",
-        dictDefaultMessage:"<i class='icon-dz ti-image'></i><b>Click</b> or <b>Drop</b> image here to change Signature.",
-        init:function(){
-            this.on("success",function(e){
-                this.fileTracker&&this.removeFile(this.fileTracker),this.fileTracker=e;
+        paramName: "school_signature",
+        maxFilesize: 2,
+        maxThumbnailFilesize: 2,
+        maxFiles: 1,
+        acceptedFiles: "image/*",
+        dictDefaultMessage: "<i class='icon-dz ti-image'></i><b>Click</b> or <b>Drop</b> image here to change Signature.",
+        init: function() {
+            this.on("success", function(e) {
+                this.fileTracker && this.removeFile(this.fileTracker), this.fileTracker = e;
                 $('.modal').modal('hide');
                 var dataUrl = 'school';
-                $('#page-content').load('../views/app-'+dataUrl+'.php?'+dataUrl);
+                $('#page-content').load('../views/app-' + dataUrl + '.php?' + dataUrl);
                 toastr.success('Signature Changed Successfully!', 'Success!');
-            }
-        )}
+            })
+        }
     });
 
-    $(".app-form").unbind('submit').bind('submit', function(){
+    var validateEditSchoolInfoForm = $("#school-info").validate({
+        highlight: function(r) {
+            $(r).closest(".form-group").addClass("has-error")
+        },
+        unhighlight: function(r) {
+            $(r).closest(".form-group").removeClass("has-error")
+        },
+        errorElement: "span",
+        errorClass: "help-block",
+        errorPlacement: function(r, e) {
+            e.parent(".input-group").length ? r.insertAfter(e.parent()) : e.parent("label").length ? r.insertBefore(e.parent()) : r.insertAfter(e)
+        }
+    });
+
+    var validateEditAcademicYearForm = $("#school-academic-year").validate({
+        highlight: function(r) {
+            $(r).closest(".form-group").addClass("has-error")
+        },
+        unhighlight: function(r) {
+            $(r).closest(".form-group").removeClass("has-error")
+        },
+        errorElement: "span",
+        errorClass: "help-block",
+        errorPlacement: function(r, e) {
+            e.parent(".input-group").length ? r.insertAfter(e.parent()) : e.parent("label").length ? r.insertBefore(e.parent()) : r.insertAfter(e)
+        }
+    });
+
+    var validateEditAdministrationForm = $("#school-administration-info").validate({
+        highlight: function(r) {
+            $(r).closest(".form-group").addClass("has-error")
+        },
+        unhighlight: function(r) {
+            $(r).closest(".form-group").removeClass("has-error")
+        },
+        errorElement: "span",
+        errorClass: "help-block",
+        errorPlacement: function(r, e) {
+            e.parent(".input-group").length ? r.insertAfter(e.parent()) : e.parent("label").length ? r.insertBefore(e.parent()) : r.insertAfter(e)
+        }
+    });
+
+    $(".app-form").on('submit', function() {
         var form = $(this);
         var data = form.serialize();
         var url = form.attr('action');
+        var whichForm = form.attr('id');
 
-        $.ajax({
-            url:url,
-            dataType:'json',
-            type:'POST',
-            data:data,
-            success:function(data){
-                if (data.error != 'false') {
-                    $('.modal').modal('hide');
-                    toastr.error(data.message, 'Error!');
-                    $('#page-content').load('../views/app-'+data.url+'.php?'+data.url);
-                }else{
-                    $('.modal').modal('hide');
-                    toastr.success(data.message, 'Success!');
-                    $('#page-content').load('../views/app-'+data.url+'.php?'+data.url);
+        if (whichForm == "school-info") {
+            var isValid = validateEditSchoolInfoForm.valid();
+        } else if (whichForm == "school-academic-year") {
+            var isValid = validateEditAcademicYearForm.valid();
+        } else if (whichForm == "school-administration-info") {
+            var isValid = validateEditAdministrationForm.valid();
+        }
+        if (isValid == true) {
+            $.ajax({
+                url: url,
+                dataType: 'json',
+                type: 'POST',
+                data: data,
+                success: function(data) {
+                    if (data.error != 'false') {
+                        $('.modal').modal('hide');
+                        toastr.error(data.message, 'Error!');
+                        $('#page-content').load('../views/app-' + data.url + '.php?' + data.url);
+                    } else {
+                        $('.modal').modal('hide');
+                        toastr.success(data.message, 'Success!');
+                        $('#page-content').load('../views/app-' + data.url + '.php?' + data.url);
+                    }
                 }
-            }
-        });
+            });
+        }
         return false;
     });
 });

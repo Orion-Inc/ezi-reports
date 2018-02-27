@@ -13,13 +13,15 @@
 		$generateStudentPrefix = explode(' ', $student_name);
 
 		if (sizeof($generateStudentPrefix) >= 2) {
-			$student_prefix = strtoupper($generateStudentPrefix[0][0].$generateStudentPrefix[1][0]);
-
-			$year = substr(date('Y'),2);
-			$student_number = App::randomizer(4);
-
-			$student_code = 'S'.$year.'/'.$school_prefix.'/'.$student_prefix.$student_number;
+			$student_prefix = strtoupper($generateStudentPrefix[0][0].$generateStudentPrefix[1][0]);	
+		}else{
+			$student_prefix = strtoupper($generateStudentPrefix[0][0].$generateStudentPrefix[0][1]);
 		}
+
+		$year = substr(date('Y'),2);
+		$student_number = App::randomizer(4);
+
+		$student_code = 'S'.$year.'/'.$school_prefix.'/'.$student_prefix.$student_number;
 
 		return $student_code;
 	}
@@ -62,7 +64,7 @@
 			$transact->beginTransaction();
 
 			try {
-				$updateStudent = Database::query("INSERT INTO `ezi_student`(
+				$addStudent = Database::query("INSERT INTO `ezi_student`(
 					`student_code`,
 					`student_name`,  
 					`school_code`) 
@@ -74,7 +76,7 @@
 					$studentParams
 				);
 
-				$updateStudentDetails = Database::query("INSERT INTO `ezi_student_details`(
+				$addStudentDetails = Database::query("INSERT INTO `ezi_student_details`(
 					`student_code`, 
 					`student_dob`, 
 					`student_gender`, 
@@ -92,7 +94,7 @@
 					$student_detailsParams
 				);
 
-				$updateGuardianInfo = Database::query("INSERT INTO `ezi_student_guardian`(
+				$addGuardianInfo = Database::query("INSERT INTO `ezi_student_guardian`(
 					`student_code`, 
 					`guardian_name`, 
 					`guardian_relationship`, 

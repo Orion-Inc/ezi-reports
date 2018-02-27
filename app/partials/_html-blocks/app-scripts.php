@@ -16,6 +16,9 @@
     <script type="text/javascript" src="../plugins/blockUI/jquery.blockUI.js"></script>
     <!-- MomentJS-->
     <script type="text/javascript" src="../plugins/moment/min/moment.min.js"></script>
+     <!-- jQuery Validation-->
+    <script type="text/javascript" src="../plugins/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="../plugins/jquery-validation/dist/additional-methods.min.js"></script>
     <!-- Bootstrap Date Range Picker-->
     <script type="text/javascript" src="../plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
     <!-- Date Picker-->
@@ -50,12 +53,17 @@
     <!-- jQuery Steps-->
     <script type="text/javascript" src="../plugins/jquery.steps/build/jquery.steps.min.js"></script>
     
-    <?php if ($_SESSION['SESS_USER_TYP'] == 'school'): ?>
+    <?php if (User::userSession('SESS_USER_TYP') === 'school'): ?>
         <!-- Custom JS-->
         <script type="text/javascript" src="../build/js/app/app.js"></script>
     <?php endif ?>
 
-    <?php if ($_SESSION['SESS_USER_TYP'] == 'eziAdmin'): ?>
+    <?php if (User::userSession('SESS_USER_TYP') === 'student'): ?>
+        <!-- Custom JS-->
+        <script type="text/javascript" src="../build/js/app/student-app.js"></script>
+    <?php endif ?>
+
+    <?php if (User::userSession('SESS_USER_TYP') === 'eziAdmin'): ?>
         <!-- Custom JS-->
         <script type="text/javascript" src="../build/js/app/admin-app.js"></script>
     <?php endif ?>

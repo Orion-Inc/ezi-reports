@@ -3,7 +3,7 @@
 	$get = new Database();
 
 	$errors = array();
-	$_course_code = $_POST['course_code'];
+	$_course_code = $_GET['course_code'];
 
 	try {
 		$courseArray = $get->query("SELECT * FROM `ezi_course` WHERE `course_code`='{$_course_code}'");
@@ -46,7 +46,7 @@
                                 <td colspan="2">
                                 	Elective Subjects 
                                 	<small>
-                                		<a href="#" data-toggle="modal" data-target="#admin-add-subject-modal" data-course="'.$course_code.'">Add Subject</a>
+                                		(<a><u>Create</u> Subject and <u>Assign</u> to this Course to view it.</a>)
                                 	</small>
                                 </td>
                             </tr>

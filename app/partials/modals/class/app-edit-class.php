@@ -11,13 +11,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Class Name</label>
-                                <input name="class_name" type="text" class="form-control input-sm" placeholder="Class Name" id="class_name">
+                                <input name="class_name" type="text" class="form-control input-sm" placeholder="Class Name" id="class_name" data-rule-required="true">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Class Code</label>
-                                <input name="class_code" type="text" class="form-control input-sm" readonly="" placeholder="Class Code" id="class_code">
+                                <input name="class_code" type="text" class="form-control input-sm" readonly="" placeholder="Class Code" id="class_code" data-rule-required="true">
                             </div>
                         </div>
                     </div>
@@ -25,7 +25,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Course</label>
-                                <select name="class_course" class="form-control input-sm" id="class_course">
+                                <select name="class_course" class="form-control input-sm" id="class_course" data-rule-required="true">
                                     <option value="" readonly="" selected="">Select Course</option>
                                 </select>
                             </div>
@@ -33,7 +33,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Class Teacher</label>
-                                <input name="class_teacher" type="text" class="form-control input-sm" placeholder="Class Teacher" id="class_teacher">
+                                <input name="class_teacher" type="text" class="form-control input-sm" placeholder="Class Teacher" id="class_teacher" data-rule-required="true">
                             </div>
                         </div>
                     </div>

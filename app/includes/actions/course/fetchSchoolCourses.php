@@ -2,7 +2,7 @@
 	require_once ('../Autoloader.php');
 
 	$errors = array();
-	$course_type = $_POST['school_type'];
+	$course_type = $_GET['school_type'];
 
     
 
