@@ -86,11 +86,38 @@ if (!empty($_FILES['bulk_report_file']) && isset($_FILES['bulk_report_file']['na
                 'academic_term' => $student_report['academic_term']
             );
 
+            $transact->beginTransaction();
 
-
-
-
+            try{
+     
+                $addterminalreport = Database::query("INSERT INTO `ezi_terminal_reports`(
+                    `terminal_report_code`,
+                    `school_code`,
+                    `class_code`,
+                    `student_code`,
+                    `terminal_report_grades`,
+                    `academic_year`,
+                    `academic_term`)
+                    VALUES (
+                    :terminal_report_code,
+                    :school_code,
+                    :class_code,
+                    :student_code,
+                    :terminal_report_grades,
+                    :academic_year,
+                    :academic_term
+                    )",
+                    $params
+                );
+                $transact->commit();
+                $response = array('error' => 'false');
+            } catch(PDOException $e){
+                    $transact->rollBack();
+                    $errors[] = $e->getMessage();
+                    $response = array('error' => 'true', 'error_msg' => $errors[0], 'url' => 'reports', 'message' => "An Error Occurred While Trying To Create Bulk Entry!");
+            }
             $a++;
+            
         }
 
         print("<pre>" . print_r($params, true) . "</pre>");
