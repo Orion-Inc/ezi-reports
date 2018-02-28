@@ -75,7 +75,7 @@
                 );
             }
 
-            $a = 0;
+            $a = 0;$b = 1;
 
             while ($a < sizeof($stringified_report_data)) {
                 $student_report = $stringified_report_data[$a];
@@ -112,11 +112,12 @@
                         $params
                     );
 
-                    $response = array('error' => 'false', 'url' => 'reports', 'message' => "");
+                    $response = array('error' => 'false', 'url' => 'reports', 'message' => "All ({$b}) Entries ");
                 } catch (Exception $e) {
                     $response = array('error' => 'true', 'url' => 'reports', 'message' => "An Error Occurred! Please Try Again or Contact Us");
                 }
                 $a++;
+                $b++;
             }
 
         

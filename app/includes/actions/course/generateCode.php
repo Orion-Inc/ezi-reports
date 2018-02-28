@@ -18,10 +18,15 @@
             $course_prefix = strtoupper($generateCoursePrefix[0][0].$generateCoursePrefix[0][1].$generateCoursePrefix[0][2]);
         }
 
-        $year = substr(date('Y'),2);
-        $course_number = $app->randomizer(4);
+        
+		do {
+			$year = substr(date('Y'), 2);
+			$course_number = $app->randomizer(4);
 
-        $course_code = 'CS'.$course_prefix.$course_number;
+			$course_code = 'CS' . $course_prefix . $course_number;
+
+			$query = Database::query("SELECT `course_id` FROM `ezi_course` WHERE `course_code` = '{$course_code}'");
+		} while (!empty($query));
 
 		$response = array('error' => 'false', 'url' => 'admin-courses', 'course_code' => $course_code);
 	} catch (Exception $e) {

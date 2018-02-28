@@ -18,11 +18,14 @@
 			$school_prefix = strtoupper($generateSchoolPrefix[0][0].$generateSchoolPrefix[0][1]);
 		}
 
-		$year = substr(date('Y'),2);
-		$school_number = $app->randomizer(4);
+		do {
+			$year = substr(date('Y'), 2);
+			$school_number = $app->randomizer(4);
 
-		$school_code = 'SCH'.$school_prefix.$school_number;
+			$school_code = 'SCH' . $school_prefix . $school_number;
 
+			$query = Database::query("SELECT `school_id` FROM `ezi_school` WHERE `school_code` = '{$school_code}'");
+		} while (!empty($query));
 
 		$response = array('error' => 'false', 'url' => 'admin_school', 'school_code' => $school_code);
 	} catch (Exception $e) {

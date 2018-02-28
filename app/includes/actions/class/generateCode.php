@@ -11,11 +11,14 @@
 		$class_name = stripslashes($_GET['class_name']);
 
 		if (!empty($class_name)) {
+			do {
+				$year = substr(date('Y'), 2);
+				$class_number = $app->randomizer(4);
 
-			$year = substr(date('Y'),2);
-			$class_number = $app->randomizer(4);
+				$class_code = 'CL' . $year . $school_prefix . $class_number;
 
-			$class_code = 'CL'.$year.$school_prefix.$class_number;
+				$query = Database::query("SELECT `id` FROM `ezi_school_class` WHERE `class_code` = '{$class_code}'");
+			} while (!empty($query));
 		}
 
 
