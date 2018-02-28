@@ -76,8 +76,9 @@
             }
 
             $a = 0;$b = 1;
+            $count = sizeof($stringified_report_data);
 
-            while ($a < sizeof($stringified_report_data)) {
+            while ($a < $count) {
                 $student_report = $stringified_report_data[$a];
 
                 $params = array(
@@ -112,7 +113,7 @@
                         $params
                     );
 
-                    $response = array('error' => 'false', 'url' => 'reports', 'message' => "All ({$b}) Entries ");
+                    $response = array('error' => 'false', 'total' => $count, 'current' => $b);
                 } catch (Exception $e) {
                     $response = array('error' => 'true', 'url' => 'reports', 'message' => "An Error Occurred! Please Try Again or Contact Us");
                 }

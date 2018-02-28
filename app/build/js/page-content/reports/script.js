@@ -98,7 +98,7 @@ $(document).ready(function() {
                         modal.find('.modal-body').html(
                             '<p>Upload Completed Successfully!' +
                             '<p><span id="current">' + data.current + '</span> out of <span id="total">' + data.total + '</span></p>' +
-                            '<p><a href="javascript:page(\'reports\')" data-dismiss="modal">Continue.</a></p>'
+                            '<p><a href="javascript:page(\'reports\')" data-dismiss="modal" aria-label="Close">Continue.</a></p>'
                         );
                     }
                 }
@@ -106,7 +106,7 @@ $(document).ready(function() {
         });
         return false;
     });
-
+    
 
     reset = function() {
         $("#template-download-row").addClass("hidden");
