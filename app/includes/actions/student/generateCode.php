@@ -18,12 +18,14 @@
 		}else{
 			$student_prefix = strtoupper($generateStudentPrefix[0][0].$generateStudentPrefix[0][1]);
 		}
+		
+		do {
+			$year = substr(date('Y'), 2);
+			$student_number = $app->randomizer(4);
 
-		$year = substr(date('Y'),2);
-		$student_number = $app->randomizer(4);
-
-		$student_code = 'S'.$year.$school_prefix.$student_prefix.$student_number;
-
+			$student_code = 'S' . $year . $school_prefix . $student_prefix . $student_number;
+			$query = Database::query("SELECT `student_id` FROM `ezi_student` WHERE `student_code` = '{$student_code}'");
+		} while (!empty($query));
 
 		$response = array('error' => 'false', 'url' => 'student', 'student_code' => $student_code);
 	} catch (Exception $e) {
