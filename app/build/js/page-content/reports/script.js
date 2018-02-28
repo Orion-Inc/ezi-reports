@@ -108,7 +108,7 @@ $(document).ready(function() {
     });
     
     finish = function () {
-
+        $("#upload-report-progress-modal").modal("hide");
         page('reports');
     }
 
