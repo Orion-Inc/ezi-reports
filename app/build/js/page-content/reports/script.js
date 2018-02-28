@@ -26,6 +26,7 @@ $(document).ready(function() {
             $('#selected-class-query').prop('selectedIndex', 0);
             $("#query-class-row").addClass('hidden');
             $("#query-report-row").removeClass('hidden');
+            $("#query-report-row").html('<div class="text-center"><img src="../assets/images/loading.gif" width="60px" height="60px"/></div>');
 
             $.ajax({
                 url: '../includes/actions/report/fetch-class-report.php',

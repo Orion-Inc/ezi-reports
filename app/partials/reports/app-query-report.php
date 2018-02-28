@@ -21,5 +21,5 @@
 </div>
 
 <div class="row hidden animated fadeIn" id="query-report-row">
-    <div class="text-center"><img src="../assets/images/loading.gif" width="30px" height="30px"/></div>
+    
 </div>
