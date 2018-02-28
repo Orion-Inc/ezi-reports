@@ -28,7 +28,7 @@
         $file_checker = App::multiexplode(array("(", ")"), $_FILES['bulk_report_file']['name']);
         
         if($file_checker[1] != $class_code){
-            $response = array('error' => 'true', 'url' => 'reports', 'message' => "The file uploaded does not match the specified class.");
+            $response = array('error' => 'true', 'url' => 'reports', 'message' => "The file uploaded does not match the specified class. <a href='javascript:void(0)' data-dismiss='modal' aria-label='Close'>Change</a>");
         }else{
             $csv = $_FILES['bulk_report_file']['tmp_name'];
             $file = fopen($csv, "r");
