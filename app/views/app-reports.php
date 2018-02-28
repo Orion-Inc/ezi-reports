@@ -85,12 +85,7 @@
     </div>
 </div>
 <?php 
-   /* App::ViewPartial('edit-school-crest','modals/school');
-    App::ViewPartial('edit-school-info','modals/school');
-    App::ViewPartial('edit-administration-info','modals/school');
-    App::ViewPartial('edit-academic-year','modals/school');
-    App::ViewPartial('edit-school-signatories','modals/school');
-    App::ViewPartial('promote-academic-year','modals/school');*/
+App::ViewPartial('upload-report-progress', 'modals/reports');
 ?>
 <!-- jQuery Counter Up-->
     <script type="text/javascript" src="../plugins/jquery-waypoints/waypoints.min.js"></script>
