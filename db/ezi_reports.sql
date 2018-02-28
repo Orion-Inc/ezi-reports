@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 15, 2018 at 06:56 PM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 5.6.30
+-- Generation Time: Feb 26, 2018 at 08:56 PM
+-- Server version: 10.1.28-MariaDB
+-- PHP Version: 7.1.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -1190,6 +1192,15 @@ CREATE TABLE `ezi_terminal_reports` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
+--
+-- Dumping data for table `ezi_terminal_reports`
+--
+
+INSERT INTO `ezi_terminal_reports` (`terminal_report_id`, `terminal_report_code`, `school_code`, `class_code`, `student_code`, `terminal_report_grades`, `academic_year`, `academic_term`, `created_at`, `updated_at`) VALUES
+(1, 'REPPSB9479', 'SCH67417', 'CL17PSB7032', 'S17PSBAF9267', 'SJCMA0000:70,SJCEN0000:32,SJCIN0000:32,SJCSS0000:52,SJECO9520:53,SJELM7073:43,SJENL6788:79,SJGOV0762:23', '2017 - 2018', '1st Term', '2018-02-26 19:55:15', '2018-02-26 19:55:15'),
+(2, 'REPPSB1426', 'SCH67417', 'CL17PSB7032', 'S17PSBAN3327', 'SJCMA0000:67,SJCEN0000:65,SJCIN0000:67,SJCSS0000:80,SJECO9520:89,SJELM7073:89,SJENL6788:90,SJGOV0762:89', '2017 - 2018', '1st Term', '2018-02-26 19:55:15', '2018-02-26 19:55:15'),
+(3, 'REPPSB9826', 'SCH67417', 'CL17PSB7032', 'S17PSBHA6558', 'SJCMA0000:23,SJCEN0000:75,SJCIN0000:76,SJCSS0000:78,SJECO9520:89,SJELM7073:89,SJENL6788:67,SJGOV0762:60', '2017 - 2018', '1st Term', '2018-02-26 19:55:15', '2018-02-26 19:55:15');
+
 -- --------------------------------------------------------
 
 --
@@ -1210,7 +1221,7 @@ CREATE TABLE `ezi_users` (
 --
 
 INSERT INTO `ezi_users` (`access_key_id`, `user_code`, `access_key`, `token`, `created_at`, `updated_at`) VALUES
-(1, 'SCH67417', '8cb2237d0679ca88db6464eac60da96345513964', '0d6cd08cf073bd4ad8b31f9890acf822fe330fb6d29fd1de7b003eb06a39', '2017-11-25 08:17:35', '2018-02-13 19:44:40'),
+(1, 'SCH67417', '8cb2237d0679ca88db6464eac60da96345513964', '1d320e05503e20b247a131c0ac8abc91f4107f61e1d21d7336120d94cb79', '2017-11-25 08:17:35', '2018-02-26 19:17:41'),
 (2, 'SCH28217', '8cb2237d0679ca88db6464eac60da96345513964', NULL, '2017-11-25 08:17:35', '2018-02-13 19:44:31'),
 (3, 'S17PSBAF9267', '8cb2237d0679ca88db6464eac60da96345513964', 'fac97b9702127b0042f23e0a6aeea88fee4ae8fddb2f674a1cf40d9bdb3f', '2018-01-04 11:21:09', '2018-02-11 19:15:36');
 
@@ -1325,9 +1336,9 @@ ALTER TABLE `ezi_subjects`
 ALTER TABLE `ezi_terminal_reports`
   ADD PRIMARY KEY (`terminal_report_id`),
   ADD UNIQUE KEY `terminal_report_code` (`terminal_report_code`),
-  ADD UNIQUE KEY `school_code` (`school_code`),
-  ADD UNIQUE KEY `class_code` (`class_code`),
-  ADD KEY `student_code` (`student_code`);
+  ADD KEY `ezi_terminal_reports_ibfk_1` (`student_code`),
+  ADD KEY `ezi_terminal_reports_ibfk_2` (`school_code`),
+  ADD KEY `ezi_terminal_reports_ibfk_3` (`class_code`);
 
 --
 -- Indexes for table `ezi_users`
@@ -1345,71 +1356,85 @@ ALTER TABLE `ezi_users`
 --
 ALTER TABLE `ezi_admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `ezi_course`
 --
 ALTER TABLE `ezi_course`
   MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
 --
 -- AUTO_INCREMENT for table `ezi_school`
 --
 ALTER TABLE `ezi_school`
   MODIFY `school_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=863;
+
 --
 -- AUTO_INCREMENT for table `ezi_school_academic_year`
 --
 ALTER TABLE `ezi_school_academic_year`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `ezi_school_administration`
 --
 ALTER TABLE `ezi_school_administration`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `ezi_school_class`
 --
 ALTER TABLE `ezi_school_class`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
 --
 -- AUTO_INCREMENT for table `ezi_school_class_subject`
 --
 ALTER TABLE `ezi_school_class_subject`
   MODIFY `class_subject_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
 -- AUTO_INCREMENT for table `ezi_school_signatories`
 --
 ALTER TABLE `ezi_school_signatories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `ezi_student`
 --
 ALTER TABLE `ezi_student`
   MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+
 --
 -- AUTO_INCREMENT for table `ezi_student_details`
 --
 ALTER TABLE `ezi_student_details`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+
 --
 -- AUTO_INCREMENT for table `ezi_student_guardian`
 --
 ALTER TABLE `ezi_student_guardian`
   MODIFY `guardian_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+
 --
 -- AUTO_INCREMENT for table `ezi_subjects`
 --
 ALTER TABLE `ezi_subjects`
   MODIFY `subject_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
 --
 -- AUTO_INCREMENT for table `ezi_terminal_reports`
 --
 ALTER TABLE `ezi_terminal_reports`
-  MODIFY `terminal_report_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `terminal_report_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `ezi_users`
 --
 ALTER TABLE `ezi_users`
   MODIFY `access_key_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- Constraints for dumped tables
 --
@@ -1477,6 +1502,7 @@ ALTER TABLE `ezi_terminal_reports`
   ADD CONSTRAINT `ezi_terminal_reports_ibfk_1` FOREIGN KEY (`student_code`) REFERENCES `ezi_student` (`student_code`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `ezi_terminal_reports_ibfk_2` FOREIGN KEY (`school_code`) REFERENCES `ezi_school` (`school_code`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `ezi_terminal_reports_ibfk_3` FOREIGN KEY (`class_code`) REFERENCES `ezi_school_class` (`class_code`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
