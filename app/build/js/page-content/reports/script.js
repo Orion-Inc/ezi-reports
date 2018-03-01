@@ -1,4 +1,17 @@
 $(document).ready(function() {
+    var options = '<option value="" selected="" disabled="">Select Term</option>';
+
+    $.ajax({
+        url: '../json/school/school_settings.json',
+        dataType: 'json',
+        success: function (data) {
+            $.each(data.term, function (key, val) {
+                options += '<option value="' + val.value + '">' + val.name + '</option>';
+            });
+            $('#selected-term-query').html(options);
+        }
+    });
+    
     $("#select-class-upload").on('click', function() {
         var selectedClass = $("#selected-class-upload").val();
 
@@ -19,9 +32,10 @@ $(document).ready(function() {
 
     $("#select-class-query").on('click', function() {
         var selectedClass = $("#selected-class-query").val();
+        var selectedTerm = $("#selected-term-query").val();
 
-        if (selectedClass == null) {
-            alert("Please Select a Class First!");
+        if (selectedClass == null || selectedTerm == null) {
+            alert("Please Select an Option!");
         } else {
             $('#selected-class-query').prop('selectedIndex', 0);
             $("#query-class-row").addClass('hidden');
@@ -32,7 +46,7 @@ $(document).ready(function() {
                 url: '../includes/actions/report/fetch-class-report.php',
                 dataType: 'json',
                 type: 'GET',
-                data: { class_code: selectedClass },
+                data: { class_code: selectedClass, academic_year: selectedTerm},
                 success: function(data) {
                     if (data.error != 'false') {
                         toastr.error(data.message, 'Error!');
