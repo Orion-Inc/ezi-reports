@@ -33,7 +33,7 @@
 		$classroomsPercent = @($classrooms/$totalClassrooms[0])*100;
 	?>
 	<div class="row">
-       	<div class="col-md-3 col-sm-6">
+       	<div class="col-lg-3 col-md-4 col-sm-6">
             <div class="widget text-center">
                 <div class="widget-body">
                   	<h5 class="mb-5">Total Students</h5>
@@ -55,7 +55,7 @@
             </div>
         </div>
 		
-        <div class="col-md-3 col-sm-6">
+        <div class="col-lg-3 col-md-4 col-sm-6">
             <div class="widget text-center">
                 <div class="widget-body">
                   	<h5 class="mb-5">Total Classrooms</h5>
