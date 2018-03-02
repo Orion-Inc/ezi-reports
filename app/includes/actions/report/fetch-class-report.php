@@ -5,6 +5,9 @@
 
     $errors = array();
 
-    print_r($_GET);
+
+    if (condition) {
+        # code...
+    }
     
 ?>
