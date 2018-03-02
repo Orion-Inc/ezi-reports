@@ -20,7 +20,7 @@
                     <option value="" selected="" disabled>Select Academic Year</option>
                     <?php 
                         $school_code = User::userSession('SESS_USER_ID');
-                        $academic_year = ;
+                        $academic_year = "";
 
                         foreach ($academic_year as $year) :
                     ?>
