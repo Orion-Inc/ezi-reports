@@ -20,11 +20,11 @@
                     <option value="" selected="" disabled>Select Academic Year</option>
                     <?php 
                         $school_code = User::userSession('SESS_USER_ID');
-                        $academic_year = "";
+                        $academic_year = Database::query("SELECT DISTINCT `academic_year` FROM `ezi_terminal_reports` WHERE `school_code` = '{$school_code}'");
 
                         foreach ($academic_year as $year) :
                     ?>
-                        <option value="<?php App::show($year['']) ?>"><?php App::show($year['']) ?></option>
+                        <option value="<?php App::show($year['academic_year']) ?>"><?php App::show($year['academic_year']) ?></option>
                     <?php endforeach ?>
                 </select>
             </div>
@@ -33,7 +33,7 @@
                 
                 </select>
             </div>
-            <div class="col-lg-2 col-md-2">
+            <div class="col-lg-2 col-md-3">
                 <button type="button" class="btn btn-outline btn-primary btn-block" id="select-class-query">Submit</button>
             </div>
         </div>

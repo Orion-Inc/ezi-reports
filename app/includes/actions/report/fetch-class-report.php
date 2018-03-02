@@ -5,6 +5,6 @@
 
     $errors = array();
 
-    
+    print_r($_GET);
     
 ?>

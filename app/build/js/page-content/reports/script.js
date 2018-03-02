@@ -32,6 +32,7 @@ $(document).ready(function() {
 
     $("#select-class-query").on('click', function() {
         var selectedClass = $("#selected-class-query").val();
+        var selectedYear = $("#selected-year-query").val();
         var selectedTerm = $("#selected-term-query").val();
 
         if (selectedClass == null || selectedTerm == null) {
@@ -46,7 +47,7 @@ $(document).ready(function() {
                 url: '../includes/actions/report/fetch-class-report.php',
                 dataType: 'json',
                 type: 'GET',
-                data: { class_code: selectedClass, academic_year: selectedTerm},
+                data: { class_code: selectedClass, academic_term: selectedTerm, academic_year:selectedYear },
                 success: function(data) {
                     if (data.error != 'false') {
                         toastr.error(data.message, 'Error!');
