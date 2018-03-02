@@ -50,7 +50,11 @@ $(document).ready(function() {
                 data: { class_code: selectedClass, academic_term: selectedTerm, academic_year:selectedYear },
                 success: function(data) {
                     if (data.error != 'false') {
-                        
+                        swal(
+                            'Oops!',
+                            data.message,
+                            'error'
+                        );
                         toastr.error(data.message, 'Error!');
                     } else {
                         $("#query-report-row").html(data.page);
