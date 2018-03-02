@@ -54,6 +54,37 @@
             $_data = array_values(array_filter($data));
 
             if($school_type == 'secondary'){
+                if (sizeof($csv_class_subjects) < 8) {
+                    $response = array('error' => 'true', 'url' => 'reports', 'message' => "");
+                    echo json_encode($response);
+                    exit();
+                }
+
+                foreach ($_data as $student_grade) {
+                    $report_data = array(
+                        $csv_class_subjects[0] . ':' . $student_grade[1],
+                        $csv_class_subjects[1] . ':' . $student_grade[2],
+                        $csv_class_subjects[2] . ':' . $student_grade[3],
+                        $csv_class_subjects[3] . ':' . $student_grade[4],
+                        $csv_class_subjects[4] . ':' . $student_grade[5],
+                        $csv_class_subjects[5] . ':' . $student_grade[6],
+                        $csv_class_subjects[6] . ':' . $student_grade[7],
+                        $csv_class_subjects[7] . ':' . $student_grade[8]
+                    );
+
+                    $stringified_report_data[] = array(
+                        'terminal_report_code' => generateCode(),
+                        'school_code' => $school_code,
+                        'class_code' => $class_code,
+                        'student_code' => App::multiexplode(array("(", ")"), $student_grade[0])[1],
+                        'terminal_report_grades' => implode(",", $report_data),
+                        'academic_year' => $academic_year,
+                        'academic_term' => $academic_term
+                    );
+                }
+            }
+
+            if ($school_type == 'basic') {
                 foreach ($_data as $student_grade) {
                     $report_data = array(
                         $csv_class_subjects[0] . ':' . $student_grade[1],
