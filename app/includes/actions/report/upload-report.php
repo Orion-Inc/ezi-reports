@@ -6,6 +6,7 @@
     $errors = array();
     $class_code = $_POST['class-code'];
     $school_code = $_SESSION['SESS_USER_ID'];
+    $school_type = $_SESSION['SESS_SCHOOL_TYP'];
     $academic_year = School::getAcademicYear($school_code, 'school_current_academic_year');
     $academic_term = School::getAcademicYear($school_code, 'school_academic_term');
 
@@ -52,7 +53,7 @@
             array_shift($data);
             $_data = array_values(array_filter($data));
 
-            if(){
+            if($school_type == 'secondary'){
                 foreach ($_data as $student_grade) {
                     $report_data = array(
                         $csv_class_subjects[0] . ':' . $student_grade[1],
