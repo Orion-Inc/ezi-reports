@@ -55,7 +55,7 @@
 
             if($school_type == 'secondary'){
                 if (sizeof($csv_class_subjects) < 8) {
-                    $response = array('error' => 'true', 'url' => 'reports', 'message' => "");
+                    $response = array('error' => 'true', 'url' => 'reports', 'message' => "Class Subjects does not meet requirements(8 Subjects per Class)<br> <a href=\"javascript:change()\">Change</a>");
                     echo json_encode($response);
                     exit();
                 }

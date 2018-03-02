@@ -122,6 +122,11 @@ $(document).ready(function() {
         return false;
     });
 
+    change = function () {
+        $("#upload-report-progress-modal").modal("hide");
+        page('class');
+    }
+
     finish = function () {
         $("#upload-report-progress-modal").modal("hide");
         page('reports');
