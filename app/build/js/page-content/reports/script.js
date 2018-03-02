@@ -35,7 +35,7 @@ $(document).ready(function() {
         var selectedYear = $("#selected-year-query").val();
         var selectedTerm = $("#selected-term-query").val();
 
-        if (selectedClass == null || selectedTerm == null) {
+        if (selectedClass == null || selectedYear == null || selectedTerm == null) {
             alert("Please Select an Option!");
         } else {
             $('#selected-class-query').prop('selectedIndex', 0);
