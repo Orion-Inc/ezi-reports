@@ -38,7 +38,7 @@ $(document).ready(function() {
         if (selectedClass == null || selectedYear == null || selectedTerm == null) {
             alert("Please Select an Option!");
         } else {
-            $('#selected-class-query').prop('selectedIndex', 0);
+            $('#selected-class-query, #selected-year-query, #selected-term-query').prop('selectedIndex', 0);
             $("#query-class-row").addClass('hidden');
             $("#query-report-row").removeClass('hidden');
             $("#query-report-row").html('<div class="text-center"><img src="../assets/images/loading.gif" width="60px" height="60px"/></div>');
@@ -47,7 +47,7 @@ $(document).ready(function() {
                 url: '../includes/actions/report/fetch-class-report.php',
                 dataType: 'json',
                 type: 'GET',
-                data: { class_code: selectedClass, academic_term: selectedTerm, academic_year:selectedYear },
+                data: { type: '_getReport', class_code: selectedClass, academic_term: selectedTerm, academic_year:selectedYear },
                 success: function(data) {
                     if (data.error != 'false') {
                         swal(
