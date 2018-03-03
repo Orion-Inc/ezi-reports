@@ -55,7 +55,9 @@ $(document).ready(function() {
                             data.message,
                             'error'
                         );
-                        toastr.error(data.message, 'Error!');
+                        $("#query-report-row").addClass('hidden');
+                        $("#query-report-row").html('');
+                        $("#query-class-row").removeClass('hidden');
                     } else {
                         $("#query-report-row").html(data.page);
                     }
