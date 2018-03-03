@@ -47,7 +47,7 @@ $(document).ready(function() {
                 url: '../includes/actions/report/fetch-class-report.php',
                 dataType: 'json',
                 type: 'GET',
-                data: { type: '_getReport', class_code: selectedClass, academic_term: selectedTerm, academic_year:selectedYear },
+                data: { type: '_getClassReport', class_code: selectedClass, academic_term: selectedTerm, academic_year:selectedYear },
                 success: function(data) {
                     if (data.error != 'false') {
                         swal(
