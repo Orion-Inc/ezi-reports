@@ -15,7 +15,7 @@
                     <?php endforeach ?>
                 </select>
             </div>
-            <div class="col-lg-3 col-md-3">
+            <div class="col-lg-4 col-md-3">
                 <select class="form-control" id="selected-year-query">
                     <option value="" selected="" disabled>Select Academic Year</option>
                     <?php 
