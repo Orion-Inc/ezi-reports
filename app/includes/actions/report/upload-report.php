@@ -31,6 +31,13 @@
         if($file_checker[1] != $class_code){
             $response = array('error' => 'true', 'url' => 'reports', 'message' => "The file uploaded does not match the specified class. <a href='javascript:void(0)' data-dismiss='modal' aria-label='Close'>Change</a>");
         }else{
+            $isUploaded = Database::query("SELECT `terminal_report_id` FROM `ezi_terminal_reports` WHERE `class_code` = '{$class_code}' AND `academic_year` = '{$academic_year}' AND `academic_term` = '{$academic_term}'");
+            if (!empty($isUploaded)) {
+                $response = array('error' => 'true', 'url' => 'reports', 'message' => "A report has already been uploaded for this class.");
+                echo json_encode($response);
+                exit();
+            }
+
             $csv = $_FILES['bulk_report_file']['tmp_name'];
             $file = fopen($csv, "r");
             $count = count(file($csv, FILE_SKIP_EMPTY_LINES));
