@@ -29,11 +29,19 @@
         $file_checker = App::multiexplode(array("(", ")"), $_FILES['bulk_report_file']['name']);
         
         if($file_checker[1] != $class_code){
-            $response = array('error' => 'true', 'url' => 'reports', 'message' => "The file uploaded does not match the specified class. <a href='javascript:void(0)' data-dismiss='modal' aria-label='Close'>Change</a>");
+            $response = array(
+                'error' => 'true', 
+                'url' => 'reports', 
+                'message' => "The file uploaded does not match the specified class. <a href='javascript:void(0)' data-dismiss='modal' aria-label='Close'>Change</a>"
+            );
         }else{
             $isUploaded = Database::query("SELECT `terminal_report_id` FROM `ezi_terminal_reports` WHERE `class_code` = '{$class_code}' AND `academic_year` = '{$academic_year}' AND `academic_term` = '{$academic_term}'");
             if (!empty($isUploaded)) {
-                $response = array('error' => 'true', 'url' => 'reports', 'message' => "A report has already been uploaded for this class.");
+                $response = array(
+                    'error' => 'true', 
+                    'url' => 'reports', 
+                    'message' => "A report has already been uploaded for this class.<br><a class=\"btn btn-xs btn-primary\" href=\"javascript:update('{$class_code}','{$academic_year}','{$academic_term}')\">Change</a> <a href=\"javascript:finish()\">Cancel</a>"
+                );
                 echo json_encode($response);
                 exit();
             }
@@ -62,7 +70,11 @@
 
             if($school_type == 'secondary'){
                 if (sizeof($csv_class_subjects) < 8) {
-                    $response = array('error' => 'true', 'url' => 'reports', 'message' => "Class Subjects does not meet requirements(8 Subjects per Class)<br> <a href=\"javascript:change()\">Change</a>");
+                    $response = array(
+                        'error' => 'true', 
+                        'url' => 'reports', 
+                        'message' => "Class Subjects does not meet requirements(8 Subjects per Class)<br> <a href=\"javascript:change()\">Change</a>"
+                    );
                     echo json_encode($response);
                     exit();
                 }
@@ -155,9 +167,17 @@
                         $params
                     );
 
-                    $response = array('error' => 'false', 'total' => $count, 'current' => $b);
+                    $response = array(
+                        'error' => 'false', 
+                        'total' => $count, 
+                        'current' => $b
+                    );
                 } catch (Exception $e) {
-                    $response = array('error' => 'true', 'url' => 'reports', 'message' => "An Error Occurred! Please Try Again or Contact Us");
+                    $response = array(
+                        'error' => 'true', 
+                        'url' => 'reports', 
+                        'message' => "An Error Occurred! Please Try Again or Contact Us"
+                    );
                 }
                 $a++;
                 $b++;
@@ -166,7 +186,11 @@
         
         }
     } else {
-        $response = array('error' => 'true', 'url' => 'reports', 'message' => "An Error Occurred! Please <a href=\"javascript:page('reports')\" data-dismiss=\"modal\">Try again.</a>");
+        $response = array(
+            'error' => 'true', 
+            'url' => 'reports', 
+            'message' => "An Error Occurred! Please <a href=\"javascript:page('reports')\" data-dismiss=\"modal\">Try again.</a>"
+        );
     }
 
 

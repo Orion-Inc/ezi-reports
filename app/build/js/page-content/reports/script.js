@@ -130,6 +130,26 @@ $(document).ready(function() {
         return false;
     });
 
+    update = function (class_code, academic_year, academic_term) {
+        $.ajax({
+            url: '../includes/actions/report/delete-class-report.php',
+            dataType: 'json',
+            type: 'POST',
+            data: { class_code: selectedClass, academic_term: selectedTerm, academic_year: selectedYear },
+            success: function (data) {
+                if (data.error != 'false') {
+                    
+                } else {
+                    
+                }
+            }
+        });
+
+
+
+        $("#upload-report-progress-modal").modal("hide");
+    }
+
     change = function () {
         $("#upload-report-progress-modal").modal("hide");
         page('class');
