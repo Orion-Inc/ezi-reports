@@ -135,7 +135,7 @@ $(document).ready(function() {
             url: '../includes/actions/report/delete-class-report.php',
             dataType: 'json',
             type: 'POST',
-            data: { class_code: selectedClass, academic_term: selectedTerm, academic_year: selectedYear },
+            data: { class_code: class_code, academic_year: academic_year, academic_term: academic_term },
             success: function (data) {
                 if (data.error != 'false') {
                     
