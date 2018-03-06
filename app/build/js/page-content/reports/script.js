@@ -131,33 +131,28 @@ $(document).ready(function() {
     });
 
     update = function (class_code, academic_year, academic_term) {
-        swal({
-            title: "Are you sure you want to logout?",
-            text: "",
-            type: "info",
-            showCancelButton: !0,
-            cancelButtonClass: "btn-default",
-            cancelButtonText: "No",
-            confirmButtonClass: "btn-info",
-            confirmButtonText: "Yes",
-            closeOnConfirm: !1
-        },
-            function () {
-                $.ajax({
-                    url: '../includes/actions/report/delete-class-report.php',
-                    dataType: 'json',
-                    type: 'POST',
-                    data: { class_code: class_code, academic_year: academic_year, academic_term: academic_term },
-                    success: function (data) {
-                        if (data.error != 'false') {
-
-                        } else {
-
-                        }
+        if (confirm("Clicking 'OK' will delete the current grades uploaded for this class")) {
+            $.ajax({
+                url: '../includes/actions/report/delete-class-report.php',
+                dataType: 'json',
+                type: 'POST',
+                data: { class_code: class_code, academic_year: academic_year, academic_term: academic_term },
+                success: function (data) {
+                    if (data.error != 'false') {
+                        $("#upload-report-progress-modal").modal("hide");
+                        page(data.url);
+                        toastr.error(data.message, 'Error!');
+                    } else {
+                        $("#upload-report-progress-modal").modal("hide");
+                        $("#upload-report-progress-modal").find('.modal-body').html('');
+                        toastr.success(data.message, 'Success!');
                     }
-                });
-            }
-        );
+                }
+            });
+        } else {
+            $("#upload-report-progress-modal").modal("hide");
+            page('reports');
+        }
     }
 
     change = function () {

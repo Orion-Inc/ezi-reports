@@ -12,12 +12,11 @@
     );
 
     try {
-        //Create query
-        $query = Database::query("", $params);
+        $query = Database::query("DELETE FROM `ezi_terminal_reports` WHERE `class_code` = :class_code AND `academic_year` = :academic_year AND `academic_term` = :academic_term", $params);
 
-        $response = array('error' => 'false', 'url' => 'reports', 'message' => "");
+        $response = array('error' => 'false', 'url' => 'reports', 'message' => "Proceed to upload grades.");
     } catch (Exception $e) {
-        $response = array('error' => 'true', 'url' => 'reports', 'message' => "");
+        $response = array('error' => 'true', 'url' => 'reports', 'message' => "An error occured! Try again or Contact Us.");
     }
 
     echo json_encode($response);
