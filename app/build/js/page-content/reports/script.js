@@ -131,23 +131,33 @@ $(document).ready(function() {
     });
 
     update = function (class_code, academic_year, academic_term) {
-        $.ajax({
-            url: '../includes/actions/report/delete-class-report.php',
-            dataType: 'json',
-            type: 'POST',
-            data: { class_code: class_code, academic_year: academic_year, academic_term: academic_term },
-            success: function (data) {
-                if (data.error != 'false') {
-                    
-                } else {
-                    
-                }
+        swal({
+            title: "Are you sure you want to logout?",
+            text: "",
+            type: "info",
+            showCancelButton: !0,
+            cancelButtonClass: "btn-default",
+            cancelButtonText: "No",
+            confirmButtonClass: "btn-info",
+            confirmButtonText: "Yes",
+            closeOnConfirm: !1
+        },
+            function () {
+                $.ajax({
+                    url: '../includes/actions/report/delete-class-report.php',
+                    dataType: 'json',
+                    type: 'POST',
+                    data: { class_code: class_code, academic_year: academic_year, academic_term: academic_term },
+                    success: function (data) {
+                        if (data.error != 'false') {
+
+                        } else {
+
+                        }
+                    }
+                });
             }
-        });
-
-
-
-        $("#upload-report-progress-modal").modal("hide");
+        );
     }
 
     change = function () {
