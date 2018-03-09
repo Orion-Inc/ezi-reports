@@ -141,6 +141,7 @@
 
 							$_SESSION['SESS_IS_AUTH'] = true;
 							$_SESSION['SESS_USER_TYP'] = 'student';
+							$_SESSION['SESS_USER_SCHOOL'] = Student::getStudent($student_code, 'school_code');
 							$_SESSION['SESS_USER_ID'] = Student::getStudent($student_code,'student_code');
 							$_SESSION['SESS_STUDENT_NAME'] = Student::getStudent($student_code,'student_name');
 							$_SESSION['SESS_TOKEN'] = $token;

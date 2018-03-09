@@ -9,5 +9,21 @@
     </div>
 </div>
 <div class="page-content container-fluid animated fadeIn">
-    
+    <div class="col-md-10 col-md-offset-1">
+        <div class="widget">
+            <div class="widget-heading">
+                <h3 class="widget-title">
+                    View Terminal Report
+                    <div class="pull-right">
+                        <small>Having Issues? <a href="mailto:" target="_blank">Contact Us</a></small>
+                    </div>
+                </h3>
+            </div>
+            <div class="widget-body">
+                <?php App::ViewPartial('student-query-report', 'reports') ?>
+            </div>
+        </div>
+    </div>
 </div>
+<!-- Custom Script -->
+<script type="text/javascript" src="../build/js/page-content/reports/student-script.js"></script>
