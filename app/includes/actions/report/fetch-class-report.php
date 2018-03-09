@@ -21,7 +21,18 @@
         exit();
     }
 
-    
+    if (!empty($report_array)) {
+        foreach ($report_array as $report) {
+            $view = '<button class="btn btn-outline btn-success btn-sm" data-toggle="modal" data-target="#admin-view-report-modal" data-report="' . $report[''] . '"><i class="ti-eye"></i></button>';
+            $edit = '<button class="btn btn-outline btn-primary btn-sm" data-toggle="modal" data-target="#admin-edit-report-modal" data-report="' . $report[''] . '"><i class="ti-pencil"></i></button>';
+
+            $options = '<div role="group" class="btn-group">' . $view . $edit . '</div>';
+
+            
+
+            
+        }
+    }
 
     $response = array(
         'error' => 'false', 
