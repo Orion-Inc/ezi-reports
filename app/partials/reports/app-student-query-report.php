@@ -4,14 +4,15 @@
         <div class="row">
             <div class="col-lg-3 col-md-3">
                 <select class="form-control" id="selected-class-query">
-                    <option value="" selected="" disabled>Select Current Class</option>
+                    <option value="" selected="" disabled>Select Class</option>
                     <?php 
-                    $school_code = User::userSession('SESS_USER_ID');
-                    $classes = Classes::fetchClasses($school_code, "*");
+                    $student_code = User::userSession('SESS_USER_ID');
+                    $student_classes = Database::query("SELECT DISTINCT `class_code` FROM `ezi_terminal_reports` WHERE `student_code` = '{$student_code}'");
 
-                    foreach ($classes as $class) :
+
+                    foreach ($student_classes as $class) :
                     ?>
-                        <option value="<?php App::show($class['class_code']) ?>"><?php App::show($class['class_name']) ?></option>
+                        <option value="<?php App::show($class['class_code']) ?>"><?php App::show(Classes::getClass($class['class_code'], 'class_name')) ?></option>
                     <?php endforeach ?>
                 </select>
             </div>
