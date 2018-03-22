@@ -171,4 +171,10 @@ $(document).ready(function() {
 
         toastr.success("CSV File Downloaded. Please fill and upload.", 'Success!');
     }
+
+    goback = function(){
+        $("#query-report-row").addClass('hidden');
+        $("#query-report-row").html('');
+        $("#query-class-row").removeClass('hidden');
+    }
 });

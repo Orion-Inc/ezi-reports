@@ -52,17 +52,17 @@
 							<ul role="tablist" class="nav nav-tabs mb-15">
 								<li role="presentation" class="active">
 									<a id="upload-tab" href="#upload" role="tab" data-toggle="tab" aria-controls="upload" aria-expanded="true">
-										<i class="ti-upload fs-20"></i> Upload 
+										<i class="ti-upload fs-20"></i> <span class="hidden-xs">Upload</span>
 									</a>
 								</li>
 								<li role="presentation">
 									<a id="query-tab" href="#query" role="tab" data-toggle="tab" aria-controls="query" aria-expanded="false">
-										<i class="ti-search fs-20"></i> Query 
+										<i class="ti-search fs-20"></i> <span class="hidden-xs">Query</span>
 									</a>
 								</li>
 								<li role="presentation">
 									<a id="template-tab" href="#template" role="tab" data-toggle="tab" aria-controls="template" aria-expanded="false">
-										<i class="ti-receipt fs-20"></i> Entry Template 
+										<i class="ti-receipt fs-20"></i> <span class="hidden-xs">Entry Template</span>
 									</a>
 								</li>
 							</ul>
@@ -85,7 +85,8 @@
     </div>
 </div>
 <?php 
-App::ViewPartial('upload-report-progress', 'modals/reports');
+	App::ViewPartial('upload-report-progress', 'modals/reports');
+	App::ViewPartial('edit-report-modal', 'modals/reports');
 ?>
 <!-- jQuery Counter Up-->
     <script type="text/javascript" src="../plugins/jquery-waypoints/waypoints.min.js"></script>

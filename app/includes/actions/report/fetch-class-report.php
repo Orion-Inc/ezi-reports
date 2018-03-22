@@ -26,35 +26,48 @@
 
     if (!empty($report_array)) {
         foreach ($report_array as $report) {
-            $view = '<button class="btn btn-outline btn-success btn-sm" data-toggle="modal" data-target="#admin-view-report-modal" data-report="' . $report['terminal_report_code'] . '"><i class="ti-eye"></i></button>';
-            $edit = '<button class="btn btn-outline btn-primary btn-sm" data-toggle="modal" data-target="#admin-edit-report-modal" data-report="' . $report['terminal_report_code'] . '"><i class="ti-pencil"></i></button>';
+            $edit = '<button class="btn btn-outline btn-primary btn-sm" data-toggle="modal" data-target="#admin-edit-report-modal" data-report="' . $report['terminal_report_code'] . '">Edit <i class="ti-pencil"></i></button>';
 
-            $options = '<div role="group" class="btn-group">' . $view . $edit . '</div>';
 
             
             $tablebody .= '
                 <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="'.$report['student_code'].'-heading">
-                        <h4 class="panel-title">
-                            <a role="button" data-toggle="collapse" data-parent="#class-report" href="#'.$report['student_code'].'" aria-expanded="false" aria-controls="'.$report['student_code'].'">
-                                '.Student::getStudent($report['student_code'],'student_name').'
+                    <div class="panel-heading" role="tab" id="'.$report['student_code']. '-heading">
+                        <div class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#class-report" href="#' . $report['student_code'] . '" aria-expanded="false" aria-controls="' . $report['student_code'] . '">
+                                ' . Student::getStudent($report['student_code'], 'student_name') . ' (' . $report['student_code'] . ')
                             </a>
-                        </h4>
+                            <div class="pull-right" style="margin-top: -6px;">' . $edit . '</div>
+                        </div>
                     </div>
                     <div id="'.$report['student_code'].'" class="panel-collapse collapse" role="tabpanel" aria-labelledby="'.$report['student_code'].'-heading">
                         <div class="panel-body">
+
                             
                         </div>
                     </div>
                 </div>
-            ';
-
-            
+            '; 
         }
     }
 
-    $tableHeader = '<div class="panel-group" id="class-report" role="tablist" aria-multiselectable="true">';
-    $tableFooter = '</div>';
+    
+    if ($data['type'] == '_getClassReport') {
+        $tableHeader = '<div class="panel-group" id="class-report" role="tablist" aria-multiselectable="true">';
+        $table_controls = '<div class="pb-30">
+                <div class="pull-left">
+                    <p class="fw-300">
+                        ' .Classes::getClass($data['class_code'],'class_name'). '
+                    </p>
+                </div>
+                <div class="pull-right">
+                    <a href="javascript:goback()">Go Back</a>
+                </div>
+            </div>';
+        $tableFooter = '</div>';
+
+        $page = $tableHeader . $table_controls . $tablebody . $tableFooter;
+    }
 
 /*
     switch ($school_type) {
@@ -83,7 +96,7 @@
         $tablehead .= '<th>'.$subject['subject_name'].'</th>';
     }
  */
-    $page = $tableHeader.$tablebody.$tableFooter;
+    
 
     $response = array(
         'error' => 'false', 
