@@ -51,6 +51,20 @@
 			}
 		}
 
+		public function getSubject($subject_code,$params)
+		{
+			$subject = self::query("SELECT {$params} FROM `ezi_subjects` WHERE `subject_code` = '{$subject_code}'");
+			if (empty($subject[0])) {
+				return false;
+			} else {
+				if ($params == '*') {
+					return $subject;
+				} else {
+					return $subject[0][$params];
+				}
+			}
+		}
+
 		public static function getClassSujects($class_code)
 		{
 			$subjects = self::query("SELECT `class_subjects` FROM `ezi_school_class_subject` WHERE `class_code` = '{$class_code}'");

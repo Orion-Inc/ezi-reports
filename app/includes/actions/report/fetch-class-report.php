@@ -15,7 +15,23 @@
 
         if (!empty($report_array)) {
             foreach ($report_array as $report) {
+                $results = '';
                 $edit = '<button class="btn btn-outline btn-primary btn-sm" data-toggle="modal" data-target="#edit-report-modal" data-report="' . $report['terminal_report_code'] . '">Edit <i class="ti-pencil"></i></button>';
+                $student_results = explode(',', $report['terminal_report_grades']);
+
+                
+                foreach ($student_results as $result) {
+                    $subject_details = explode(':', $result);
+                
+                    $results .= '<tr>
+                        <th scope="row">'. Course::getSubject($subject_details[0], 'subject_name').'</th>
+                        <td>'.$subject_details[1].'</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                    </tr>';
+                }
+
+
 
                 $tablebody .= '
                     <div class="panel panel-default">
@@ -36,9 +52,12 @@
                                                 <th>Subject</th>
                                                 <th>Total Score</th>
                                                 <th>Grade</th>
+                                                <th>Interpretation</th>
                                             </tr>
                                         </thead>
-                                        
+                                        <tbody>
+                                        '.$results.'
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>
@@ -73,64 +92,6 @@
         echo json_encode($response);
         exit();
     }
-
-/*
-<tbody>
-                                            <tr>
-                                            <th scope="row">1</th>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            </tr>
-                                            <tr>
-                                            <th scope="row">2</th>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            </tr>
-                                            <tr>
-                                            <th scope="row">3</th>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            <td>Table cell</td>
-                                            </tr>
-                                        </tbody>
-    switch ($school_type) {
-        case 'secondary':
-            $tablehead = "<th>STUDENT</th>
-                        <th>Mathematics</th>
-                                <th>English Language</th>
-                                <th>Intergerated Science</th>
-                                <th>Socail Studies</th>";
-            break;
-
-        case 'basic':
-             $tablehead = "<th>STUDENT</th>
-                                <th>Mathematics</th>
-                                <th>English Language</th>
-                                <th>Intergerated Science</th>
-                                <th>Environmental Studies</th>";
-            break;
-
-    }
-
-    
-    
-    $classSubjects = Course::getClassSujects($data['class_code']);
-    foreach($classSubjects as $subject){
-        $tablehead .= '<th>'.$subject['subject_name'].'</th>';
-    }
- */
-    
 
     $response = array(
         'error' => 'false', 
