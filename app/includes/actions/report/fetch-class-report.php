@@ -26,8 +26,8 @@
                     $results .= '<tr>
                         <th scope="row">'. Course::getSubject($subject_details[0], 'subject_name').'</th>
                         <td>'.$subject_details[1].'</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
+                        <td>'.Course::getGrading($subject_details[1],'grade').'</td>
+                        <td>'.Course::getGrading($subject_details[1],'interpretation').'</td>
                     </tr>';
                 }
 

@@ -83,6 +83,18 @@
 			}
 		}
 
+		public function getGrading($score, $type){
+			switch ($type) {
+				case 'grade':
+					# code...
+					break;
+
+				case 'interpretation':
+						# code...
+					break;
+			}
+		}
+
 		public function get($function,$arg) {
 	      	return $this->$function($arg);
 	    }
