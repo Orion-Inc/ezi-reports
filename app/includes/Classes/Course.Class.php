@@ -6,7 +6,7 @@
 	{
 		public static function getCourses($course_type,$params){
 			if ($course_type == "All") {
-				$courses = self::query("SELECT {$params} FROM `ezi_course`");
+				$courses = self::query("SELECT {$params} FROM `ezi_course` WHERE `course_type` != 'both'");
 			} else {
 				$courses = self::query("SELECT {$params} FROM `ezi_course` WHERE `course_type` = '{$course_type}'");
 			}

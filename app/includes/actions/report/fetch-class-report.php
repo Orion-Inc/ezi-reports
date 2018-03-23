@@ -17,8 +17,6 @@
             foreach ($report_array as $report) {
                 $edit = '<button class="btn btn-outline btn-primary btn-sm" data-toggle="modal" data-target="#edit-report-modal" data-report="' . $report['terminal_report_code'] . '">Edit <i class="ti-pencil"></i></button>';
 
-
-
                 $tablebody .= '
                     <div class="panel panel-default">
                         <div class="panel-heading" role="tab" id="' . $report['student_code'] . '-heading">
@@ -31,13 +29,38 @@
                         </div>
                         <div id="' . $report['student_code'] . '" class="panel-collapse collapse" role="tabpanel" aria-labelledby="' . $report['student_code'] . '-heading">
                             <div class="panel-body">
-
-                                
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Subject</th>
+                                                <th>Total Score</th>
+                                                <th>Grade</th>
+                                            </tr>
+                                        </thead>
+                                        
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 ';
             }
+
+            $tableHeader = '<div class="panel-group" id="class-report" role="tablist" aria-multiselectable="true">';
+            $table_controls = '<div class="pb-30">
+                    <div class="pull-left">
+                        <p class="fw-300">
+                            ' . Classes::getClass($data['class_code'], 'class_name') . '
+                        </p>
+                    </div>
+                    <div class="pull-right">
+                        <a href="javascript:goback()">Go Back</a>
+                    </div>
+                </div>';
+            $tableFooter = '</div>';
+
+            $page = $tableHeader . $table_controls . $tablebody . $tableFooter;
         }
     }
 
@@ -51,27 +74,36 @@
         exit();
     }
 
-    
-
-    
-    if ($data['type'] == '_getClassReport') {
-        $tableHeader = '<div class="panel-group" id="class-report" role="tablist" aria-multiselectable="true">';
-        $table_controls = '<div class="pb-30">
-                <div class="pull-left">
-                    <p class="fw-300">
-                        ' .Classes::getClass($data['class_code'],'class_name'). '
-                    </p>
-                </div>
-                <div class="pull-right">
-                    <a href="javascript:goback()">Go Back</a>
-                </div>
-            </div>';
-        $tableFooter = '</div>';
-
-        $page = $tableHeader . $table_controls . $tablebody . $tableFooter;
-    }
-
 /*
+<tbody>
+                                            <tr>
+                                            <th scope="row">1</th>
+                                            <td>Table cell</td>
+                                            <td>Table cell</td>
+                                            <td>Table cell</td>
+                                            <td>Table cell</td>
+                                            <td>Table cell</td>
+                                            <td>Table cell</td>
+                                            </tr>
+                                            <tr>
+                                            <th scope="row">2</th>
+                                            <td>Table cell</td>
+                                            <td>Table cell</td>
+                                            <td>Table cell</td>
+                                            <td>Table cell</td>
+                                            <td>Table cell</td>
+                                            <td>Table cell</td>
+                                            </tr>
+                                            <tr>
+                                            <th scope="row">3</th>
+                                            <td>Table cell</td>
+                                            <td>Table cell</td>
+                                            <td>Table cell</td>
+                                            <td>Table cell</td>
+                                            <td>Table cell</td>
+                                            <td>Table cell</td>
+                                            </tr>
+                                        </tbody>
     switch ($school_type) {
         case 'secondary':
             $tablehead = "<th>STUDENT</th>

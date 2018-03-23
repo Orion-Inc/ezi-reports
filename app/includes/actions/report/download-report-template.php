@@ -39,16 +39,16 @@
                 'Mathematics (SJCMA0000)',
                 'English Language (SJCEN0000)',
                 'Intergerated Science (SJCIN0000)',
-                'Socail Studies (SJCSS0000)',
+                'Social Studies (SJCSS0000)',
             );
             break;
 
         case 'basic':
              $subjects_header = array(
                 'STUDENT',
-                'Mathematics (SJCMA0001)',
-                'English Language (SJCEN0001)',
-                'Intergerated Science (SJCIN0001)',
+                'Mathematics (SJCMA0000)',
+                'English Language (SJCEN0000)',
+                'Intergerated Science (SJCIN0000)',
                 'Environmental Studies (SJCEN0001)',
             );
             break;
