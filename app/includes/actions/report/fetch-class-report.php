@@ -12,6 +12,33 @@
 
     if ($data['type'] == '_getClassReport') {
         $report_array = Database::query("SELECT `terminal_report_code`,`school_code`,`student_code`,`terminal_report_grades` FROM `ezi_terminal_reports` WHERE `class_code` = '{$data['class_code']}' AND `academic_year` = '{$data['academic_year']}' AND `academic_term` = '{$data['academic_term']}'");
+
+        if (!empty($report_array)) {
+            foreach ($report_array as $report) {
+                $edit = '<button class="btn btn-outline btn-primary btn-sm" data-toggle="modal" data-target="#edit-report-modal" data-report="' . $report['terminal_report_code'] . '">Edit <i class="ti-pencil"></i></button>';
+
+
+
+                $tablebody .= '
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="' . $report['student_code'] . '-heading">
+                            <div class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#class-report" href="#' . $report['student_code'] . '" aria-expanded="false" aria-controls="' . $report['student_code'] . '">
+                                    ' . Student::getStudent($report['student_code'], 'student_name') . ' (' . $report['student_code'] . ')
+                                </a>
+                                <div class="pull-right" style="margin-top: -6px;">' . $edit . '</div>
+                            </div>
+                        </div>
+                        <div id="' . $report['student_code'] . '" class="panel-collapse collapse" role="tabpanel" aria-labelledby="' . $report['student_code'] . '-heading">
+                            <div class="panel-body">
+
+                                
+                            </div>
+                        </div>
+                    </div>
+                ';
+            }
+        }
     }
 
     if ($data['type'] == '_getStudentReport') {
@@ -24,32 +51,7 @@
         exit();
     }
 
-    if (!empty($report_array)) {
-        foreach ($report_array as $report) {
-            $edit = '<button class="btn btn-outline btn-primary btn-sm" data-toggle="modal" data-target="#edit-report-modal" data-report="' . $report['terminal_report_code'] . '">Edit <i class="ti-pencil"></i></button>';
-
-
-            
-            $tablebody .= '
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="'.$report['student_code']. '-heading">
-                        <div class="panel-title">
-                            <a role="button" data-toggle="collapse" data-parent="#class-report" href="#' . $report['student_code'] . '" aria-expanded="false" aria-controls="' . $report['student_code'] . '">
-                                ' . Student::getStudent($report['student_code'], 'student_name') . ' (' . $report['student_code'] . ')
-                            </a>
-                            <div class="pull-right" style="margin-top: -6px;">' . $edit . '</div>
-                        </div>
-                    </div>
-                    <div id="'.$report['student_code'].'" class="panel-collapse collapse" role="tabpanel" aria-labelledby="'.$report['student_code'].'-heading">
-                        <div class="panel-body">
-
-                            
-                        </div>
-                    </div>
-                </div>
-            '; 
-        }
-    }
+    
 
     
     if ($data['type'] == '_getClassReport') {
