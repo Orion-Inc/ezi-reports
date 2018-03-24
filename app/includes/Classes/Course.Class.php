@@ -82,17 +82,19 @@
 				return $subjectData;	
 			}
 		}
-
+	
 		public function getGrading($score, $type){
 			switch ($type) {
 				case 'grade':
-					# code...
+					$query = self::query("SELECT `grade` FROM `ezi_grade_system` WHERE `min` <= '{$score}' and `max` >= '{$score}'");
 					break;
 
 				case 'interpretation':
-						# code...
+					$query = self::query("SELECT `interpretation` FROM `ezi_grade_system` WHERE `min` <= '{$score}' and `max` >= '{$score}'");
 					break;
 			}
+
+			return $query[0][$type];
 		}
 
 		public function get($function,$arg) {
