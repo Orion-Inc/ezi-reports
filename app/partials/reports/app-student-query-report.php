@@ -1,6 +1,7 @@
 <div class="row" id="query-class-row">
     <div class="col-md-12 col-lg-10 col-lg-offset-1">
         <p></p>
+        <input class="hidden" id="student-code" value="<?php App::show(User::userSession('SESS_USER_ID'))?>">
         <div class="row">
             <div class="col-lg-3 col-md-3">
                 <select class="form-control" id="selected-class-query">

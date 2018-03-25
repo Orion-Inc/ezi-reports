@@ -12,4 +12,42 @@ $(document).ready(function () {
         }
     });
 
+    $("#select-class-query").on('click', function () {
+        var selectedClass = $("#selected-class-query").val();
+        var selectedYear = $("#selected-year-query").val();
+        var selectedTerm = $("#selected-term-query").val();
+        var studentCode = $("#student-code").val();
+
+        if (selectedClass == null || selectedYear == null || selectedTerm == null) {
+            alert("Please Select an Option!");
+        } else {
+            $('#selected-class-query, #selected-year-query, #selected-term-query').prop('selectedIndex', 0);
+            $("#query-class-row").addClass('hidden');
+            $("#query-report-row").removeClass('hidden');
+            $("#query-report-row").html('<div class="text-center"><img src="../assets/images/loading.gif" width="60px" height="60px"/></div>');
+
+            $.ajax({
+                url: '../includes/actions/report/fetch-class-report.php',
+                dataType: 'json',
+                type: 'GET',
+                data: { type: '_getStudentReport', student_code : studentCode,class_code: selectedClass, academic_term: selectedTerm, academic_year: selectedYear },
+                success: function (data) {
+                    if (data.error != 'false') {
+                        swal(
+                            'Oops!',
+                            data.message,
+                            'error'
+                        );
+                        $("#query-report-row").addClass('hidden');
+                        $("#query-report-row").html('');
+                        $("#query-class-row").removeClass('hidden');
+                    } else {
+                        $("#query-report-row").html(data.page);
+                    }
+                }
+            });
+
+        }
+    });
+
 });

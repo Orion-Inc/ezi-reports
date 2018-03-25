@@ -9,13 +9,13 @@
     $data = $_GET;
     $page = '';
     $tablebody = '';
+    $results = '';
 
     if ($data['type'] == '_getClassReport') {
         $report_array = Database::query("SELECT `terminal_report_code`,`school_code`,`student_code`,`terminal_report_grades` FROM `ezi_terminal_reports` WHERE `class_code` = '{$data['class_code']}' AND `academic_year` = '{$data['academic_year']}' AND `academic_term` = '{$data['academic_term']}'");
 
         if (!empty($report_array)) {
             foreach ($report_array as $report) {
-                $results = '';
                 $edit = '<button class="btn btn-outline btn-primary btn-sm" data-toggle="modal" data-target="#edit-report-modal" data-report="' . $report['terminal_report_code'] . '">Edit <i class="ti-pencil"></i></button>';
                 $student_results = explode(',', $report['terminal_report_grades']);
 
@@ -24,7 +24,9 @@
                     $subject_details = explode(':', $result);
                 
                     $results .= '<tr>
-                        <th scope="row">'. Course::getSubject($subject_details[0], 'subject_name').'</th>
+                        <th scope="row">'. Course::getSubject($subject_details[0], 'subject_name'). '</th>
+                        <td class="text-center">0</td>
+                        <td class="text-center">0</td>
                         <td class="text-center">'.$subject_details[1].'</td>
                         <td class="text-center">'.Course::getGrading($subject_details[1],'grade').'</td>
                         <td>'.Course::getGrading($subject_details[1],'interpretation').'</td>
@@ -50,6 +52,8 @@
                                         <thead>
                                             <tr>
                                                 <th>Subject</th>
+                                                <th class="text-center">Class(30)</th>
+                                                <th class="text-center">Exam(70)</th>
                                                 <th class="text-center">Total Score</th>
                                                 <th class="text-center">Grade</th>
                                                 <th>Interpretation</th>
@@ -85,6 +89,44 @@
 
     if ($data['type'] == '_getStudentReport') {
         $report_array = Database::query("SELECT `terminal_report_code`,`school_code`,`student_code`,`terminal_report_grades` FROM `ezi_terminal_reports` WHERE `student_code` = '{$data['student_code']}' AND `academic_year` = '{$data['academic_year']}' AND `academic_term` = '{$data['academic_term']}'");
+
+        if (!empty($report_array)) {
+            $student_results = explode(',', $report_array[0]['terminal_report_grades']);
+
+
+            foreach ($student_results as $result) {
+                $subject_details = explode(':', $result);
+
+                $results .= '<tr>
+                            <th scope="row">' . Course::getSubject($subject_details[0], 'subject_name') . '</th>
+                            <td class="text-center">0</td>
+                            <td class="text-center">0</td>
+                            <td class="text-center">' . $subject_details[1] . '</td>
+                            <td class="text-center">' . Course::getGrading($subject_details[1], 'grade') . '</td>
+                            <td>' . Course::getGrading($subject_details[1], 'interpretation') . '</td>
+                        </tr>';
+            }
+
+            $table = '<div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Subject</th>
+                                <th class="text-center">Class(30)</th>
+                                <th class="text-center">Exam(70)</th>
+                                <th class="text-center">Total Score</th>
+                                <th class="text-center">Grade</th>
+                                <th>Interpretation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        ' . $results . '
+                        </tbody>
+                    </table>
+                </div>';
+
+            $page = $table;
+        }
     }
 
     if (empty($report_array)) {
