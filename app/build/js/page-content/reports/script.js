@@ -1,4 +1,6 @@
 $(document).ready(function() {
+   
+
     var options = '<option value="" selected="" disabled="">Select Term</option>';
 
     $.ajax({

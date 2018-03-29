@@ -52,6 +52,8 @@
     <script type="text/javascript" src="../plugins/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
     <!-- jQuery Steps-->
     <script type="text/javascript" src="../plugins/jquery.steps/build/jquery.steps.min.js"></script>
+    <!-- List Filter -->
+    <script type="text/javascript" src="../plugins/bootstrap-list-filter-master/bootstrap-list-filter.src.js"></script>
     
     <?php if (User::userSession('SESS_USER_TYP') === 'school'): ?>
         <!-- Custom JS-->

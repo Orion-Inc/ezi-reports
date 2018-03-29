@@ -74,16 +74,32 @@
             $table_controls = '<div class="pb-30">
                     <div class="pull-left">
                         <p class="fw-300">
-                            ' . Classes::getClass($data['class_code'], 'class_name') . '
+                            <b>' . Classes::getClass($data['class_code'], 'class_name') . '</b>
                         </p>
                     </div>
                     <div class="pull-right">
                         <a href="javascript:goback()">Go Back</a>
                     </div>
-                </div>';
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <label for="report-search"><small>Type Student\'s Name or Code to filter</small></label>
+                            <input type="search" class="form-control input-sm" id="report-search" placeholder="Search...">
+                        </div>
+                        <script>
+                            $("#report-list").btsListFilter("#report-search", {
+                                itemEl: ".panel",
+                                itemChild: "a",
+                                emptyNode:"<div class=\'panel panel-default\'><div class=\'panel-heading\'><div class=\'panel-title\'>No Report Found.</div></div></div>"
+                            });
+                        </script>
+                    </div>
+                </div>
+                ';
             $tableFooter = '</div>';
 
-            $page = $tableHeader . $table_controls . $tablebody . $tableFooter;
+            $page = $tableHeader . $table_controls . "<div class='list-group' id='report-list'>".$tablebody."</div>". $tableFooter;
         }
     }
 
