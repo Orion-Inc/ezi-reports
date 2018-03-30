@@ -9,13 +9,13 @@
     $data = $_GET;
     $page = '';
     $tablebody = '';
-    $results = '';
 
     if ($data['type'] == '_getClassReport') {
         $report_array = Database::query("SELECT `terminal_report_code`,`school_code`,`student_code`,`terminal_report_grades` FROM `ezi_terminal_reports` WHERE `class_code` = '{$data['class_code']}' AND `academic_year` = '{$data['academic_year']}' AND `academic_term` = '{$data['academic_term']}'");
 
         if (!empty($report_array)) {
             foreach ($report_array as $report) {
+                $results = '';
                 $edit = '<button class="btn btn-outline btn-primary btn-sm" data-toggle="modal" data-target="#edit-report-modal" data-report="' . $report['terminal_report_code'] . '">Edit <i class="ti-pencil"></i></button>';
                 $student_results = explode(',', $report['terminal_report_grades']);
 
@@ -72,36 +72,36 @@
 
             $tableHeader = '<div class="panel-group" id="class-report" role="tablist" aria-multiselectable="true">';
             $table_controls = '<div class="pb-30">
-                    <div class="pull-left">
-                        <p class="fw-300">
-                            <b>' . Classes::getClass($data['class_code'], 'class_name') . '</b>
-                        </p>
-                    </div>
-                    <div class="pull-right">
-                        <a href="javascript:goback()">Go Back</a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6 col-md-4">
-                        <div class="form-group">
-                            <label for="report-search"><small>Type Student\'s Name or Code to filter</small></label>
-                            <input type="search" class="form-control input-sm" id="report-search" placeholder="Search...">
+                        <div class="pull-left">
+                            <p class="fw-300">
+                                <b>' . Classes::getClass($data['class_code'], 'class_name') . '</b>
+                            </p>
                         </div>
-                        <script>
-                            $("#report-list").btsListFilter("#report-search", {
-                                itemEl: ".panel.panel-default",
-                                itemChild: \'span\',
-                                emptyNode: function(data) {
-                                    return "<div class=\'panel panel-default\'><div class=\'panel-heading\'>No Report Found</div></div>";
-                                }
-                            });
-                        </script>
+                        <div class="pull-right">
+                            <a href="javascript:goback()">Go Back</a>
+                        </div>
                     </div>
-                </div>
-                ';
+                    <div class="row">
+                        <div class="col-sm-6 col-md-4">
+                            <div class="form-group">
+                                <label for="report-search"><small>Type Student\'s Name or Code to filter</small></label>
+                                <input type="search" class="form-control input-sm" id="report-search" placeholder="Search...">
+                            </div>
+                            <script>
+                                $("#report-list").btsListFilter("#report-search", {
+                                    itemEl: ".panel.panel-default",
+                                    itemChild: \'span\',
+                                    emptyNode: function(data) {
+                                        return "<div class=\'panel panel-default\'><div class=\'panel-heading\'>No Report Found</div></div>";
+                                    }
+                                });
+                            </script>
+                        </div>
+                    </div>
+                    ';
             $tableFooter = '</div>';
 
-            $page = $tableHeader . $table_controls . "<div class='list-group' id='report-list'>".$tablebody."</div>". $tableFooter;
+            $page = $tableHeader . $table_controls . "<div class='list-group' id='report-list'>" . $tablebody . "</div>" . $tableFooter;
         }
     }
 
