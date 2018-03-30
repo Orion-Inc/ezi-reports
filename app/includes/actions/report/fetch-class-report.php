@@ -39,8 +39,8 @@
                     <div class="panel panel-default">
                         <div class="panel-heading" role="tab" id="' . $report['student_code'] . '-heading">
                             <div class="panel-title">
-                                <a role="button" data-toggle="collapse" data-parent="#class-report" href="#' . $report['student_code'] . '" aria-expanded="false" aria-controls="' . $report['student_code'] . '">
-                                    ' . Student::getStudent($report['student_code'], 'student_name') . ' (' . $report['student_code'] . ')
+                                <a class="report-name" role="button" data-toggle="collapse" data-parent="#class-report" href="#' . $report['student_code'] . '" aria-expanded="false" aria-controls="' . $report['student_code'] . '">
+                                    <span>' . Student::getStudent($report['student_code'], 'student_name') . ' (' . $report['student_code'] . ')</span>
                                 </a>
                                 <div class="pull-right" style="margin-top: -6px;">' . $edit . '</div>
                             </div>
@@ -89,9 +89,8 @@
                         </div>
                         <script>
                             $("#report-list").btsListFilter("#report-search", {
-                                itemEl: ".panel",
-                                itemChild: "a",
-                                emptyNode:"<div class=\'panel panel-default\'><div class=\'panel-heading\'><div class=\'panel-title\'>No Report Found.</div></div></div>"
+                                itemEl: ".panel.panel-default",
+                                itemChild: \'span\'
                             });
                         </script>
                     </div>

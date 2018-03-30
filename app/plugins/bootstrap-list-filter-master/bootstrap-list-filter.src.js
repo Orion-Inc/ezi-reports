@@ -60,7 +60,7 @@
 				return '<li class="list-group-item"><span>No Results</span></li>';
 			},
 			cancelNode: function() {
-				return '<span class="btn mdi mdi-close form-control-feedback d-none" aria-hidden="true"></span>';
+				return '<!--<span class="btn mdi mdi-close form-control-feedback hidden" aria-hidden="true"></span>-->';
 			},
 			loadingClass: 'bts-loading-list',
 			itemClassTmp: 'bts-dynamic-item',

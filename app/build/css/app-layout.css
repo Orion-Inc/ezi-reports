@@ -4557,3 +4557,8 @@ td.dt-center {
     color: #000;
     display: none;
 }
+
+.glyphicon.glyphicon-remove.form-control-feedback {
+    top: 0px!important;
+    right: 5px;
+}

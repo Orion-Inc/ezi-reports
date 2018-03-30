@@ -44,37 +44,39 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-8 col-md-offset-2 col-sm-12">
+        <div class="col-md-8 col-md-offset-2 col-sm-12 ">
         	<div class="row">
-            	<div class="widget">
-					<div class="widget-body">
-						<div role="tabpanel">
-							<ul role="tablist" class="nav nav-tabs mb-15">
-								<li role="presentation" class="active">
-									<a id="upload-tab" href="#upload" role="tab" data-toggle="tab" aria-controls="upload" aria-expanded="true">
-										<i class="ti-upload fs-20"></i> <span class="hidden-xs">Upload</span>
-									</a>
-								</li>
-								<li role="presentation">
-									<a id="query-tab" href="#query" role="tab" data-toggle="tab" aria-controls="query" aria-expanded="false">
-										<i class="ti-search fs-20"></i> <span class="hidden-xs">Query</span>
-									</a>
-								</li>
-								<li role="presentation">
-									<a id="template-tab" href="#template" role="tab" data-toggle="tab" aria-controls="template" aria-expanded="false">
-										<i class="ti-receipt fs-20"></i> <span class="hidden-xs">Entry Template</span>
-									</a>
-								</li>
-							</ul>
-							<div class="tab-content">
-								<div id="upload" role="tabpanel" aria-labelledby="upload-tab" class="tab-pane fade active in">
-									<?php App::ViewPartial('upload-report','reports')?>
-								</div>
-								<div id="query" role="tabpanel" aria-labelledby="query-tab" class="tab-pane fade">
-									<?php App::ViewPartial('query-report','reports')?>
-								</div>
-								<div id="template" role="tabpanel" aria-labelledby="query-tab" class="tab-pane fade">
-									<?php App::ViewPartial('template-report','reports')?>
+				<div class="col-md-12">
+					<div class="widget">
+						<div class="widget-body">
+							<div role="tabpanel">
+								<ul role="tablist" class="nav nav-tabs mb-15">
+									<li role="presentation" class="active">
+										<a id="upload-tab" href="#upload" role="tab" data-toggle="tab" aria-controls="upload" aria-expanded="true">
+											<i class="ti-upload fs-20"></i> <span class="hidden-xs">Upload</span>
+										</a>
+									</li>
+									<li role="presentation">
+										<a id="query-tab" href="#query" role="tab" data-toggle="tab" aria-controls="query" aria-expanded="false">
+											<i class="ti-search fs-20"></i> <span class="hidden-xs">Query</span>
+										</a>
+									</li>
+									<li role="presentation">
+										<a id="template-tab" href="#template" role="tab" data-toggle="tab" aria-controls="template" aria-expanded="false">
+											<i class="ti-receipt fs-20"></i> <span class="hidden-xs">Entry Template</span>
+										</a>
+									</li>
+								</ul>
+								<div class="tab-content">
+									<div id="upload" role="tabpanel" aria-labelledby="upload-tab" class="tab-pane fade active in">
+										<?php App::ViewPartial('upload-report','reports')?>
+									</div>
+									<div id="query" role="tabpanel" aria-labelledby="query-tab" class="tab-pane fade">
+										<?php App::ViewPartial('query-report','reports')?>
+									</div>
+									<div id="template" role="tabpanel" aria-labelledby="query-tab" class="tab-pane fade">
+										<?php App::ViewPartial('template-report','reports')?>
+									</div>
 								</div>
 							</div>
 						</div>

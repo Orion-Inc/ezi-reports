@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                <h4 id="edit-report-modal-label" class="modal-title">Student</h4>
+                <h4 id="edit-report-modal-label" class="modal-title"></h4>
             </div>
             <div class="modal-body">
                 <div class="text-center"><img src="../assets/images/loading.gif" width="64px" height="64px"/></div>

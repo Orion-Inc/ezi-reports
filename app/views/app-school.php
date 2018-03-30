@@ -11,23 +11,23 @@
 <div class="page-content container-fluid animated fadeIn">
     <div class="row">
         <div class="col-md-12">
-          	<div class="widget">
+            <div class="widget">
         		<div class="widget-body">
         			<div role="tabpanel">
                         <ul role="tablist" class="nav nav-tabs mb-15">
                             <li role="presentation" class="active">
                                 <a id="school-overview-tab" href="#school-overview" role="tab" data-toggle="tab" aria-controls="school-overview" aria-expanded="true">
-                                    Overview
+                                    <i class="ti-info fs-20 visible-xs"></i> <span class="hidden-xs">Overview</span>
                                 </a>
                             </li>
                             <li role="presentation">
                                 <a id="administration-tab" href="#administration" role="tab" data-toggle="tab" aria-controls="administration" aria-expanded="true">
-                                    Administration
+                                    <i class="ti-stamp fs-20 visible-xs"></i> <span class="hidden-xs">Administration</span>
                                 </a>
                             </li>
                             <li role="presentation">
                                 <a id="academic-year-tab" href="#academic-year" role="tab" data-toggle="tab" aria-controls="academic-year" aria-expanded="true">
-                                    Academic Year
+                                    <i class="ti-calendar fs-20 visible-xs"></i> <span class="hidden-xs">Academic Year</span>
                                 </a>
                             </li>
                         </ul>

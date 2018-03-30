@@ -132,6 +132,35 @@ $(document).ready(function() {
         return false;
     });
 
+    $('#edit-report-modal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var report_id = button.data('report');
+        var modal = $(this);
+        
+        $.ajax({
+            url: '../includes/actions/report/edit-student-report.php',
+            dataType: 'json',
+            type: 'POST',
+            data: { report_id: report_id },
+            success: function (data) {
+                if (data.error != 'false') {
+                    $("#edit-report-modal").modal("hide");
+                    goback();
+                    toastr.error(data.message, 'Error!');
+                } else {
+                    modal.find('modal-title').text('');
+                    modal.find('modal-body').html();
+                }
+            }
+        });
+    });
+    $('#edit-report-modal').modal('handleUpdate');
+    $('#edit-report-modal').on('hidden.bs.modal', function (e) {
+        var modal = $(this);
+        modal.find('modal-title').text('');
+        modal.find('modal-body').html('<div class="text-center"><img src="../assets/images/loading.gif" width="64px" height="64px"/></div>');
+    });
+
     update = function (class_code, academic_year, academic_term) {
         if (confirm("Clicking 'OK' will delete the current grades uploaded for this class")) {
             $.ajax({

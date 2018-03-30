@@ -14,7 +14,7 @@
             <div class="widget-heading">
                 <h3 class="widget-title">
                     View Terminal Report
-                    <div class="pull-right">
+                    <div class="pull-right hidden-xs">
                         <small>Having Issues? <a href="mailto:" target="_blank">Contact Us</a></small>
                     </div>
                 </h3>
