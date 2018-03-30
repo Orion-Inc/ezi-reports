@@ -90,7 +90,10 @@
                         <script>
                             $("#report-list").btsListFilter("#report-search", {
                                 itemEl: ".panel.panel-default",
-                                itemChild: \'span\'
+                                itemChild: \'span\',
+                                emptyNode: function(data) {
+                                    return "<div class=\'panel panel-default\'><div class=\'panel-heading\'>No Report Found</div></div>";
+                                }
                             });
                         </script>
                     </div>
