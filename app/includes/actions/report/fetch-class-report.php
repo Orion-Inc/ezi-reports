@@ -16,7 +16,7 @@
         if (!empty($report_array)) {
             foreach ($report_array as $report) {
                 $results = '';
-                $edit = '<button class="btn btn-outline btn-primary btn-sm" data-toggle="modal" data-target="#edit-report-modal" data-report="' . $report['terminal_report_code'] . '">Edit <i class="ti-pencil"></i></button>';
+                $edit = '<button class="btn btn-outline btn-primary btn-sm" data-toggle="modal" data-target="#edit-report-modal" data-report="' . $report['terminal_report_code'] . '" data-student_name="'. Student::getStudent($report['student_code'], 'student_name') .'" data-student_code="'. $report['student_code'] .'">Edit <i class="ti-pencil"></i></button>';
                 $student_results = explode(',', $report['terminal_report_grades']);
 
                 

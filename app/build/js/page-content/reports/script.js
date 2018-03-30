@@ -133,7 +133,9 @@ $(document).ready(function() {
     });
 
     $('#edit-report-modal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget)
+        var button = $(event.relatedTarget);
+        var student_code = button.data('student_code');
+        var student_name = button.data('student_name');
         var report_id = button.data('report');
         var modal = $(this);
         
@@ -148,8 +150,8 @@ $(document).ready(function() {
                     goback();
                     toastr.error(data.message, 'Error!');
                 } else {
-                    modal.find('modal-title').text('');
-                    modal.find('modal-body').html();
+                    modal.find('.modal-title').text(student_name + " (" + student_code +")");
+                    modal.find('.modal-body').html(data.form);
                 }
             }
         });
@@ -157,9 +159,10 @@ $(document).ready(function() {
     $('#edit-report-modal').modal('handleUpdate');
     $('#edit-report-modal').on('hidden.bs.modal', function (e) {
         var modal = $(this);
-        modal.find('modal-title').text('');
-        modal.find('modal-body').html('<div class="text-center"><img src="../assets/images/loading.gif" width="64px" height="64px"/></div>');
+        modal.find('.modal-title').text('');
+        modal.find('.modal-body').html('<div class="text-center"><img src="../assets/images/loading.gif" width="64px" height="64px"/></div>');
     });
+
 
     update = function (class_code, academic_year, academic_term) {
         if (confirm("Clicking 'OK' will delete the current grades uploaded for this class")) {
