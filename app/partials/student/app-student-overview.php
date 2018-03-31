@@ -2,13 +2,13 @@
     $student = Student::getStudent($_SESSION['SESS_USER_ID'],"*");
     $student_class = Classes::getClass($student['student_class'],'class_name');
     $school_name = School::getSchool($student['school_code'],'school_name');
-    $academic_year = School::getAcademicYear($student['school_code'],"*");
+    $academic_year = School::getAcademicYear("*");
 
     $student_school = array_merge(
        array('school_name' => $school_name),
        array('student_class' => $student_class),
-       array('academic_term' => $academic_year['school_academic_term']),
-       array('academic_year' => $academic_year['school_current_academic_year'])
+       array('academic_term' => $academic_year['academic_term']),
+       array('academic_year' => $academic_year['current_academic_year'])
     );
 ?>
 <table class="table table-borderless /table-condensed">

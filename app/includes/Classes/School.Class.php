@@ -32,8 +32,8 @@
 			}
 		}
 
-		public static function getAcademicYear($value,$params){
-			$school_administration = self::query("SELECT {$params} FROM `ezi_school_academic_year` WHERE `school_code` = '{$value}'");
+		public static function getAcademicYear($params = '*'){
+			$school_administration = self::query("SELECT {$params} FROM `ezi_school_academic_year` WHERE `id` = '1'");
 			if (empty($school_administration[0])) {
 				return false;
 			}else{

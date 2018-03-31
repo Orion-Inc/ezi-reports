@@ -186,6 +186,7 @@ $(document).ready(function() {
         });
     });
 
+
     var validateAddForm = $("#add-school").validate({
         highlight: function(r) {
             $(r).closest(".form-group").addClass("has-error")

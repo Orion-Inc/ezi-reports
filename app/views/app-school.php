@@ -76,7 +76,6 @@
     App::ViewPartial('edit-school-crest','modals/school');
     App::ViewPartial('edit-school-info','modals/school');
     App::ViewPartial('edit-administration-info','modals/school');
-    App::ViewPartial('edit-academic-year','modals/school');
     App::ViewPartial('edit-school-signatories','modals/school');
     App::ViewPartial('promote-academic-year','modals/school');
 ?>

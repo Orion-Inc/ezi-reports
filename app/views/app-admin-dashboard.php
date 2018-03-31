@@ -37,8 +37,9 @@
             	<div class="widget-heading clearfix">
                   	<h3 class="widget-title pull-left">Overview <small>(Statistics, Site Traffic etc.)</small></h3>
                   	<ul class="widget-tools pull-right list-inline">
-                    	<li><a href="javascript:;" class="widget-collapse"><i class="ti-angle-up"></i></a></li>
-                    	<li><a href="javascript:;" class="widget-reload"><i class="ti-reload"></i></a></li>
+                        <li><a href="#edit-academic-year-modal" class="" data-toggle="modal">Change Academic Year</a></li>
+                    	<li><a href="javascript:void(0);" class="widget-collapse"><i class="ti-angle-up"></i></a></li>
+                    	<li><a href="javascript:void(0);" class="widget-reload"><i class="ti-reload"></i></a></li>
                   	</ul>
             	</div>
             	<div class="widget-body">
@@ -110,8 +111,8 @@
             	<div class="widget-heading clearfix">
                   	<h3 class="widget-title pull-left">Notifications <small>(Messages, Alerts etc.)</small></h3>
                   	<ul class="widget-tools pull-right list-inline">
-                    	<li><a href="javascript:;" class="widget-collapse"><i class="ti-angle-up"></i></a></li>
-                    	<li><a href="javascript:;" class="widget-reload"><i class="ti-reload"></i></a></li>
+                    	<li><a href="javascript:void(0);" class="widget-collapse"><i class="ti-angle-up"></i></a></li>
+                    	<li><a href="javascript:void(0);" class="widget-reload"><i class="ti-reload"></i></a></li>
                   	</ul>
             	</div>
             	<div class="widget-body">
@@ -142,12 +143,14 @@
         </div>
     </div>	
 </div>
-
+<?php App::ViewPartial('admin-edit-academic-year', 'modals/school'); ?>
 <!-- jQuery Counter Up-->
     <script type="text/javascript" src="../plugins/jquery-waypoints/waypoints.min.js"></script>
     <script type="text/javascript" src="../plugins/Counter-Up/jquery.counterup.min.js"></script>
 <!-- jQuery Easy Pie Chart-->
     <script type="text/javascript" src="../plugins/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+    <!-- Custom Script -->
+    <script type="text/javascript" src="../build/js/page-content/dashboard/admin-script.js"></script>
     <script type="text/javascript">
 
         $(".counter").counterUp({delay:10,time:1e3});
@@ -191,4 +194,6 @@
 
         $(".progress").length>0&&$(".progress .progress-bar").progressbar();
         $(".animated").animo({duration:.2});
+
+        
     </script>
