@@ -4562,3 +4562,11 @@ td.dt-center {
     top: 0px!important;
     right: 5px;
 }
+
+td#student-colspan.text-semibold {
+    padding: 8px!important;
+}
+
+td#student-colspan.text-semibold:before {
+    display: none;
+}
