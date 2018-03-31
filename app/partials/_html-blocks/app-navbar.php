@@ -38,7 +38,7 @@
         </li>   
 
         <?php if (User::userSession('SESS_USER_TYP') === 'school' || User::userSession('SESS_USER_TYP') === 'student'): ?>
-            <li>
+            <li class="hidden">
                 <a href="javascript:;" role="button" class="right-sidebar-toggle bubble header-icon">
                     <i class="ti-layout-sidebar-right"></i>
                 </a>

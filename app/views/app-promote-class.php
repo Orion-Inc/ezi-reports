@@ -10,7 +10,7 @@
 </div>
 <div class="page-content container-fluid animated fadeIn">
     <div class="row">		
-       
+
     </div>
 </div>
 

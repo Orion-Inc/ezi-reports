@@ -1,6 +1,6 @@
 <?php require_once ('../includes/Autoloader.php');?>
 <?php
-    if (User::userSession('SESS_IS_AUTH') != true) {
+    if (User::userSession('SESS_IS_AUTH') != true || empty($_SESSION['SESS_USER_ID'])) {
         header("Location: ../includes/auth/logout.php");
     }
     if (isset($_GET['token']) && $_GET['token'] !== User::userSession('SESS_TOKEN')) {
