@@ -1,7 +1,12 @@
+<?php 
+	$school_head = School::getSchoolSignatories($_SESSION['SESS_USER_ID'], 'school_head');
+	$school_ass_head = School::getSchoolSignatories($_SESSION['SESS_USER_ID'], 'school_ass_head');
+	$school_accountant = School::getSchoolSignatories($_SESSION['SESS_USER_ID'], 'school_accountant');
+?>
 <div class="row">
 	<div class="col-xs-7">
 		<div class="thumbnail"> 
-		    <img alt="Head Signature" style="height: 45px; width: 100%; display: block;" src="<?php School::getSchoolSignatories($_SESSION['SESS_USER_ID'],'school_head')?>">                                                
+		    <img alt="Head Signature" style="height: 45px; width: 100%; display: block;" src="<?php App::show($school_head)?>">                                                
 		</div>
 	</div>
 	<div class="col-xs-5">
@@ -13,7 +18,7 @@
 <div class="row">
 	<div class="col-xs-7">
 		<div class="thumbnail"> 
-		    <img alt="Asst. Head Signature" style="height: 45px; width: 100%; display: block;" src="<?php School::getSchoolSignatories($_SESSION['SESS_USER_ID'],'school_ass_head')?>">                                                
+		    <img alt="Asst. Head Signature" style="height: 45px; width: 100%; display: block;" src="<?php App::show($school_ass_head) ?>">                                                
 		</div>
 	</div>
 	<div class="col-xs-5">
@@ -25,7 +30,7 @@
 <div class="row">
 	<div class="col-xs-7">
 		<div class="thumbnail"> 
-		    <img alt="Accountant Signature" style="height: 45px; width: 100%; display: block;" src="<?php School::getSchoolSignatories($_SESSION['SESS_USER_ID'],'school_accountant')?>">                                                
+		    <img alt="Accountant Signature" style="height: 45px; width: 100%; display: block;" src="<?php App::show($school_accountant) ?>">                                                
 		</div>
 	</div>
 	<div class="col-xs-5">

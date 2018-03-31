@@ -153,6 +153,9 @@ $(document).ready(function() {
             }
         });
     });
+    $('#admin-edit-school-crest-modal').on('hide.bs.modal', function () {
+        
+    })
 
     $('#admin-view-school-crest-modal').on('show.bs.modal', function(e) {
         var modal = $(this);

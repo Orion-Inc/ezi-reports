@@ -4,13 +4,13 @@
 
 	$errors = array();
 	$_school_code = $_GET['school_code'];
-
+	$crest = School::getSchoolCrest($_school_code);
 	try {
 		
 		$school_crest = '<div class="row">
 					            <div class="col-md-12">
 					            	<a href="#" class="thumbnail"> 
-										<img alt="'.$_school_code.'" style="height: 180px; width: 100%; display: block;" src="">
+										<img alt="'.$_school_code.'" style="height: 180px; width: 100%; display: block;" src="'. $crest .'">
 									</a>
 					            </div>
 					        </div>';

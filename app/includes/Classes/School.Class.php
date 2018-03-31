@@ -45,29 +45,23 @@
 			}
 		}
 
-		public static function getSchoolCrest($school_code,$index=""){
-			if (isset($index) && !empty($index)) {
-				try {
-					$files = glob($index.'school_crests/'.$school_code.'{*.jpg,*.jpeg,*.gif,*.png}', GLOB_BRACE);
-				} catch (Exception $e) {
-					$files = glob($index.'school_crests/default{*.png}', GLOB_BRACE);
-				}
+		public static function getSchoolCrest($school_code){
+			$getCrest = self::query("SELECT `school_crest` FROM `ezi_school_crest` WHERE `school_code` = '{$school_code}'");
+			if (empty($getCrest[0])) {
+				return '../assets/images/logo-2.png';
 			} else {
-				try {
-					$files = glob('../../school_crests/'.$school_code.'{*.jpg,*.jpeg,*.gif,*.png}', GLOB_BRACE);
-				} catch (Exception $e) {
-					$files = glob('../../school_crests/default{*.png}', GLOB_BRACE);
-				}
+				$crest = 'data:image;base64,' . base64_encode($geCreste[0][$signatory]);
+				return $crest;
 			}
-			App::show($files[0]);
 		}
 
 		public static function getSchoolSignatories($school_code,$signatory){
-			$signature = self::query("SELECT {$signatory} FROM `ezi_school_signatories` WHERE `school_code` = '{$school_code}'");
-			if (empty($signature[0])) {
+			$getSignature = self::query("SELECT {$signatory} FROM `ezi_school_signatories` WHERE `school_code` = '{$school_code}'");
+			if (empty($getSignature[0])) {
 				return '';
 			}else{
-				App::show('data:image;base64,'.base64_encode($signature[0][$signatory]));
+				$signature = 'data:image;base64,' . base64_encode($getSignature[0][$signatory]);
+				return $signature;
 			}
 		}
 	}
