@@ -65,7 +65,7 @@
 					            </div>
 					            <div class="col-md-3 col-md-offset-1">
 					            	<a href="#" class="thumbnail"> 
-										<img alt="'.$_school_code.'" style="height: 180px; width: 100%; display: block;" src="">
+										<img alt="'.$_school_code.'" style="height: 180px; width: 100%; display: block;" src="'. School::getSchoolCrest($_school_code) .'">
 									</a>
 					            </div>
 					        </div>'.$editButton;
