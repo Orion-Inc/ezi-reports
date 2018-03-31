@@ -2,6 +2,9 @@
 	require_once ('../Autoloader.php');
 	
 	if (!empty($_FILES)) {
+		$school_code = $_SESSION['SESS_USER_ID'];
+		$signature = file_get_contents($_FILES['school_crest']['tmp_name']);
+
 		try {
 			$school_code = $_SESSION['SESS_USER_ID'];
 

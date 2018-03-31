@@ -71,7 +71,7 @@
                 ';
             }
 
-            $tableHeader = '<div class="panel-group" id="class-report" role="tablist" aria-multiselectable="true">';
+            $tableHeader = '<div class="col-md-12"><div class="panel-group" id="class-report" role="tablist" aria-multiselectable="true">';
             $table_controls = '<div class="pb-30">
                         <div class="pull-left">
                             <p class="fw-300">
@@ -100,7 +100,7 @@
                         </div>
                     </div>
                     ';
-            $tableFooter = '</div>';
+            $tableFooter = '</div></div>';
 
             $page = $tableHeader . $table_controls . "<div class='list-group' id='report-list'>" . $tablebody . "</div>" . $tableFooter;
         }
