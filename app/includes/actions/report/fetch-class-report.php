@@ -17,6 +17,7 @@
             foreach ($report_array as $report) {
                 $results = '';
                 $edit = '<button class="btn btn-outline btn-primary btn-sm" data-toggle="modal" data-target="#edit-report-modal" data-report="' . $report['terminal_report_code'] . '" data-student_name="'. Student::getStudent($report['student_code'], 'student_name') .'" data-student_code="'. $report['student_code'] . '" data-class="' . $data['class_code'] . '" data-term="' . $data['academic_term'] . '" data-year="' . $data['academic_year'] . '">Edit <i class="ti-pencil"></i></button>';
+                $print = '<button class="btn btn-outline btn-success btn-sm">Print <i class="ti-printer"></i></button>';
                 $student_results = explode(',', $report['terminal_report_grades']);
 
                 
@@ -42,7 +43,7 @@
                                 <a class="report-name" role="button" data-toggle="collapse" data-parent="#class-report" href="#' . $report['student_code'] . '" aria-expanded="false" aria-controls="' . $report['student_code'] . '">
                                     <span>' . Student::getStudent($report['student_code'], 'student_name') . ' (' . $report['student_code'] . ')</span>
                                 </a>
-                                <div class="pull-right" style="margin-top: -6px;">' . $edit . '</div>
+                                <div class="pull-right" style="margin-top: -6px;"><div role="group" aria-label="Report Controls" class="btn-group">'. $edit . $print .'</div></div>
                             </div>
                         </div>
                         <div id="' . $report['student_code'] . '" class="panel-collapse collapse" role="tabpanel" aria-labelledby="' . $report['student_code'] . '-heading">
