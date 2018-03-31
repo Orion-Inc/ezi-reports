@@ -78,6 +78,13 @@
 		</ol>
 	<?php endif ?>
 
+	<?php if (isset($_GET['promote-class'])) : ?>
+		<h4 class="mt-0 mb-5"><i class="ti-bookmark-alt"></i> Promote Class</h4>
+		<ol class="breadcrumb mb-0">
+			<li class="active">{Description}</li>
+		</ol>
+	<?php endif ?>
+
 	<?php if (isset($_GET['bills'])): ?>
 		<h4 class="mt-0 mb-5"><i class="ti-wallet"></i> Bills</h4>
 		<ol class="breadcrumb mb-0">

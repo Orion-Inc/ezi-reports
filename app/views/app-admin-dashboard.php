@@ -35,9 +35,9 @@
         <div class="col-lg-12">
             <div class="widget clear">
             	<div class="widget-heading clearfix">
-                  	<h3 class="widget-title pull-left">Overview <small>(Statistics, Site Traffic etc.)</small></h3>
+                  	<h3 class="widget-title pull-left">Overview <small class="hidden-xs">(Statistics, Site Traffic etc.)</small></h3>
                   	<ul class="widget-tools pull-right list-inline">
-                        <li><a href="#edit-academic-year-modal" class="" data-toggle="modal">Change Academic Year</a></li>
+                        <li><a href="#edit-academic-year-modal" class="" data-toggle="modal"><i class="ti-calendar visible-xs"></i><span class="hidden-xs">Change Academic Year</span></a></li>
                     	<li><a href="javascript:void(0);" class="widget-collapse"><i class="ti-angle-up"></i></a></li>
                     	<li><a href="javascript:void(0);" class="widget-reload"><i class="ti-reload"></i></a></li>
                   	</ul>

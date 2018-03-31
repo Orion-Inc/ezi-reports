@@ -78,6 +78,7 @@
                     <li><a href="javascript:page('school')" class="bubble">Overview</a></li>
                     <li><a href="javascript:page('class')" class="bubble">Class Rooms</a></li>
                     <li><a href="javascript:page('student')" class="bubble">Students</a></li>
+                    <li><a href="javascript:page('promote-class')" class="bubble">Promote Class</a></li>
                 </ul>
             </li>
             <li class="hidden">

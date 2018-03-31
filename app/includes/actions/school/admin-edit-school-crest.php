@@ -5,6 +5,8 @@
 	if (isset($_GET['school_code']) && !empty($_GET['school_code'])) {
 		$school_code = $_GET['school_code'];
 
+		echo $school_code;
+
 		if (!empty($_FILES)) {
 			$crest = file_get_contents($_FILES['school_crest']['tmp_name']);
 
