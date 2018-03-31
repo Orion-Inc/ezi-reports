@@ -4,9 +4,9 @@
 	$errors = array();
 
 	try {
-		$schoo_academic_year = School::getAcademicYear($_SESSION['SESS_USER_ID'],"*");
+		$school_academic_year = School::getAcademicYear();
 
-			$response = array('error' => 'false', 'url' => 'school', 'array' => $schoo_academic_year);
+			$response = array('error' => 'false', 'url' => 'school', 'array' => $school_academic_year);
 	} catch (Exception $e) {
 		$response = array('error' => 'true', 'url' => 'school', 'message' => "An Error Occurred While Trying To Retrieve School Information");
 	}

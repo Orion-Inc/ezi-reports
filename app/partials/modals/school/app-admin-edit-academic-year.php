@@ -6,7 +6,6 @@
                 <h4 id="edit-academic-year-label" class="modal-title">Academic Year</h4>
             </div>
             <form class="app-form" method="POST" action="../includes/actions/school/edit-academic-year.php" id="school-academic-year">
-                <input class="hidden" type="text" name="school_code" value="<?php App::show($_SESSION['SESS_USER_ID'])?>">
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -16,14 +15,14 @@
                                 <input id="term_to" type="text" class="date-year form-control input-sm" placeholder="To" data-rule-required="true">
                             </div>
                         </div>
-                        <input type="text" class="" name="school_current_academic_year" id="school_current_academic_year">
+                        <input type="text" class="hidden" name="current_academic_year" id="current_academic_year">
                     </div>
                     <hr>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="school_name">Term</label>
-                                <select class="form-control input-sm" id="school_academic_term" name="school_academic_term" data-rule-required="true">
+                                <select class="form-control input-sm" id="academic_term" name="academic_term" data-rule-required="true">
                                     <option value="" selected="" disabled="">Select Current Term</option>
                                 </select>
                             </div>

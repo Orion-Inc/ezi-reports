@@ -4,18 +4,17 @@
 	$errors = array();
 
 	$params = array( 
-		'school_code' => stripslashes($_POST['school_code']),
-		'school_current_academic_year' => stripslashes($_POST['school_current_academic_year']), 
-		'school_academic_term' => stripslashes($_POST['school_academic_term'])
+		'current_academic_year' => stripslashes($_POST['current_academic_year']), 
+		'academic_term' => stripslashes($_POST['academic_term'])
 	);
 
 	try {
 		//Create query
-			$query = Database::query("UPDATE `ezi_school_academic_year` SET `school_current_academic_year`= :school_current_academic_year,`school_academic_term`= :school_academic_term WHERE `school_code` = :school_code", $params);
+			$query = Database::query("UPDATE `ezi_school_academic_year` SET `current_academic_year`=:current_academic_year,`academic_term`=:academic_term WHERE `id`= '1'", $params);
 
-			$response = array('error' => 'false', 'url' => 'school', 'message' => "Your Academic Year Has Been Updated Successfully!");
+			$response = array('error' => 'false', 'url' => 'admin-dashboard', 'message' => "Your Academic Year Has Been Updated Successfully!");
 	} catch (Exception $e) {
-		$response = array('error' => 'true', 'url' => 'school', 'message' => "An Error Occurred While Trying To Perform The Update!");
+		$response = array('error' => 'true', 'url' => 'admin-dashboard', 'message' => "An Error Occurred While Trying To Perform The Update!");
 	}
 
 	echo json_encode($response);
