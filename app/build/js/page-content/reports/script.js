@@ -1,5 +1,4 @@
 $(document).ready(function() {
-   
 
     var options = '<option value="" selected="" disabled="">Select Term</option>';
 
@@ -136,14 +135,19 @@ $(document).ready(function() {
         var button = $(event.relatedTarget);
         var student_code = button.data('student_code');
         var student_name = button.data('student_name');
+
+        var selectedClass = button.data('class');
+        var selectedTerm = button.data('term');
+        var selectedYear = button.data('year');
+
         var report_id = button.data('report');
         var modal = $(this);
         
         $.ajax({
-            url: '../includes/actions/report/edit-student-report.php',
+            url: '../includes/actions/report/fetch-student-report.php',
             dataType: 'json',
             type: 'POST',
-            data: { report_id: report_id },
+            data: { report_id: report_id, class_code: selectedClass, academic_term: selectedTerm, academic_year: selectedYear},
             success: function (data) {
                 if (data.error != 'false') {
                     $("#edit-report-modal").modal("hide");
