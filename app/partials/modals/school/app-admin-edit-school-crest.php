@@ -6,10 +6,10 @@
                 <h4 id="admin-edit-school-crest-label" class="modal-title">Change Crest</h4>
             </div>
             <div class="modal-body">
-                <form id="school-crest-form" action="../includes/actions/school/admin-edit-school-crest.php" class="dropzone"></form>
+                
             </div>
             <div class="modal-footer">
-              
+            
             </div>
         </div>
     </div>

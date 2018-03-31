@@ -179,7 +179,7 @@ $(document).ready(function() {
                 $('#edit-school-crest-modal').modal('hide');
                 var dataUrl = $('#edit-school-crest-modal').attr('dataUrl');
                 $('#page-content').load('../views/app-' + dataUrl + '.php?' + dataUrl);
-                toastr.success("Crest Changed Successfully!\n<small>Change will take effect next time you log in.</small>", 'Success!');
+                toastr.success("Crest Changed Successfully!\n<small>Change will take effect next time you log in if it hasn't.</small>", 'Success!');
             })
         }
     });

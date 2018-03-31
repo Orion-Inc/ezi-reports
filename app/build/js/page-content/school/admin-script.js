@@ -131,9 +131,11 @@ $(document).ready(function() {
 
         var button = $(e.relatedTarget);
         var school_code = button.data('school');
+        var form = '<form id="school-crest-form" action="../includes/actions/school/admin-edit-school-crest.php" class="dropzone"></form>';
 
         var url = "../includes/actions/school/admin-edit-school-crest.php?school_code=" + school_code;
 
+        modal.find('.modal-body').html(form);
         modal.find("#school-crest-form").dropzone({
             paramName: "school_crest",
             maxFilesize: 2,
@@ -155,8 +157,7 @@ $(document).ready(function() {
     });
     $('#admin-edit-school-crest-modal').on('hide.bs.modal', function () {
         var modal = $(this);
-
-        modal.find("#school-crest-form").dropzone().disable();
+        modal.find('.modal-body').html('');
     });
 
     $('#admin-view-school-crest-modal').on('show.bs.modal', function(e) {

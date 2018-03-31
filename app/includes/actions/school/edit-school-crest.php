@@ -3,26 +3,18 @@
 	
 	if (!empty($_FILES)) {
 		$school_code = $_SESSION['SESS_USER_ID'];
-		$signature = file_get_contents($_FILES['school_crest']['tmp_name']);
+		$crest = file_get_contents($_FILES['school_crest']['tmp_name']);
+
+
+		$params = array( 
+			'school_code' => $school_code,
+			'school_crest' => $crest
+		);
 
 		try {
-			$school_code = $_SESSION['SESS_USER_ID'];
+			$query = Database::query("UPDATE `ezi_school_crest` SET `school_crest`=:school_crest WHERE `school_code`= :school_code", $params);
 
-			$tempfile = $_FILES['school_crest']['tmp_name'];
-			$extension = pathinfo($_FILES['school_crest']['name'],PATHINFO_EXTENSION);
-
-			$files = glob('../../../../school_crests/'.$school_code.'{*.jpg,*.jpeg,*.gif,*.png}', GLOB_BRACE);
-			$targetfile = '../../../../school_crests/'.$school_code.'.'.$extension;
-			
-
-			if (file_exists($files[0])==true) {
-				if (array_map('unlink', glob('../../../../school_crests/'.$school_code.'{*.jpg,*.jpeg,*.gif,*.png}'))) {
-					move_uploaded_file($tempfile,$targetfile);
-				}
-			}else{
-				move_uploaded_file($tempfile,$targetfile);
-			}
-			$response = array('error' => 'true', 'url' => 'school', 'message' => "Crest Changed Successfully!\n<small>Change will take effect next time you log in.</small>!");
+			$response = array('error' => 'false', 'url' => 'school', 'message' => "Crest Was Changed Successfully!");
 		} catch (Exception $e) {
 			$response = array('error' => 'true', 'url' => 'school', 'message' => "An Error Occurred While Trying To Change Crest!");
 		}

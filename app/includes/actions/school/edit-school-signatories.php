@@ -9,21 +9,21 @@
 
 		$params = array( 
 			'school_code' => $school_code,
-			'signature' => $signature
+			'_signature' => $signature
 		);
 
 		try {
 			switch ($signature_type) {
 				case 'head-signature':
-					$query = Database::query("UPDATE `ezi_school_signatories` SET `school_head`= :signature WHERE `school_code`= :school_code", $params);
+					$query = Database::query("UPDATE `ezi_school_signatories` SET `school_head`= :_signature WHERE `school_code`= :school_code", $params);
 					break;
 				
 				case 'ass-head-signature':
-					$query = Database::query("UPDATE `ezi_school_signatories` SET `school_ass_head`= :signature WHERE `school_code`= :school_code", $params);
+					$query = Database::query("UPDATE `ezi_school_signatories` SET `school_ass_head`= :_signature WHERE `school_code`= :school_code", $params);
 					break;
 
 				case 'account-signature':
-					$query = Database::query("UPDATE `ezi_school_signatories` SET `school_accountant`= :signature WHERE `school_code`= :school_code", $params);
+					$query = Database::query("UPDATE `ezi_school_signatories` SET `school_accountant`= :_signature WHERE `school_code`= :school_code", $params);
 					break;
 			} 
 
