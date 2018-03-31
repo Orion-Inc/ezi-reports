@@ -80,7 +80,7 @@
                     <li><a href="javascript:page('student')" class="bubble">Students</a></li>
                 </ul>
             </li>
-            <li>
+            <li class="hidden">
                 <a href="javascript:page('bills')" class="bubble">
                     <i class="ti-wallet"></i> Bills
                 </a>
@@ -110,7 +110,7 @@
                     <i class="ti-files"></i> Reports
                 </a>
             </li>
-            <li>
+            <li class="hidden">
                 <a href="javascript:page('student-bills')" class="bubble">
                     <i class="ti-wallet"></i> Bills
                 </a>
