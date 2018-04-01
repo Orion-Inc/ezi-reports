@@ -2,35 +2,35 @@
 	<?php if (isset($_GET['admin-dashboard'])): ?>
 		<h4 class="mt-0 mb-5"><i class="ti-dashboard"></i> Dashboard</h4>
 		<ol class="breadcrumb mb-0">
-			<li class="active">{Description}</li>
+			<li class="active">Graphical Display Of Student and School Statistics</li>
 		</ol>
 	<?php endif ?>
 
 	<?php if (isset($_GET['admin-school'])): ?>
 		<h4 class="mt-0 mb-5"><i class="ti-home"></i> Schools</h4>
 		<ol class="breadcrumb mb-0">
-			<li class="active">{Description}</li>
+			<li class="active">School Details Overview</li>
 		</ol>
 	<?php endif ?>
 
 	<?php if (isset($_GET['admin-courses'])): ?>
 		<h4 class="mt-0 mb-5"><i class="ti-book"></i> Courses</h4>
 		<ol class="breadcrumb mb-0">
-			<li class="active">{Description}</li>
+			<li class="active">Add a Program</li>
 		</ol>
 	<?php endif ?>
 
 	<?php if (isset($_GET['admin-subjects'])): ?>
 		<h4 class="mt-0 mb-5"><i class="ti-book"></i> Subjects</h4>
 		<ol class="breadcrumb mb-0">
-			<li class="active">{Description}</li>
+			<li class="active">Add a Subject</li>
 		</ol>
 	<?php endif ?>
 
 	<?php if (isset($_GET['admin-reports'])): ?>
 		<h4 class="mt-0 mb-5"><i class="ti-files"></i> Reports</h4>
 		<ol class="breadcrumb mb-0">
-			<li class="active">{Description}</li>
+			<li class="active">Report Statistics</li>
 		</ol>
 	<?php endif ?>
 
@@ -67,14 +67,14 @@
 	<?php if (isset($_GET['class'])): ?>
 		<h4 class="mt-0 mb-5"><i class="ti-blackboard"></i> Class Room</h4>
 		<ol class="breadcrumb mb-0">
-			<li class="active">Create a Class, Assign Students, Programs, Subjects and Form Masters.</li>
+			<li class="active">Create a Class, Assign Students, Programs, Subjects and Form Masters</li>
 		</ol>
 	<?php endif ?>
 
 	<?php if (isset($_GET['student'])): ?>
 		<h4 class="mt-0 mb-5"><i class="ti-user"></i> Students</h4>
 		<ol class="breadcrumb mb-0">
-			<li class="active">Add a Student or Bulk Upload.</li>
+			<li class="active">Add a Student or Bulk Upload</li>
 		</ol>
 	<?php endif ?>
 
@@ -88,14 +88,14 @@
 	<?php if (isset($_GET['bills'])): ?>
 		<h4 class="mt-0 mb-5"><i class="ti-wallet"></i> Bills</h4>
 		<ol class="breadcrumb mb-0">
-			<li class="active">Upload Bill for Each Class.</li>
+			<li class="active">Upload Bill for Each Class</li>
 		</ol>
 	<?php endif ?>
 
 	<?php if (isset($_GET['reports'])): ?>
 		<h4 class="mt-0 mb-5"><i class="ti-files"></i> Reports</h4>
 		<ol class="breadcrumb mb-0">
-			<li class="active">Upload Terminal Reports.</li>
+			<li class="active">Upload Terminal Reports</li>
 		</ol>
 	<?php endif ?>
 
