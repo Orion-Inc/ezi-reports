@@ -186,6 +186,21 @@ $(document).ready(function() {
         });
     });
 
+    $('#admin-school-password-modal').on('show.bs.modal', function (e) {
+        var modal = $(this);
+
+        var button = $(e.relatedTarget);
+        var school_name = button.data('school_name');
+
+        modal.find('.modal-title').text(school_name);        
+
+    });
+    $('#admin-school-password-modal').on('hide.bs.modal', function () {
+        var modal = $(this);
+        
+        modal.find('.nav.nav-pills li.active').removeClass('active');
+        modal.find('#create-new-password, #reset-password').removeClass('active');
+    });
 
     var validateAddForm = $("#add-school").validate({
         highlight: function(r) {
