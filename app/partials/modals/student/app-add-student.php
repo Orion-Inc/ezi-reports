@@ -15,7 +15,7 @@
                         </li>
                         <li role="presentation" class="">
                             <a id="bulk-student-tab" href="#bulk-student" role="tab" data-toggle="tab" aria-controls="bulk-student" aria-expanded="false">
-                               <i class="ti-import"></i> Bulk Student Creation
+                                <i class="ti-import"></i> Bulk Student Creation
                             </a>
                         </li>
                     </ul>

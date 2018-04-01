@@ -199,6 +199,27 @@ $(document).ready(function() {
             }
         });
     });
+    $('#add-student-modal').on('shown.bs.modal', function (e) {
+        var modal = $(this);
+
+        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            var tab1 = String(e.target);
+            var tab2 = String(e.relatedTarget);
+
+            var currentTab = tab1.split('#');
+            var previousTab = tab2.split('#');
+            var $previous = $("#" + previousTab[1]);
+            var $current = $("#" + currentTab[1]);
+
+            if (currentTab[1] == "bulk-student") {
+                modal.find('#new-student')[0].reset();
+                modal.find('#new-student .form-group').removeClass("has-error");
+                validateAddForm.resetForm();
+            } else {
+                modal.find('#bulk_student_file').fileinput('reset');
+            }
+        });
+    });
     $('#add-student-modal').modal('handleUpdate');
     $('#add-student-modal').on('hidden.bs.modal', function(e) {
         var modal = $(this);

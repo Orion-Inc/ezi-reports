@@ -53,28 +53,28 @@
 	<?php if (isset($_GET['dashboard'])): ?>
 		<h4 class="mt-0 mb-5"><i class="ti-dashboard"></i> Dashboard</h4>
 		<ol class="breadcrumb mb-0">
-			<li class="active">{Description}</li>
+			<li class="active">Graphical Display Of Student Population</li>
 		</ol>
 	<?php endif ?>
 
 	<?php if (isset($_GET['school'])): ?>
 		<h4 class="mt-0 mb-5"><i class="ti-home"></i> School</h4>
 		<ol class="breadcrumb mb-0">
-			<li class="active">{Description}</li>
+			<li class="active">Brief Details About Your Institution</li>
 		</ol>
 	<?php endif ?>
 
 	<?php if (isset($_GET['class'])): ?>
 		<h4 class="mt-0 mb-5"><i class="ti-blackboard"></i> Class Room</h4>
 		<ol class="breadcrumb mb-0">
-			<li class="active">{Description}</li>
+			<li class="active">Create a Class, Assign Students, Programs, Subjects and Form Masters.</li>
 		</ol>
 	<?php endif ?>
 
 	<?php if (isset($_GET['student'])): ?>
 		<h4 class="mt-0 mb-5"><i class="ti-user"></i> Students</h4>
 		<ol class="breadcrumb mb-0">
-			<li class="active">{Description}</li>
+			<li class="active">Add a Student or Bulk Upload.</li>
 		</ol>
 	<?php endif ?>
 
@@ -88,14 +88,14 @@
 	<?php if (isset($_GET['bills'])): ?>
 		<h4 class="mt-0 mb-5"><i class="ti-wallet"></i> Bills</h4>
 		<ol class="breadcrumb mb-0">
-			<li class="active">{Description}</li>
+			<li class="active">Upload Bill for Each Class.</li>
 		</ol>
 	<?php endif ?>
 
 	<?php if (isset($_GET['reports'])): ?>
 		<h4 class="mt-0 mb-5"><i class="ti-files"></i> Reports</h4>
 		<ol class="breadcrumb mb-0">
-			<li class="active">{Description}</li>
+			<li class="active">Upload Terminal Reports.</li>
 		</ol>
 	<?php endif ?>
 
