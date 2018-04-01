@@ -29,6 +29,8 @@
     App::ViewPartial('admin-edit-school-crest','modals/school');
     App::ViewPartial('admin-add-school','modals/school');
     App::ViewPartial('admin-edit-school','modals/school');
+
+    App::ViewPartial('admin-school-password', 'modals/auth');
 ?>
 <!-- Custom Script -->
 <script type="text/javascript" src="../build/js/page-content/school/admin-script.js"></script>

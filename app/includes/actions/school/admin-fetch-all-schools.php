@@ -17,7 +17,7 @@
                 $edit = '<button class="btn btn-outline btn-primary btn-sm" data-toggle="modal" data-target="#admin-edit-school-modal" data-school="'.$school['school_code'].'"><i class="ti-pencil"></i></button>';
                 $delete = '<button class="btn btn-outline btn-danger btn-sm" onclick="deleteSchool(\''.addslashes($school['school_code']).'\',\''.addslashes($school['school_name']).'\')"><i class="ti-trash"></i></button>';
                 
-                $change_password = '<button class="btn btn-default btn-sm" data-toggle="modal" data-target="#admin-change-school-password-modal" data-school="'.$school['school_code'].'"><i class="ti-lock"></i></button>';
+                $change_password = '<button class="btn btn-default btn-sm" data-toggle="modal" data-target="#admin-school-password-modal" data-school="'.$school['school_code'].'"><i class="ti-lock"></i></button>';
                 $send_message = '<button class="btn btn-black btn-sm" data-toggle="modal" data-target="#admin-send-school-message-modal" data-school="'.$school['school_code'].'"><i class="ti-comment-alt"></i></button>';
                 
                 $school_options = '<div role="group" class="btn-group mr-10">'.$view.$edit.$delete.'</div>';
@@ -37,22 +37,22 @@
 
 
                 $data['data'][] = array(
-                   $school_code,
-                   $school_name,
-                   $school_prefix,
-                   $school_location,
-                   $school_email,
-                   $school_telephone,
-                   $school_website,
-                   $options,
-                   $updated_at,
-                   '',
-                   $school_motto,
-                   $school_address,
-                   '
+                    $school_code,
+                    $school_name,
+                    $school_prefix,
+                    $school_location,
+                    $school_email,
+                    $school_telephone,
+                    $school_website,
+                    $options,
+                    $updated_at,
+                    '',
+                    $school_motto,
+                    $school_address,
+                    '
                     <a href="#" data-toggle="modal" data-target="#admin-view-school-crest-modal" data-school="'.$school['school_code'].'">View</a> | 
                     <a href="#" data-toggle="modal" data-target="#admin-edit-school-crest-modal" data-school="'.$school['school_code'].'">Change</a>
-                   '                
+                    '                
                 );
             }
         }
