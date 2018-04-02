@@ -192,7 +192,29 @@ $(document).ready(function() {
         var button = $(e.relatedTarget);
         var school_name = button.data('school_name');
 
-        modal.find('.modal-title').text(school_name);        
+        modal.find('.modal-title').text(school_name); 
+        
+        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            var tab1 = String(e.target);
+            var tab2 = String(e.relatedTarget);
+
+            var currentTab = tab1.split('#');
+            var previousTab = tab2.split('#');
+            var $previous = $("#" + previousTab[1]);
+            var $current = $("#" + currentTab[1]);
+
+            if (currentTab[1] == "create-new-password") {
+                $previous.html('<div class="text-center"><img src="../assets/images/loading.gif" width="64px" height="64px"/></div>');
+
+                
+            }
+            
+            if (currentTab[1] == "reset-password") {
+                $previous.html('<div class="text-center"><img src="../assets/images/loading.gif" width="64px" height="64px"/></div>');
+
+                
+            }
+        });
 
     });
     $('#admin-school-password-modal').on('hide.bs.modal', function () {
