@@ -5,20 +5,14 @@
 	$errors = array();
 	$classSubjects = $_POST['class_subjects'];
 
-	$classParams = array( 
-		'class_code' => stripslashes($_POST['class_code']),
-		'class_name' => stripslashes($_POST['class_name']),
-		'class_course' => stripslashes($_POST['class_course']),
-		'class_teacher' => stripslashes($_POST['class_teacher']),
-		'school_code' => $_SESSION['SESS_USER_ID']
-	);
-
 	$classSubjectsParams = array( 
-		'class_code' => stripslashes($_POST['class_code']),
+		'class_code' => '',
 		'class_subjects' => addslashes(implode(",", $classSubjects))
 	);
 
+	print_r($_POST);
 
+/*
 	$transact->beginTransaction();
 
 	try {
@@ -58,6 +52,6 @@
 	}
 
 	echo json_encode($response);
-
+*/
 ?>
 

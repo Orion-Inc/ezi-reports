@@ -6,14 +6,14 @@
                 <h4 class="modal-title"><i class="ti-blackboard"></i> New Class</h4>
             </div>
             <div class="modal-body pt-0">
-                <form class="app-form" method="POST" action="../includes/actions/class/add-class.php" id="add-class">
+                <form class="app-form-" method="POST" action="../includes/actions/class/add-class.php" id="add-class">
                     <fieldset>
                         <legend>Form 1</legend>
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Class Name</label>
-                                    <input name="class_name[form_1]" type="text" class="form-control input-sm" placeholder="Class Name" data-rule-required="true">
+                                    <input name="class_name[form_1]" type="text" class="form-control input-sm" onkeyup="generateCode()" placeholder="Class Name" data-rule-required="true">
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -36,7 +36,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Class Name</label>
-                                    <input name="class_name[form_2]" type="text" class="form-control input-sm" placeholder="Class Name" data-rule-required="true">
+                                    <input name="class_name[form_2]" type="text" class="form-control input-sm" onkeyup="generateCode()" placeholder="Class Name" data-rule-required="true">
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -59,7 +59,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Class Name</label>
-                                    <input name="class_name[form_3]" type="text" class="form-control input-sm" placeholder="Class Name" data-rule-required="true">
+                                    <input name="class_name[form_3]" type="text" class="form-control input-sm" onkeyup="generateCode()" placeholder="Class Name" data-rule-required="true">
                                 </div>
                             </div>
                             <div class="col-md-4">

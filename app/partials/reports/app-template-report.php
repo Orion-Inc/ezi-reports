@@ -1,4 +1,4 @@
-<div class="row" id="query-class-row">
+<div class="row" id="template-download-row">
     <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
         <p></p>
         <div class="input-group">

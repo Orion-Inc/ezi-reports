@@ -81,25 +81,6 @@ $(document).ready(function() {
             }
         });
 
-        modal.find('#generateCode').on('click', function(e) {
-            var class_name = modal.find("#class_name").val();
-
-            if (class_name != "") {
-                $.ajax({
-                    url: '../includes/actions/class/generateCode.php',
-                    dataType: 'json',
-                    type: 'GET',
-                    data: { class_name: class_name },
-                    success: function(data) {
-                        modal.find('#class_code').val(data.class_code);
-                    }
-                });
-            } else {
-                modal.find("#class_code").val("");
-                alert('Enter Class Name!');
-            }
-        });
-
         modal.find('#class_subjects').select2({
             placeholder: 'Select Class Subjects'
         });
@@ -366,4 +347,27 @@ function deleteClass(class_code, class_name) {
             }
         });
     });
+}
+
+function generateCode(){
+    alert();
+    /*
+    modal.find('#generateCode').on('click', function (e) {
+        var class_name = modal.find("#class_name").val();
+
+        if (class_name != "") {
+            $.ajax({
+                url: '../includes/actions/class/generateCode.php',
+                dataType: 'json',
+                type: 'GET',
+                data: { class_name: class_name },
+                success: function (data) {
+                    modal.find('#class_code').val(data.class_code);
+                }
+            });
+        } else {
+            modal.find("#class_code").val("");
+            alert('Enter Class Name!');
+        }
+    });*/
 }

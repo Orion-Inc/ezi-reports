@@ -75,7 +75,6 @@ $(document).ready(function() {
         if (classCode == null) {
             alert("Please Select a Class First!");
         } else {
-            $("#template-download-row").removeClass("hidden");
             $.AjaxDownloader({
                 url: "../includes/actions/report/download-report-template.php",
                 data: {
