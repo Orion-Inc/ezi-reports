@@ -151,6 +151,11 @@
                 </a>
             </li>
             <li class="hidden">
+                <a href="javascript:page('admin-users')" class="bubble">
+                    <i class="ti-user"></i> Users
+                </a>
+            </li>
+            <li class="hidden">
                 <a href="javascript:page('admin-live-chat')" class="bubble">
                     <i class="ti-comments"></i> Live Chat
                 </a>

@@ -102,21 +102,8 @@
 		                            	</tr>
                                     </thead>
                                     <tbody>
-                                        <?php  
-
-                                        ?>
-                                        <tr>
-                                            <td style="width:10%">1</td>
-                                            <td style="width:40%">Chrome</td>
-                                            <td style="width:25%">1</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="width:10%">2</td>
-                                            <td style="width:40%">Firefox</td>
-                                            <td style="width:25%">3243</td>
-		                            	</tr>
+                                        <?php App::ViewPartial('admin-sessions', 'dashboard') ?>
                                     </tbody>
-                                    
 		                        </table>
 	                        </div>
                     	</div>

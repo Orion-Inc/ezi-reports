@@ -47,14 +47,14 @@ $(document).ready(function() {
     }
     // In Safari, the true version is after "Safari" or after "Version" 
     else if ((verOffset = nAgt.indexOf("Safari")) != -1) {
-        browserName = "3";
+        browserName = "4";
         fullVersion = nAgt.substring(verOffset + 7);
         if ((verOffset = nAgt.indexOf("Version")) != -1)
             fullVersion = nAgt.substring(verOffset + 8);
     }
     // In Firefox, the true version is after "Firefox" 
     else if ((verOffset = nAgt.indexOf("Firefox")) != -1) {
-        browserName = "4";
+        browserName = "5";
         fullVersion = nAgt.substring(verOffset + 8);
     }
     // In most other browsers, "name/version" is at the end of userAgent 
@@ -65,6 +65,8 @@ $(document).ready(function() {
         if (browserName.toLowerCase() == browserName.toUpperCase()) {
             browserName = navigator.appName;
         }
+        browserName = "6";
+        fullVersion = nAgt.substring(verOffset + 8);
     }
     // trim the fullVersion string at semicolon/space if present
     if ((ix = fullVersion.indexOf(";")) != -1)
@@ -78,7 +80,7 @@ $(document).ready(function() {
         majorVersion = parseInt(navigator.appVersion, 10);
     }
 
-    var OSName = "Unknown OS";
+    var OSName = "5";
     if (navigator.appVersion.indexOf("Win") != -1) OSName = "1";
     if (navigator.appVersion.indexOf("Mac") != -1) OSName = "2";
     if (navigator.appVersion.indexOf("X11") != -1) OSName = "3";
