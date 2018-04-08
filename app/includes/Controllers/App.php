@@ -70,5 +70,19 @@
 			return $array;
 		}
 
+		public function genRandomString($length = 10, $text = ""){
+			$string = '';
+			$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' . $text;
+			$string_length = strlen($characters);
+
+			for ($p = 0; $p < $length; $p++) {
+				$i = mt_rand(0, $string_length);
+				if($i != $string_length){
+					$string .= $characters[$i];
+				}
+			}
+
+			return $string;
+		} 
 	}
 ?>

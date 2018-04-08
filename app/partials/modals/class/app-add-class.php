@@ -6,7 +6,7 @@
                 <h4 class="modal-title"><i class="ti-blackboard"></i> New Class</h4>
             </div>
             <div class="modal-body pt-0">
-                <form class="app-form-" method="POST" action="../includes/actions/class/add-class.php" id="add-class">
+                <form class="app-form" method="POST" action="../includes/actions/class/add-class.php" id="add-class">
                     <fieldset>
                         <legend>Form 1</legend>
                         <div class="row">
