@@ -30,20 +30,21 @@
 
         $totalMalePopulationPercent = number_format(@($totalMalePopulation[0]/$totalStudents[0])*100,2);
         $totalFemalePopulationPercent = number_format(@($totalFemalePopulation[0]/$totalStudents[0])*100,2);
+        
     ?>
-	<div class="row">
+    <div class="row">
         <div class="col-lg-12">
             <div class="widget clear">
-            	<div class="widget-heading clearfix">
-                  	<h3 class="widget-title pull-left">Overview <small class="hidden-xs">(Statistics, Site Traffic etc.)</small></h3>
-                  	<ul class="widget-tools pull-right list-inline">
+                <div class="widget-heading clearfix">
+                    <h3 class="widget-title pull-left">Overview <small class="hidden-xs">(Statistics, Site Traffic etc.)</small></h3>
+                    <ul class="widget-tools pull-right list-inline">
                         <li><a href="#edit-academic-year-modal" class="" data-toggle="modal"><i class="ti-calendar visible-xs"></i><span class="hidden-xs">Change Academic Year</span></a></li>
-                    	<li><a href="javascript:void(0);" class="widget-collapse"><i class="ti-angle-up"></i></a></li>
-                    	<li><a href="javascript:void(0);" class="widget-reload"><i class="ti-reload"></i></a></li>
-                  	</ul>
-            	</div>
-            	<div class="widget-body">
-                  	<div class="row">
+                        <li><a href="javascript:void(0);" class="widget-collapse"><i class="ti-angle-up"></i></a></li>
+                        <li><a href="javascript:void(0);" class="widget-reload"><i class="ti-reload"></i></a></li>
+                    </ul>
+                </div>
+                <div class="widget-body">
+                    <div class="row">
                     	<div class="col-md-6">
                             <div class="col-md-6">
                                 <div class="widget text-center">
@@ -90,33 +91,48 @@
                             </div>
                         </div>
 
-                    	<div class="col-md-6">
-	                      	<div class="table-responsive">
-		                        <table class="table table-hover mt-20">
-		                          	<thead>
+                        <div class="col-md-6">
+                            <div class="table-responsive">
+                                <table class="table table-hover mt-20">
+                                    <thead>
 		                            	<tr>
-		                              		<th style="width:10%">#</th>
-		                              		<th style="width:40%">Browser</th>
-		                              		<th style="width:25%">Sessions</th>
+                                            <th style="width:10%">#</th>
+                                            <th style="width:40%">Browser</th>
+                                            <th style="width:25%">Sessions</th>
 		                            	</tr>
-		                          	</thead>
-                                    <?php  ?>
+                                    </thead>
+                                    <tbody>
+                                        <?php  
+
+                                        ?>
+                                        <tr>
+                                            <td style="width:10%">1</td>
+                                            <td style="width:40%">Chrome</td>
+                                            <td style="width:25%">1</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:10%">2</td>
+                                            <td style="width:40%">Firefox</td>
+                                            <td style="width:25%">3243</td>
+		                            	</tr>
+                                    </tbody>
+                                    
 		                        </table>
-	                      	</div>
+	                        </div>
                     	</div>
-                  	</div>
+                    </div>
                 </div>
             </div>
             <div class="widget clear">
-            	<div class="widget-heading clearfix">
-                  	<h3 class="widget-title pull-left">Notifications <small>(Messages, Alerts etc.)</small></h3>
-                  	<ul class="widget-tools pull-right list-inline">
-                    	<li><a href="javascript:void(0);" class="widget-collapse"><i class="ti-angle-up"></i></a></li>
-                    	<li><a href="javascript:void(0);" class="widget-reload"><i class="ti-reload"></i></a></li>
-                  	</ul>
-            	</div>
-            	<div class="widget-body">
-                  	<div class="row">
+                <div class="widget-heading clearfix">
+                    <h3 class="widget-title pull-left">Notifications <small>(Messages, Alerts etc.)</small></h3>
+                    <ul class="widget-tools pull-right list-inline">
+                        <li><a href="javascript:void(0);" class="widget-collapse"><i class="ti-angle-up"></i></a></li>
+                        <li><a href="javascript:void(0);" class="widget-reload"><i class="ti-reload"></i></a></li>
+                    </ul>
+                </div>
+                <div class="widget-body">
+                    <div class="row">
                     	<div class="col-md-12">
                             <div role="tabpanel">
                                 <ul role="tablist" class="nav nav-tabs mb-15">
@@ -137,7 +153,7 @@
                                 </div>
                             </div>
                         </div>
-                  	</div>
+                    </div>
                 </div>
             </div>
         </div>

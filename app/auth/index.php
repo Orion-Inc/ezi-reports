@@ -21,6 +21,7 @@
 	<!-- Sweet Alert-->
     <link rel="stylesheet" type="text/css" href="../plugins/bootstrap-sweetalert/lib/sweet-alert.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900,300">
+	<script type="text/javascript" src="../plugins/jquery/dist/jquery.min.js"></script>
 </head>
 <body class="simple-page">
 	<div id="back-to-home" class="animated zoomIn hidden">
@@ -35,7 +36,7 @@
 			</a>
 		</div>
 
-		<?php if ($_GET['auth']=="login"): App::ViewPartial('login','auth-forms')?>
+		<?php if ($_GET['auth']=="login"): App::ViewPartial('login','auth-forms');?>
 			
 		<?php elseif($_GET['auth']=="forgot-password"): ?>
 		<!-- Work on Reset Password -->
@@ -54,6 +55,8 @@
 			</div>
 		<?php endif ?>
 	</div>
+	<!-- Custom Script -->
+	<script type="text/javascript" src="../build/js/page-content/auth-pages/login.js"></script>
 	<?php if (isset($_SESSION['ERRORS'])):;?>
 		<!-- Sweet Alert-->
 		<script type="text/javascript" src="../plugins/bootstrap-sweetalert/lib/sweet-alert.min.js"></script>
