@@ -3,15 +3,29 @@
 	$transact = Database::connect();
 
 	$errors = array();
-	$classSubjects = $_POST['class_subjects'];
+	$data = $_POST;
+	$classSubjects = $data['class_subjects'];
 
 	$classSubjectsParams = array( 
 		'class_code' => '',
 		'class_subjects' => addslashes(implode(",", $classSubjects))
 	);
 
-	print_r($_POST);
+print("<pre>" . print_r($_POST, true) . "</pre>");
 
+	for ($i=0; $i < sizeof($data['class_name']); $i++) { 
+		$a = $i+1;
+		$class[] = array(
+			'class_group' => '',
+			'identifier' => $a,
+			'class_name' => $data['class_name']['form_'.$a],
+			'class_teacher' => $data['class_teacher']['form_'.$a],
+			'class_code' => $data['class_code']['form_'.$a],
+			'class_course' => $data ['class_course']
+		);
+	}
+
+print("<pre>" . print_r($class, true) . "</pre>");
 /*
 	$transact->beginTransaction();
 

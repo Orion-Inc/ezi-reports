@@ -349,25 +349,22 @@ function deleteClass(class_code, class_name) {
     });
 }
 
-function generateCode(){
-    alert();
-    /*
-    modal.find('#generateCode').on('click', function (e) {
-        var class_name = modal.find("#class_name").val();
+function generateCode(dom,target){
+    var $this = $('#' + dom);
+    var $target = $('#' + target);
 
-        if (class_name != "") {
-            $.ajax({
-                url: '../includes/actions/class/generateCode.php',
-                dataType: 'json',
-                type: 'GET',
-                data: { class_name: class_name },
-                success: function (data) {
-                    modal.find('#class_code').val(data.class_code);
-                }
-            });
-        } else {
-            modal.find("#class_code").val("");
-            alert('Enter Class Name!');
-        }
-    });*/
+    if ($target.val() == ""){
+        var class_name = $this.val();
+        $.ajax({
+            url: '../includes/actions/class/generateCode.php',
+            dataType: 'json',
+            type: 'GET',
+            data: { class_name: class_name },
+            success: function (data) {
+                $target.val(data.class_code);
+            }
+        });
+    } else if ($this.val() == "" && $target.val() != ""){
+        $target.val('');
+    }
 }

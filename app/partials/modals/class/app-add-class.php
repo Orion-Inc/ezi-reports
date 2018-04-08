@@ -13,7 +13,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Class Name</label>
-                                    <input name="class_name[form_1]" type="text" class="form-control input-sm" onkeyup="generateCode()" placeholder="Class Name" data-rule-required="true">
+                                    <input name="class_name[form_1]" id="first_class_name"  type="text" class="form-control input-sm" onkeyup="generateCode('first_class_name','first_class_code')" placeholder="Class Name" data-rule-required="true">
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -25,7 +25,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Class Code</label>
-                                    <input name="class_code[form_1]" type="text" class="form-control input-sm" readonly="" placeholder="Class Code" data-rule-required="true">
+                                    <input name="class_code[form_1]" id="first_class_code"  type="text" class="form-control input-sm" readonly="" placeholder="Class Code" data-rule-required="true">
                                 </div>
                             </div>
                         </div>
@@ -36,7 +36,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Class Name</label>
-                                    <input name="class_name[form_2]" type="text" class="form-control input-sm" onkeyup="generateCode()" placeholder="Class Name" data-rule-required="true">
+                                    <input name="class_name[form_2]" id="second_class_name" type="text" class="form-control input-sm" onkeyup="generateCode('second_class_name','second_class_code')" placeholder="Class Name" data-rule-required="true">
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -48,7 +48,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Class Code</label>
-                                    <input name="class_code[form_2]" type="text" class="form-control input-sm" readonly="" placeholder="Class Code" data-rule-required="true">
+                                    <input name="class_code[form_2]" id="second_class_code" type="text" class="form-control input-sm" readonly="" placeholder="Class Code" data-rule-required="true">
                                 </div>
                             </div>
                         </div>
@@ -59,7 +59,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Class Name</label>
-                                    <input name="class_name[form_3]" type="text" class="form-control input-sm" onkeyup="generateCode()" placeholder="Class Name" data-rule-required="true">
+                                    <input name="class_name[form_3]" id="third_class_name" type="text" class="form-control input-sm" onkeyup="generateCode('third_class_name','third_class_code')" placeholder="Class Name" data-rule-required="true">
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -71,7 +71,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Class Code</label>
-                                    <input name="class_code[form_4]" type="text" class="form-control input-sm" readonly="" placeholder="Class Code" data-rule-required="true">   
+                                    <input name="class_code[form_3]" id="third_class_code" type="text" class="form-control input-sm" readonly="" placeholder="Class Code" data-rule-required="true">   
                                 </div>
                             </div>
                         </div>
