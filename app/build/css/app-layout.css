@@ -4580,7 +4580,6 @@ td#student-colspan.text-semibold:before {
 }
 
 fieldset {
-    border: 1px solid #ddd !important;
     margin: 0;
     xmin-width: 0;
     padding: 10px;
@@ -4588,6 +4587,10 @@ fieldset {
     position: relative;
     border-radius: 4px;
     padding-left: 10px!important;
+}
+
+fieldset.border {
+    border: 1px solid #ddd !important;
 }
 
 legend {

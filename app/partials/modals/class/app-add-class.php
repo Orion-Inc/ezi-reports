@@ -7,7 +7,7 @@
             </div>
             <div class="modal-body pt-0">
                 <form class="app-form" method="POST" action="../includes/actions/class/add-class.php" id="add-class">
-                    <fieldset>
+                    <fieldset class="border">
                         <legend>Form 1</legend>
                         <div class="row">
                             <div class="col-md-4">
@@ -30,7 +30,7 @@
                             </div>
                         </div>
                     </fieldset>
-                    <fieldset>
+                    <fieldset class="border">
                         <legend>Form 2</legend>
                         <div class="row">
                             <div class="col-md-4">
@@ -53,7 +53,7 @@
                             </div>
                         </div>
                     </fieldset>
-                    <fieldset>
+                    <fieldset class="border">
                         <legend>Form 3</legend>
                         <div class="row">
                             <div class="col-md-4">

@@ -70,7 +70,7 @@ $(document).ready(function() {
         var modal = $(this);
         var url = $(this).attr('data-fetch');
         var button = $(e.relatedTarget);
-        var school_code = button.data('school');
+        var school_code = button.data('school_code');
 
         modal.find('.modal-title').html('<i class="ti-user"></i> School Details');
         modal.find('.modal-body').html('<div class="text-center"><img src="../assets/images/loading.gif" width="64px" height="64px"/></div>');
@@ -98,7 +98,7 @@ $(document).ready(function() {
         var url = modal.attr('data-fetch');
 
         var button = $(e.relatedTarget);
-        var school_code = button.data('school');
+        var school_code = button.data('school_code');
         modal.find('#school_code').val(school_code);
 
         $.ajax({
@@ -130,7 +130,7 @@ $(document).ready(function() {
         var modal = $(this);
 
         var button = $(e.relatedTarget);
-        var school_code = button.data('school');
+        var school_code = button.data('school_code');
         var form = '<form id="school-crest-form" action="../includes/actions/school/admin-edit-school-crest.php" class="dropzone"></form>';
 
         var url = "../includes/actions/school/admin-edit-school-crest.php?school_code=" + school_code;
@@ -164,7 +164,7 @@ $(document).ready(function() {
         var modal = $(this);
 
         var button = $(e.relatedTarget);
-        var school_code = button.data('school');
+        var school_code = button.data('school_code');
 
 
         $.ajax({
@@ -190,7 +190,9 @@ $(document).ready(function() {
         var modal = $(this);
 
         var button = $(e.relatedTarget);
+        var school_code = button.data('school_code');
         var school_name = button.data('school_name');
+        
 
         modal.find('.modal-title').text(school_name); 
         
