@@ -5,10 +5,14 @@
 		'user_code' => $_SESSION['SESS_USER_ID'], 
 		'token' => NULL
 	);
-
+	$sessionParams = array(
+		'token' => $_SESSION['SESS_TOKEN'],
+		'time_stamp' => date ("Y-m-d H:i:s")
+	);
 
 	try {
 		$query = Database::query("UPDATE `ezi_users` SET `token`= :token WHERE `user_code` = :user_code", $params);
+		$session = Database::query("UPDATE `ezi_sessions` SET `logout_date_time`= :time_stamp WHERE `token` = :token AND `logout_date_time` IS NULL", $sessionParams);
 
 		switch ($_SESSION['SESS_USER_TYP']) {
 			case 'eziAdmin':
@@ -38,8 +42,9 @@
 				break;
 			
 			default:
-				# code...
-				break;
+				session_destroy();
+				header("Location: ../../auth/?auth=login");
+			break;
 		}
 
 		session_destroy();
