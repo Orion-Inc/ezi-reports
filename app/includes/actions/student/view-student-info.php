@@ -24,6 +24,9 @@
         $guardian_email = '<a href="mailto:'.$student_guardian_info['guardian_email'].'" target="_blank">'.$student_guardian_info['guardian_email'].'</a>';
         $guardian_contact = '<a href="tel:'.$student_guardian_info['guardian_telephone'].'">'.$student_guardian_info['guardian_telephone'].'</a>';
 
+		$course = (!empty($course)) ? $course : 'Not Assigned';
+		$class = (!empty($class)) ? $class : 'Not Assigned';
+
 			$studentDetails = '
 							<tr>
 	                            <td colspan="1">Student Name:</td>
@@ -39,11 +42,11 @@
 	                        </tr>
 	                        <tr>
 	                            <td colspan="1">Course:</td>
-	                            <td><strong>'.$course = (!empty($course)) ? $course : 'Not Assigned'.'</strong></td>
+	                            <td><strong>'.$course.'</strong></td>
 	                        </tr>
 	                        <tr>
 	                            <td colspan="1">Class:</td>
-	                            <td><strong>'.$class = (!empty($class)) ? $class : 'Not Assigned'.'</strong></td>
+	                            <td><strong>'.$class.'</strong></td>
 	                        </tr>
 	                        <tr>
 	                            <td colspan="1">Status:</td>
