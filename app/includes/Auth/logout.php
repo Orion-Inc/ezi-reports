@@ -12,7 +12,10 @@
 
 	try {
 		$query = Database::query("UPDATE `ezi_users` SET `token`= :token WHERE `user_code` = :user_code", $params);
-		$session = Database::query("UPDATE `ezi_sessions` SET `logout_date_time`= :time_stamp WHERE `token` = :token AND `logout_date_time` IS NULL", $sessionParams);
+		if ($_SESSION['SESS_USER_TYP'] != "eziAdmin") {
+			$session = Database::query("UPDATE `ezi_sessions` SET `logout_date_time`= :time_stamp WHERE `token` = :token AND `logout_date_time` IS NULL", $sessionParams);
+		}
+		
 
 		switch ($_SESSION['SESS_USER_TYP']) {
 			case 'eziAdmin':
