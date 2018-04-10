@@ -3,11 +3,12 @@
 	$transact = Database::connect();
 
 	$errors = array();
+	$school_code = $_SESSION['SESS_USER_ID'];
 
 	$studentParams = array( 
 		'student_code' => stripslashes($_POST['student_code']),
 		'student_name' => stripslashes($_POST['student_name']),
-		'school_code' => $_SESSION['SESS_USER_ID']
+		'school_code' => $school_code
 	);
 
 	$student_detailsParams = array( 
@@ -17,6 +18,12 @@
 		'student_class' => stripslashes($_POST['student_class']),
 		'student_status' => stripslashes($_POST['student_status']),
 		'student_house' => stripslashes($_POST['student_house'])
+	);
+
+	$student_classParams = array(
+		'student_code' => stripslashes($_POST['student_code']),
+		'student_class' => stripslashes($_POST['student_class']),
+		'school_code' => $school_code
 	);
 
 	$student_guardian_infoParams = array( 
@@ -59,6 +66,19 @@
 			:student_house
 			)", 
 			$student_detailsParams
+		);
+
+		$addStudentClass = Database::query(
+			"INSERT INTO `ezi_student_class`(
+				`student_code`, 
+				`student_class`, 
+				`school_code`) 
+				VALUES (
+				:student_code,
+				:student_class,
+				:school_code
+				)",
+			$student_classParams
 		);
 
 		$addGuardianInfo = Database::query("INSERT INTO `ezi_student_guardian`(

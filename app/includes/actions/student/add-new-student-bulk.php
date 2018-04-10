@@ -38,12 +38,14 @@
 
 		while (!feof($file)) {
 			$data = fgetcsv($file);
+
+			$school_code = $_SESSION['SESS_USER_ID'];
 			$student_code = generateCode($data[0]);
 
 			$studentParams = array( 
                 'student_code' => $student_code,
                 'student_name' => $data[0],
-                'school_code' => $_SESSION['SESS_USER_ID']
+                'school_code' => $school_code
             );
         
             $student_detailsParams = array( 
@@ -53,7 +55,13 @@
                 'student_class' => $data[3],
                 'student_status' => $data[4],
                 'student_house' => $data[5]
-            );
+			);
+
+			$student_classParams = array(
+				'student_code' => $student_code,
+				'student_class' => $data[3],
+				'school_code' => $school_code
+			);
         
             $student_guardian_infoParams = array( 
                 'student_code' => $student_code,
@@ -95,6 +103,19 @@
 					:student_house
 					)", 
 					$student_detailsParams
+				);
+
+				$addStudentClass = Database::query(
+					"INSERT INTO `ezi_student_class`(
+					`student_code`, 
+					`student_class`, 
+					`school_code`) 
+					VALUES (
+					:student_code,
+					:student_class,
+					:school_code
+					)",
+					$student_classParams
 				);
 
 				$addGuardianInfo = Database::query("INSERT INTO `ezi_student_guardian`(
