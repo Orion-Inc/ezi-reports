@@ -10,7 +10,9 @@
 </div>
 <div class="page-content container-fluid animated fadeIn">
     <div class="row">		
-
+        <div class="col-md-6 col-md-offset-3">
+            <?php App::ViewPartial('promote-class', 'promote') ?>
+        </div>
     </div>
 </div>
 
