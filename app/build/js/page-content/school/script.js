@@ -154,9 +154,7 @@ $(document).ready(function() {
         errorPlacement: function(r, e) {
             e.parent(".input-group").length ? r.insertAfter(e.parent()) : e.parent("label").length ? r.insertBefore(e.parent()) : r.insertAfter(e)
         }
-    });
-
-    
+    }); 
 
     var validateEditAdministrationForm = $("#school-administration-info").validate({
         highlight: function(r) {
@@ -170,6 +168,53 @@ $(document).ready(function() {
         errorPlacement: function(r, e) {
             e.parent(".input-group").length ? r.insertAfter(e.parent()) : e.parent("label").length ? r.insertBefore(e.parent()) : r.insertAfter(e)
         }
+    });
+
+    var validateAccessKeyForm = $("#promote-form").validate({
+        highlight: function (r) {
+            $(r).closest(".form-group").addClass("has-error")
+        },
+        unhighlight: function (r) {
+            $(r).closest(".form-group").removeClass("has-error")
+        },
+        errorElement: "span",
+        errorClass: "help-block",
+        errorPlacement: function (r, e) {
+            e.parent(".input-group").length ? r.insertAfter(e.parent()) : e.parent("label").length ? r.insertBefore(e.parent()) : r.insertAfter(e)
+        },
+        rules: {
+            accessKey: {
+                remote: {
+                    url: "../includes/auth/verify-access-key.php",
+                    type: "POST",
+                    data: {
+                        oldAccessKey: function () {
+                            return $("#accessKey").val();
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    $("#promote-button").on('click', function () {
+        $('#confirm-password-modal').modal('show');
+        return false;
+    });
+
+    $('#confirm-password-modal').on('hidden.bs.modal', function (e) {
+        var modal = $(this);
+        modal.find('form')[0].reset();
+        modal.find('form .form-group').removeClass("has-error");
+        validateAccessKeyForm.resetForm();
+    });
+    
+    $("#promote-form").on('submit', function () {
+        var isValid = validateAccessKeyForm.valid();
+        if (isValid == true) {
+            
+        }
+        return false;
     });
 
     $(".app-form").on('submit', function() {
