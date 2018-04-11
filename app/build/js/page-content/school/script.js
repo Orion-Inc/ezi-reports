@@ -212,6 +212,8 @@ $(document).ready(function() {
     $("#promote-form").on('submit', function () {
         var isValid = validateAccessKeyForm.valid();
         if (isValid == true) {
+            $('#confirm-password-modal').modal('hide');
+
             
         }
         return false;
