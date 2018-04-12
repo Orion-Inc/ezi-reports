@@ -3,6 +3,7 @@
         <div class="modal-content">
             <div class="modal-body">
                 <form method="POST" action="../includes/actions/school/promote-students.php" id="promote-form">
+                    <input type="hidden" name="school_code" value="<?php App::show($_SESSION['SESS_USER_ID']) ?>">
                     <div class="row">
                         <div class="col-md-12">
                             <p class="text-center">Please provide your Access Key</p>

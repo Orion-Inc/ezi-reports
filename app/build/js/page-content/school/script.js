@@ -216,6 +216,20 @@ $(document).ready(function() {
             
             $("#promote-class").hide();
             $("#promote-status").html('<div class="text-center"><img src="../assets/images/loading.gif" width="64px" height="64px"/></div>');
+
+            var form = $(this);
+            var data = form.serialize();
+            var url = form.attr('action');
+
+            $.ajax({
+                url: url,
+                dataType: 'json',
+                type: 'POST',
+                data: data,
+                success: function (data) {
+                
+                }
+            });
         }
         return false;
     });
