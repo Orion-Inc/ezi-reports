@@ -213,9 +213,9 @@ $(document).ready(function() {
         var isValid = validateAccessKeyForm.valid();
         if (isValid == true) {
             $('#confirm-password-modal').modal('hide');
-
-            //promote-class
-            //promote-status
+            
+            $("#promote-class").hide();
+            $("#promote-status").html('<div class="text-center"><img src="../assets/images/loading.gif" width="64px" height="64px"/></div>');
         }
         return false;
     });
