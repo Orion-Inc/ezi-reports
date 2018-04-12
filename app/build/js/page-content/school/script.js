@@ -214,7 +214,8 @@ $(document).ready(function() {
         if (isValid == true) {
             $('#confirm-password-modal').modal('hide');
 
-            
+            //promote-class
+            //promote-status
         }
         return false;
     });
