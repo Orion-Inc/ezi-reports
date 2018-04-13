@@ -57,7 +57,7 @@ $(document).ready(function () {
     }
 
     end = function () {
-        
+        toastr.success("Report Downloaded!", 'Success!');
     }
 
     downloadReport = function (student_code, academic_year,academic_term) {
