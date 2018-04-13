@@ -157,7 +157,7 @@
                 </div>
                 <div class="row">
                     <div class="pull-right pr-15">
-                        <button type="button" class="btn btn-sm btn-primary btn-outline bt" onclick="downloadReport()">
+                        <button type="button" class="btn btn-sm btn-primary btn-outline bt" onclick="downloadReport(\''.$data['student_code'].'\',\''.$data['academic_year'].'\',\''.$data['academic_term'].'\')">
                             <i class="ti-printer mr-5"></i> Download Report
                         </button>
                     </div>

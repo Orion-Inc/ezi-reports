@@ -56,8 +56,21 @@ $(document).ready(function () {
         $("#query-class-row").removeClass('hidden');
     }
 
-    downloadReport = function () {
+    end = function () {
+        
+    }
+
+    downloadReport = function (student_code, academic_year,academic_term) {
         alert();
+        $.AjaxDownloader({
+            url: "../includes/actions/report/download-report.php",
+            data: {
+                student_code: student_code,
+                academic_year: academic_year,
+                academic_term: academic_term
+            },
+            success: end()
+        });
     }
 
 });

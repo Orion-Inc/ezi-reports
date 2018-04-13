@@ -25,5 +25,8 @@
         </div>
     </div>
 </div>
+<!-- Ajax Download-->
+<script type="text/javascript" src="../plugins/ajaxdownloader/ajaxdownloader.min.js"></script>
+
 <!-- Custom Script -->
 <script type="text/javascript" src="../build/js/page-content/reports/student-script.js"></script>
