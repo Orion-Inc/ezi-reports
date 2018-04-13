@@ -50,4 +50,14 @@ $(document).ready(function () {
         }
     });
 
+    goback = function(){
+        $("#query-report-row").addClass('hidden');
+        $("#query-report-row").html('');
+        $("#query-class-row").removeClass('hidden');
+    }
+
+    downloadReport = function () {
+        alert();
+    }
+
 });

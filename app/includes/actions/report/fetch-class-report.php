@@ -72,14 +72,17 @@
             }
 
             $tableHeader = '<div class="col-md-12"><div class="panel-group" id="class-report" role="tablist" aria-multiselectable="true">';
-            $table_controls = '<div class="pb-30">
-                        <div class="pull-left">
+            $table_controls = '
+                    <div class="row">
+                        <div class="pull-left pl-15">
                             <p class="fw-300">
                                 <b>' . Classes::getClass($data['class_code'], 'class_name') . '</b>
                             </p>
                         </div>
-                        <div class="pull-right">
-                            <a href="javascript:goback()">Go Back</a>
+                        <div class="pull-right pr-15">
+                            <button type="button" class="btn btn-link" onclick="goback()">
+                                Go Back
+                            </button>
                         </div>
                     </div>
                     <div class="row">
@@ -127,7 +130,15 @@
                         </tr>';
             }
 
-            $table = '<div class="table-responsive">
+            $table = '
+                <div class="row">
+                    <div class="pull-right pr-15">
+                        <button type="button" class="btn btn-link" onclick="goback()">
+                            Go Back
+                        </button>
+                    </div>
+                </div>
+                <div class="table-responsive">
                     <table class="table table-bordered">
                         <thead>
                             <tr>
@@ -143,7 +154,15 @@
                         ' . $results . '
                         </tbody>
                     </table>
-                </div>';
+                </div>
+                <div class="row">
+                    <div class="pull-right pr-15">
+                        <button type="button" class="btn btn-sm btn-primary btn-outline bt" onclick="downloadReport()">
+                            <i class="ti-printer mr-5"></i> Download Report
+                        </button>
+                    </div>
+                </div>
+                ';
 
             $page = $table;
         }
