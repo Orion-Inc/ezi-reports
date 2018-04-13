@@ -21,6 +21,7 @@
 
 	$errors = array();
 
+	$dir = '/ezi-reports/app';
 	$prefix = '?auth=forgot-password&token=';
 	$code_email = stripslashes($_POST['code_email']);
 	$loginPrefix = substr($code_email,0,3);
@@ -47,16 +48,21 @@
 
 				$params = array(
 					'{user}' => $school['school_name'],
-					'{verification_code}' => $verificationCode
+					'{verification_code}' => $verificationCode,
+					'{ezi_email}' => '',
+					'{orion_website}' => '',
+					'{ezi_website}' => '',
+					'{orion_logo}' => $_SERVER['HTTP_ORIGIN'] . $dir . '/assets/images/logo-dark.png',
+					'{main_logo}' => $_SERVER['HTTP_ORIGIN'] . $dir . '/assets/images/logo-2.png'
 				);
 				$email = strtr($mailTemplate, $params);
 				echo $email;
-
+/*
 				try {
 				//Recipients
-					$mail->setFrom('sms@orionic.tech', 'Orion Ltd.');
+					$mail->setFrom('sms@orionic.tech', 'eziReports.');
 					$mail->addAddress($email, $fullname);
-					$mail->addReplyTo('sms@orionic.tech', 'Orion Ltd.');
+					$mail->addReplyTo('sms@orionic.tech', 'eziReports');
 				
 				//Content
 					$mail->isHTML(true);                                  // Set email format to HTML
@@ -68,7 +74,7 @@
 				} catch (Exception $e) {
 					$errors[] = array('message' => 'Message could not be sent.');
 				}
-
+*/
 				if (1==1){
 					
 
