@@ -7,6 +7,7 @@
 	require '../PHPMailer/src/PHPMailer.php';
 	require '../PHPMailer/src/SMTP.php';
 
+	$transact = Database::connect();
 	$generate = new App();
 	$mail = new PHPMailer(true);
 
@@ -56,34 +57,49 @@
 					'{main_logo}' => $_SERVER['HTTP_ORIGIN'] . $dir . '/assets/images/logo-2.png'
 				);
 				$email = strtr($mailTemplate, $params);
-				echo $email;
-/*
+
+			
+				$transact->beginTransaction();
 				try {
-				//Recipients
+					//Recipients
 					$mail->setFrom('sms@orionic.tech', 'eziReports.');
 					$mail->addAddress($email, $fullname);
 					$mail->addReplyTo('sms@orionic.tech', 'eziReports');
-				
-				//Content
+					
+					//Content
 					$mail->isHTML(true);                                  // Set email format to HTML
 					$mail->Subject = 'Recover Password';
 					$mail->Body = $body;
 					$mail->AltBody = 'To recover your password, please click on this link: ' . $recover_link;
 
 					$mail->send();
-				} catch (Exception $e) {
-					$errors[] = array('message' => 'Message could not be sent.');
-				}
-*/
-				if (1==1){
-					
 
+					$verifyParams = array(
+						'user_code' => $school['school_code'],
+						'token' => $token,
+						'verification_code' => $verificationCode
+					);
 
-					//header("Location:../../../app/auth/{$prefix}{$token}&type=email");
-				}else{
-					$errors[0] = array('auth_error' => 'true', 'message' => "We encountered a problem while trying to send you a verification code.\nPlease try again or Contact Us.");
+					$verifyQuery = Database::query(
+						"INSERT INTO `ezi_user_password_resets`(
+							`user_code`, 
+							`token`, 
+							`verification_code`
+							) VALUES (
+								:user_code,
+								:token,
+								:verification_code
+							)",
+						$verifyParams
+					);
+
+					$transact->commit();
+					header("Location:../../../app/auth/{$prefix}{$token}&type=email");
+				} catch (PDOException $e) {
+					$transact->rollBack();
+					$errors[0] = array('auth_error' => 'true', 'error_msg' => $e->getMessage(), 'message' => "We encountered a problem while trying to send you a verification code.\nPlease try again or Contact Us.");
 					$_SESSION['ERRORS'] = $errors[0];
-					//header("Location:../../../app/auth/?auth=forgot-password");
+					header("Location:../../../app/auth/?auth=forgot-password");
 				}
 			}
 		}else if(preg_match("/[S][0-99]*/",$loginPrefix)===1){
