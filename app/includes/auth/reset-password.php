@@ -118,7 +118,7 @@
 				} else {
 					$student = $isStudentValid;
 					$token = $generate->token_generator();
-					$verificationCode = $generate->randomString(5);
+					$verificationCode = $generate->randomString(8);
 
 					$smsTemplate = file_get_contents('../../templates/sms/password-reset.text');;
 
