@@ -46,12 +46,12 @@
 
 					header("Location:../../{$prefix}{$token}");
 				} catch (PDOException $e) {
-					$errors[0] = array('auth_error' => 'true', 'pdo' => $e->getMessage(), 'message' => "An Error Occured!\nPlease try again or Contact Us.");
+					$errors[0] = array('auth_error' => 'true', 'type' => 'error', 'pdo' => $e->getMessage(), 'message' => "An Error Occured!\nPlease try again or Contact Us.");
 					$_SESSION['ERRORS'] = $errors[0];
 					header("Location:../../../app/auth/?auth=login");
 				}
 			} else {
-				$errors[0] = array('auth_error' => 'true', 'message' => "Wrong Username or Password!");
+				$errors[0] = array('auth_error' => 'true', 'type' => 'error', 'message' => "Wrong Username or Password!");
 				$_SESSION['ERRORS'] = $errors[0];
 				header("Location:../../../app/auth/?auth=login");
 			}
@@ -118,17 +118,17 @@
 
 						header("Location:../../{$prefix}{$token}");
 					} catch (Exception $e) {
-						$errors[0] = array('auth_error' => 'true', 'message' => "An Error Occured!\nPlease try again or Contact Us.");
+						$errors[0] = array('auth_error' => 'true', 'type' => 'error', 'message' => "An Error Occured!\nPlease try again or Contact Us.");
 						$_SESSION['ERRORS'] = $errors[0];
 						header("Location:../../../app/auth/?auth=login");
 					}
 				} else {
-					$errors[0] = array('auth_error' => 'true', 'message' => "Wrong Access Code Provided!");
+					$errors[0] = array('auth_error' => 'true', 'type' => 'error', 'message' => "Wrong Access Code Provided!");
 					$_SESSION['ERRORS'] = $errors[0];
 					header("Location:../../../app/auth/?auth=login");
 				}
 			} else {
-				$errors[0] = array('auth_error' => 'true', 'message' => "Wrong School Code!");
+				$errors[0] = array('auth_error' => 'true', 'type' => 'error', 'message' => "Wrong School Code!");
 				$_SESSION['ERRORS'] = $errors[0];
 				header("Location:../../../app/auth/?auth=login");
 			}
@@ -194,18 +194,18 @@
 
 						header("Location:../../{$prefix}{$token}");
 					} catch (Exception $e) {
-						$errors[0] = array('auth_error' => 'true', 'message' => "An Error Occured!\nPlease try again or Contact Us.");
+						$errors[0] = array('auth_error' => 'true', 'type' => 'error', 'message' => "An Error Occured!\nPlease try again or Contact Us.");
 						$_SESSION['ERRORS'] = $errors[0];
 						header("Location:../../../app/auth/?auth=login");
 					}
 				} else {
-					$errors[0] = array('auth_error' => 'true', 'message' => "Wrong Access Code Provided!");
+					$errors[0] = array('auth_error' => 'true', 'type' => 'error', 'message' => "Wrong Access Code Provided!");
 					$_SESSION['ERRORS'] = $errors[0];
 					header("Location:../../../app/auth/?auth=login");
 				}
 
 			} else {
-				$errors[0] = array('auth_error' => 'true', 'message' => "Wrong Student Code!");
+				$errors[0] = array('auth_error' => 'true', 'type' => 'error', 'message' => "Wrong Student Code!");
 				$_SESSION['ERRORS'] = $errors[0];
 				header("Location:../../../app/auth/?auth=login");
 			}
@@ -213,7 +213,7 @@
 			break;
 
 		default:
-			$errors[0] = array('auth_error' => 'true', 'message' => "Please Enter Correct Credentials");
+			$errors[0] = array('auth_error' => 'true', 'type' => 'error', 'message' => "Please Enter Correct Credentials");
 			$_SESSION['ERRORS'] = $errors[0];
 			header("Location:../../../app/auth/?auth=login");
 			break;

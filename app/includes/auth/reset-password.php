@@ -28,7 +28,7 @@
 
 
 	if (empty($code_email)) {
-		$errors[0] = array('auth_error' => 'true', 'message' => "Please enter Your Email Address or User Code");
+		$errors[0] = array('auth_error' => 'true', 'type' => 'error', 'message' => "Please enter Your Email Address or User Code");
 		$_SESSION['ERRORS'] = $errors[0];
 		header("Location:../../../app/auth/?auth=forgot-password");
 	} else {
@@ -36,7 +36,7 @@
 			$isEmailValid = Database::query("SELECT `school_code`,`school_name`,`school_email` FROM `ezi_school` WHERE (`school_email`='{$code_email}' OR `school_code`='{$code_email}')")[0];
 
 			if (empty($isEmailValid)) {
-				$errors[0] = array('auth_error' => 'true', 'message' => "The Email or User Code you entered is invalid!");
+				$errors[0] = array('auth_error' => 'true', 'type' => 'error', 'message' => "The Email or User Code you entered is invalid!");
 				$_SESSION['ERRORS'] = $errors[0];
 				header("Location:../../../app/auth/?auth=forgot-password");
 			} else {
@@ -96,7 +96,7 @@
 					header("Location:../../../app/auth/?auth=forgot-password&x={$school['school_code']}&y={$token}&t=email");
 				} catch (PDOException $e) {
 					$transact->rollBack();
-					$errors[0] = array('auth_error' => 'true', 'error_msg' => $e->getMessage(), 'message' => "We encountered a problem while trying to send you a verification code.\nPlease try again or Contact Us.");
+					$errors[0] = array('auth_error' => 'true', 'type' => 'error', 'error_msg' => $e->getMessage(), 'message' => "We encountered a problem while trying to send you a verification code.\nPlease try again or Contact Us.");
 					$_SESSION['ERRORS'] = $errors[0];
 					header("Location:../../../app/auth/?auth=forgot-password");
 				}
@@ -105,14 +105,14 @@
 			$isStudentValid = Database::query("SELECT `student_code`,`student_name` FROM `ezi_student` WHERE `student_code` ='{$code_email}'")[0];
 
 			if (empty($isStudentValid)) {
-				$errors[0] = array('auth_error' => 'true', 'message' => "The User Code you entered is invalid!");
+				$errors[0] = array('auth_error' => 'true', 'type' => 'error', 'message' => "The User Code you entered is invalid!");
 				$_SESSION['ERRORS'] = $errors[0];
 				//header("Location:../../../app/auth/?auth=forgot-password");
 			} else {
 				$isTelValid = Database::query("SELECT `guardian_telephone` FROM `ezi_student_guardian` WHERE `student_code` ='{$code_email}'")[0];
 
 				if (empty($isTelValid)) {
-					$errors[0] = array('auth_error' => 'true', 'message' => "We encountered a problem while trying to send you a verification code.\nPlease try again or Contact Us.");
+					$errors[0] = array('auth_error' => 'true', 'type' => 'error', 'message' => "We encountered a problem while trying to send you a verification code.\nPlease try again or Contact Us.");
 					$_SESSION['ERRORS'] = $errors[0];
 					//header("Location:../../../app/auth/?auth=forgot-password");
 				} else {
@@ -134,14 +134,14 @@
 
 						//header("Location:../../../app/auth/?auth=forgot-password&x={}&y={$token}&t=sms");
 					}else{
-						$errors[0] = array('auth_error' => 'true', 'message' => "We encountered a problem while trying to send you a verification code.\nPlease try again or Contact Us.");
+						$errors[0] = array('auth_error' => 'true', 'type' => 'error', 'message' => "We encountered a problem while trying to send you a verification code.\nPlease try again or Contact Us.");
 						$_SESSION['ERRORS'] = $errors[0];
 						//header("Location:../../../app/auth/?auth=forgot-password");
 					}
 				}
 			}			
 		}else{
-			$errors[0] = array('auth_error' => 'true', 'message' => "The Email or User Code you entered is invalid!");
+			$errors[0] = array('auth_error' => 'true', 'type' => 'error', 'message' => "The Email or User Code you entered is invalid!");
 			$_SESSION['ERRORS'] = $errors[0];
 			//header("Location:../../../app/auth/?auth=forgot-password");
 		}

@@ -66,9 +66,9 @@
 			var msg = <?php echo json_encode($_SESSION['ERRORS']);?>;
 			setTimeout(function () {
 				swal({
-					title:"Oops!",
+					title:"Prompt!",
 					text:msg.message,
-					type:"error",
+					type:msg.type,
 					confirmButtonClass:"btn-sm",
 					confirmButtonText:"OK"
 				});
