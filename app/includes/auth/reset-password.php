@@ -107,14 +107,14 @@
 			if (empty($isStudentValid)) {
 				$errors[0] = array('auth_error' => 'true', 'type' => 'error', 'message' => "The User Code you entered is invalid!");
 				$_SESSION['ERRORS'] = $errors[0];
-				//header("Location:../../../app/auth/?auth=forgot-password");
+				header("Location:../../../app/auth/?auth=forgot-password");
 			} else {
-				$isTelValid = Database::query("SELECT `guardian_telephone` FROM `ezi_student_guardian` WHERE `student_code` ='{$code_email}'")[0];
+				$isTelValid = Database::query("SELECT `guardian_telephone`,`guardian_email` FROM `ezi_student_guardian` WHERE `student_code` ='{$code_email}'")[0];
 
 				if (empty($isTelValid)) {
 					$errors[0] = array('auth_error' => 'true', 'type' => 'error', 'message' => "We encountered a problem while trying to send you a verification code.\nPlease try again or Contact Us.");
 					$_SESSION['ERRORS'] = $errors[0];
-					//header("Location:../../../app/auth/?auth=forgot-password");
+					header("Location:../../../app/auth/?auth=forgot-password");
 				} else {
 					$student = $isStudentValid;
 					$token = $generate->token_generator();
