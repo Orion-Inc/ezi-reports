@@ -9,7 +9,7 @@
                 <form id="school-head-signature-form" action="../includes/actions/school/edit-school-signatories.php?t=head-signature" class="dropzone signature-form"></form>
             </div>
             <div class="modal-footer">
-              
+            
             </div>
         </div>
     </div>
@@ -23,10 +23,10 @@
                 <h4 id="edit-ass-head-signature-label" class="modal-title">Change Asst. Head Signature</h4>
             </div>
             <div class="modal-body">
-                <form id="school-ass-head-signature-form"" action="../includes/actions/school/edit-school-signatories.php?t=ass-head-signature" class="dropzone signature-form"></form>
+                <form id="school-ass-head-signature-form" action="../includes/actions/school/edit-school-signatories.php?t=ass-head-signature" class="dropzone signature-form"></form>
             </div>
             <div class="modal-footer">
-              
+            
             </div>
         </div>
     </div>
@@ -40,10 +40,10 @@
                 <h4 id="edit-accountant-signature-label" class="modal-title">Change Accountant Signature</h4>
             </div>
             <div class="modal-body">
-                <form id="school-account-signature-form"" action="../includes/actions/school/edit-school-signatories.php?t=account-signature" class="dropzone signature-form"></form>
+                <form id="school-account-signature-form" action="../includes/actions/school/edit-school-signatories.php?t=account-signature" class="dropzone signature-form"></form>
             </div>
             <div class="modal-footer">
-              
+            
             </div>
         </div>
     </div>

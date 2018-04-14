@@ -40,11 +40,13 @@
 			
 		<?php elseif($_GET['auth']=="forgot-password"): ?>
 		<!-- Work on Reset Password -->
-			<?php if($_GET['auth']=="forgot-password" && isset($_GET['token'])): 
+			<?php if($_GET['auth']=="forgot-password" && isset($_GET['x']) && isset($_GET['y'])): 
 				App::ViewPartial('verify','auth-forms');
 			?>
 			<?php else:  App::ViewPartial('forgot','auth-forms')?>
 			<?php endif ?>
+		<?php elseif ($_GET['auth'] == "access-code" && isset($_GET['x']) && isset($_GET['y'])) : ?>
+			<?php App::ViewPartial('new-access-key', 'auth-forms'); ?>
 		<?php else: header('Location:?auth=login');?>
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">

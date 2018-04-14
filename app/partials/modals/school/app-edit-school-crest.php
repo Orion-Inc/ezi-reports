@@ -9,7 +9,7 @@
                 <form id="school-crest-form" action="../includes/actions/school/edit-school-crest.php" class="dropzone"></form>
             </div>
             <div class="modal-footer">
-              
+            
             </div>
         </div>
     </div>

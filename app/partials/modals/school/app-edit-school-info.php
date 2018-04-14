@@ -54,10 +54,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-outline btn-success">Submit</button>
-                    <button type="button" data-dismiss="modal" class="btn btn-outline btn-default">Close</button>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-outline btn-success">Submit</button>
+                        <button type="button" data-dismiss="modal" class="btn btn-outline btn-default">Close</button>
+                    </div>
                 </div>
             </form>
         </div>

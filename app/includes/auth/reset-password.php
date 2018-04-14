@@ -23,7 +23,6 @@
 	$errors = array();
 
 	$dir = '/ezi-reports/app';
-	$prefix = '?auth=forgot-password&token=';
 	$code_email = stripslashes($_POST['code_email']);
 	$loginPrefix = substr($code_email,0,3);
 
@@ -43,7 +42,7 @@
 			} else {
 				$school = $isEmailValid;
 				$token = $generate->token_generator();
-				$verificationCode = $generate->randomString(5);
+				$verificationCode = $generate->randomString(8);
 
 				$mailTemplate = file_get_contents('../../templates/emails/password-reset.html');
 
@@ -56,21 +55,21 @@
 					'{orion_logo}' => $_SERVER['HTTP_ORIGIN'] . $dir . '/assets/images/logo-dark.png',
 					'{main_logo}' => $_SERVER['HTTP_ORIGIN'] . $dir . '/assets/images/logo-2.png'
 				);
-				$email = strtr($mailTemplate, $params);
+				$body = strtr($mailTemplate, $params);
 
 			
 				$transact->beginTransaction();
 				try {
 					//Recipients
 					$mail->setFrom('sms@orionic.tech', 'eziReports.');
-					$mail->addAddress($email, $fullname);
+					$mail->addAddress($school['school_email'], $school['school_name']);
 					$mail->addReplyTo('sms@orionic.tech', 'eziReports');
 					
 					//Content
 					$mail->isHTML(true);                                  // Set email format to HTML
 					$mail->Subject = 'Recover Password';
 					$mail->Body = $body;
-					$mail->AltBody = 'To recover your password, please click on this link: ' . $recover_link;
+					$mail->AltBody = 'To recover your password, please enter this code: ' . $verificationCode;
 
 					$mail->send();
 
@@ -94,7 +93,7 @@
 					);
 
 					$transact->commit();
-					header("Location:../../../app/auth/{$prefix}{$token}&type=email");
+					header("Location:../../../app/auth/?auth=forgot-password&x={$school['school_code']}&y={$token}&t=email");
 				} catch (PDOException $e) {
 					$transact->rollBack();
 					$errors[0] = array('auth_error' => 'true', 'error_msg' => $e->getMessage(), 'message' => "We encountered a problem while trying to send you a verification code.\nPlease try again or Contact Us.");
@@ -133,7 +132,7 @@
 						
 
 
-						//header("Location:../../../app/auth/{$prefix}{$token}&type=sms");
+						//header("Location:../../../app/auth/?auth=forgot-password&x={}&y={$token}&t=sms");
 					}else{
 						$errors[0] = array('auth_error' => 'true', 'message' => "We encountered a problem while trying to send you a verification code.\nPlease try again or Contact Us.");
 						$_SESSION['ERRORS'] = $errors[0];
