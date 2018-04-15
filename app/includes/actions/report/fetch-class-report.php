@@ -126,6 +126,7 @@
                             <td class="text-center">0</td>
                             <td class="text-center">0</td>
                             <td class="text-center">' . $subject_details[1] . '</td>
+                            <td class="text-center">-</td>
                             <td class="text-center">' . Course::getGrading($subject_details[1], 'grade') . '</td>
                             <td>' . Course::getGrading($subject_details[1], 'interpretation') . '</td>
                         </tr>';
@@ -152,6 +153,7 @@
                                 <th class="text-center">Class(30)</th>
                                 <th class="text-center">Exam(70)</th>
                                 <th class="text-center">Total Score</th>
+                                <th class="text-center">Position</th>
                                 <th class="text-center">Grade</th>
                                 <th>Interpretation</th>
                             </tr>
