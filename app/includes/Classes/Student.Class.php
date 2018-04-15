@@ -6,7 +6,7 @@
 	{
 
 		public static function getStudents($school_code){
-			$students = self::query("SELECT * FROM `ezi_student` WHERE `school_code` = '{$school_code}'");
+			$students = self::query("SELECT * FROM `ezi_student` WHERE `school_code` = '{$school_code}' AND `status` = '1'");
 			if (empty($students)) {
 				return false;
 			}else{

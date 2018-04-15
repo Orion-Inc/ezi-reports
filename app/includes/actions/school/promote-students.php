@@ -15,6 +15,23 @@
     $transact->beginTransaction();
 
     try {
+        if(substr($data['next_class'], 0, 3) =="ALU"){
+            $students = Database::query("SELECT `student_code` FROM `ezi_student_class` WHERE `student_class` = '{$data['current_class']}'");
+            
+            foreach ($students as $student) {
+                $set_statusParams = array(
+                    'school_code' => $school_code,
+                    'student_code' => $student['student_code'],
+                    '_status' => '0'
+                );
+
+                $set_status = Database::query(
+                "UPDATE `ezi_student` SET `status`=:_status WHERE `student_code`=:student_code AND `school_code`= :school_code",
+                    $set_statusParams
+                );
+            }
+        }
+
         $promoteClass = Database::query(
             "UPDATE `ezi_student_class`
                 SET 
