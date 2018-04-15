@@ -7,7 +7,7 @@
             <form class="" id="promote-class-form">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Course</label>
+                            <label>Current Class</label>
                             <select name="current_class" class="form-control input-sm" id="current_class" data-rule-required="true">
                                 <option value="" readonly="" selected="">Select a Class</option>
                                 <?php 
@@ -23,10 +23,10 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Class</label>
+                            <label>Next Class</label>
                             <select name="next_class" class="form-control input-sm" id="next_class" data-rule-required="true">
                                 <option value="" readonly="" selected="">Select Current Class First</option>
-                                
+
                             </select>
                         </div>
                     </div>

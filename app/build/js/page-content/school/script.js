@@ -226,16 +226,21 @@ $(document).ready(function() {
         validateAccessKeyForm.resetForm();
     });
     
-    $("#promote-form").on('submit', function () {
+    $("#auth-form").on('submit', function () {
         var isValid = validateAccessKeyForm.valid();
         if (isValid == true) {
             $('#confirm-password-modal').modal('hide');
             
+            var currentClass = $('#current_class').val();
+            var currentClass = $('#next_class').val();
+
             $("#promote-field").hide();
             $("#promote-status").html('<div class="text-center"><img src="../assets/images/loading.gif" width="64px" height="64px"/></div>');
 
-            var data = '';
-            var url = '';
+            var data = {
+                
+            };
+            var url = '../includes/actions/school/promote-students.php';
 
             $.ajax({
                 url: url,
