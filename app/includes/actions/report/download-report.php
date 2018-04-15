@@ -1,5 +1,6 @@
 <?php
     require_once '../Autoloader.php';
+
     $app = new App();
 
     $transact = Database::connect();
@@ -16,18 +17,17 @@
     $student_results = explode(',', $report_array[0]['terminal_report_grades']);
     foreach ($student_results as $result) {
         $subject_details = explode(':', $result);
-        /*
-                $results .= '<tr>
-                                        <th scope="row">' . Course::getSubject($subject_details[0], 'subject_name') . '</th>
-                                        <td class="text-center">0</td>
-                                        <td class="text-center">0</td>
-                                        <td class="text-center">' . $subject_details[1] . '</td>
-                                        <td class="text-center">' . Course::getGrading($subject_details[1], 'grade') . '</td>
-                                        <td>' . Course::getGrading($subject_details[1], 'interpretation') . '</td>
-                                    </tr>';
-        */
+        $report_details[] = array(
+            'subject_name' => Course::getSubject($subject_details[0], 'subject_name'),
+            '30' => '0',
+            '70' => '0',
+            'total_score' => $subject_details[1],
+            'grade' => Course::getGrading($subject_details[1], 'grade'),
+            'interpretation' => Course::getGrading($subject_details[1], 'interpretation'),
+        );
     }
 
-    $pdf = new Report($student_details, $school_details, '');
-
+    print("<pre>".print_r($student_details,true)."</pre>");
+    print("<pre>" . print_r($school_details, true) . "</pre>");
+    print("<pre>" . print_r($report_details, true) . "</pre>");
 ?>

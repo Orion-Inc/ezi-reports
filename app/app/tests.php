@@ -227,5 +227,4 @@ foreach ($student_results as $result) {
      */
 }
 
-print()
 ?>
