@@ -170,7 +170,7 @@ $(document).ready(function() {
         }
     });
 
-    var validateAccessKeyForm = $("#promote-form").validate({
+    var validateAccessKeyForm = $("#auth-form").validate({
         highlight: function (r) {
             $(r).closest(".form-group").addClass("has-error")
         },
@@ -197,8 +197,25 @@ $(document).ready(function() {
         }
     });
 
-    $("#promote-button").on('click', function () {
-        $('#confirm-password-modal').modal('show');
+    var validatePromoteForm = $("#promote-class-form").validate({
+        highlight: function (r) {
+            $(r).closest(".form-group").addClass("has-error")
+        },
+        unhighlight: function (r) {
+            $(r).closest(".form-group").removeClass("has-error")
+        },
+        errorElement: "span",
+        errorClass: "help-block",
+        errorPlacement: function (r, e) {
+            e.parent(".input-group").length ? r.insertAfter(e.parent()) : e.parent("label").length ? r.insertBefore(e.parent()) : r.insertAfter(e)
+        }
+    });
+
+    $("#promote-class-form").on('submit', function () {
+        var isValid = validatePromoteForm.valid();
+        if (isValid == true) {
+            $('#confirm-password-modal').modal('show');
+        }
         return false;
     });
 
@@ -214,12 +231,11 @@ $(document).ready(function() {
         if (isValid == true) {
             $('#confirm-password-modal').modal('hide');
             
-            $("#promote-class").hide();
+            $("#promote-field").hide();
             $("#promote-status").html('<div class="text-center"><img src="../assets/images/loading.gif" width="64px" height="64px"/></div>');
 
-            var form = $(this);
-            var data = form.serialize();
-            var url = form.attr('action');
+            var data = '';
+            var url = '';
 
             $.ajax({
                 url: url,
