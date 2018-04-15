@@ -219,6 +219,24 @@ $(document).ready(function() {
         return false;
     });
 
+    $("#current_class").on('change', function () {
+        var current_class = $(this).val();
+        var options = '<option value="" selected="" disabled="">Select Next Class</option>';
+
+        $.ajax({
+            url: '../includes/actions/school/get-class-promotions.php',
+            dataType: 'json',
+            type: 'POST',
+            data: {current_class: current_class},
+            success: function (data) {
+                $.each(data.classes, function (key, val) {
+                    options += '<option value="' + val.value + '">' + val.name + '</option>';
+                });
+                $('#next_class').html(options);
+            }
+        });
+    });
+
     $('#confirm-password-modal').on('hidden.bs.modal', function (e) {
         var modal = $(this);
         modal.find('form')[0].reset();
@@ -232,13 +250,14 @@ $(document).ready(function() {
             $('#confirm-password-modal').modal('hide');
             
             var currentClass = $('#current_class').val();
-            var currentClass = $('#next_class').val();
+            var nextClass = $('#next_class').val();
 
             $("#promote-field").hide();
             $("#promote-status").html('<div class="text-center"><img src="../assets/images/loading.gif" width="64px" height="64px"/></div>');
 
             var data = {
-                
+                current_class: currentClass,
+                next_class: nextClass
             };
             var url = '../includes/actions/school/promote-students.php';
 
