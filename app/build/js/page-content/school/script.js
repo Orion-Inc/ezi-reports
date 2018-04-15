@@ -267,7 +267,13 @@ $(document).ready(function() {
                 type: 'POST',
                 data: data,
                 success: function (data) {
-                
+                    if (data.error != 'false') {
+                        toastr.error(data.message, 'Error!');
+                        $('#page-content').load('../views/app-' + data.url + '.php?' + data.url);
+                    } else {
+                        toastr.success(data.message, 'Success!');
+                        $('#page-content').load('../views/app-' + data.url + '.php?' + data.url);
+                    }
                 }
             });
         }
