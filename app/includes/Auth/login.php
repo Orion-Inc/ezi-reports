@@ -1,38 +1,224 @@
 <?php
-	session_start();
-	require_once '../Classes/Database.Class.php'; 
-	require_once '../Controllers/App.php'; 
-	require_once '../Classes/School.Class.php'; 
+	require_once 'Autoloader.php'; 
 
+	$generate = new App();
 	$errors = array();
+	$prefix = 'app/?token=';
 
-	$school_code = stripslashes($_POST['school_code']);
+	$eziAccountcode = stripslashes($_POST['eziAccountcode']);
 	$access_key  = stripslashes($_POST['access_key']);
 
-	//Create query
+
+	$loginPrefix = substr($eziAccountcode,0,3);
+	$client_details = $_POST['client'];
+
 	
+	switch ($loginPrefix) {
+		case 'ezi':
+			$adminParams = array(
+				'username' => $eziAccountcode,
+				'access_key' => sha1($access_key)
+			);
 
-	$school = @Database::query("SELECT `school_id` FROM `ezi_school` WHERE `school_code`='$school_code'")[0];
+			$_admin = Database::query("SELECT `id`,`username` FROM `ezi_admin` WHERE 
+					`username`='{$adminParams['username']}'  
+					AND 
+					`password`='{$adminParams['access_key']}'");
+
+			if (!empty($_admin[0])) {
+				$id = $_admin[0]['id'];
+				$username = $_admin[0]['username'];
+				$token = $generate->token_generator();
+
+				$params = array(
+					'id' => $id,
+					'token' => $token
+				);
+			
+				try {
+					$query = Database::query("UPDATE `ezi_admin` SET `token`= :token WHERE `id` = :id", $params);
+
+					$_SESSION['SESS_IS_AUTH'] = true;
+					$_SESSION['SESS_USER_TYP'] = 'eziAdmin';
+					$_SESSION['SESS_USER_ID'] = $id;
+					$_SESSION['SESS_USER_NAME'] = $username;
+					$_SESSION['SESS_TOKEN'] = $token;
+
+					header("Location:../../{$prefix}{$token}");
+				} catch (PDOException $e) {
+					$errors[0] = array('auth_error' => 'true', 'type' => 'error', 'pdo' => $e->getMessage(), 'message' => "An Error Occured!\nPlease try again or Contact Us.");
+					$_SESSION['ERRORS'] = $errors[0];
+					header("Location:../../../app/auth/?auth=login");
+				}
+			} else {
+				$errors[0] = array('auth_error' => 'true', 'type' => 'error', 'message' => "Wrong Username or Password!");
+				$_SESSION['ERRORS'] = $errors[0];
+				header("Location:../../../app/auth/?auth=login");
+			}
+			break;
+
+		case 'SCH':
+			$school_code = $eziAccountcode;
+			$school = School::getSchool($school_code, 'school_id');
+			
+			if (!empty($school)) {
+				$schoolParams = array(
+					'school_code' => $school_code,
+					'access_key' => sha1($access_key)
+				);
 
 
-	if($school['school_id']) {
-		$_school = Database::query("SELECT * FROM `ezi_school_access_key` WHERE `school_code`='$school_code'  AND `access_key`='".sha1($access_key)."'")[0];
-		if ($_school) {
-			$_SESSION['SESS_IS_AUTH'] = true;
-			$_SESSION['SESS_USER_ID'] = School::getSchool($school_code,'school_code');;
-			$_SESSION['SESS_SCHOOL_NAME'] = School::getSchool($school_code,'school_name');
-			$_SESSION['SESS_TOKEN'] = $_school['token'];
+				$_school = Database::query("SELECT `user_code` FROM `ezi_users` WHERE 
+						`user_code`='{$schoolParams['school_code']}'  
+						AND 
+						`access_key`='{$schoolParams['access_key']}'");
 
+				if (!empty($_school[0])) {
+					$token = $generate->token_generator();
 
-			$response = array('error' => 'false', 'url' => 'app.php');
-		} else {
-			$response = array('error' => 'true', 'message' => 'An Error occured while trying to verify your School Code. Please try again or Contact Us.');
-		}
-	}else{
-		$response = array('error' => 'true', 'message' => 'Wrong School Code or Access Key');
+					$params = array(
+						'school_code' => stripslashes($_POST['eziAccountcode']),
+						'token' => $token
+					);
+
+					try {
+						$query = Database::query("UPDATE `ezi_users` SET `token`= :token WHERE `user_code` = :school_code", $params);
+
+						$_SESSION['SESS_IS_AUTH'] = true;
+						$_SESSION['SESS_USER_TYP'] = 'school';
+						$_SESSION['SESS_USER_ID'] = School::getSchool($school_code, 'school_code');
+						$_SESSION['SESS_SCHOOL_PREFIX'] = School::getSchool($school_code, 'school_prefix');
+						$_SESSION['SESS_SCHOOL_NAME'] = School::getSchool($school_code, 'school_name');
+						$_SESSION['SESS_SCHOOL_TYP'] = School::getSchool($school_code, 'school_type');
+						$_SESSION['SESS_TOKEN'] = $token;
+
+						$client_detailsParams = array(
+							'token' => $_SESSION['SESS_TOKEN'],
+							'user_id' => $_SESSION['SESS_USER_ID'],
+							'browser_id' => $client_details['browser'],
+							'os_id' => $client_details['os'],
+							'ip' => $client_details['ip']
+						);
+						$query = Database::query(
+							"INSERT INTO `ezi_sessions`(
+							`token`, 
+							`user_id`, 
+							`browser_id`, 
+							`os_id`, 
+							`ip`) 
+							VALUES (
+								:token,
+								:user_id,
+								:browser_id,
+								:os_id,
+								:ip
+							)",
+							$client_detailsParams
+						);
+
+						header("Location:../../{$prefix}{$token}");
+					} catch (Exception $e) {
+						$errors[0] = array('auth_error' => 'true', 'type' => 'error', 'message' => "An Error Occured!\nPlease try again or Contact Us.");
+						$_SESSION['ERRORS'] = $errors[0];
+						header("Location:../../../app/auth/?auth=login");
+					}
+				} else {
+					$errors[0] = array('auth_error' => 'true', 'type' => 'error', 'message' => "Wrong Access Code Provided!");
+					$_SESSION['ERRORS'] = $errors[0];
+					header("Location:../../../app/auth/?auth=login");
+				}
+			} else {
+				$errors[0] = array('auth_error' => 'true', 'type' => 'error', 'message' => "Wrong School Code!");
+				$_SESSION['ERRORS'] = $errors[0];
+				header("Location:../../../app/auth/?auth=login");
+			}
+
+			break;
+
+		case preg_match("/[S][0-99]*/", $loginPrefix) === 1:
+			$student_code = $eziAccountcode;
+			$student = Student::getStudent($student_code, 'student_code');
+
+			if (!empty($student)) {
+				$studentParams = array(
+					'student_code' => $student_code,
+					'access_key' => sha1($access_key)
+				);
+
+				$_student = Database::query("SELECT `user_code` FROM `ezi_users` WHERE 
+						`user_code`='{$studentParams['student_code']}'  
+						AND 
+						`access_key`='{$studentParams['access_key']}'");
+
+				if (!empty($_student[0])) {
+					$token = $generate->token_generator();
+
+					$params = array(
+						'student_code' => $student_code,
+						'token' => $token
+					);
+
+					try {
+						$query = Database::query("UPDATE `ezi_users` SET `token`= :token WHERE `user_code` = :student_code", $params);
+
+						$_SESSION['SESS_IS_AUTH'] = true;
+						$_SESSION['SESS_USER_TYP'] = 'student';
+						$_SESSION['SESS_USER_SCHOOL'] = Student::getStudent($student_code, 'school_code');
+						$_SESSION['SESS_USER_ID'] = Student::getStudent($student_code, 'student_code');
+						$_SESSION['SESS_STUDENT_NAME'] = Student::getStudent($student_code, 'student_name');
+						$_SESSION['SESS_TOKEN'] = $token;
+
+						$client_detailsParams = array(
+							'token' => $_SESSION['SESS_TOKEN'],
+							'user_id' => $_SESSION['SESS_USER_ID'],
+							'browser_id' => $client_details['browser'],
+							'os_id' => $client_details['os'],
+							'ip' => $client_details['ip']
+						);
+						$query = Database::query(
+							"INSERT INTO `ezi_sessions`(
+							`token`, 
+							`user_id`, 
+							`browser_id`, 
+							`os_id`, 
+							`ip`) 
+							VALUES (
+								:token,
+								:user_id,
+								:browser_id,
+								:os_id,
+								:ip
+							)",
+							$client_detailsParams
+						);
+
+						header("Location:../../{$prefix}{$token}");
+					} catch (Exception $e) {
+						$errors[0] = array('auth_error' => 'true', 'type' => 'error', 'message' => "An Error Occured!\nPlease try again or Contact Us.");
+						$_SESSION['ERRORS'] = $errors[0];
+						header("Location:../../../app/auth/?auth=login");
+					}
+				} else {
+					$errors[0] = array('auth_error' => 'true', 'type' => 'error', 'message' => "Wrong Access Code Provided!");
+					$_SESSION['ERRORS'] = $errors[0];
+					header("Location:../../../app/auth/?auth=login");
+				}
+
+			} else {
+				$errors[0] = array('auth_error' => 'true', 'type' => 'error', 'message' => "Wrong Student Code!");
+				$_SESSION['ERRORS'] = $errors[0];
+				header("Location:../../../app/auth/?auth=login");
+			}
+
+			break;
+
+		default:
+			$errors[0] = array('auth_error' => 'true', 'type' => 'error', 'message' => "Please Enter Correct Credentials");
+			$_SESSION['ERRORS'] = $errors[0];
+			header("Location:../../../app/auth/?auth=login");
+			break;
 	}
 
-	echo json_encode($response);
 ?>
 
 

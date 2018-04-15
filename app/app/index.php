@@ -1,79 +1,46 @@
-<?php 
-    spl_autoload_register(function ($class_name){
-        if (file_exists('../includes/Classes/'.$class_name.'.Class.php')) {
-            require_once '../includes/Classes/'.$class_name.'.Class.php';
-        }else if (file_exists('../includes/Controllers/'.$class_name.'.php')) {
-            require_once '../includes/Controllers/'.$class_name.'.php';
-        }
-    });
+<?php require_once ('../includes/Autoloader.php');?>
+<?php
+    if (User::userSession('SESS_IS_AUTH') != true || empty($_SESSION['SESS_USER_ID'])) {
+        header("Location: ../includes/auth/logout.php");
+    }
+    if (isset($_GET['token']) && $_GET['token'] != User::userSession('SESS_TOKEN')) {
+
+        header("Location: ../includes/auth/logout.php");
+    }
 ?>
 <!DOCTYPE html>
-<html lang="en" style="height: 100%">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Ezi-reports</title>
-        <!-- PACE-->
-        <link rel="stylesheet" type="text/css" href="../plugins/PACE/themes/blue/pace-theme-bounce.css">
-        <script type="text/javascript" src="../plugins/PACE/pace.min.js"></script>
-        <!-- Bootstrap CSS-->
-        <link rel="stylesheet" type="text/css" href="../plugins/bootstrap/dist/css/bootstrap.min.css">
-        <!-- Fonts-->
-        <link rel="stylesheet" type="text/css" href="../plugins/themify-icons/themify-icons.css">
-        <!-- Primary Style-->
-        <link rel="stylesheet" type="text/css" href="../build/css/second-layout.css">
+<html lang="en">
+    <?php App::ViewPartial('header','_html-blocks')?>
+    <body data-sidebar-color="sidebar-light" class="sidebar-light">
         
-        
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file://--> 
-        <!--[if lt IE 9]>
-        <script type="text/javascript" src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script type="text/javascript" src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-
-    </head>
-    <body style="background-image: url()" class="body-bg-full">
-        <?php if (empty($_GET)): ?>
-            <?php App::ViewPartial('splash-screen','app')?>
-        <?php endif ?>  
-
-        <?php if (isset($_GET['login'])): ?>
-            <?php App::ViewPartial('login','auth-forms')?>
-        <?php else: ?>
-            <?php if (isset($_GET['lock']) && $_GET['token']!=false): ?>
-                <?php App::ViewPartial('lock-screen','auth-forms')?>          
-            <?php else: ?> 
-
-            <?php endif ?>
-
-            <?php if (isset($_GET['forgot'])): ?>
-                <?php App::ViewPartial('forgot','auth-forms')?>         
-            <?php endif ?>
-
-            <?php if (isset($_GET['verify'])): ?>
-                <?php App::ViewPartial('verify','auth-forms')?>         
-            <?php endif ?>
-        <?php endif ?>
-
-        <!-- jQuery-->
-            <script type="text/javascript" src="../plugins/jquery/dist/jquery.min.js"></script>
-            <!-- Bootstrap JavaScript-->
-            <script type="text/javascript" src="../plugins/bootstrap/dist/js/bootstrap.min.js"></script>
-            <!-- jQuery Easy Pie Chart-->
-            <script type="text/javascript" src="../plugins/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
-            <!-- jQuery Validation-->
-            
-            <!-- Custom JS-->
-            <script type="text/javascript" src="../build/js/second-layout/extra-demo.js"></script>
-            <?php if (isset($_GET['login'])): ?>
-            <script type="text/javascript" src="../build/js/page-content/auth-pages/login.js"></script>
-            <?php endif ?>
-            <?php if (isset($_GET['lock']) && $_GET['token']!=false): ?>
-            <script type="text/javascript" src="../build/js/page-content/auth-pages/lock-screen.js"></script>
-            <?php endif ?>
-            <?php if (isset($_GET['forgot'])): ?>
-            <script type="text/javascript" src="../build/js/page-content/auth-pages/recover.js"></script>
-            <?php endif ?>
-  </body>
+        <!--App Navbar-->
+            <?php App::ViewPartial('navbar','_html-blocks')?>
+        <!--/App Navbar-->
+        <div class="noscriptmsg">
+            You don't have javascript enabled. Please enable and <a href="">Reload Page</a>
+        </div>
+        <div class="main-container">
+            <!-- Main Sidebar start-->
+                <?php App::ViewPartial('sidebar','_html-blocks')?>
+            <!-- Main Sidebar end-->
+            <!--Main Content-->
+                <div class="page-container" id="page-content">
+                    
+                </div>
+            <!--/Main Content-->
+            <!-- Right Sidebar start-->
+                <?php App::ViewPartial('sidebar-right','_html-blocks')?>
+            <!-- Right Sidebar end-->
+        </div>
+        <!-- Scripts-->
+            <noscript>
+                <style type="text/css">
+                    header {display:none;}
+                    .main-container {display:none;}
+                    .noscriptmsg {display:unset;}
+                </style>
+            </noscript>
+            <?php App::ViewPartial('scripts','_html-blocks')?>
+        <!-- /Scripts -->
+    </body>
 </html>

@@ -11,8 +11,9 @@
             </div>
         </form>
     </div>
-    <a href="javascript:void(0)" class="brand pull-left">
-        <h2>eziReports</h2>
+    <a class="navbar-brand" href="" style="padding: 11px 25px;display:inline-flex">
+        <img src="../assets/images/logo-1.png" alt="eziReports" style="height:40px;">
+        <span class="text-white mt-10 hidden-xs">eziReports</span>
     </a>
     <a href="javascript:;" role="button" class="hamburger-menu pull-left visible-xs"><span></span></a>
     <form class="search-form pull-left hidden-xs hidden" method="GET" action="?search">
@@ -30,18 +31,20 @@
                 <i class="ti-search"></i>
             </a>
         </li>
-        <li class="visible-lg">
+        <li class="hidden">
             <a href="javascript:void(0)" role="button" class="header-icon fullscreen-toggle">
                 <i class="ti-fullscreen"></i>
             </a>
         </li>   
 
-        <li class="hidden">
-            <a href="javascript:;" role="button" class="right-sidebar-toggle bubble header-icon">
-                <i class="ti-layout-sidebar-right"></i>
-            </a>
-        </li>
-
+        <?php if (User::userSession('SESS_USER_TYP') === 'school' || User::userSession('SESS_USER_TYP') === 'student'): ?>
+            <li class="hidden">
+                <a href="javascript:;" role="button" class="right-sidebar-toggle bubble header-icon">
+                    <i class="ti-layout-sidebar-right"></i>
+                </a>
+            </li>
+        <?php endif ?>
+        
         <li>
             <a href="javascript:void(0)" role="button" class="header-icon" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Logout" id="logout">
                 <i class="ti-power-off"></i> Logout

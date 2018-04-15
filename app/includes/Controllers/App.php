@@ -9,6 +9,7 @@
 				$value = "Not Available";
 			}
 			echo $value;
+			
 		}
 		
 		public static function CreateView($viewName)
@@ -16,15 +17,90 @@
 			require_once '../views/'.$viewName.'.php';
 		}
 
-		public static function ViewPartial($partialName,$tree)
+		public static function ViewPartial($partialName,$tree,$page_index='../')
 		{
 			if (empty($tree)) {
-				include '../partials/app-'.$partialName.'.php';
+				include $page_index.'partials/app-'.$partialName.'.php';
 			}else{
-				include '../partials/'.$tree.'/app-'.$partialName.'.php';
+				include $page_index.'partials/'.$tree.'/app-'.$partialName.'.php';
 			}
 		}
 
-		
+		public function randomizer($length) {
+			$code = "";
+			$randomValue = array();
+			$chars = array_merge(range(0,9));
+
+			for($count = 0; $count < $length; $count++){
+				$randomValue[] = $chars[array_rand($chars)];
+			}
+
+			for ($i=0; $i < sizeof($randomValue); $i++) { 
+				$code .= $randomValue[$i];
+			}
+
+			return $code;
+		}
+
+		public function randomString($length) {
+			$randstr = '';
+			srand((double) microtime(TRUE) * 1000000);
+			//our array add all letters and numbers if you wish
+			$chars = array(
+				'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'p',
+				'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5',
+				'6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 
+				'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
+
+			for ($rand = 0; $rand <= $length; $rand++) {
+				$random = rand(0, count($chars) - 1);
+				$randstr .= $chars[$random];
+			}
+			return $randstr;
+		}
+
+		public function token_generator(){
+			$token = bin2hex(openssl_random_pseudo_bytes(30));
+			return $token;
+		}
+
+		public function multiexplode($delimiters, $string){
+			$ready = str_replace($delimiters, $delimiters[0], $string);
+			$array = explode($delimiters[0], $ready);
+			return $array;
+		}
+
+		public function genRandomString($length = 10, $text = ""){
+			$string = '';
+			$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' . $text;
+			$string_length = strlen($characters);
+
+			for ($p = 0; $p < $length; $p++) {
+				$i = mt_rand(0, $string_length);
+				if($i != $string_length){
+					$string .= $characters[$i];
+				}
+			}
+
+			return $string;
+		}
+
+		public function get_client_ip($ipaddress = ''){
+			if (getenv('HTTP_CLIENT_IP'))
+				$ipaddress = getenv('HTTP_CLIENT_IP');
+			else if (getenv('HTTP_X_FORWARDED_FOR'))
+				$ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+			else if (getenv('HTTP_X_FORWARDED'))
+				$ipaddress = getenv('HTTP_X_FORWARDED');
+			else if (getenv('HTTP_FORWARDED_FOR'))
+				$ipaddress = getenv('HTTP_FORWARDED_FOR');
+			else if (getenv('HTTP_FORWARDED'))
+				$ipaddress = getenv('HTTP_FORWARDED');
+			else if (getenv('REMOTE_ADDR'))
+				$ipaddress = getenv('REMOTE_ADDR');
+			else
+				$ipaddress = 'UNKNOWN';
+			return $ipaddress;
+		}
 	}
 ?>
