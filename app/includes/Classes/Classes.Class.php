@@ -30,7 +30,11 @@
 		public static function getClass($value,$params){
 			$course = self::query("SELECT {$params} FROM `ezi_school_class` WHERE `class_code` = '{$value}'");
 			if (empty($course[0])) {
-				return false;
+				if(substr($value, 0, 3) == "ALU"){
+					return $value;
+				}else{
+					return false;
+				}
 			}else{
 				if ($params == '*') {
 					return $course;

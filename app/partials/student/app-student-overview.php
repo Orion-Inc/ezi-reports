@@ -5,10 +5,10 @@
     $academic_year = School::getAcademicYear("*");
 
     $student_school = array_merge(
-       array('school_name' => $school_name),
-       array('student_class' => $student_class),
-       array('academic_term' => $academic_year['academic_term']),
-       array('academic_year' => $academic_year['current_academic_year'])
+        array('school_name' => $school_name),
+        array('student_class' => $student_class),
+        array('academic_term' => $academic_year['academic_term']),
+        array('academic_year' => $academic_year['current_academic_year'])
     );
 ?>
 <table class="table table-borderless /table-condensed">
@@ -25,7 +25,7 @@
             <td>Date of Birth:</td>
             <td><strong><?php App::show(date_format(date_create($student['student_dob']),"j F Y"))?></strong></td>
         </tr>
-         <tr>
+        <tr>
             <td>Guardian (<strong><?php App::show($student['guardian_relationship'])?></strong>):</td>
             <td><strong><?php App::show($student['guardian_name'])?></strong></td>
         </tr>
@@ -38,17 +38,24 @@
             <td>School:</td>
             <td><strong><?php App::show($student_school['school_name'])?></strong></td>
         </tr>
+        <?php if(substr($student_school['student_class'], 0, 3) == "ALU"):?>
         <tr>
             <td>Class:</td>
-            <td><strong><?php App::show($student_school['student_class'])?></strong></td>
+            <td><strong>Alumini</strong></td>
+        </tr>
+        <?php else:?>
+        <tr>
+            <td>Class:</td>
+            <td><strong><?php App::show($student_school['student_class']) ?></strong></td>
         </tr>
         <tr>
             <td>Current Term:</td>
-            <td><strong><?php App::show($student_school['academic_term'])?></strong></td>
+            <td><strong><?php App::show($student_school['academic_term']) ?></strong></td>
         </tr>
         <tr>
             <td>Academic Year:</td>
-            <td><strong><?php App::show($student_school['academic_year'])?></strong></td>
+            <td><strong><?php App::show($student_school['academic_year']) ?></strong></td>
         </tr>
+        <?php endif?>
     </tbody>
 </table>
