@@ -1,34 +1,38 @@
 <?php
-    require "../FPDF/fpdf.php";
+    require "../../FPDF/fpdf.php";
 
-    class Report extends FPDF 
+    class Report extends FPDF
     {
-        function __construct($student,$school,$report)
+        protected $student;
+        protected $school;
+        protected $report;
+
+        function __construct($student, $school, $report)
         {
-            echo 1;
+            $this->student = $student;
+            $this->school = $school;
+            $this->report = $report;
         }
 
-        function header()
+        public function header()
         {
-            $this->Image('logo.png', 5, 5, -400);//Set image path(string),width and height
+            $this->Image('', 5, 5, -400);//Set image path(string),width and height
             $this->SetFont('Times', 'B', 16);//Set font to Times New Roman, bold and size to 16
-            $this->Cell(200, 5, 'ACCRA GIRLS SENIOR HIGH SCHOOL', 0, 1, 'C');//set cell width, height, string,0(no borders),1(move cursor to new line after string) and center text
+            $this->Cell(200, 5, $this->school['school_name'], 0, 1, 'C');//set cell width, height, string,0(no borders),1(move cursor to new line after string) and center text
             $this->Ln();//new line
             $this->SetFont('Times', '', 12);//'' signifies remove bold params and set fontsize to 12
-            $this->Cell(200, 5, 'P.O.BOX 189 ACHIMOTA-ACCRA', 0, 1, 'C');
+            $this->Cell(200, 5, $this->school['school_address'], 0, 1, 'C');
             $this->Ln();//new line
-            $this->Cell(200, 5, 'Telephone: ' . '0304567894', 0, 1, 'C');
-            $this->Cell(200, 5, 'Email: ' . 'achimotaedu@gmail.com', 0, 1, 'C');
+            $this->Cell(200, 5, 'Telephone: ' . $this->school['school_telephone'], 0, 1, 'C');
+            $this->Cell(200, 5, 'Email: ' . $this->school['school_email'], 0, 1, 'C');
             $this->Ln();
             $this->SetFont('Times', 'B', 14);
             $this->Cell(200, 5, 'TERMINAL REPORT', 0, 1, 'C');
             $this->Line(0, 52, 300, 52);
-
         }
 
-        function studentDetails()
+        public function studentDetails()
         {
-                //first column
             $this->SetXY(5, 52);
             $this->SetFont('Times', 'B', 12);
             $this->Cell(30, 5, 'Student Name:', 0, 1, 'L');
@@ -39,17 +43,16 @@
             $this->SetX(5);
             $this->Cell(33, 5, 'Accademic Year:', 0, 1, 'L');
             $this->SetXY(33, 52);
-                //database info--farid
             $this->SetFont('Times', '', 12);
-            $this->Cell(69, 5, 'Marvis Tamakloe', 0, 1, 'L');
+            $this->Cell(69, 5, $this->student['student_name'], 0, 1, 'L');
             $this->Ln();
             $this->SetX(29);
-            $this->Cell(40, 5, 'General Science', 0, 1, 'L');
+            $this->Cell(40, 5, Course::getCourse($this->student['student_class'], 'course_name'), 0, 1, 'L');
             $this->Ln();
             $this->SetX(37);
-            $this->Cell(34, 5, '2017-2018', 0, 1, 'L');
+            $this->Cell(34, 5, School::getAcademicYear('current_academic_year'), 0, 1, 'L');
 
-                //Second column
+                    //Second column
             $this->SetXY(95, 52);
             $this->SetFont('Times', 'B', 12);
             $this->Cell(15, 5, 'Status:', 0, 1, 'L');
@@ -60,17 +63,17 @@
             $this->SetX(95);
             $this->Cell(15, 5, 'Term:', 0, 1, 'L');
             $this->SetXY(108, 52);
-                //database info--farid
+                    //database info--farid
             $this->SetFont('Times', '', 12);
-            $this->Cell(15, 5, 'Day', 0, 1, 'L');
+            $this->Cell(15, 5, $this->student['student_status'], 0, 1, 'L');
             $this->Ln();
             $this->SetX(108);
-            $this->Cell(15, 5, '2A4', 0, 1, 'L');
+            $this->Cell(15, 5, Classes::getClass($this->student['student_class'], 'class_name'), 0, 1, 'L');
             $this->Ln();
             $this->SetX(108);
-            $this->Cell(15, 5, '1', 0, 1, 'L');
+            $this->Cell(15, 5, School::getAcademicYear('academic_term'), 0, 1, 'L');
 
-                //Third  column
+                    //Third  column
             $this->SetXY(150, 52);
             $this->SetFont('Times', 'B', 12);
             $this->Cell(20, 5, 'Gender:', 0, 1, 'L');
@@ -81,12 +84,12 @@
             $this->SetX(150);
             $this->Cell(33, 5, 'Next Term Starts:', 0, 1, 'L');
             $this->SetXY(166, 52);
-            //database info--farid
+                //database info--farid
             $this->SetFont('Times', '', 12);
-            $this->Cell(15, 5, 'Female', 0, 1, 'L');
+            $this->Cell(15, 5, ucwords($this->student['student_gender']), 0, 1, 'L');
             $this->Ln();
             $this->SetX(170);
-            $this->Cell(15, 5, '50', 0, 1, 'L');
+            $this->Cell(15, 5, Classes::getClassEnrollment($this->student['student_class']), 0, 1, 'L');
             $this->Ln();
             $this->SetX(184);
             $this->Cell(15, 5, '17-04-18', 0, 1, 'L');
@@ -94,8 +97,7 @@
 
         }
 
-
-        function headerTable()
+        public function headerTable()
         {
             $this->SetXY(5, 82);
             $this->SetFont('Times', 'B', 10);
@@ -109,10 +111,10 @@
             $this->Ln();
         }
 
-        function viewReport($db)
+        public function viewReport($db)
         {
             $this->SetFont('Times', '', 10);
-                //for farid
+                    //for farid
             $info = $db->query('string');
             while ($data = $info->fetch(PDO::FETCH_OBJ)) {
                 $this->Cell(40, 10, $data->Subject, 1, 0, 'L');
@@ -124,12 +126,11 @@
                 $this->Cell(30, 10, $data->Interpretation, 1, 0, 'L');
                 $this->Ln();
             }
-
-
         }
 
-        public function footer() {
-            //Remarks table
+        public function footer()
+        {
+                //Remarks table
             $this->SetXY(5, -35);
             $this->SetFont('Times', 'B', 12);
             $this->Cell(70, 5, 'Total Raw Score', 1, 1, 'L');
@@ -137,23 +138,24 @@
             $this->Cell(70, 5, "Teacher's Remarks", 1, 1, 'L');
             $this->SetXY(75, -35);
             $this->SetFont('Times', '', 12);
-                //for farid(string)
+                    //for farid(string)
             $this->Cell(130, 5, '275 Out Of 400', 1, 1, 'C');
             $this->SetX(75);
-                //for Farid(string)
+                    //for Farid(string)
             $this->Cell(130, 5, 'Great Work', 1, 1, 'C');
-                //Grade Table
+                    //Grade Table
             $this->SetXY(5, -20);
             $this->SetFont('Times', 'b', 12);
             $this->Cell(200, 5, 'Grade Interpretation', 1, 1, 'C');
             $this->SetFont('Times', '', 8);
             $this->SetX(5);
             $this->Cell(200, 5, '75-100 (A1:Excellent); 70-74 (B2:Very Good); 65-69 (B3:Good); 60-64 (C4:Credit); 55-59 (C5:Credit); 50-54 (C6:Credit); 45-49 (D7:Pass); 40-45 (E8:Pass); 0-39 (F9:Fail)', 1, 1, 'C');
-                //Actual footer
+                    //Actual footer
             $this->SetY(-8);
             $this->SetFont('Times', 'B', 10);
             $this->Cell(0, 5, 'Powered by eziReports, a product of Orion.', 0, 0, 'C');
         }
     }
-    
+
+
 ?>

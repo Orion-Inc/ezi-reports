@@ -5,7 +5,7 @@
 
     $data = array('data' => array());
 
-  
+
     
     try {
         $classArray = Classes::fetchClasses($_SESSION['SESS_USER_ID'],"*");

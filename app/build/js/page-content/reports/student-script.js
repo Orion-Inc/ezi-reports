@@ -61,7 +61,6 @@ $(document).ready(function () {
     }
 
     downloadReport = function (student_code, academic_year,academic_term) {
-        alert();
         $.AjaxDownloader({
             url: "../includes/actions/report/download-report.php",
             data: {
