@@ -22,6 +22,7 @@
             '30' => '0',
             '70' => '0',
             'total_score' => $subject_details[1],
+            'position' => '',
             'grade' => Course::getGrading($subject_details[1], 'grade'),
             'interpretation' => Course::getGrading($subject_details[1], 'interpretation'),
         );

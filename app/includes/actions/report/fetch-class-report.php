@@ -116,7 +116,7 @@
         if (!empty($report_array)) {
             $results = '';
             $student_results = explode(',', $report_array[0]['terminal_report_grades']);
-
+            $student = Student::getStudent($report_array[0]['student_code'], "student_name");
 
             foreach ($student_results as $result) {
                 $subject_details = explode(':', $result);
@@ -133,6 +133,11 @@
 
             $table = '
                 <div class="row">
+                    <div class="pull-left pl-15">
+                        <p>Student Name: <strong>'. $student . '</strong></p>
+                        <p>Academic Year: <strong>' . $data['academic_year'] . '</strong></p>
+                        <p>Term: <strong>' . $data['academic_term'] . '</strong></p>
+                    </div>
                     <div class="pull-right pr-15">
                         <button type="button" class="btn btn-link" onclick="goback()">
                             Go Back

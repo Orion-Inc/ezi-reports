@@ -27,6 +27,10 @@
 
     $elective_subjects = array();
     $student_list = array();
+    $misc = array(
+        'Position',
+        'Subject Teacher'
+    );
 
     foreach ($class_subjects as $subject) {
         $elective_subjects[] = $subject['subject_name']." (".$subject['subject_code'].")";
@@ -44,7 +48,7 @@
             break;
 
         case 'basic':
-             $subjects_header = array(
+            $subjects_header = array(
                 'STUDENT',
                 'Mathematics (SJCMA0000)',
                 'English Language (SJCEN0000)',
@@ -55,7 +59,7 @@
 
     }
 
-    $file_headers = array_merge($subjects_header,$elective_subjects);
+    $file_headers = array_merge($subjects_header,$elective_subjects,$misc);
     
 
     $data = array(

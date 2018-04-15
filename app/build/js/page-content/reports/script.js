@@ -80,7 +80,7 @@ $(document).ready(function() {
                 data: {
                     class_code: classCode
                 },
-                success: reset()
+                success: toastr.success("CSV File Downloaded. Please fill and upload.", 'Success!')
             });
         }
     });
