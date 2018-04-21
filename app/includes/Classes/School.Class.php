@@ -50,7 +50,7 @@
 			if (empty($getCrest[0])) {
 				return '../assets/images/logo-2.png';
 			} else {
-				$crest = 'data:image;base64,' . base64_encode($getCrest[0]['school_crest']);
+				$crest = base64_encode($getCrest[0]['school_crest']);
 				return $crest;
 			}
 		}

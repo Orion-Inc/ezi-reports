@@ -2,7 +2,7 @@
     <div class="user">
         <div id="app-user-pic" data-percent="100" style="height: 104px; width: 104px; line-height: 80px; padding: 12px;" class="easy-pie-chart">
             <?php if (User::userSession('SESS_USER_TYP') === 'school'): $crest = School::getSchoolCrest($_SESSION['SESS_USER_ID']); ?>
-                <img src="<?php App::show($crest)?>" alt="" class="avatar img-circle">
+                <img src="<?php App::show('data:image;base64,'.$crest)?>" alt="" class="avatar img-circle">
                 <span class="hidden status bg-primary"></span>
             <?php endif ?>
 

@@ -27,6 +27,10 @@ foreach ($student_results as $result) {
                                     <td>' . Course::getGrading($subject_details[1], 'interpretation') . '</td>
                                 </tr>';
      */
+
+    print("<pre>" . print_r($student_details, true) . "</pre>");
+    print("<pre>" . print_r($school_details, true) . "</pre>");
+    print("<pre>" . print_r($report_details, true) . "</pre>");
 }
 
 class Report extends FPDF

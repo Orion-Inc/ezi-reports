@@ -13,6 +13,13 @@
     $results = '';
     $student_details = Student::getStudent($data['student_code'], "*");
     $school_details = School::getSchool($student_details['school_code'], "*");
+    $school_crest = School::getSchoolCrest($student_details['school_code']);
+
+    $img = base64_decode($school_crest);
+    $im = imagecreatefromstring($img);
+
+    $school_crest = "../../../assets/crests/" . strtolower(App::genRandomString(5)) . ".jpg";
+    imagejpeg($im, $school_crest);
 
     $student_results = explode(',', $report_array[0]['terminal_report_grades']);
     foreach ($student_results as $result) {
@@ -28,7 +35,13 @@
         );
     }
 
-    print("<pre>".print_r($student_details,true)."</pre>");
-    print("<pre>" . print_r($school_details, true) . "</pre>");
-    print("<pre>" . print_r($report_details, true) . "</pre>");
+    $pdf = new Report('P', 'mm', 'A4', $student_details, $school_details, $school_crest, $report_details);
+    $pdf->AddPage();//Set page to potrait,A4,0-No rotation of page
+    $pdf->SetX(5);
+    $pdf->SetMargins(0.5, 0.5, 0.5);//Set left,top and right page margins
+    $pdf->studentDetails();
+    $pdf->headerTable();
+    $pdf->viewReport();
+    $pdf->Output('D', 'Terminal Report.pdf');//output report to browser and force a download with the specified name.
+    unlink($school_crest);
 ?>
