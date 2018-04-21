@@ -43,5 +43,5 @@
     $pdf->headerTable();
     $pdf->viewReport();
     $pdf->Output('D', 'Terminal Report.pdf');//output report to browser and force a download with the specified name.
-    unlink($school_crest);
+    delete($school_crest);
 ?>
