@@ -103,6 +103,7 @@
         public function viewReport()
         {
             foreach ($this->report as $row) {
+                $this->SetX(5);
                 $this->Cell(40, 10, $row['subject_name'], 1, 0, 'L');
                 $this->Cell(30, 10, $row['30'], 1, 0, 'L');
                 $this->Cell(30, 10, $row['70'], 1, 0, 'L');
@@ -125,10 +126,10 @@
             $this->SetXY(75, -35);
             $this->SetFont('Times', '', 12);
                     //for 
-            $this->Cell(130, 5, '275 Out Of 400', 1, 1, 'C');
+            $this->Cell(130, 5, $this->raw_score, 1, 1, 'C');
             $this->SetX(75);
                     //for 
-            $this->Cell(130, 5, 'Great Work', 1, 1, 'C');
+            $this->Cell(130, 5, $this->teachers_remarks, 1, 1, 'C');
                     //Grade Table
             $this->SetXY(5, -20);
             $this->SetFont('Times', 'b', 12);

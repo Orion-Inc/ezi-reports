@@ -143,7 +143,7 @@
 		}else{
 			$errors[0] = array('auth_error' => 'true', 'type' => 'error', 'message' => "The Email or User Code you entered is invalid!");
 			$_SESSION['ERRORS'] = $errors[0];
-			//header("Location:../../../app/auth/?auth=forgot-password");
+			header("Location:../../../app/auth/?auth=forgot-password");
 		}
 	}
 ?>

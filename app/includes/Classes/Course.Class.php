@@ -97,6 +97,10 @@
 			return $query[0][$type];
 		}
 
+		public function getTeacherRemarks($marks, $total){
+
+		}
+
 		public function get($function,$arg) {
 	      	return $this->$function($arg);
 	    }

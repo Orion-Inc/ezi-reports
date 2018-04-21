@@ -22,9 +22,11 @@
     imagejpeg($im, $school_crest);
 
     $student_results = explode(',', $report_array[0]['terminal_report_grades']);
+    $marks = 0;
+
     foreach ($student_results as $result) {
         $subject_details = explode(':', $result);
-        $report_details[] = array(
+        $report[] = array(
             'subject_name' => Course::getSubject($subject_details[0], 'subject_name'),
             '30' => '0',
             '70' => '0',
@@ -33,7 +35,19 @@
             'grade' => Course::getGrading($subject_details[1], 'grade'),
             'interpretation' => Course::getGrading($subject_details[1], 'interpretation'),
         );
+        $marks += $subject_details[1];
     }
+
+    
+    $total = sizeof($report)*100;
+
+    $remarks = Course::getTeacherRemarks($marks,$total);
+
+    $report_details = array(
+        'report' => $report,
+        'raw_score' => $marks.' Out Of '.$total,
+        'teachers_remarks' => $remarks
+    );
 
     $pdf = new Report('P', 'mm', 'A4', $student_details, $school_details, $school_crest, $report_details);
     $pdf->AddPage();//Set page to potrait,A4,0-No rotation of page

@@ -70,6 +70,8 @@ class FPDF
 	protected $school;				//school details
 	protected $crest;				//school details
 	protected $report;				//report details
+	protected $raw_score;			//score details
+	protected $teachers_remarks;	//teachers_remarks details
 
 	/*******************************************************************************
 	*                               Public methods                                 *
@@ -83,7 +85,10 @@ class FPDF
 		$this->student = $student;
 		$this->school = $school;
 		$this->crest = $crest;
-		$this->report = $report;
+		$this->report = $report['report'];
+		$this->raw_score = $report['raw_score'];
+		$this->teachers_remarks = $report['teachers_remarks'];
+
 		$this->state = 0;
 		$this->page = 0;
 		$this->n = 2;
