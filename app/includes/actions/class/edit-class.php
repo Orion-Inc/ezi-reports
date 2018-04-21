@@ -7,7 +7,6 @@
 	$classParams = array( 
 		'class_code' => stripslashes($_POST['class_code']),
 		'class_name' => stripslashes($_POST['class_name']),
-		'class_course' => stripslashes($_POST['class_course']),
 		'class_teacher' => stripslashes($_POST['class_teacher'])
 	);
 
@@ -25,8 +24,7 @@
 	try {
 		$updateClass = Database::query("UPDATE `ezi_school_class` SET 
 			`class_name`=:class_name,
-			`class_teacher`=:class_teacher,
-			`class_course`=:class_course
+			`class_teacher`=:class_teacher
 			WHERE 
 			`class_code`=:class_code", 
 			$classParams

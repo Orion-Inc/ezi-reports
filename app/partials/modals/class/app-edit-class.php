@@ -25,7 +25,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Course</label>
-                                <select name="class_course" class="form-control input-sm" id="class_course" data-rule-required="true">
+                                <select name="class_course" class="form-control input-sm" disabled="" id="class_course" data-rule-required="true">
                                     <option value="" readonly="" selected="">Select Course</option>
                                 </select>
                             </div>
