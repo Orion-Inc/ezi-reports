@@ -12,13 +12,13 @@
         $school_code = User::userSession('SESS_USER_ID');
         $school_type = School::getSchool($school_code, 'school_type');
         
-        $report_array = Database::query("SELECT `terminal_report_code`,`school_code`,`student_code`,`terminal_report_grades` FROM `ezi_terminal_reports` WHERE `class_code` = '{$data['class_code']}' AND `academic_year` = '{$data['academic_year']}' AND `academic_term` = '{$data['academic_term']}'");
+        $report_array = Database::query("SELECT `terminal_report_code`,`school_code`,`student_code`,`terminal_report_grades`,`academic_year`,`academic_term` FROM `ezi_terminal_reports` WHERE `class_code` = '{$data['class_code']}' AND `academic_year` = '{$data['academic_year']}' AND `academic_term` = '{$data['academic_term']}'");
 
         if (!empty($report_array)) {
             foreach ($report_array as $report) {
                 $results = '';
                 $edit = '<button class="btn btn-outline btn-primary btn-sm" data-toggle="modal" data-target="#edit-report-modal" data-report="' . $report['terminal_report_code'] . '" data-student_name="'. Student::getStudent($report['student_code'], 'student_name') .'" data-student_code="'. $report['student_code'] . '" data-class="' . $data['class_code'] . '" data-term="' . $data['academic_term'] . '" data-year="' . $data['academic_year'] . '">Edit <i class="ti-pencil"></i></button>';
-                $print = '<button class="btn btn-outline btn-success btn-sm">Print <i class="ti-printer"></i></button>';
+                $print = '<button class="btn btn-outline btn-success btn-sm" onclick="downloadReport(\'' . $report['student_code'] . '\',\'' . $report['academic_year'] . '\',\'' . $report['academic_term'] . '\')">Print <i class="ti-printer"></i></button>';
                 $student_results = explode(',', $report['terminal_report_grades']);
 
                 
@@ -165,7 +165,7 @@
                 </div>
                 <div class="row">
                     <div class="pull-right pr-15">
-                        <button type="button" class="btn btn-sm btn-primary btn-outline bt" onclick="downloadReport(\''.$data['student_code'].'\',\''.$data['academic_year'].'\',\''.$data['academic_term'].'\')">
+                        <button type="button" class="btn btn-sm btn-primary btn-outline" onclick="downloadReport(\''.$data['student_code'].'\',\''.$data['academic_year'].'\',\''.$data['academic_term'].'\')">
                             <i class="ti-printer mr-5"></i> Download Report
                         </button>
                     </div>

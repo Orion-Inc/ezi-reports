@@ -192,6 +192,23 @@ $(document).ready(function() {
         }
     }
 
+    downloadReport = function (student_code, academic_year, academic_term) {
+        $.AjaxDownloader({
+            url: "../includes/actions/report/download-report.php",
+            data: {
+                student_code: student_code,
+                academic_year: academic_year,
+                academic_term: academic_term,
+                type: 'I'
+            },
+            success: end()
+        });
+    }
+
+    end = function () {
+        toastr.success("Report Print View.", 'Success!');
+    }
+
     change = function () {
         $("#upload-report-progress-modal").modal("hide");
         page('class');

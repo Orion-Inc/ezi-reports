@@ -71,6 +71,8 @@ class FPDF
 	protected $crest;				//school details
 	protected $report;				//report details
 	protected $raw_score;			//score details
+	protected $strength;			//strength  details
+	protected $weakness;			//weakness details
 	protected $teachers_remarks;	//teachers_remarks details
 
 	/*******************************************************************************
@@ -87,7 +89,10 @@ class FPDF
 		$this->crest = $crest;
 		$this->report = $report['report'];
 		$this->raw_score = $report['raw_score'];
+		$this->strength = $report['strength'];
+		$this->weakness = $report['weakness'];
 		$this->teachers_remarks = $report['teachers_remarks'];
+		
 
 		$this->state = 0;
 		$this->page = 0;

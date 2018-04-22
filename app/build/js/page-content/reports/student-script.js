@@ -66,7 +66,8 @@ $(document).ready(function () {
             data: {
                 student_code: student_code,
                 academic_year: academic_year,
-                academic_term: academic_term
+                academic_term: academic_term,
+                type: 'D'
             },
             success: end()
         });
