@@ -1,4 +1,8 @@
 $(document).ready(function() {
+    $("#bulk_report_file").fileinput({
+        hideThumbnailContent: true,
+        allowedPreviewTypes: false
+    });
     var studentsTable = $('#all-students').DataTable({
         ajax: '../includes/actions/student/get-students.php',
         //select:{style:"os"},

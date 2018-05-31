@@ -21,7 +21,7 @@
 </div>
 
 <div class="row hidden animated fadeIn" id="upload-report-row">
-    <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+    <div class="col-md-8 col-md-offset-2">
         <form class="app-bulk-form" method="POST" action="../includes/actions/report/upload-report.php" id="new-report-upload-bulk" enctype="multipart/form-data">
             <input class="hidden" id="class-code" value="" name="class-code"> 
             <div class="form-group">
